@@ -17,6 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('login', 'App\Http\Controllers\LoginController');
-Route::resource('dashboard', 'App\Http\Controllers\DashboardController');
-Route::resource('employment', 'App\Http\Controllers\EmploymentController');
+Route::resource('admin_login', 'App\Http\Controllers\AdminLoginController');
+Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');

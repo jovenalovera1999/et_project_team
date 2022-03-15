@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class AdminLoginController extends Controller
 {
     public function index() {
-        return view('Dashboard.dashboard');
+        return view('System_admin.login');
     }
 }
