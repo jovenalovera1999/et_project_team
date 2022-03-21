@@ -43,16 +43,16 @@
               <a href="#"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
 	          </li>
 	          <li>
-              <a href="#"><span class="fa fa-suitcase mr-3"></span> Email</a>
+              <a href="#"><span class="fa fa-paper-plane mr-3"></span> Email</a>
 	          </li>
 	          <li>
               <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
 	          </li>
 	          <li>
-              <a href="#"><span class="fa fa-cogs mr-3"></span> Alumni Portal</a>
+              <a href="#"><span class="fa fa-cloud-upload mr-3"></span> Alumni Portal</a>
 	          </li>
 	          <li>
-              <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
+              <a href="#"><span class="fa fa-address-book-o mr-3"></span> Contacts</a>
 	          </li>
 	        </ul>
 	      </div>
@@ -60,9 +60,8 @@
 
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5 pt-5">
-            <h2 class="mb-4">Page Content</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h2 class="mb-4">Dashboard</h2>
+            <p>This is where the contents are</p>
         </div>
     </div>
     <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
