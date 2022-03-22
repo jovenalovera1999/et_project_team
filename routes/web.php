@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
+Route::resource('register', 'App\Http\Controllers\RegisterController');
+Route::resource('login', 'App\Http\Controllers\LoginController');

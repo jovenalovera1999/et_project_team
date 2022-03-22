@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('alumni_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_account_id');
+            $table->foreign('user_account_id')->references('id')->on('user_accounts');
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
             $table->string('gender');
-            $table->integer('contact');
+            $table->string('contact');
             $table->string('email');
             $table->string('home_address');
             $table->string('present_address');
