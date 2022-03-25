@@ -36,6 +36,9 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+            // if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
+            //     return redirect()->route('login');
+            // }
         });
     }
 }

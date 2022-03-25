@@ -1,3 +1,6 @@
+@if(!Auth::check())
+    <meta http-equiv="refresh" content="0; url=/login" />
+@else
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +38,7 @@
                     </button>
                 </div>
 				<div class="p-4">
-                    <h1><a href="index.html" class="logo">Menu <span>Employment Tracker</span></a></h1>
+                    <h1><a href="#" class="logo">Menu <span>Employment Tracker</span></a></h1>
                     <ul class="list-unstyled components mb-5">
                         <li class="active">
                             <a href="#"><i class="fa fa-home mr-3"></i> Dashboard</a>
@@ -59,7 +62,7 @@
                             <a href="#"><span class="fa fa-address-book-o mr-3"></span> Contacts</a>
                         </li>
                         <li>
-                            <a href="#"><span class="fa fa-sign-out mr-3"></span> Logout</a>
+                            <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
                         </li>
                     </ul>
                     <div class="footer"></div>
@@ -80,3 +83,4 @@
     <script src="{{URL::asset('js/custom.js')}}"></script>
 </body>
 </html>
+@endif
