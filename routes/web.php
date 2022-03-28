@@ -14,10 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'prevent-back-history'], function() {
+
+    // Default module
     Route::get('/', function () {
         return view('login');
     });
 
+    // User's resource
+    Route::resource('user_dashboard', 'App\Http\Controllers\UserDashboardController');
+
+    // Admin's resource
     Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
     Route::resource('register', 'App\Http\Controllers\RegisterController');
     Route::resource('login', 'App\Http\Controllers\LoginController');

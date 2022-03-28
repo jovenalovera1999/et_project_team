@@ -26,12 +26,11 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if(Auth::check()) {
-                return redirect('/admin_dashboard');
-                // if(Auth::user()->user_type === 'Administrator') {
-                //     // Redirect to administrator dashboard
-                // } else {
-                //     // Redirect to alumni user dashboard
-                // }
+                if(Auth::user()->user_type === 'Administrator') {
+                    return redirect('/admin_dashboard');
+                } else {
+                    return redirect('/user_dashboard');
+                }
             }
         } else {
             return back()->with('message-error', 'Your email and password do not match our record!');
