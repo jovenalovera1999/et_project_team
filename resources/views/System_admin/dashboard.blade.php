@@ -43,7 +43,7 @@
                         <a href="#"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
                     <li>
-                        <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
+                        <a href="#"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
                     </li>
                     <li>
                         <a href="#"><span class="fa fa-paper-plane mr-3"></span> Email</a>
@@ -52,13 +52,16 @@
                         <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                     </li>
                     <li>
+                        <a href="register"><span class="fa fa-cloud-upload mr-3"></span>Admin Registration</a>
+                    </li>
+                    <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
                     </li>
                 </ul>
                 <div class="footer"></div>
             </div>
         </nav>
-        
+
 
         <!-- Page Content  -->
 
