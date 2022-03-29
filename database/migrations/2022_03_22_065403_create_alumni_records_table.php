@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('present_address');
             $table->string('school_graduated');
             $table->integer('batch_no');
+            $table->string('pending_offer');
             $table->string('employment_status');
             $table->string('company_name');
             $table->string('company_location');
