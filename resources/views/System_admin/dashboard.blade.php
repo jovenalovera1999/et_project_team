@@ -171,7 +171,6 @@
                 </div>
             </div>
             
-=======
 
         <!-- PANEL START CODE  -->
 
@@ -182,7 +181,6 @@
         <script src="{{URL::asset('js/popper.js')}}"></script>
         <script src="{{URL::asset('js/custom.js')}}"></script>
 
->>>>>>> ff27242163c15ab2b03f6b1ede88c3dca8c97bfd
 </body>
 
 </html>
