@@ -28,4 +28,10 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
     Route::resource('register', 'App\Http\Controllers\RegisterController');
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
+
+    //Alumni's resource
+    Route::resource('alumni_view', 'App\Http\Controllers\AlumniRecordsController');
+    //Route::resource('alumni_edit', 'App\Http\Controllers\AlumniRecordsController');
+
+    
 });

@@ -36,7 +36,7 @@
                         <a href=""><i class="fa fa-home mr-3"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-user mr-3"></span>My Record</a>
+                        <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span>My Record</a>
                     </li>
                     <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>

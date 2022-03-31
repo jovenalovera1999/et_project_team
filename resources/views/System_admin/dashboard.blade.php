@@ -37,7 +37,7 @@
                         <a href="admin_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-user mr-3"></span> Alumni</a>
+                        <a href="user_dashboard"><span class="fa fa-user mr-3"></span> Alumni</a>
                     </li>
                     <li>
                         <a href="#"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>

@@ -51,7 +51,7 @@
                         <a href="register"><span class="fa fa-cloud-upload mr-3"></span>Admin Registration</a>
                     </li>
                     <li>
-                        <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
+                        <a href="/logout/}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
                     </li>
                 </ul>
                 <div class="footer"></div>

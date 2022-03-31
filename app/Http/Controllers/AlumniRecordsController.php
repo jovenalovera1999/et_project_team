@@ -14,7 +14,9 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        //
+        return view('Alumni_user.view_record');
+        //$alumni_user = user::all();
+        //return view('Alumni_user.view_record',compact('alumni',$alumni_user));
     }
 
     /**
@@ -24,7 +26,7 @@ class AlumniRecordsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Alumni_user.edit');
     }
 
     /**

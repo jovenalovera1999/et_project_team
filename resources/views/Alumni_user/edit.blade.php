@@ -39,7 +39,7 @@
                         <h1><a href="#" class="logo">Menu <span>Logged In: {{Auth::user()->name}}</span></a></h1>
                         <ul class="list-unstyled components mb-5">
                             <li>
-                                <a href="user_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
+                                <a href="{{url('user_dashboard')}}"><i class="fa fa-home mr-3"></i> Dashboard</a>
                             </li>
                             <li class="active">
                                 <a href="{{url('alumni_view')}}"><span class="fa fa-id-card mr-3"></span> My Records</a>
@@ -54,166 +54,118 @@
 
             <!-- Page Content  -->
             <div id="content" class="p-4 p-md-5 pt-5">
+
             <div class="container">
-               <table class="table"><link rel="stylesheet" type="text/css" href="{{asset('css/alumni.css') }}">
-                        <!--<tbody><tr class="table_row logo">
-                            <td class="table_column logo">
-                                <img src="">
-                                <p>Alumni Records View</p>
-                            </td>
-                        </tr>-->
-                        <tr class="table_row table_part">
-                            <td class="table_column">
-                                PERSONAL INFORMATION
-                                <div class="float-right card-header ">
-                                    <a href="alumni_view/create" class="btn btn-success">Edit</a>
+            <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+           
+                    <div class="container bg-muted">
+                        <div class ="row mt-5">
+                            <div class="col-lg-10 mx-auto">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Manage Alumni User
+                                        <a href="{{url('alumni_view')}}" class="btn btn-info float-right">Cancel</a>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="">Firstname</label>
+                                                    <input type="first_name" name="first_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Middlename</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Lastname</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Gender</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Contact</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Email</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Home Address</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Present Address</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">School Graduated</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Batch Number</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <!--<div class="form-group">
+                                                    <label for="">Pending Offer</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>-->
+                                                <div class="form-group">
+                                                    <label for="">Employement Status</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Company Name</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Company Location</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Location</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Job Title</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Work Arrangement</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>
+                                                <!--<div class="">
+                                                    <label for="">Profile Pic</label>
+                                                    <input type="middle_name" name="middle_name" class="form-control">
+                                                </div>-->
+
+                                        </div>
+                                        
+                                            </div>
+                                            <div class="card-footer float-right">
+                                        
+                                        <a href="{{url('alumni_view')}}" class="btn btn-success float-center">Save</a>
+                                    </div>
+                                            
+                                    </div>
+
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr class="table_row ">
-                            <td class="table_column table_head text-align='center' m-column ">
-                                 USER ID
-                            </td>
-                            <td class="table_column m-column">
-                                1
-                            </td>
-                            <td class="table_column p-column">
-                               <img src="images/paulo1.jpg" td="">
-                        </td></tr>
-                       
-                        <tr class="table_row  ">
-                            <td class="table_column table_head m-column">
-                                FIRST NAME
-                            </td>
-                            <td class="table_column m-column">
-                                Paulo
-                            </td>
-                            <td class="table_column table_head m-column ">
-                                MIDDLE NAME
-                            </td>
-                            <td class="table_column  m-column">
-                                Burgos
-                           </td>
-                            <td class="table_column table_head m-column ">
-                                LAST NAME
-                            </td>
-                            <td class="table_column m-column">
-                               Gusbor
-                            </td>
-                        </tr>
-                        <tr class="table_row clearfix">
-                            <td class="table_column table_head s-column ">
-                                Gender
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Contact
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Email
-                            </td>
-                            <td class="table_column s-column">
-                               Male
-                            </td>
-                            <td class="table_column s-column">
-                                0987654321
-                            </td>
-                            <td class="table_column s-column">
-                               pauloburgos@gmail.com
-                            </td>
-                        </tr>
-                        <tr class="table_row clearfix">
-                            <td class="table_column table_head s-column ">
-                                Home Address
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Present Address
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                School Graduated
-                            </td>
-                            <td class="table_column s-column">
-                                Intampilan, Panitan, Capiz
-                            </td>
-                            <td class="table_column s-column">
-                                Intampilan, Panitan, Capiz
-                            </td>
-                            <td class="table_column s-column">
-                                Maayon National High School
-                            </td>
-                        </tr>
-                        <tr class="table_row clearfix">
-                            <td class="table_column table_head s-column ">
-                                Batch Number
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Pending Offer
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Employment Status
-                            </td>
-                            <td class="table_column s-column">
-                                
-                            </td>
-                            <td class="table_column s-column">
-                                
-                            </td>
-                            <td class="table_column s-column">
-                                Employed
-                            </td>
-                        </tr>
-                        
-                        <tr class="table_row clearfix">
-                            <td class="table_column table_head s-column ">
-                                Company Name
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Company Location
-                            </td>
-                            <td class="table_column table_head s-column ">
-                                Job Title
-                            </td>
-                            <td class="table_column s-column">
-                                
-                            </td>
-                            <td class="table_column s-column">
-                                
-                            </td>
-                            <td class="table_column s-column">
-                                
-                            </td>
-                        </tr>
-                        <tr class="table_row ">
-                            <td class="table_column table_head m-column ">
-                              Profile Picture
-                            </td>
+                            
                            
-                            <td class="table_column m-column">
-                                images/paulo1.jpeg
-                            </td>
-                           
-                        </tr>
-                        <tr class="table_row clearfix">
-                            <td class="table_column table_head s-column ">
-                              Date Created
-                            </td>
-                            <td class="table_column table_head s-column ">
-                              Date Updated
-                            </td>
-                            <td class="table_column s-column">
-                                00-0000-00
-                            </td>
-                            <td class="table_column s-column">
-                                00-0000-00
-                            </td>
-                        </tr>
-                        </tbody></table>
+                        </div>
+                </div>    
             </div>
+    
         </div>
 						
     </div>
 
 
-        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
         <script src="{{URL::asset('js/jquery.min.js')}}"></script>
