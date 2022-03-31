@@ -40,7 +40,7 @@
                         <a href="#"><span class="fa fa-user mr-3"></span> Alumni</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
+                    <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
                     <li>
                         <a href="#"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>

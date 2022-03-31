@@ -28,4 +28,5 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
     Route::resource('register', 'App\Http\Controllers\RegisterController');
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
+    Route::resource('job_opportunities', 'App\Http\Controllers\JobOpportunitiesController');
 });
