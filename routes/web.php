@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,7 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
     Route::resource('register', 'App\Http\Controllers\RegisterController');
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
+
+    //Email 
+    Route::resource('email', EmailController::class);
 });
