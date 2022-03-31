@@ -14,7 +14,7 @@ class ScholarshipSponsorsController extends Controller
      */
     public function index()
     {
-        //
+        return view("System_admin.add_scholarship_sponsor");
     }
 
     /**
