@@ -1,3 +1,6 @@
+@if(!Auth::check())
+<meta http-equiv="refresh" content="0; url=/login" />
+@else
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +8,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | Dashboard</title>
+    <title>Employment Tracker | Add New Record</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -35,13 +37,13 @@
                         <a href="admin_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-user mr-3"></span> Alumni</a>
+                        <a href="alumni_records"><span class="fa fa-user mr-3"></span> Alumni Records</a>
                     </li>
                     <li class="active">
-                            <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
+                        <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
+                        <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
                     </li>
                     <li>
                         <a href="#"><span class="fa fa-paper-plane mr-3"></span> Email</a>
@@ -50,7 +52,7 @@
                         <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                     </li>
                     <li>
-                        <a href="register"><span class="fa fa-cloud-upload mr-3"></span>Admin Registration</a>
+                        <a href="register"><span class="fa fa-user-plus mr-3"></span>Admin Registration</a>
                     </li>
                     <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
@@ -60,101 +62,136 @@
             </div>
         </nav>
 
+            <body>
+                <div class="wrapper d-flex align-items-stretch">
+                    <!-- Page Content  -->
+                    <div id="content" class="p-4 p-md-5 pt-5">
+                        <div>
+                            <div class="container mr-10">
+                            <h1 class="h3 mb-0 text-gray-800 mb-4">Job Opportunities</h1>   
+                            
+                                <div class="contaciner">
+                            
 
-        <!-- Page Content  -->
 
-        <div id="content" class="p-4 p-md-5 pt-5">
+                            <!-- panel for Newly Hired Alumni -->
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_jobopportunity.css') }}">
             <div class="container">
-
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Job Opportunities</h1>
-            <div class="row">
-                                    <div class="col-sm-7" style="margin-left: 12px">
-                                        <form action="/register" method="POST" class="mt-3">
-                                            @csrf
-                                            @if(Session::has('message-success'))
-                                            <p class="alert alert-success" role="alert">
-                                                <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                                                </svg>
-                                                {{ Session::get('message-success') }}
-                                            </p>
-                                            @endif
-                                            @if(Session::has('message-error'))
-                                            <p class="alert alert-danger" role="alert">
-                                                <svg width="1.25em" height="1.25em" class="bi bi-exclamation-circle-fill" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                                                </svg>
-                                                {{ Session::get('message-error') }}
-                                            </p>
-                                            @endif
-
-                                <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-                                <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-                                <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-                                <script src="{{URL::asset('js/main.js')}}"></script>
-                                <script src="{{URL::asset('js/popper.js')}}"></script>
-                                <script src="{{URL::asset('js/custom.js')}}"></script>
-                                    <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            Add New
-                            </button>
-
-                            <table class="table table-dark table-borderless">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-16">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col col-sm-3 col-xs-12">
+                                        <h4 class="title"><span></span></h4>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                Create New
+                                            </button>
+                                    </div>
+                                    <div class="col-sm-9 col-xs-12 text-right">
+                                        <div class="btn_group">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Job Title</th>
+                                            <th>Job Role</th>
+                                            <th>Job Requirements</th>
+                                            <th>Company Location</th>
+                                            <th>No. of Vacancy</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                           
+                                            <td>Empty</td>
+                                            <td>Empty</td>
+                                            <td>Empty</td>
+                                            <td>Empty</td>
+                                            <td>Empty</td>
+                                            <td>Empty</td>
+                                            <td>Empty</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                            <div class="panel-footer">
+                                LIST OF JOB OPPORTUNITIES
                                 
-                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
                             {{-- Start Add Modal --}}
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Job Opportunities</h5>
+                                    <h5 class="modal-title" id="staticBackdropLabel">Add New Job Opportunity</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <form action="" method="POST">
                                 <div class="modal-body">
                                     
-                                        {{csrf_field() }}
-                                        <div class="mb-3">
-                                            <label for="company_name" class="form-label">Company Name</label>
-                                            <input type="text" class="form-control" id="company_name" aria-describedby="company_name">
-                                            <div id="company_name" class="form-text">Please input Company Name.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="job_title" class="form-label">Job Title</label>
-                                            <input type="text" class="form-control" id="job_title" aria-describedby="job_title">
-                                            <div id="job_title" class="form-text">Please input Job Title.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="job_role" class="form-label">Job Role</label>
-                                            <input type="text" class="form-control" id="job_role" aria-describedby="job_role">
-                                            <div id="job_role" class="form-text">Please input Job Role.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="job_requirements" class="form-label">Job Role</label>
-                                            <input type="text" class="form-control" id="job_requirements" aria-describedby="job_requirements">
-                                            <div id="job_requirements" class="form-text">Please input Job Requirements.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="company_location" class="form-label">Company Location</label>
-                                            <input type="text" class="form-control" id="company_location" aria-describedby="company_location">
-                                            <div id="company_location" class="form-text">Please input Company Location.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="vacancy_no" class="form-label">Non. of Vacancy</label>
-                                            <input type="text" class="form-control" id="vacancy_no" aria-describedby="vacancy_no">
-                                            <div id="vacancy_no" class="form-text">Please input Company Location.</div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="status" class="form-label">Status</label>
-                                            <input type="text" class="form-control" id="status" aria-describedby="status">
-                                            <div id="status" class="form-text">Please input Status.</div>
-                                        </div>
+                                <form action="/job_opportunities" method="POST" class="mt-3">
+                                                        @csrf
+                                                        <!-- @if(Session::has('message-success')) <p class="alert alert-success" role="alert">{{ Session::get('message-success') }}</p>@endif
+                                                        @if(Session::has('message-error')) <p class="alert alert-danger" role="alert">{{ Session::get('message-error') }}</p>@endif -->
+                                            
+                                                        
+                                                        <div class="mb-3" style="width: 4.5in;">
+                                                            <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name">
+                                                            <span class="text-danger">@error('company_name') {{$message}} @enderror</span>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 4.5in;">
+                                                            <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Job Title">
+                                                            <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 4.5in;">
+                                                            <input type="text" class="form-control" id="job_role" name="job_role" placeholder="Job Role">
+                                                            <span class="text-danger">@error('job_role') {{$message}} @enderror</span>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 4.5in;">
+                                                            <input type="text" class="form-control" id="job_requirements" name="job_requirements" placeholder="Job Requirements">
+                                                            <span class="text-danger">@error('job_requirements') {{$message}} @enderror</span>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 4.5in;">
+                                                            <input type="text" class="form-control" id="company_location" name="company_location" placeholder="Company Location">
+                                                            <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 3in;">
+                                                            <label for="vacancy_no" class="form-label">No. of Vacancy</label>
+                                                            <input type="number" class="form-control" id="vacancy_no" name="vacancy_no">
+                                                            <span class="text-danger">@error('vacancy_no') {{$message}} @enderror</span>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 3in;">
+                                                            <label for="employment_status" class="form-label">Availability Status</label> <br />
+                                                            <select class="form-select" name="employment_status" id="employment_status" role="button">
+                                                                <option selected>None</option>
+                                                                <option value="Available">Available</option>
+                                                                <option value="Unavailable">Unavailable</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 4.5in;">
 
-                                </div>
+                                                            <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
+                                                        </div>
+                                                    
+                                                    </form>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary" style="width: 100px">Create</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="width: 100px">Close</button>
                                 </div>
                                 </form>
                                 </div>
@@ -165,13 +202,24 @@
                             </div>
                             </div>
                             {{-- End Add Modal --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
 
+</html>
+</div>
+</div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
+<script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+<script src="{{URL::asset('js/jquery.min.js')}}"></script>
+<script src="{{URL::asset('js/main.js')}}"></script>
+<script src="{{URL::asset('js/popper.js')}}"></script>
+<script src="{{URL::asset('js/custom.js')}}"></script>
 </body>
 
 </html>
+@endif

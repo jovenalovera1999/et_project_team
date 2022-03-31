@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class AdminDashboardController extends Controller
 {
     public function index() {
-         // for Dashboard datatable 
+         // for Admin Dashboard datatable 
         //  Newly hired alumni
         $newly_hired = alumni_records::whereMonth('created_at', date('m'))
         ->whereYear('created_at', date('Y'))
