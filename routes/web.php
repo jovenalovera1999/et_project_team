@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::group(['middleware' => 'prevent-back-history'], function() {
 
-Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
-Route::resource('register', 'App\Http\Controllers\RegisterController');
-Route::resource('login', 'App\Http\Controllers\LoginController');
+    // Default module
+    Route::get('/', function () {
+        return view('login');
+    });
+
+    // User's resource
+    Route::resource('user_dashboard', 'App\Http\Controllers\UserDashboardController');
+
+    // Admin's resource
+    Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
+    Route::resource('register', 'App\Http\Controllers\RegisterController');
+    Route::resource('login', 'App\Http\Controllers\LoginController');
+    Route::resource('logout', 'App\Http\Controllers\LogoutController');
+});
