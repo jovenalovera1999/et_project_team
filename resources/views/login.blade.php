@@ -17,13 +17,13 @@
         <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     </head>
     <body>
-        <div style="margin-top: 165px">
+        <div style="margin-top: 100px">
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-sm-12">
                         <div class="card mt-5">
-                            <div class="card-header text-center">
-                                <h1>Employment Tracker</h1>
+                            <div class="card-header text-center bg-c-red">
+                                <h2 class="text-white">Employment Tracker</h2>
                             </div>
                             <div class="row">
                                 <div class="col-sm-7" style="margin-left: 12px">
@@ -56,7 +56,7 @@
                                             <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                         </div>
                                         <div class="mb-3 text-center">
-                                            <button type="submit" class="btn btn-primary" style="width: 200px">Login</button>
+                                            <button type="submit" class="btn btn-warning bg-c-red text-white" style="width: 200px">Login</button>
                                         </div>
                                     </form>
                                 </div>

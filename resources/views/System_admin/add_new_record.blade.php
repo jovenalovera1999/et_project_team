@@ -69,10 +69,10 @@
                         <div>
                             <div class="container mr-10">
                                 <div class="row justify-content-center">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-8">
                                         <div class="card" style="width: 6.2in;">
-                                            <div class="card-header text-center">
-                                                <h1>Add new record</h1>
+                                            <div class="card-header  bg-c-pink text-white text-center">
+                                                <h4 class="text-white m-b-20">Add New Alumni Record</h4>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-7" style="margin-left: 30px">

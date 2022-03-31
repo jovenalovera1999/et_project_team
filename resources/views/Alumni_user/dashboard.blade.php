@@ -1,5 +1,5 @@
 @if(!Auth::check())
-    <meta http-equiv="refresh" content="0; url=/login" />
+<meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@
                         <a href="user_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-user mr-3"></span> My Records</a>
+                        <a href="my_record"><span class="fa fa-user mr-3"></span> My Records</a>
                     </li>
                     <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
@@ -54,6 +54,7 @@
 
             <h1 class="h3 mb-0 text-gray-800 mb-4">Dashboard</h1>
 
+        
 
             <!-- panel for Newly Hired Alumni -->
             <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
@@ -112,7 +113,7 @@
                                 </table>
                             </div>
                             <div class="panel-footer">
-                            {{$year}}
+                                {{$year}}
                             </div>
                         </div>
                     </div>
@@ -133,3 +134,5 @@
 
 </html>
 @endif
+
+
