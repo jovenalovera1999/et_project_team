@@ -1,3 +1,10 @@
+@if(Auth::check())
+    @if(Auth::user()->user_type === 'Administrator')
+        <meta http-equiv="refresh" content="0; url=/admin_dashboard" />
+    @else
+        <meta http-equiv="refresh" content="0; url=/user_dashboard" />
+    @endif
+@else
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -68,3 +75,4 @@
         <script src="{{URL::asset('js/custom.js')}}"></script>
     </body>
 </html>
+@endif

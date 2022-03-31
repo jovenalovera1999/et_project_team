@@ -1,5 +1,5 @@
 @if(!Auth::check())
-<meta http-equiv="refresh" content="0; url=/login" />
+    <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,5 @@
 @if(!Auth::check())
-<meta http-equiv="refresh" content="0; url=/login" />
+    <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +52,7 @@
                         <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                     </li>
                     <li>
-                        <a href="register"><span class="fa fa-cloud-upload mr-3"></span>Admin Registration</a>
+                        <a href="register"><span class="fa fa-user-plus mr-3"></span>Admin Registration</a>
                     </li>
                     <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
