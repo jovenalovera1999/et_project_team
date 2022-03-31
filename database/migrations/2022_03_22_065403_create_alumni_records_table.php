@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Null_;
 
 return new class extends Migration
 {
@@ -27,13 +28,15 @@ return new class extends Migration
             $table->string('present_address');
             $table->string('school_graduated');
             $table->integer('batch_no');
+            $table->string('pending_offer');
             $table->string('employment_status');
             $table->string('company_name');
             $table->string('company_location');
             $table->string('job_title');
             $table->string('work_arrangement');
-            $table->binary('profile_picture');
-            $table->timestamps();
+            $table->binary('profile_picture')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

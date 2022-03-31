@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\alumni_records;
 use Illuminate\Http\Request;
 
-class AlumniRecordsController extends Controller
+class MyAlumniRecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        return view("System_admin.add_new_record");
+        return view("Alumni_user.view_record");
     }
 
     /**
@@ -41,10 +40,10 @@ class AlumniRecordsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\alumni_records  $alumni_records
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(alumni_records $alumni_records)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class AlumniRecordsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\alumni_records  $alumni_records
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(alumni_records $alumni_records)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class AlumniRecordsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\alumni_records  $alumni_records
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, alumni_records $alumni_records)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class AlumniRecordsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\alumni_records  $alumni_records
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(alumni_records $alumni_records)
+    public function destroy($id)
     {
         //
     }
