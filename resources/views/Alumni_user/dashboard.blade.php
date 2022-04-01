@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employment Tracker | Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     
 </head>
 
@@ -50,7 +50,6 @@
                 <div class="footer"></div>
             </div>
         </nav>
-
 
         <!-- Page Content  -->
 
@@ -166,15 +165,16 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- PANEL START CODE  -->
+    <!-- PANEL START CODE  -->
 
-        <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-        <script src="{{URL::asset('js/main.js')}}"></script>
-        <script src="{{URL::asset('js/popper.js')}}"></script>
-        <script src="{{URL::asset('js/custom.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('js/main.js')}}"></script>
+    <script src="{{URL::asset('js/popper.js')}}"></script>
+    <script src="{{URL::asset('js/custom.js')}}"></script>
 
 </body>
 
