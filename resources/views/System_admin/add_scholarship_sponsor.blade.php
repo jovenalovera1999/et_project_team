@@ -34,7 +34,7 @@
                     <br>
                     <ul class="list-unstyled components mb-4">
                         <li>
-                            <a href="admin_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
+                            <a href="admin_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                         </li>
                         <li>
                             <a href="alumni_records"><span class="fa fa-user mr-3"></span> Alumni Records</a>
@@ -43,7 +43,7 @@
                             <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                         </li>
                         <li class="active">
-                            <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
+                            <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship Sponsors</a>
                         </li>
                         <li>
                             <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
@@ -52,7 +52,7 @@
                             <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                         </li>
                         <li>
-                            <a href="register"><span class="fa fa-user-plus mr-3"></span>Admin Registration</a>
+                            <a href="register"><span class="fa fa-user-plus mr-3"></span> Admin Registration</a>
                         </li>
                         <li>
                             <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>

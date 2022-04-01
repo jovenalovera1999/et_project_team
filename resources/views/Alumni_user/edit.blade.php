@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Employment Tracker | Alumni View Record</title>
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     </head>
@@ -39,7 +40,7 @@
                         <h1><a href="#" class="logo">Menu <span>Logged In: {{Auth::user()->name}}</span></a></h1>
                         <ul class="list-unstyled components mb-5">
                             <li>
-                                <a href="{{url('user_dashboard')}}"><i class="fa fa-home mr-3"></i> Dashboard</a>
+                                <a href="{{url('user_dashboard')}}"><span class="fa fa-home mr-3"></span> Dashboard</a>
                             </li>
                             <li class="active">
                                 <a href="{{url('alumni_view')}}"><span class="fa fa-id-card mr-3"></span> My Records</a>

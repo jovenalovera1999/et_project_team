@@ -34,10 +34,10 @@
                 <br>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
-                        <a href="user_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
+                        <a href="user_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                     </li>
                     <li>
-                        <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span>My Record</a>
+                        <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span> My Record</a>
                     
                     </li>
                     <li>
