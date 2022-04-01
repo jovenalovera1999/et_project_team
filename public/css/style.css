@@ -15,20 +15,24 @@ body {
 }
 
 .bg-c-blue {
-    background: linear-gradient(45deg, #2c85eb, #0451aa);
+    background: linear-gradient(45deg, #154970, #377dc4);
     padding: 0;
 }
 
 .bg-c-green {
-    background: linear-gradient(45deg, #22e4bd, #05b995);
+    background: linear-gradient(45deg, #356a7a, #56e2d2);
 }
 
 .bg-c-yellow {
-    background: linear-gradient(45deg, #eba441, #c27406);
+    background: linear-gradient(45deg, #126469, #39cce6);
 }
 
 .bg-c-pink {
-    background: linear-gradient(45deg, #e2405b, #bd0d2b);
+    background: linear-gradient(45deg, #0f1179, #6679e7);
+}
+
+.bg-c-red {
+    background: linear-gradient(45deg, #50182a, #aa0629);
 }
 
 .card {

@@ -1,5 +1,5 @@
 @if(!Auth::check())
-    <meta http-equiv="refresh" content="0; url=/login" />
+<meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
 <html lang="en">
@@ -208,18 +208,18 @@
                         </tr>
                         </tbody></table>
             </div>
-        </div>
-						
-    </div>
+            
 
+        <!-- PANEL START CODE  -->
 
-        
         <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
         <script src="{{URL::asset('js/jquery.min.js')}}"></script>
         <script src="{{URL::asset('js/main.js')}}"></script>
         <script src="{{URL::asset('js/popper.js')}}"></script>
         <script src="{{URL::asset('js/custom.js')}}"></script>
-    </body>
+
+</body>
+
 </html>
 @endif
