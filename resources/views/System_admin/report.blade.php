@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | Dashboard</title>
+    <title>Employment Tracker | Reports</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
@@ -33,7 +33,7 @@
                 <h1><a href="index.html" class="logo ">Menu<span class="text-white">Admin: {{Auth::user()->name}}</span></a></h1>
                 <br>
                 <ul class="list-unstyled components mb-4">
-                    <li class="active">
+                    <li>
                         <a href="admin_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                     </li>
                     <li>
@@ -48,7 +48,7 @@
                     <li>
                         <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="report"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                     </li>
                     <li>
@@ -61,125 +61,21 @@
                 <div class="footer"></div>
             </div>
         </nav>
-
-
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-5 pt-5">
+            <h1 class="h3 mb-0 text-gray-800 mb-4">Reports</h1>
+        </div>
 
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Dashboard</h1>
+        <!-- PANEL START CODE  -->
 
-
-            <!-- Row of panels for dashboard -->
-            <!-- In Minimize Mode -->
-            <div class="row">
-                <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 col-xl-3">
-                            <div class="card bg-c-blue order-card b-4 border-left-primary shadow h-200 py-0">
-                                <div class="card-block">
-                                    <h6 class="m-b-20">Total Registered Alumni</h6>
-                                    <h2 class="text-right text-white"><i class="fa fa-users f-left"></i><span>{{$registered}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xl-3">
-                            <div class="card bg-c-green order-card b-4 border-left-primary shadow h-200 py-0">
-                                <div class="card-block">
-                                    <h6 class="m-b-20">Total Employed</h6>
-                                    <h2 class="text-right text-white"><i class="fa fa-arrow-up f-left"></i><span>{{$employed}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xl-3">
-                            <div class="card bg-c-yellow order-card b-4 border-left-primary shadow h-200 py-0">
-                                <div class="card-block">
-                                    <h6 class="m-b-20">Total Unemployed</h6>
-                                    <h2 class="text-right text-white"><i class="fa fa-arrow-down f-left"></i><span>{{$unemployed}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xl-3">
-                            <div class="card bg-c-pink order-card b-4 border-left-primary shadow h-200 py-0">
-                                <div class="card-block">
-                                    <h6 class="m-b-20">Pending Offers</h6>
-                                    <h2 class="text-right text-white"><i class="fa fa-briefcase f-left"></i><span>{{$pending_offer}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- panel for Newly Hired Alumni -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-14">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col col-sm-3 col-xs-12">
-                                        <h4 class="title">Featured<span></span></h4>
-                                    </div>
-                                    <div class="col-sm-9 col-xs-12 text-right">
-                                        <div class="btn_group">
-                                            <input type="text" class="form-control" placeholder="Search">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Newly Hired Alumni</th>
-                                            <th>Job Details</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            @foreach ($alumni_records as $alumni_record)
-                                            <td>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</td>
-                                            <td>{{$alumni_record->work_arrangement}} {{$alumni_record->job_title}} at {{$alumni_record->company_name}}, {{$alumni_record->company_location}}</td>
-                                            <?php
-                                            $date = $alumni_record->updated_at;
-                                            $phpdate = strtotime($date);
-                                            $mysqldate = date('D M d, Y', $phpdate);
-                                            ?>
-                                            <td>{{$mysqldate}}</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="panel-footer">
-                                {{$month}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- PANEL START CODE  -->
-
-            <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-            <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-            <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-            <script src="{{URL::asset('js/main.js')}}"></script>
-            <script src="{{URL::asset('js/popper.js')}}"></script>
-            <script src="{{URL::asset('js/custom.js')}}"></script>
+        <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+        <script src="{{URL::asset('js/main.js')}}"></script>
+        <script src="{{URL::asset('js/popper.js')}}"></script>
+        <script src="{{URL::asset('js/custom.js')}}"></script>
+    </div>
 
 </body>
 
