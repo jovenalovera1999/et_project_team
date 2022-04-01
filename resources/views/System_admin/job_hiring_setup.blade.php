@@ -46,7 +46,7 @@
                         <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-paper-plane mr-3"></span> Email</a>
+                        <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
                     </li>
                     <li>
                         <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
