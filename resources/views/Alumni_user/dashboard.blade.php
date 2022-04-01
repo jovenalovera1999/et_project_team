@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    
 </head>
 
 <body>
@@ -54,7 +57,49 @@
 
             <h1 class="h3 mb-0 text-gray-800 mb-4">Dashboard</h1>
 
-        
+            <div class="row">
+                <div class="col-xl-6 col-md-12">
+                    <div class="card overflow-hidden bg-c-yellow">
+                        <div class="card-content">
+                            <div class="card-body cleartfix">
+                                <div class="media align-items-stretch">
+                                    <div class="align-self-center">
+                                        <i class="fa fa-repeat fa-2x text-white font-large-2 mr-2"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="text-white"> Pending Offers</h4>
+                                        <span class="text-white"> Your Job Oppurtunity Offers </span>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <h1 class="text-white">3</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-md-12">
+                    <div class="card bg-c-blue">
+                        <div class="card-content">
+                            <div class="card-body cleartfix">
+                                <div class="media align-items-stretch">
+                                    <div class="align-self-center">
+                                        <i class=" fa fa-briefcase fa-2x text-white font-large-2 mr-2"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="text-white"> Job Oppurtunities</h4>
+                                        <span class="text-white"> Total Number of Job Oppurtunities</span>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <h1 class="text-white">5</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- panel for Newly Hired Alumni -->
             <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
@@ -134,5 +179,3 @@
 
 </html>
 @endif
-
-

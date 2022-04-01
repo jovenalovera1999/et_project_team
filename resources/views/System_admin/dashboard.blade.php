@@ -40,7 +40,7 @@
                         <a href="alumni_records"><span class="fa fa-user mr-3"></span> Alumni Records</a>
                     </li>
                     <li>
-                    <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
+                        <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
                     <li>
                         <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span>Scholarship Sponsors</a>
@@ -144,7 +144,7 @@
                                         <tr>
                                             <th>Newly Hired Alumni</th>
                                             <th>Job Details</th>
-                                            <th>Hire Date</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -170,16 +170,16 @@
                     </div>
                 </div>
             </div>
-            
 
-        <!-- PANEL START CODE  -->
 
-        <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-        <script src="{{URL::asset('js/main.js')}}"></script>
-        <script src="{{URL::asset('js/popper.js')}}"></script>
-        <script src="{{URL::asset('js/custom.js')}}"></script>
+            <!-- PANEL START CODE  -->
+
+            <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+            <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+            <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+            <script src="{{URL::asset('js/main.js')}}"></script>
+            <script src="{{URL::asset('js/popper.js')}}"></script>
+            <script src="{{URL::asset('js/custom.js')}}"></script>
 
 </body>
 
