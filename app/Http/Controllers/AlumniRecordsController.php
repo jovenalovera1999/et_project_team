@@ -24,7 +24,7 @@ class AlumniRecordsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

@@ -37,10 +37,11 @@
                 <br>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
-                        <a href="user_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
+                        <a href="user_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                     </li>
                     <li>
-                        <a href="my_record"><span class="fa fa-user mr-3"></span> My Records</a>
+                        <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span> My Record</a>
+                    
                     </li>
                     <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>

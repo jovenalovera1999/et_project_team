@@ -24,6 +24,7 @@ class MyAlumniRecordController extends Controller
     public function create()
     {
         //
+        return view('Alumni_user.edit');
     }
 
     /**
