@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\user_accounts;
 use Illuminate\Http\Request;
 
-class UserAccountsController extends Controller
+class MyAlumniRecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class UserAccountsController extends Controller
      */
     public function index()
     {
-        //
+        return view("Alumni_user.view_record");
     }
 
     /**
@@ -25,6 +24,7 @@ class UserAccountsController extends Controller
     public function create()
     {
         //
+        return view('Alumni_user.edit');
     }
 
     /**
@@ -41,10 +41,10 @@ class UserAccountsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\user_accounts  $user_accounts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(user_accounts $user_accounts)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserAccountsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\user_accounts  $user_accounts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(user_accounts $user_accounts)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserAccountsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\user_accounts  $user_accounts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user_accounts $user_accounts)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserAccountsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\user_accounts  $user_accounts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user_accounts $user_accounts)
+    public function destroy($id)
     {
         //
     }

@@ -14,7 +14,7 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        //
+        return view("System_admin.add_new_record");
     }
 
     /**
@@ -24,7 +24,7 @@ class AlumniRecordsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

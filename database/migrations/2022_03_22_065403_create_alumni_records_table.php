@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Null_;
 
 return new class extends Migration
 {
@@ -15,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('alumni_records', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_account_id');
-            $table->foreign('user_account_id')->references('id')->on('user_accounts');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
@@ -27,13 +28,15 @@ return new class extends Migration
             $table->string('present_address');
             $table->string('school_graduated');
             $table->integer('batch_no');
+            $table->string('pending_offer');
             $table->string('employment_status');
             $table->string('company_name');
             $table->string('company_location');
             $table->string('job_title');
             $table->string('work_arrangement');
-            $table->binary('profile_picture');
-            $table->timestamps();
+            $table->binary('profile_picture')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

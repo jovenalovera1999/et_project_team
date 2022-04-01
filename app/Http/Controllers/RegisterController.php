@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\user_accounts;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Hash;
 
 class RegisterController extends Controller
 {
     public function index() {
-        return view('register');
+        return view('System_admin.register');
     }
 
     public function store(Request $request) {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:user_accounts|email',
+            'email' => 'required|unique:users',
             'password' => 'required',
             'confirm_password' => 'required',
-            'user_type' => 'required'
         ]);
 
-        $user = new user_accounts;
+        $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->user_type = $request->user_type;
+
         if($request->password != $request->confirm_password) {
             return back()->with('message-error', 'Failed to create account, password do not match!');
         } else if($request->user_type === "Select user's type") {
