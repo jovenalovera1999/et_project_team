@@ -111,14 +111,6 @@
                                             <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password">
                                             <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="user_type" class="form-label">User Type</label>
-                                            <select class="form-select" name="user_type" id="user_type" role="button">
-                                                <option selected>Select user's type</option>
-                                                <option value="Administrator">Administrator</option>
-                                                <option value="Alumni">Alumni</option>
-                                            </select>
-                                        </div>
                                         <div class="mb-3 text-center">
                                             <button type="submit" class="btn btn-primary" style="width: 200px">Create</button>
                                         </div>
