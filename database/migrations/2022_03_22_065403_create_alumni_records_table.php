@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('present_address');
             $table->string('school_graduated');
             $table->integer('batch_no');
+            $table->string('pending_offer')->nullable();
             $table->string('employment_status')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_location')->nullable();
