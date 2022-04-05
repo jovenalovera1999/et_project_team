@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" class="rel">
 </head>
 
 <body>
@@ -73,71 +72,75 @@
                             <h1 class="h3 mb-0 text-gray-800 mb-4">Job Opportunities</h1>   
                                 <div class="contaciner">
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-10 mx-auto">
                                         <div class="card">
                                             <div class="card-header">
-                                                <div class="float-left">
-                                                    Manage Job Opportunities    
-                                                </div>
-                                                <div class="float-right">
-                                                    <a href="/job_opportunities/create" class="btn btn-secondary">Create Job</a>
-                                                </div>                                            
-                                            </div>
+                                              <div class="float-left"> 
+                                                  Manage Job Opportunities 
+                                                  </div>
+                                                  <div class="float-right">
+                                                      <a href="/job_opportunities" class="btn btn-secondary">Cancel</a>
+                                                  </div>
+                                              </div>
+                                            <form action="/job_opportunities" method="POST">
+                                              @csrf
                                             <div class="card-body"> 
-                                                <div class="table-responsive">
-                                                    <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>ID</th>
-                                                                <th>Company Name</th>
-                                                                <th>Job Title</th>
-                                                                <th>Job Role</th>
-                                                                <th>Job Requirements</th>
-                                                                <th>Company Location</th>
-                                                                <th>Vacancy No</th>
-                                                                <th>Status</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach ($job_opportunities as $job_opportunities)
-                                                            <tr>
-                                                                <td>{{$job_opportunities->id}}</td>
-                                                                <td>{{$job_opportunities->company_name}}</td>
-                                                                <td>{{$job_opportunities->job_title}}</td>
-                                                                <td>{{$job_opportunities->job_role}}</td>
-                                                                <td>{{$job_opportunities->job_requirements}}</td>
-                                                                <td>{{$job_opportunities->company_location}}</td>
-                                                                <td>{{$job_opportunities->vacancy_no}}</td>
-                                                                <td>{{$job_opportunities->status}}</td>
-                                                                <td>
-                                                                    
-
-                                                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
-                                                                    <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="btn btn-danger">Delete</button>
-                                                                    </form>
-                                                                    
-                                                                    </div>
-
-
-
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+                                                <div class="row">
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Company Name</label>
+                                                            <Input type="text" name="company_name" class="form-control">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Job Title</label>
+                                                            <Input type="text" name="job_title" class="form-control">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Job Role</label>
+                                                            <Input type="text" name="job_role" class="form-control">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Job Requirements</label>
+                                                            <Input type="text" name="job_requirements" class="form-control">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Company Location</label>
+                                                            <Input type="text" name="company_location" class="form-control">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Non. of Vacancy</label>
+                                                            <Input type="number" name="vacancy_no" class="form-control">
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                          <div class="form-group">
+                                                            <label for="">Status</label>
+                                                            <Input type="text" name="status" class="form-control">
+                                                          </div>
+                                                        </div>
                                                 </div>
                                             </div>
+                                            <div class="card-footer">
+                                              <button type="submit" class="btn btn-success">Save</button>
+                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
 
 
-
+                            <!-- panel for Newly Hired Alumni -->
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_jobopportunity.css') }}">
            
             </body>
 
@@ -151,14 +154,7 @@
 <script src="{{URL::asset('js/main.js')}}"></script>
 <script src="{{URL::asset('js/popper.js')}}"></script>
 <script src="{{URL::asset('js/custom.js')}}"></script>
-<script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 </body>
-
 
 </html>
 @endif
-<script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-</script>

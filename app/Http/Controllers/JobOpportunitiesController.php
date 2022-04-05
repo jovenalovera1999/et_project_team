@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\job_opportunities;
 use Illuminate\Http\Request;
+use DataTables;
 
 class JobOpportunitiesController extends Controller
 {
@@ -12,9 +13,11 @@ class JobOpportunitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('System_admin.job_hiring_setup');
+        $job_opportunities = job_opportunities::all();
+        return view('System_admin.job_hiring_setup',compact('job_opportunities')); 
+        
     }
 
     /**
@@ -24,7 +27,7 @@ class JobOpportunitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('System_admin.create');
     }
 
     /**
@@ -33,34 +36,19 @@ class JobOpportunitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $request->validate([
-            'company_name' => 'required',
-            'job_title' => 'required',
-            'job_role' => 'required',
-            'job_requirements' => 'required',
-            'company_location' => 'required',
-            'vacancy_no' => 'required',
-            'status' => 'required',
-        ]);
+    public function store(Request $request) 
+    {
+        $job_opportunities = new job_opportunities;
+        $job_opportunities->company_name = $request->company_name;
+        $job_opportunities->job_title = $request->job_title;
+        $job_opportunities->job_role = $request->job_role;
+        $job_opportunities->job_requirements = $request->job_requirements;
+        $job_opportunities->company_location = $request->company_location;
+        $job_opportunities->vacancy_no = $request->vacancy_no;
+        $job_opportunities->status = $request->status;
+        $job_opportunities->save();
 
-        $job = new Job;
-        $job->company_name = $request->company_name;
-        $job->job_title = $request->job_title;
-        $job->job_role = $request->job_role;
-        $job->job_requirements = $request->job_requirements;
-        $job->company_location = $request->company_location;
-        $job->vacancy_no = $request->vacancy_no;
-        $job->status = $request->status;
-
-        if($request->password != $request->confirm_password) {
-            return back()->with('message-error', 'Failed to create account, password do not match!');
-        } else if($request->job_type === "Select job's type") {
-            return back()->with('message-error', 'Failed to create account, please select job type!');
-        } else {
-            $job->save();
-            return back()->with('message-success', 'Data successfully created!');
-        }
+        return Redirect('job_opportunities')->with('message', 'Successfully Added!');
     }
 
     /**
@@ -71,7 +59,7 @@ class JobOpportunitiesController extends Controller
      */
     public function show(job_opportunities $job_opportunities)
     {
-        //
+        return view('System_admin.edit')->with('job_opportunities',$job_opportunities);
     }
 
     /**
@@ -94,7 +82,16 @@ class JobOpportunitiesController extends Controller
      */
     public function update(Request $request, job_opportunities $job_opportunities)
     {
-        //
+        $student->company_name = $request->company_name;
+        $student->job_title = $request->job_title;
+        $student->job_role = $request->job_role;
+        $student->job_requirements = $request->job_requirements;
+        $student->company_location = $request->company_location;
+        $student->vacancy_no = $request->vacancy_no;
+        $student->status = $request->status;
+        $student->save();
+
+        return Redirect('student')->with('message', 'Successfully Updated!');
     }
 
     /**
@@ -105,6 +102,7 @@ class JobOpportunitiesController extends Controller
      */
     public function destroy(job_opportunities $job_opportunities)
     {
-        //
+        $job_opportunities->delete();
+        return Redirect('job_opportunities')->with('message', 'Successfully Deleted!');
     }
 }
