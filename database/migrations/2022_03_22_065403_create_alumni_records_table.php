@@ -28,12 +28,12 @@ return new class extends Migration
             $table->string('present_address');
             $table->string('school_graduated');
             $table->integer('batch_no');
-            $table->string('pending_offer');
-            $table->string('employment_status');
-            $table->string('company_name');
-            $table->string('company_location');
-            $table->string('job_title');
-            $table->string('work_arrangement');
+            $table->string('pending_offer')->nullable();
+            $table->string('employment_status')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('company_location')->nullable();
+            $table->string('job_title')->nullable();
+            $table->string('work_arrangement')->nullable();
             $table->binary('profile_picture')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
