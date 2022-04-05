@@ -84,56 +84,56 @@
                                               </div>
                                             <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
                                               @csrf
-                                              @method('POST')
-                                            <div class="card-body"> 
+                                              @method('PUT')
+                                              <div class="card-body"> 
                                                 <div class="row">
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Company Name</label>
-                                                            <Input type="text" value="{{$job_opportunities->company_name}}" name="company_name" class="form-control">
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Job Title</label>
-                                                            <Input type="text" value="{{$job_opportunities->job_title}}" name="job_title" class="form-control">
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Job Role</label>
-                                                            <Input type="text" value="{{$job_opportunities->job_role}}" name="job_role" class="form-control">
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Job Requirements</label>
-                                                            <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control">
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Company Location</label>
-                                                            <Input type="text" value="{{$job_opportunities->company_location}}" name="company_location" class="form-control">
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Non. of Vacancy</label>
-                                                            <Input type="number" value="{{$job_opportunities->vacancy_no}}" name="vacancy_no" class="form-control">
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                          <div class="form-group">
-                                                            <label for="">Status</label>
-                                                            <Input type="text" value="{{$job_opportunities->status}}" name="status" class="form-control">
-                                                          </div>
-                                                        </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Company Name</label>
+                                                      <Input type="text" value="{{$job_opportunities->company_name}}" name="company_name" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Job Title</label>
+                                                      <Input type="text" value="{{$job_opportunities->job_title}}" name="job_title" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Job Role</label>
+                                                      <Input type="text" value="{{$job_opportunities->job_role}}" name="job_role" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Job Requirements</label>
+                                                      <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Company Location</label>
+                                                      <Input type="text" value="{{$job_opportunities->company_location}}" name="company_location" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Non. of Vacancy</label>
+                                                      <Input type="number" value="{{$job_opportunities->vacancy_no}}" name="vacancy_no" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                      <label for="">Status</label>
+                                                      <Input type="text" value="{{$job_opportunities->status}}" name="status" class="form-control">
+                                                    </div>
+                                                  </div>
                                                 </div>
-                                            </div>
-                                            <div class="card-footer">
-                                              <button type="submit" class="btn btn-info">Update </button>
-                                            </div>
+                                              </div>
+                                              <div class="card-footer">
+                                                <button type="submit" class="btn btn-info">Update </button>
+                                              </div>
                                             </form>
                                         </div>
                                     </div>
