@@ -70,17 +70,16 @@
                     <div id="content" class="p-4 p-md-5 pt-5">
                         <div>
                             <div class="container mr-10">
-                            <h1 class="h3 mb-0 text-gray-800 mb-4">Job Opportunities</h1>   
                                 <div class="contaciner">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="card">
                                             <div class="card-header">
                                                 <div class="float-left">
-                                                    Manage Job Opportunities    
+                                                    <h2>Manage Job Opportunities </h2>   
                                                 </div>
                                                 <div class="float-right">
-                                                    <a href="/job_opportunities/create" class="btn btn-secondary">Create Job</a>
+                                                    <a href="/job_opportunities/create" class="btn btn-secondary">Add Job Opportunities</a>
                                                 </div>                                            
                                             </div>
                                             <div class="card-body"> 
@@ -102,7 +101,7 @@
                                                 </p>
                                                 @endif
                                                     <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                        <thead>
+                                                        <thead class="thead-dark">
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>Company Name</th>
@@ -128,7 +127,6 @@
                                                                 <td>{{$job_opportunities->status}}</td>
                                                                 <td>
                                                                     
-
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                                     <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
                                                                     <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
@@ -136,45 +134,52 @@
                                                                     @method('DELETE')
                                                                     <button class="btn btn-danger">Delete</button>
                                                                     </form>
-                                                                    
                                                                     </div>
-
-
-
                                                                 </td>
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
+                                                        <tfoot class="thead-dark">
+                                                            <tr>
+                                                            <th>ID</th>
+                                                            <th>Company Name</th>
+                                                            <th>Job Title</th>
+                                                            <th>Job Role</th>
+                                                            <th>Job Requirements</th>
+                                                            <th>Company Location</th>
+                                                            <th>Vacancy No</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                            
+                                                            </tr>
+                                                        </tfoot>
                                                     </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-
-           
-            </body>
-
+</body>
 </html>
 </div>
 </div>
 
 <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-<script src="{{URL::asset('js/jquery.min.js')}}"></script>
-<script src="{{URL::asset('js/main.js')}}"></script>
-<script src="{{URL::asset('js/popper.js')}}"></script>
-<script src="{{URL::asset('js/custom.js')}}"></script>
+  <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+  <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+  <script src="{{URL::asset('js/main.js')}}"></script>
+  <script src="{{URL::asset('js/popper.js')}}"></script>
+  <script src="{{URL::asset('js/custom.js')}}"></script>
+  <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
+  <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
 <script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-</body>
 
-
-</html>
-@endif
 <script>
     $(document).ready( function () {
     $('#myTable').DataTable();
 } );
 </script>
+</body>
+</html>
+@endif

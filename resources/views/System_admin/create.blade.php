@@ -76,7 +76,7 @@
                                         <div class="card">
                                             <div class="card-header">
                                               <div class="float-left"> 
-                                                  Manage Job Opportunities 
+                                                  <h3>Add Job Opportunities Details</h3>
                                                   </div>
                                                   <div class="float-right">
                                                       <a href="/job_opportunities" class="btn btn-secondary">Cancel</a>

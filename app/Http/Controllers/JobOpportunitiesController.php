@@ -16,7 +16,7 @@ class JobOpportunitiesController extends Controller
     public function index(Request $request)
     {
         $job_opportunities = job_opportunities::all();
-        return view('System_admin.job_hiring_setup',compact('job_opportunities', $job_opportunities)); 
+        return view('System_admin.job_hiring_setup',compact('job_opportunities')); 
         
     }
 
