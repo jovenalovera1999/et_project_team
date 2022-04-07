@@ -131,6 +131,7 @@
     <script src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script src="{{URL::asset('js/main.js')}}"></script>
     <script src="{{URL::asset('js/popper.js')}}"></script>
+    <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
     <script src="{{URL::asset('js/custom.js')}}"></script>
 </body>
 

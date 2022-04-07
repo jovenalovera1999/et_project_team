@@ -287,6 +287,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
     <script src="{{URL::asset('js/jquery.min.js')}}"></script>
@@ -296,3 +297,25 @@
 </body>
 
 </html>
+||||||| 551d938
+        <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+        <script src="{{URL::asset('js/main.js')}}"></script>
+        <script src="{{URL::asset('js/popper.js')}}"></script>
+        <script src="{{URL::asset('js/custom.js')}}"></script>
+    </body>
+
+</html>
+=======
+        <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+        <script src="{{URL::asset('js/main.js')}}"></script>
+        <script src="{{URL::asset('js/popper.js')}}"></script>
+        <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
+        <script src="{{URL::asset('js/custom.js')}}"></script>
+    </body>
+</html>
+@endif
+>>>>>>> 67841a25097a23263adc05902a231b43e6af9eaa
