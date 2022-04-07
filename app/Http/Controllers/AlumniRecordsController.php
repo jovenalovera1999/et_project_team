@@ -16,7 +16,8 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        return view("System_admin.add_new_record");
+        $alumni_records= alumni_records::all();
+        return view('System_admin.view_alumni_record',compact('alumni_records'));
     }
 
     /**
@@ -26,7 +27,7 @@ class AlumniRecordsController extends Controller
      */
     public function create()
     {
-
+        return view("System_admin.add_new_record");
     }
 
     /**
@@ -60,6 +61,7 @@ class AlumniRecordsController extends Controller
             $alumni_record->present_address = $request->present_address;
             $alumni_record->school_graduated = $request->school_graduated;
             $alumni_record->batch_no = $request->batch_no;
+            $alumni_record->pending_offer = $request->pending_offer;
             $alumni_record->employment_status = $request->employment_status;
             $alumni_record->company_name = $request->company_name;
             $alumni_record->company_location = $request->company_location;
