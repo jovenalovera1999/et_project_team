@@ -1,4 +1,6 @@
-<!-- <meta http-equiv="refresh" content="0; url=/login" /> -->
+@if(!Auth::check())
+<meta http-equiv="refresh" content="0; url=/login" />
+@else
 <!DOCTYPE html>
 <html lang="en">
 
