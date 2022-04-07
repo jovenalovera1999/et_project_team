@@ -164,16 +164,16 @@
 </div>
 </div>
 
-<script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-  <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-  <script src="{{URL::asset('js/main.js')}}"></script>
-  <script src="{{URL::asset('js/popper.js')}}"></script>
-  <script src="{{URL::asset('js/custom.js')}}"></script>
-  <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
-  <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
-  <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
-<script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('js/main.js')}}"></script>
+    <script src="{{URL::asset('js/popper.js')}}"></script>
+    <script src="{{URL::asset('js/custom.js')}}"></script>
+    <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
+    <script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 <script>
     $(document).ready( function () {

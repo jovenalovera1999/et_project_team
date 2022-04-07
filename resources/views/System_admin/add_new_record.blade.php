@@ -1,4 +1,6 @@
-<!-- <meta http-equiv="refresh" content="0; url=/login" /> -->
+@if(!Auth::check())
+<meta http-equiv="refresh" content="0; url=/login" />
+@else
 <!DOCTYPE html>
 <html lang="en">
 
@@ -286,7 +288,8 @@
         <script src="{{URL::asset('js/jquery.min.js')}}"></script>
         <script src="{{URL::asset('js/main.js')}}"></script>
         <script src="{{URL::asset('js/popper.js')}}"></script>
+        <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
         <script src="{{URL::asset('js/custom.js')}}"></script>
     </body>
-
 </html>
+@endif

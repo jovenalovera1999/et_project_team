@@ -72,6 +72,7 @@
         </div>
         <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
         <script src="{{URL::asset('js/custom.js')}}"></script>
     </body>
 </html>
