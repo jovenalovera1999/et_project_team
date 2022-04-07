@@ -1,10 +1,3 @@
-@if(Auth::check())
-    @if(Auth::user()->user_type === 'Administrator')
-        <meta http-equiv="refresh" content="0; url=/admin_dashboard" />
-    @else
-        <meta http-equiv="refresh" content="0; url=/user_dashboard" />
-    @endif
-@else
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,11 +38,19 @@
                                             {{ Session::get('message-error') }}
                                         </p>
                                         @endif
+                                        @if(!Auth::check())
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="text" class="form-control" id="email" name="email" placeholder="Please input your email">
                                             <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                         </div>
+                                        @else
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" placeholder="Please input your email">
+                                            <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                        </div>
+                                        @endif
                                         <div class="mb-3">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Please input your password">
@@ -76,4 +77,3 @@
         <script src="{{URL::asset('js/custom.js')}}"></script>
     </body>
 </html>
-@endif
