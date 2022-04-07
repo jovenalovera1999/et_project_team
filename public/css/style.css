@@ -7,15 +7,24 @@
 
 body {
     margin-top: 20px;
-    background: #FAFAFA;
 }
 
 .grey-bg {
-    background-color: #F5F7FA;
+    background-color: #ffffff;
 }
 
 .order-card {
     color: #fff;
+}
+
+.card1color {
+    background: linear-gradient(45deg, #771717, #500202);
+    padding: 0;
+}
+
+.datatable1color {
+    background: linear-gradient(45deg, #f8f9fa, #a9cbf8);
+    padding: 0;
 }
 
 .bg-c-blue {

@@ -38,6 +38,7 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
     //Route::resource('alumni_edit', 'App\Http\Controllers\AlumniRecordsController');
     Route::resource('user_dashboard', 'App\Http\Controllers\UserDashboardController');
+    
     //Route::resource('my_record', 'App\Http\Controllers\MyAlumniRecordController');
     
 
