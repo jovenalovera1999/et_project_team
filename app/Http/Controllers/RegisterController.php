@@ -16,8 +16,8 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users',
-            'password' => 'required',
-            'confirm_password' => 'required',
+            'password' => 'required|same:confirm_password',
+            'confirm_password' => 'required|same:password'
         ]);
 
         $user = new User;
@@ -25,12 +25,7 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->user_type = 'Administrator';
-
-        if($request->password != $request->confirm_password) {
-            return back()->with('message-error', 'Failed to create account, password do not match!');
-        } else {
-            $user->save();
-            return back()->with('message-success', 'Administrator account successfully created!');
-        }
+        $user->save();
+        return back()->with('message-success', 'Administrator account successfully created!');
     }
 }
