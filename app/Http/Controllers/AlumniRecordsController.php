@@ -17,7 +17,7 @@ class AlumniRecordsController extends Controller
     public function index()
     {
         $alumni_records= alumni_records::all();
-        return view('System_admin.view_alumni_record',compact('alumni_records'));
+        return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
     }
 
     /**
@@ -159,8 +159,9 @@ class AlumniRecordsController extends Controller
      * @param  \App\Models\alumni_records  $alumni_records
      * @return \Illuminate\Http\Response
      */
-    public function destroy(alumni_records $alumni_records)
+    public function destroy(alumni_records $alumni_record)
     {
-        //
+        $alumni_record->delete();
+        return back()->with('message-success', 'Alumni record successfully deleted!');
     }
 }

@@ -1,4 +1,4 @@
-@if(!Auth::check())
+@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
@@ -74,12 +74,12 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="card">
-                                            <div class="card-header">
+                                            <div class="card-header bg-c-pink">
                                                 <div class="float-left">
-                                                    <h2>Manage Job Opportunities </h2>   
+                                                    <h2 class="text-white">Manage Job Opportunities </h2>   
                                                 </div>
                                                 <div class="float-right">
-                                                    <a href="/job_opportunities/create" class="btn btn-secondary">Add Job Opportunities</a>
+                                                    <a href="/job_opportunities/create" class="btn btn-success">Add Job Opportunities</a>
                                                 </div>                                            
                                             </div>
                                             <div class="card-body"> 
@@ -101,7 +101,7 @@
                                                 </p>
                                                 @endif
                                                     <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                        <thead class="thead-dark">
+                                                        <thead class="bg-c-pink text-white">
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>Company Name</th>
@@ -139,7 +139,7 @@
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
-                                                        <tfoot class="thead-dark">
+                                                        <tfoot class="bg-c-pink text-white">
                                                             <tr>
                                                             <th>ID</th>
                                                             <th>Company Name</th>

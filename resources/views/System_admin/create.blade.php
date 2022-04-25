@@ -1,4 +1,4 @@
-@if(!Auth::check())
+@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | Add New Record</title>
+    <title>Employment Tracker | Add Job Oppotunities</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
@@ -34,25 +34,25 @@
                 <br>
                 <ul class="list-unstyled components mb-4">
                     <li>
-                        <a href="admin_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
+                        <a href="/admin_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                     </li>
                     <li>
-                        <a href="alumni_records"><span class="fa fa-user mr-3"></span> Alumni Records</a>
+                        <a href="/alumni_records"><span class="fa fa-user mr-3"></span> Alumni Records</a>
                     </li>
                     <li class="active">
-                        <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
+                        <a href="/job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
                     <li>
-                        <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship Sponsors</a>
+                        <a href="/scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship Sponsors</a>
                     </li>
                     <li>
                         <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
                     </li>
                     <li>
-                        <a href="report"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
+                        <a href="/report"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                     </li>
                     <li>
-                        <a href="register"><span class="fa fa-user-plus mr-3"></span> Admin Registration</a>
+                        <a href="/register"><span class="fa fa-user-plus mr-3"></span> Admin Registration</a>
                     </li>
                     <li>
                         <a href="/logout/{{Auth::user()->id}}"><span class="fa fa-sign-out mr-3"></span> Logout</a>
@@ -69,17 +69,16 @@
                     <div id="content" class="p-4 p-md-5 pt-5">
                         <div>
                             <div class="container mr-10">
-                            <h1 class="h3 mb-0 text-gray-800 mb-4">Job Opportunities</h1>   
                                 <div class="contaciner">
                                 <div class="row">
                                     <div class="col-lg-10 mx-auto">
                                         <div class="card">
-                                            <div class="card-header">
+                                            <div class="card-header bg-c-pink">
                                               <div class="float-left"> 
-                                                  <h3>Add Job Opportunities Details</h3>
+                                                  <h3 class="text-white">Add Job Opportunities Details</h3>
                                                   </div>
                                                   <div class="float-right">
-                                                      <a href="/job_opportunities" class="btn btn-secondary">Cancel</a>
+                                                      <a href="/job_opportunities" class="btn btn-danger">Cancel</a>
                                                   </div>
                                               </div>
                                             <form action="/job_opportunities" method="POST">
@@ -131,7 +130,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                              <button type="submit" class="btn btn-success">Save</button>
+                                              <button type="submit" class="btn btn-primary color-theme">Save New Job Opportunity</button>
                                             </div>
                                             </form>
                                         </div>

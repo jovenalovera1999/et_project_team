@@ -1,4 +1,4 @@
-@if(!Auth::check())
+@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
@@ -66,16 +66,16 @@
             <div id="content" class="p-4 p-md-5 pt-5" style="width: 16in;">
                 <div>
                     <div class="container mr-10">
-                        <div class="contaciner">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header bg-c-pink">
                                             <div class="float-left">
-                                                <h2>View Alumni Record</h2>
+                                                <h2 class="text-white">View Alumni Record</h2>
                                             </div>
                                             <div class="float-right">
-                                                <a href="/alumni_records/create" class="btn btn-secondary">Add New Alumni Records</a>
+                                                <a href="/alumni_records/create" class="btn btn-success">Add New Alumni Records</a>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -97,7 +97,7 @@
                                                 </p>
                                                 @endif
                                                 <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                    <thead class="thead-dark">
+                                                    <thead class="bg-c-pink text-white">
                                                         <tr>
                                                             <th>ID</th>
                                                             <th>Name</th>
@@ -149,7 +149,7 @@
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
-                                                    <tfoot class="thead-dark">
+                                                    <tfoot class="bg-c-pink text-white">
                                                         <tr>
                                                             <th>ID</th>
                                                             <th>Name</th>

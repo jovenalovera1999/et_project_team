@@ -1,4 +1,4 @@
-@if(!Auth::check())
+@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
@@ -73,7 +73,7 @@
                                     <div class="card-header  bg-c-pink text-white">
                                         <h4 class="text-white m-b-20">Add New Alumni Record</h4>
                                         <div class="float-right">
-                                            <a href="/alumni_records" class="btn btn-secondary">View Alumni Records</a>
+                                            <a href="/alumni_records" class="btn btn-success">View Alumni Records</a>
                                         </div>
                                     </div>
 
@@ -301,7 +301,7 @@
 
 
                                                 <div class="mb-3 text-center">
-                                                    <button type="submit" class="btn btn-primary" style="width: 200px">Create</button>
+                                                    <button type="submit" class="btn btn-primary color-theme" style="width: 200px">Create</button>
                                                 </div>
                                                 <!-- Code for Checkbox -->
 

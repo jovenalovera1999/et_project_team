@@ -11233,6 +11233,10 @@ a[data-toggle="collapse"] {
     color: rgba(255, 255, 255, 0.5);
 }
 
+.color-theme {
+    background-color: #3445b4;
+}
+
 
 /* .form-control {
     height: 40px !important;
