@@ -1,3 +1,8 @@
+@if(Auth::check() && Auth::user()->user_type === 'Administrator')
+<meta http-equiv="refresh" content="0; url=/admin_dashboard" />
+@elseif(Auth::check() && Auth::user()->user_type === 'Alumni')
+<meta http-equiv="refresh" content="0; url=/user_dashboard" />
+@else
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,23 +43,21 @@
                                             {{ Session::get('message-error') }}
                                         </p>
                                         @endif
-                                        @if(!Auth::check())
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Please input your email">
                                             <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                         </div>
-                                        @else
-                                        <div class="mb-3">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" placeholder="Please input your email">
-                                            <span class="text-danger">@error('email') {{$message}} @enderror</span>
-                                        </div>
-                                        @endif
                                         <div class="mb-3">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Please input your password">
                                             <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" value="remember_me" name="remember_me" id="remember_me">
+                                            <label class="form-check-label" for="remember_me">
+                                                Remember Me
+                                            </label>
                                         </div>
                                         <div class="mb-3 text-center">
                                             <button type="submit" class="btn btn-primary color-theme text-white" style="width: 200px">Login</button>
@@ -77,3 +80,4 @@
         <script src="{{URL::asset('js/custom.js')}}"></script>
     </body>
 </html>
+@endif
