@@ -15,7 +15,7 @@ use App\Http\Controllers\JobOpportunitiesController;
 |
 */
 
-Route::group(['middleware' => 'prevent-back-history'], function() {
+Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // Default module
     Route::get('/', function () {
@@ -23,7 +23,7 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
     });
 
     // User's resource
-    
+
 
     // Admin's resource
     Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
@@ -39,8 +39,12 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
     //Route::resource('alumni_edit', 'App\Http\Controllers\AlumniRecordsController');
     Route::resource('user_dashboard', 'App\Http\Controllers\UserDashboardController');
+    Route::resource('view_job', 'App\Http\Controllers\ViewJobContorller');
+    // Route::get('view_job/{id}', [UserDashboardController::class, 'show'])->name('post.show');
     //Route::resource('my_record', 'App\Http\Controllers\MyAlumniRecordController');
-    
+
+    Route::get('view_job/{id}/{c_name}/{title}/{role}/{reqs}/{location}/{vacancy}/{status}', 'App\Http\Controllers\UserDashboardController@show')->name('post.show');
+
 
     //Email 
     Route::resource('email', EmailController::class);
