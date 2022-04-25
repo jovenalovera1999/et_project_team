@@ -92,8 +92,8 @@
                                         </p>
                                         @endif
                                         <div class="mb-3">
-                                            <label for="name" class="form-label">Full Name</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Input user's full name" value="{{old('name')}}">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Input user's name" value="{{old('name')}}">
                                             <span class="text-danger">@error('name') {{$message}} @enderror</span>
                                         </div>
                                         <div class="mb-3">
@@ -111,16 +111,8 @@
                                             <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password">
                                             <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="user_type" class="form-label">User Type</label>
-                                            <select class="form-select" name="user_type" id="user_type" role="button">
-                                                <option selected>Select user's type</option>
-                                                <option value="Administrator">Administrator</option>
-                                                <option value="Alumni">Alumni</option>
-                                            </select>
-                                        </div>
                                         <div class="mb-3 text-center">
-                                            <button type="submit" class="btn btn-primary" style="width: 200px">Create</button>
+                                            <button type="submit" class="btn btn-primary color-theme" style="width: 200px">Create</button>
                                         </div>
                                     </form>
                                 </div>
@@ -139,6 +131,7 @@
     <script src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script src="{{URL::asset('js/main.js')}}"></script>
     <script src="{{URL::asset('js/popper.js')}}"></script>
+    <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
     <script src="{{URL::asset('js/custom.js')}}"></script>
 </body>
 
