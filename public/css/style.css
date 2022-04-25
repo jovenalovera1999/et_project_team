@@ -18,34 +18,38 @@ body {
 }
 
 .card1color {
-    background: linear-gradient(45deg, #771717, #500202);
+    background: linear-gradient(45deg, #00172D, #00498D);
     padding: 0;
 }
 
 .datatable1color {
-    background: linear-gradient(45deg, #f8f9fa, #a9cbf8);
+    background: linear-gradient(45deg, #00264D, #02386E);
     padding: 0;
 }
 
 .bg-c-blue {
-    background: linear-gradient(45deg, #154970, #377dc4);
+    background: linear-gradient(45deg, #00172D, #02386E);
     padding: 0;
 }
 
 .bg-c-green {
-    background: linear-gradient(45deg, #356a7a, #56e2d2);
+    background: linear-gradient(45deg, #00264D, #0052A2);
 }
 
 .bg-c-yellow {
-    background: linear-gradient(45deg, #126469, #39cce6);
+    background: linear-gradient(45deg, #00498D, #00264D);
 }
 
 .bg-c-pink {
-    background: linear-gradient(45deg, #0f1179, #6679e7);
+    background: linear-gradient(45deg, #0052A2, #02386E);
 }
 
 .bg-c-red {
     background: linear-gradient(45deg, #50182a, #aa0629);
+}
+
+.bg-color {
+    background: linear-gradient(45deg, #00264D, #02386E);
 }
 
 .card {
@@ -11288,3 +11292,152 @@ a[data-toggle="collapse"] {
 
 /* .subscribe-form .form-control {
     background: #3b4ec6; } */
+
+.profile-card-6 {
+    max-width: 100%;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.profile-card-6 img {
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-name {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFF;
+    padding: 15px 20px;
+    background: linear-gradient(140deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0) 50%);
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-position {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.4);
+    left: 30px;
+    top: 100px;
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-overview {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
+    color: #FFF;
+    padding: 50px 0px 20px 0px;
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-overview h3 {
+    font-weight: bold;
+}
+
+.profile-card-6 .profile-overview p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-card-6:hover img {
+    filter: brightness(80%);
+}
+
+.profile-card-6:hover .profile-name {
+    padding-left: 25px;
+    padding-top: 20px;
+}
+
+.profile-card-6:hover .profile-position {
+    left: 40px;
+}
+
+.profile-card-6:hover .profile-overview {
+    padding-bottom: 25px;
+}
+
+
+/* newly hired card profile css stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif
+}
+
+.cards {
+    color: #fff;
+    width: 500px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #02386E, #00498D);
+    /* box-shadow: 20px 20px 60px #913ca0, -20px -20px 60px #c552d8; */
+    border: none
+}
+
+.neo-button {
+    width: 40px;
+    height: 40px;
+    outline: 0 !important;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #fff);
+    /* box-shadow: inset 20px 20px 60px #913ca0, inset -20px -20px 60px #c552d8 */
+}
+
+.num {
+    color: #eee !important
+}
+
+.line {
+    color: #fff
+}
+
+.neo-button:active {
+    border-radius: 50%;
+    background: #ffffff;
+    /* box-shadow: 28px 28px 57px #933da2, -28px -28px 57px #c351d6 */
+}
+
+.fa-facebook {
+    color: #3b5998
+}
+
+.fa-linkedin {
+    color: #0077b5
+}
+
+.fa-google {
+    color: #dc4e41
+}
+
+.fa-youtube {
+    color: #cd201f
+}
+
+.fa-twitter {
+    color: #55acee
+}
+
+.profile_button {
+    color: #fff;
+    padding: 10px;
+    border: none;
+    outline: 0 !important;
+    border-radius: 50px;
+    background: #000B18;
+    /* box-shadow: 28px 28px 57px #933da2, -28px -28px 57px #c351d6 */
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\job_opportunities;
 use App\Models\alumni_records;
+use App\Models\job_id;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -49,17 +50,20 @@ class UserDashboardController extends Controller
             $user = 'You have a pending offer as of the moment';
         }
 
-
-
         return view('Alumni_user.dashboard', [
             'job_opportunities' => $job_opportunities,
             'year' => $year,
             'job_opportunities_count' => $job_opportunities_count,
             'user' => $user
         ]);
+
     }
 
-    
+    public function show($id, $c_name, $title, $role, $reqs, $location, $vacancy, $status)
+    {
+        return view ('Alumni_user.view_job', ['id' => $id, 'c_name' => $c_name, 'title' => $title, 'role' => $role, 'reqs' => $reqs, 'location' => $location, 'vacancy' => $vacancy, 'status' => $status]);
+
+    }
 
   
 }

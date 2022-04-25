@@ -11,7 +11,8 @@
     <title>Employment Tracker | Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
+
 </head>
 
 <body>
@@ -121,8 +122,8 @@
             </div>
 
             <!-- panel for Newly Hired Alumni -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
-            <div class="container">
+
+            <div class="fresh-table full-color-orange">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-14">
                         <div class="panel">
@@ -132,20 +133,19 @@
                                         <h4 class="title">Featured<span></span></h4>
                                     </div>
                                     <div class="col-sm-9 col-xs-12 text-right">
-                                        <div class="btn_group">
-                                            <input type="text" class="form-control" placeholder="Search">
-                                        </div>
+                                        <a type="button" class="btn btn-primary text-center text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            <h6>View All</h6>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table">
+                            <div class="panel-body  table-responsive">
+                                <table id="fresh-table " class="table text-light">
                                     <thead>
-                                        <tr>
-                                            <th>Newly Hired Alumni</th>
-                                            <th>Job Details</th>
-                                            <th>Date</th>
-                                        </tr>
+                                        <th>Newly Hired Alumni</th>
+                                        <th>Job Details</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -158,6 +158,9 @@
                                             $mysqldate = date('D M d, Y', $phpdate);
                                             ?>
                                             <td>{{$mysqldate}}</td>
+                                            <td>
+                                                <a href="#"> <span class="fa fa-eye text-center text-light" style="color:light"></span></a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -173,6 +176,45 @@
 
 
             <!-- PANEL START CODE  -->
+
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog" style="max-width: 40%;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Newly Hired Alumni</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <br>
+
+                        @foreach ($alumni_records as $alumni_record)
+                        <div class="container d-flex justify-content-center">
+                            <div class="cards p-3 py-4">
+                                <div class="text-center"> <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/270516813_127149413121408_7993175803829396048_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGHCvnf7D8OMbQKMoPqvveVaR-FEKEmjehpH4UQoSaN6PCA2Ov3X8Xn3AJUzEvu9Ud_iHlhJG_SNW2hkROTdHBg&_nc_ohc=AKSwQqOzf_cAX8zqSts&_nc_ht=scontent.fceb2-1.fna&oh=00_AT8XBY_jvDWBFMoFY26wmyhvWZzc6XYSvk0YeLj82mXKDg&oe=626B7743" width="100" class="rounded-circle">
+                                    <h3 class="mt-2 text-light">{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h3> <span class="mt-1 clearfix">{{$alumni_record->job_title}}</span>
+                                    <div class="row mt-3 mb-3">
+                                        <div class="col-md-6">
+                                            <p class="text-light">Contact</p> <span class="num">{{$alumni_record->contact}}</span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="text-light">Email</p> <span class="num">{{$alumni_record->email}}</span>
+                                        </div>
+                                    </div>
+                                    <hr class="line"> <h6 class="mt-4">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}} at {{$alumni_record->company_name}}, {{$alumni_record->company_location}}</h6>
+                                    <div class="social-buttons mt-5"> <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button> <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button> </div>
+                                    <div class="profile mt-5"> <a href="#" class="profile_button px-5">View profile</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        @endforeach
+
+
+                    </div>
+                </div>
+            </div>
+
+
 
             <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
             <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>

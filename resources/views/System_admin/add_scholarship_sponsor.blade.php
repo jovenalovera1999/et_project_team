@@ -71,37 +71,33 @@
 
             <!-- panel for Newly Hired Alumni -->
             <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
-            <div class="container">
+            <div class="fresh-table full-color-orange">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-14">
                         <div class="panel">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col col-sm-3 col-xs-12">
-                                        <h1 class="title">List of available sponsors<span></span></h1>
+                                        <h5 class="text-light"><span>Available Scholarship Sponsors</span></h5>
                                     </div>
                                     <div class="col-sm-9 col-xs-12 text-right">
-                                        <div class="btn_group">
-                                            <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                             <span class="fa fa-plus  mr-3" style="color:info"></span>Add Sponsor
                                             </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table">
+                            <div class="panel-body  table-responsive">
+                                <table id="fresh-table " class="table text-light">
                                     <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Sponsor</th>
-                                            <th>Date</th>
-                                            <th>Action</th>
-                                        </tr>
+                                        <th>ID</th>
+                                        <th>Sponsor</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            @foreach ($scholarship_sponsors as $scholarship_sponsor)
+                                        @foreach ($scholarship_sponsors as $scholarship_sponsor)
                                             <td>{{$scholarship_sponsor->id}}</td>
                                             <td>{{$scholarship_sponsor->sponsor}}</td>
                                             <?php
@@ -114,7 +110,8 @@
                                                 <form action="/scholarship_sponsors/{{$scholarship_sponsor->id}}" method="POST">
                                                     @csrf
                                                     @method('Delete')
-                                                    <button  class="btn btn-danger" ><span class="fa fa-trash mr-3 text-center" style="color:info"></span></button>
+                                                    <button  class="btn text-light" ><span class="fa fa-trash mr-3 text-center" style="color:info"></span></button>
+                                                  
                                                 </form>
 
 
