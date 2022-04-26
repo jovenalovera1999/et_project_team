@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Events\Post;
 use Illuminate\Http\Request;
@@ -9,10 +10,11 @@ use Carbon\Carbon;
 
 class AdminDashboardController extends Controller
 {
-    public function index() {
-         // for Admin Dashboard datatable 
+    public function index()
+    {
+       // for Dashboard datatable 
         //  Newly hired alumni
-        $newly_hired = alumni_records::whereMonth('created_at', date('m'))
+        $alumni_records = alumni_records::whereMonth('created_at', date('m'))
         ->whereYear('created_at', date('Y'))
         ->where ('employment_status', '=', 'Employed')
         ->get(['*']);
@@ -36,12 +38,11 @@ class AdminDashboardController extends Controller
         $month = Carbon::now()->format('M Y');
        
         //  View Data to dashboard
-        return view('System_admin.dashboard', ['alumni_records' => $newly_hired,
+        return view('System_admin.dashboard', ['alumni_records' => $alumni_records,
          'unemployed' => $unemployed,
          'employed' => $employed,
          'registered' => $registered,
          'month' => $month,
          'pending_offer' => $pending_offer]);
-
     }
 }
