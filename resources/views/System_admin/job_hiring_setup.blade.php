@@ -51,7 +51,7 @@
                         <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
                     </li>
                     <li>
-                        <a href="report"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
+                        <a href="{{url('reports')}}"><span class="fa fa-sticky-note mr-3"></span> Reports</a>
                     </li>
                     <li>
                         <a href="register"><span class="fa fa-user-plus mr-3"></span> Admin Registration</a>
