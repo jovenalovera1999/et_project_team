@@ -39,6 +39,8 @@ class EmailController extends Controller
     public function store(Request $request)
     {
         //
+       
+        
     }
 
     /**
@@ -49,7 +51,7 @@ class EmailController extends Controller
      */
     public function show($id)
     {
-        return view('EmailSend.show');
+        //return view('EmailSend.show');
     }
 
     /**
