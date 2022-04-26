@@ -17,7 +17,7 @@ class AlumniRecordsController extends Controller
     public function index()
     {
         $alumni_records= alumni_records::all();
-        return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
+        return view('System_admin.view_alumni_record',compact('alumni_records'));
     }
 
     /**
