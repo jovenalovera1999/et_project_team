@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\alumni_records;
 use Illuminate\Http\Request;
+// use illuminate\Support\Facades\Hash;
 use Hash;
 
 class AlumniRecordsController extends Controller
@@ -16,8 +17,14 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        $alumni_records= alumni_records::all();
-        return view('System_admin.view_alumni_record',compact('alumni_records'));
+        
+        // $alumni_records= alumni_records::all();
+        // return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
+
+        $alumni_records = alumni_records::get(['*']);
+        
+        return view('System_admin.view_alumni_record',[
+            'alumni_records' => $alumni_records ]);
     }
 
     /**
@@ -79,7 +86,7 @@ class AlumniRecordsController extends Controller
         if(empty($request->middle_name)) {
             $user->name = $request->first_name . ' ' . $request->last_name;
         } else {
-            $user->name = $request->first_name . ' ' . $request->middle_name[0] . '. ' . $request->last_name;
+            $user->name = $request->first_name . ' ' . $request->middle_name . ' ' . $request->last_name;
         }
         $user->email = $request->email;
         $user->password = Hash::make($request->password);

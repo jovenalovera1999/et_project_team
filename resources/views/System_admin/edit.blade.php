@@ -108,7 +108,10 @@
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
                                                       <label for="">Job Requirements</label>
-                                                      <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control">
+                                                      <!-- old version | not textarea | "working" -->
+                                                      <!-- <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control"> -->
+
+                                                      <textarea type="text" value="{{$job_opportunities->job_requirements}}" rows="4", cols="54" id="keterangan" name="job_requirements"  class="form-control style="resize:none, "></textarea>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">
@@ -126,7 +129,8 @@
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
                                                       <label for="">Status</label>
-                                                      <Input type="text" value="{{$job_opportunities->status}}" name="status" class="form-control">
+                                                      <!-- <Input type="text" value="{{$job_opportunities->status}}" name="status" class="form-control"> -->
+                                                      <input type="checkbox" name="status" id="status" value="1" {{  ($job_opportunities->status == 1 ? ' checked' : '') }}
                                                     </div>
                                                   </div>
                                                 </div>
