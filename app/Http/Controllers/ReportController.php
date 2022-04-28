@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\alumni_records;
-use Illuminate\Support\Facades\DB;
 
-class EmailController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class EmailController extends Controller
      */
     public function index()
     {
-        $data=alumni_records::orderByDesc('id')->get();
-        //full_name = alumni_records::select("*", DB::raw("CONCAT(alumni_records.first_name,' ',alumni_records.last_name) as full_name"))->get();
-        return view('EmailSend.index',['data'=>$data]);
+        return view("System_admin.report");
     }
 
     /**
@@ -39,8 +35,6 @@ class EmailController extends Controller
     public function store(Request $request)
     {
         //
-       
-        
     }
 
     /**
@@ -51,7 +45,7 @@ class EmailController extends Controller
      */
     public function show($id)
     {
-        //return view('EmailSend.show');
+        //
     }
 
     /**
@@ -62,8 +56,7 @@ class EmailController extends Controller
      */
     public function edit($id)
     {
-        $data=alumni_records::find($id);
-        return view('EmailSend.edit', ['data'=>$data]);
+        //
     }
 
     /**
@@ -75,21 +68,7 @@ class EmailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' =>'required',
-            'email'=>'required'
-            
-        ]);
-        $name = $request->name;
-        $fullname = explode("-", $name);
-
-        $data=alumni_records::find($id);
-        $data->first_name=$fullname[0];
-        $data->last_name=$fullname[1];
-        $data->email=$request->email;
-        $data->save();
-
-        return redirect('email/'.$id.'/edit')->with('msg', 'Data has been updated!');
+        //
     }
 
     /**

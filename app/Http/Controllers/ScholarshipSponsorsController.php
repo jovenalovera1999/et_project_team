@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\scholarship_sponsors;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ScholarshipSponsorsController extends Controller
@@ -14,7 +15,19 @@ class ScholarshipSponsorsController extends Controller
      */
     public function index()
     {
-        return view("System_admin.add_scholarship_sponsor");
+        //  Newly hired alumni
+        $scholarship_sponsors = scholarship_sponsors::get(['*']);
+
+        //  Month Footer
+        $month = Carbon::now()->format('M Y');
+
+        return view(
+            "System_admin.add_scholarship_sponsor",
+            [
+                'scholarship_sponsors' => $scholarship_sponsors,
+                'month' => $month
+            ]
+        );
     }
 
     /**
@@ -35,7 +48,11 @@ class ScholarshipSponsorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $scholarship_sponsors = new scholarship_sponsors;
+        $scholarship_sponsors->sponsor = $request->scholarship_sponsors;
+        $scholarship_sponsors->save();
+
+        return Redirect('scholarship_sponsors')->with('message', 'New record has been successfully saved.');
     }
 
     /**
@@ -78,8 +95,9 @@ class ScholarshipSponsorsController extends Controller
      * @param  \App\Models\scholarship_sponsors  $scholarship_sponsors
      * @return \Illuminate\Http\Response
      */
-    public function destroy(scholarship_sponsors $scholarship_sponsors)
+    public function destroy(scholarship_sponsors $scholarship_sponsor)
     {
-        //
+        $scholarship_sponsor->Delete();
+        return Redirect('scholarship_sponsors')->with('message', 'Record has been successfully deleted.');
     }
 }

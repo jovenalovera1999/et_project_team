@@ -1,0 +1,152 @@
+body {
+    background: #f7f7f7;
+    width: 100%!important;
+    height: 100%!important;
+    font-family: 'Roboto Condensed', sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+a, blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, li, object, ol, p, pre, select, span, textarea, ul {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: #292e31;
+}
+.clearfix:after, .clearfix:before, .nav:after{
+    content: "";
+    display: table;
+}
+.clearfix:after, .nav:after{
+    clear: both;
+}
+.fixed{
+    position: fixed;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+@font-face {
+
+    font-family: fontawesome;
+
+    src: local(FontAwesome), url('../fonts/FontAwesome.otf') format('opentype');
+
+}
+ol, li{
+	list-style: none
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+}
+.logo_login {
+    width: 70%;
+    height: 81px;
+    margin: 20px auto 35px auto;
+}
+.logo_login img{
+	width: 100%;
+	height: 100%;
+}
+.login_wrapper_inner {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.pagination {
+    padding: 15px 0;
+}
+.pagination-items {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 0 2px;
+    text-align: center;
+    padding-top: 4px;
+    background: #024667;
+    color: #fff;
+}.pagination-items.currentpageLink {
+    background: #ff339a;
+}
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+}
+tr.table_row.logo{
+    width: 100%;
+    text-align: center;
+}
+tr .table_column.logo {
+    width: 200px;
+    display: inline-block;
+    height: 150px;
+    border: none;
+}
+tr .table_column.logo img{
+    width: 100%;
+    max-height: 100%;
+}
+.table_row{
+    
+    display: block;
+    margin: 0 0 15px 0;    
+}
+.table_column{
+    display: inline-block;
+    border: 1px solid #bbbbbb;
+    padding: 5px 0 5px 10px;
+}
+.table_head{
+    font-weight: bold;
+    background: #eee;
+    padding-left: 10;
+}
+.l-column{
+    width: 786px;
+}
+.m-column {
+    width: 530px;}
+
+.s-column{
+    width: 254px;
+    float: left;
+}
+.p-column {
+    width: 200px;
+    position: absolute;
+    margin-top: -37px;
+    height: 210px;
+    right: 0;
+    margin-right: 30px;
+    padding: 0;
+}
+.p-column img{
+    width: 100%;
+    height: 100%;
+}
+.table_part{
+    height: 70px;
+    display: block;
+    background: #3445B4;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.table_part td{
+     height: 70px;
+    display: block;
+    padding: 5px 0px 5px 10px;
+}
+.p-left{
+    padding-left: 40px;
+     display: block;
+
