@@ -1,5 +1,5 @@
 @if(!Auth::check() || Auth::user()->user_type != 'Administrator')
-    <meta http-equiv="refresh" content="0; url=/login" />
+<meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
 </head>
 
 <body>
@@ -65,105 +66,105 @@
 
         <!-- Page Content  -->
 
-        <div id="content" class="p-4 p-md-5 pt-5">
-
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Scholaship Sponsors</h1>
+     
 
             <!-- panel for Newly Hired Alumni -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/datatable_dashboard.css') }}">
-            <div class="fresh-table full-color-orange">
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-14">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col col-sm-3 col-xs-12">
-                                        <h5 class="text-light"><span>Available Scholarship Sponsors</span></h5>
-                                    </div>
-                                    <div class="col-sm-9 col-xs-12 text-right">
-                                    <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                            <span class="fa fa-plus  mr-3" style="color:info"></span>Add Sponsor
-                                            </a>
+
+            <div id="content" class="p-4 p-md-5 pt-5">
+                <div>
+                    <div class="container mr-10">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header bg-c-pink">
+                                            <div class="float-left">
+                                                <h2 class="text-white">Manage Scholarship Sponsors</h2>
+                                            </div>
+                                            <div class="float-right">
+                                                <a type="button" class="btn profile_button2 text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                    <span class="fa fa-plus  mr-3" style="color:light"></span>Add Sponsor
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table id="myTable" class="table table-bordered table-hover table-striped">
+                                                    <thead>
+                                                        <th>Sponsor ID</th>
+                                                        <th>Sponsor</th>
+                                                        <th>Date</th>
+                                                        <th>Action</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            @foreach ($scholarship_sponsors as $scholarship_sponsor)
+                                                            <td>{{$scholarship_sponsor->id}}</td>
+                                                            <td>{{$scholarship_sponsor->sponsor}}</td>
+                                                            <?php
+                                                            $date = $scholarship_sponsor->updated_at;
+                                                            $phpdate = strtotime($date);
+                                                            $mysqldate = date('D M d, Y', $phpdate);
+                                                            ?>
+                                                            <td>{{$mysqldate}}</td>
+                                                            <td>
+                                                                <form action="/scholarship_sponsors/{{$scholarship_sponsor->id}}" method="POST">
+                                                                    @csrf
+                                                                    @method('Delete')
+                                                                    <button class="btn text-dark"><span class="fa fa-trash mr-3 text-center" style="color:dark"></span></button>
+
+                                                                </form>
+
+
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-body  table-responsive">
-                                <table id="fresh-table " class="table text-light">
-                                    <thead>
-                                        <th>ID</th>
-                                        <th>Sponsor</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        @foreach ($scholarship_sponsors as $scholarship_sponsor)
-                                            <td>{{$scholarship_sponsor->id}}</td>
-                                            <td>{{$scholarship_sponsor->sponsor}}</td>
-                                            <?php
-                                            $date = $scholarship_sponsor->updated_at;
-                                            $phpdate = strtotime($date);
-                                            $mysqldate = date('D M d, Y', $phpdate);
-                                            ?>
-                                            <td>{{$mysqldate}}</td>
-                                            <td>
-                                                <form action="/scholarship_sponsors/{{$scholarship_sponsor->id}}" method="POST">
-                                                    @csrf
-                                                    @method('Delete')
-                                                    <button  class="btn text-light" ><span class="fa fa-trash mr-3 text-center" style="color:info"></span></button>
-                                                  
-                                                </form>
-
-
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="panel-footer">
-                                {{$month}}
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
 
-            <!-- PANEL START CODE  -->
 
-            {{-- Start Add Modal --}}
-            <div style="margin-top: 180px" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Add New Scholarship Sponsor</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="" method="POST">
-                            <div class="modal-body">
+                    <!-- PANEL START CODE  -->
 
-                                <form action="/scholarship_sponsors" method="POST" class="mt-3">
-                                    @csrf
-                                    <div class="mb-3" style="width: 4.8in;">
-                                        <input type="text" class="form-control" id="scholarship_sponsors" name="scholarship_sponsors" placeholder="Scholarship Sponsor" required>
-                                        <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
-                                    </div>
+                    {{-- Start Add Modal --}}
+                    <div style="margin-top: 180px" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Add New Scholarship Sponsor</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="modal-body">
 
+                                        <form action="/scholarship_sponsors" method="POST" class="mt-3">
+                                            @csrf
+                                            <div class="mb-3" style="width: 4.8in;">
+                                                <input type="text" class="form-control" id="scholarship_sponsors" name="scholarship_sponsors" placeholder="Name of Scholarship Sponsor" required>
+                                                <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
+                                            </div>
+
+                                        </form>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info" style="width: 100px">Save</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width: 100px">Close</button>
+                                        </div>
                                 </form>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success" style="width: 100px">Save</button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="width: 100px">Close</button>
-                                </div>
-                        </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                </form>
             </div>
-        </div>
-        </form>
-    </div>
-    </div>
-    {{-- End Add Modal --}}
+        
+        {{-- End Add Modal --}}
     </div>
     </div>
     </div>

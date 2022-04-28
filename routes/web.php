@@ -27,9 +27,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // Admin's resource
     Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
+    Route::get('view_newly_hired/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{update_date}', 'App\Http\Controllers\AdminDashboardController@alumni')->name('alumni.show');
     Route::resource('alumni_records', 'App\Http\Controllers\AlumniRecordsController');
     Route::resource('scholarship_sponsors', 'App\Http\Controllers\ScholarshipSponsorsController');
-    
+    Route::resource('job_opportunities', 'App\Http\Controllers\JobOpportunitiesController');
+    Route::resource('report', 'App\Http\Controllers\ReportController');
     Route::resource('register', 'App\Http\Controllers\RegisterController');
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
