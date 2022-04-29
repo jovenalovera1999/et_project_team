@@ -125,21 +125,25 @@
                                                                 <td>{{$job_opportunities->job_requirements}}</td>
                                                                 <td>{{$job_opportunities->company_location}}</td>
                                                                 <td>{{$job_opportunities->vacancy_no}}</td>
-                                                                
-                  
                                                                 <td> 
-                                                                    <input data-id="{{$job_opportunities->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Available" data-off="Unavailable" {{ $job_opportunities->status ? 'checked' : '' }}> 
+                                                                    <form action="/job_opportunities_status/{{$job_opportunities->id}}" method="POST" id="statusCheckbox">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <input data-id="{{$job_opportunities->id}}"  class="toggle-class" type="checkbox" data-onstyle="success"
+                                                                        data-offstyle="danger" data-toggle="toggle" data-on="Available" data-off="Unavailable"
+                                                                        name="status_checkbox" value="check" onchange="$('#statusCheckbox').submit();"
+                                                                        {{$job_opportunities->status === 'Available' ? 'checked' : ''}}>
+                                                                    </form>
                                                                 </td>
 
                                                                 <td>
-                                                                    
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
-                                                                    <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="btn btn-danger">Delete</button>
-                                                                    </form>
+                                                                        <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
+                                                                        <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="btn btn-danger">Delete</button>
+                                                                        </form>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -156,7 +160,6 @@
                                                             <th>Vacancy No</th>
                                                             <th>Status</th>
                                                             <th>Actions</th>
-                                                            
                                                             </tr>
                                                         </tfoot>
                                                     </table>

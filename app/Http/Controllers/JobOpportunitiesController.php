@@ -82,15 +82,21 @@ class JobOpportunitiesController extends Controller
      */
     public function update(Request $request, job_opportunities $job_opportunity)
     {
+        $status = $request->status != null;
+        $status_isChecked = $request->status_checkbox != null;
+
         $job_opportunity->company_name = $request->company_name;
         $job_opportunity->job_title = $request->job_title;
         $job_opportunity->job_role = $request->job_role;
         $job_opportunity->job_requirements = $request->job_requirements;
         $job_opportunity->company_location = $request->company_location;
         $job_opportunity->vacancy_no = $request->vacancy_no;
-        $job_opportunity->status = $request->status;
+        if($status) {
+            $job_opportunity->status = 'Available';
+        } else {
+            $job_opportunity->status = 'Unavailable';
+        }
         $job_opportunity->save();
-
         return Redirect('/job_opportunities')->with('message-success', 'Successfully Updated!');
     }
 
