@@ -108,7 +108,15 @@
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
                                                       <label for="">Job Requirements</label>
-                                                      <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control">
+                                                      <!-- old version | not textarea | "working" -->
+                                                      <!-- <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control"> -->
+
+                                                      <textarea type="text" rows="4", cols="54" id="keterangan" name="job_requirements" 
+                                                      class="form-control style="resize:none;">{{$job_opportunities->job_requirements}}</textarea>
+                                                      <!-- <textarea name="job_requirements" id="job_requirements" value="{{$job_opportunities->job_requirements}}" cols="54" rows="4"
+                                                      style="resize: none;">
+                                                        hello world
+                                                      </textarea> -->
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">
@@ -125,8 +133,10 @@
                                                   </div>
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
-                                                      <label for="">Status</label>
-                                                      <Input type="text" value="{{$job_opportunities->status}}" name="status" class="form-control">
+                                                      <label for="status">Status</label>
+                                                      <!-- <Input type="text" value="{{$job_opportunities->status}}" name="status" class="form-control"> -->
+                                                      <input type="checkbox" name="status" id="status" value="check"
+                                                      {{$job_opportunities->status === "Available" ? 'checked' : ''}}
                                                     </div>
                                                   </div>
                                                 </div>

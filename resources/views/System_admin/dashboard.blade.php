@@ -68,7 +68,7 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
 
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800 mb-4">Overview</h1>
 
 
             <!-- Row of panels for dashboard -->
@@ -81,7 +81,7 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-blue order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <h6 class="m-b-20">Total Registered Alumni</h6>
+                                    <p class="m-b-20">Total Registered Alumni</p>
                                     <h2 class="text-right text-white"><i class="fa fa-users f-left"></i><span>{{$registered}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
@@ -91,7 +91,7 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-green order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <h6 class="m-b-20">Total Employed</h6>
+                                    <p class="m-b-20">Total Employed</p>
                                     <h2 class="text-right text-white"><i class="fa fa-arrow-up f-left"></i><span>{{$employed}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
@@ -101,7 +101,7 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-yellow order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <h6 class="m-b-20">Total Unemployed</h6>
+                                    <p class="m-b-20">Total Unemployed</p>
                                     <h2 class="text-right text-white"><i class="fa fa-arrow-down f-left"></i><span>{{$unemployed}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
@@ -111,7 +111,7 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-pink order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <h6 class="m-b-20">Pending Offers</h6>
+                                    <p class="m-b-20">Pending Offers</p>
                                     <h2 class="text-right text-white"><i class="fa fa-briefcase f-left"></i><span>{{$pending_offer}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
@@ -123,54 +123,74 @@
 
             <!-- panel for Newly Hired Alumni -->
 
-            <div class="fresh-table full-color-orange">
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-14">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col col-sm-3 col-xs-12">
-                                        <h4 class="title">Featured<span></span></h4>
-                                    </div>
-                                    <div class="col-sm-9 col-xs-12 text-right">
-                                        <a type="button" class="btn btn-primary text-center text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                            <h6>View All</h6>
-                                        </a>
+            <div class="card text-center">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="content">
+                        <div class="container">
+                            <!-- end row -->
+
+                            <div class="row">
+                                @foreach ($alumni_records as $alumni_record)
+                                <div class="col-lg-4">
+                                    <div class="text-center card-box">
+                                    <p class="text-muted">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}}</p>
+                                        <p class="text-muted"></p>
+                                        
+                                        <div class="member-card pt-2 pb-2">
+                                        <br>
+                                            <div class="thumb-lg member-thumb mx-auto"><img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/270516813_127149413121408_7993175803829396048_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGHCvnf7D8OMbQKMoPqvveVaR-FEKEmjehpH4UQoSaN6PCA2Ov3X8Xn3AJUzEvu9Ud_iHlhJG_SNW2hkROTdHBg&_nc_ohc=AKSwQqOzf_cAX8zqSts&_nc_ht=scontent.fceb2-1.fna&oh=00_AT8XBY_jvDWBFMoFY26wmyhvWZzc6XYSvk0YeLj82mXKDg&oe=626B7743" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                            <div class="">
+                                                <h5>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
+                                                <p class="text-muted">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-pink">{{$alumni_record->company_name}}</a></span></p>
+                                            </div>
+                                            <ul class="social-links list-inline">
+                                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="{{$alumni_record->email}}" data-original-title="Email"><i class="fa fa-envelope"></i></a></li>
+                                            </ul>
+                                            <br>
+                                            <a href="{{route('alumni.show',[
+                                        'fname'=>$alumni_record->first_name, 
+                                        'mi'=>$alumni_record->middle_name, 
+                                        'lname'=>$alumni_record->last_name, 
+                                        'gender'=>$alumni_record->gender, 
+                                        'contact'=>$alumni_record->contact, 
+                                        'email'=>$alumni_record->email, 
+                                        'home'=>$alumni_record->home_address,
+                                        'present'=>$alumni_record->present_address,
+                                        'school'=>$alumni_record->school_graduated,
+                                        'pending'=>$alumni_record->pending_offer,
+                                        'status'=>$alumni_record->employment_status,
+                                        'batch_no'=>$alumni_record->batch_no,
+                                        'cname'=>$alumni_record->company_name,
+                                        'location'=>$alumni_record->company_location,
+                                        'title'=>$alumni_record->job_title,
+                                        'work_arr'=>$alumni_record->work_arrangement,
+                                        'update_date'=>$alumni_record->updated_at
+                                        ])}}" class="profile_button px-5">View Profile</a>
+                                            <div class="mt-4">
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- end col -->
+                                @endforeach
                             </div>
-                            <div class="panel-body  table-responsive">
-                                <table id="fresh-table " class="table text-light">
-                                    <thead>
-                                        <th>Newly Hired Alumni</th>
-                                        <th>Job Details</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            @foreach ($alumni_records as $alumni_record)
-                                            <td>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</td>
-                                            <td>{{$alumni_record->work_arrangement}} {{$alumni_record->job_title}} at {{$alumni_record->company_name}}, {{$alumni_record->company_location}}</td>
-                                            <?php
-                                            $date = $alumni_record->updated_at;
-                                            $phpdate = strtotime($date);
-                                            $mysqldate = date('D M d, Y', $phpdate);
-                                            ?>
-                                            <td>{{$mysqldate}}</td>
-                                            <td>
-                                                <a href="#"> <span class="fa fa-eye text-center text-light" style="color:light"></span></a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="panel-footer">
-                                {{$month}}
-                            </div>
+
+                            <!-- end row -->
+
+                            <!-- end row -->
                         </div>
+                        <!-- container -->
                     </div>
+                </div>
+                <div class="card-footer text-muted">
+                    {{$month}}
                 </div>
             </div>
 
@@ -200,9 +220,29 @@
                                             <p class="text-light">Email</p> <span class="num">{{$alumni_record->email}}</span>
                                         </div>
                                     </div>
-                                    <hr class="line"> <h6 class="mt-4">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}} at {{$alumni_record->company_name}}, {{$alumni_record->company_location}}</h6>
+                                    <hr class="line">
+                                    <h6 class="mt-4">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}} at {{$alumni_record->company_name}}, {{$alumni_record->company_location}}</h6>
                                     <div class="social-buttons mt-5"> <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button> <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button> </div>
-                                    <div class="profile mt-5"> <a href="#" class="profile_button px-5">View profile</a> </div>
+                                    <div class="profile mt-5"> <a href="{{route('alumni.show',[
+                                        'fname'=>$alumni_record->first_name, 
+                                        'mi'=>$alumni_record->middle_name, 
+                                        'lname'=>$alumni_record->last_name, 
+                                        'gender'=>$alumni_record->gender, 
+                                        'contact'=>$alumni_record->contact, 
+                                        'email'=>$alumni_record->email, 
+                                        'home'=>$alumni_record->home_address,
+                                        'present'=>$alumni_record->present_address,
+                                        'school'=>$alumni_record->school_graduated,
+                                        'pending'=>$alumni_record->pending_offer,
+                                        'status'=>$alumni_record->employment_status,
+                                        'batch_no'=>$alumni_record->batch_no,
+                                        'cname'=>$alumni_record->company_name,
+                                        'location'=>$alumni_record->company_location,
+                                        'title'=>$alumni_record->job_title,
+                                        'work_arr'=>$alumni_record->work_arrangement,
+                                        'update_date'=>$alumni_record->updated_at
+                                        ])}}" class="profile_button px-5">View profile</a> </div>
+
                                 </div>
                             </div>
                         </div>

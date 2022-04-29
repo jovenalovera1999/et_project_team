@@ -67,12 +67,12 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-sm-12">
-                        <div class="card">
+                        <div class="card" style="margin-left: 12px; margin-top: 35px">
                             <div class="card-header text-center bg-c-pink">
                                 <h1 class="text-white">Account Registration</h1>
                             </div>
                             <div class="row">
-                                <div class="col-sm-7" style="margin-left: 12px">
+                                <div class="col-sm-7" style="margin-left: 12px; margin-top: 30px">
                                     <form action="/register" method="POST" class="mt-3">
                                         @csrf
                                         @if(Session::has('message-success'))

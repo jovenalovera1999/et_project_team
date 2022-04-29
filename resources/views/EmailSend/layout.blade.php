@@ -12,13 +12,15 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{URL::asset('css/jquery.dataTables.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{URL::asset('css/dataTables.checkboxes.css')}}">
+  <link rel="stylesheet" href="{{URL::asset('css/dataTables.min.css')}}"> -->
   <link rel="stylesheet" href="{{URL::asset('css/select.dataTables.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{URL::asset('css/trumbowyg.min.css')}}">
 </head>
 
 <body>
-  
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
       <div class="custom-menu">
@@ -76,30 +78,61 @@
   <script src="{{URL::asset('js/popper.js')}}"></script>
   <script src="{{URL::asset('js/custom.js')}}"></script>
   <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
+  <script src="{{URL::asset('js/dataTables.checkboxes.min.js')}}"></script>
   <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
   <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
+  <script src="{{URL::asset('js/trumbowyg.min.js')}}"></script>
   <script>
     $(document).ready(function() {
       $('#emailtb').DataTable({
-        columnDefs: [{
-          orderable: true,
-          className: 'select-checkbox',
-          targets: 0,
-          checkboxes: {
-            'selectRow' : true
-          }
-        }],
-        select: {
-          style: 'multi'
-          //selector: 'td:first-child'
-        },
+        //   columnDefs: [{
+        //     orderable: false,
+        //     className: 'select-checkbox',
+        //     targets: 0,
+        //     checkboxes: {
+        //       selectRow: true
+        //   }
+        // }],
+        //   select: {
+        //     style: 'multi',
+        //     selector: 'td:first-child'
+        //   },
         order: [
           [1, 'asc']
         ]
       });
-      
+      $("#select_all").on('click', function() {
+        if ($(this).prop('checked')) {
+          $('.select-checkbox').each(function() {
+            $(this).prop('checked', true);
+          });
+        } else {
+          $('.select-checkbox').each(function() {
+            $(this).prop('checked', false);
+          });
+        }
+      });
+      //Importing Trumbowyg
+      $("#message").trumbowyg();
+      $.get(svgPath, function(data) {
+        div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
+      });
+
+      function updateTextArea() {
+        var allVals = [];
+        $('#alluser :checked').each(function() {
+          allVals.push($(this).val());
+        });
+        $('#emailaddress').val(allVals);
+      }
+      $(function() {
+        $('#select_all').click(updateTextArea);
+        updateTextArea();
+      });
     });
   </script>
+
 </body>
+
 </html>
 @endif

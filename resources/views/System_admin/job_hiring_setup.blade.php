@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" class="rel">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -124,16 +125,25 @@
                                                                 <td>{{$job_opportunities->job_requirements}}</td>
                                                                 <td>{{$job_opportunities->company_location}}</td>
                                                                 <td>{{$job_opportunities->vacancy_no}}</td>
-                                                                <td>{{$job_opportunities->status}}</td>
-                                                                <td>
-                                                                    
-                                                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
-                                                                    <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="btn btn-danger">Delete</button>
+                                                                <td> 
+                                                                    <form action="/job_opportunities_status/{{$job_opportunities->id}}" method="POST" id="statusCheckbox">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <input data-id="{{$job_opportunities->id}}"  class="toggle-class" type="checkbox" data-onstyle="success"
+                                                                        data-offstyle="danger" data-toggle="toggle" data-on="Available" data-off="Unavailable"
+                                                                        name="status_checkbox" value="check" onchange="$('#statusCheckbox').submit();"
+                                                                        {{$job_opportunities->status === 'Available' ? 'checked' : ''}}>
                                                                     </form>
+                                                                </td>
+
+                                                                <td>
+                                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                                        <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
+                                                                        <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="btn btn-danger">Delete</button>
+                                                                        </form>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -150,7 +160,6 @@
                                                             <th>Vacancy No</th>
                                                             <th>Status</th>
                                                             <th>Actions</th>
-                                                            
                                                             </tr>
                                                         </tfoot>
                                                     </table>
@@ -174,6 +183,7 @@
     <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
     <script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 <script>
     $(document).ready( function () {

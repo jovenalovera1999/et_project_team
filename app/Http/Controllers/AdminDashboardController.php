@@ -45,4 +45,28 @@ class AdminDashboardController extends Controller
          'month' => $month,
          'pending_offer' => $pending_offer]);
     }
+
+    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $update_date)
+    {
+        return view ('System_admin.view_newly_hired', [
+            'fname' => $fname, 
+            'mi' => $mi, 
+            'lname' => $lname, 
+            'gender' => $gender, 
+            'contact' => $contact, 
+            'email' => $email, 
+            'home' => $home,
+            'present' => $present,
+            'school' => $school,
+            'batch_no' => $batch_no,
+            'pending' => $pending,
+            'status' => $status,
+            'cname' => $cname,
+            'location' => $location,
+            'title' => $title,
+            'work_arr' => $work_arr,
+            'update_date' => $update_date
+        ]);
+
+    }
 }

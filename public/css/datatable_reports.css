@@ -3,7 +3,7 @@
 }
 
 .panel {
-    background-image: linear-gradient(#003171, #000080);
+    background: linear-gradient(to right, #6610f2, #0798bd);
     padding: 0;
     border-radius: 10px;
     border: none;
@@ -79,16 +79,12 @@
 }
 
 .panel .panel-body .table tbody tr td {
-    background-color: rgb(255, 255, 255);
+    color: #fff;
     font-size: 15px;
     text-align: center;
     padding: 10px 12px;
     vertical-align: middle;
     border: none;
-    color: rgb(0, 0, 0);
-    font-size: 13.5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
 }
 
 .panel .panel-body .table tbody tr:nth-child(even) {

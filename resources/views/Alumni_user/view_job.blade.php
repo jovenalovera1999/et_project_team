@@ -55,15 +55,17 @@
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-5 pt-5">
-        <a href="{{url('user_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#0543af"></span><h1 class="h3 mb-0 text-gray-800 mb-4">Apply Now!</h1></a>
-            
+            <a href="{{url('user_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#0543af"></span>
+                <h1 class="h3 mb-0 text-gray-800 mb-4">Apply Now!</h1>
+            </a>
+
             <form action="#" class="border shadow p-3 rounded " style="width: 1000px;">
 
-                <div class="profile-card-4 text-center"><img src="https://emedprimarycare.com/wp-content/uploads/2017/08/We-Are-Hiring.jpg" class="img img-responsive">
+                <div class="profile-card-4 size text-center"><img src="https://i.pinimg.com/originals/44/9b/a5/449ba5c2de071881d083b0172fd4f649.gif" class="img img-responsive">
 
                     <div class="profile-content">
-                        <div class="profile-name ">{{$c_name}}
-                            <p>We are hiring {{$role}} {{$title}}. Apply now!</p>
+                        <div class="profile-name "><mark>{{$c_name}}</mark>
+                            <p><mark>We are hiring {{$role}} {{$title}}. Apply now!</mark></p>
                         </div>
                         <div class="profile-description">If you're interested, you can email us at opportunity@email.com and submit the ff. requirements: {{$reqs}}</div>
                         <div class="row">
@@ -83,6 +85,11 @@
                                 <div class="profile-overview">
                                     <p>Status</p>
                                     <h4>{{$status}}</h4>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="profile-overview">
+                                    <a href="#!" class="profile_button px-5">Apply Now!</a>
                                 </div>
                             </div>
                         </div>
