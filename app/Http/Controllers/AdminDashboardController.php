@@ -36,6 +36,8 @@ class AdminDashboardController extends Controller
 
         //  Month Footer
         $month = Carbon::now()->format('M Y');
+
+        $total_alumni = alumni_records::get(['*']);
        
         //  View Data to dashboard
         return view('System_admin.dashboard', ['alumni_records' => $alumni_records,
@@ -43,7 +45,8 @@ class AdminDashboardController extends Controller
          'employed' => $employed,
          'registered' => $registered,
          'month' => $month,
-         'pending_offer' => $pending_offer]);
+         'pending_offer' => $pending_offer,
+         'total_alumni' => $total_alumni]);
     }
 
     public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $update_date)

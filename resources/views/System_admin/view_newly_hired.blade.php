@@ -30,7 +30,7 @@
     <body class='card-bg'>
         <div id="content" class="p-4 p-md-5 pt-5">
         <div style="float:right;">
-            <a href="{{url('admin_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#0543af"></span></a>
+            <a href="{{url('admin_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#062847"></span></a>
         </div>
             <div class="page-content page-container" id="page-content">
                 <div class="padding">
@@ -55,7 +55,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Gender</p>
-                                                    <h6 class="text-muted f-w-400">{{$gender}}</h6>
+                                                    <h6 class=" f-w-400">{{$gender}}</h6>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <p class="m-b-10 f-w-600">Home Address</p>

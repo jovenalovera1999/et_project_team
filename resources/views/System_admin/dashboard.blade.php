@@ -83,7 +83,7 @@
                                 <div class="card-block">
                                     <p class="m-b-20">Total Registered Alumni</p>
                                     <h2 class="text-right text-white"><i class="fa fa-users f-left"></i><span>{{$registered}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
+                                    <a class="m-b-0 text-white" href="/alumni_records">View details</a>
                                 </div>
                             </div>
                         </div>
@@ -130,18 +130,20 @@
                 <div class="card-body">
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
-                        <div class="container">
+                        <div class="container card-title">
+                        <p><mark><b>Congratulations Newly Hired Alumni!</b></mark></p>
+                        <br>
                             <!-- end row -->
 
                             <div class="row">
                                 @foreach ($alumni_records as $alumni_record)
                                 <div class="col-lg-4">
                                     <div class="text-center card-box">
-                                    <p class="text-muted">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}}</p>
+                                        <p class="text-muted">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}}</p>
                                         <p class="text-muted"></p>
-                                        
+
                                         <div class="member-card pt-2 pb-2">
-                                        <br>
+                                            <br>
                                             <div class="thumb-lg member-thumb mx-auto"><img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/270516813_127149413121408_7993175803829396048_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGHCvnf7D8OMbQKMoPqvveVaR-FEKEmjehpH4UQoSaN6PCA2Ov3X8Xn3AJUzEvu9Ud_iHlhJG_SNW2hkROTdHBg&_nc_ohc=AKSwQqOzf_cAX8zqSts&_nc_ht=scontent.fceb2-1.fna&oh=00_AT8XBY_jvDWBFMoFY26wmyhvWZzc6XYSvk0YeLj82mXKDg&oe=626B7743" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                             <div class="">
                                                 <h5>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
@@ -196,63 +198,7 @@
 
 
             <!-- PANEL START CODE  -->
-
-
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog" style="max-width: 40%;">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Newly Hired Alumni</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <br>
-
-                        @foreach ($alumni_records as $alumni_record)
-                        <div class="container d-flex justify-content-center">
-                            <div class="cards p-3 py-4">
-                                <div class="text-center"> <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/270516813_127149413121408_7993175803829396048_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGHCvnf7D8OMbQKMoPqvveVaR-FEKEmjehpH4UQoSaN6PCA2Ov3X8Xn3AJUzEvu9Ud_iHlhJG_SNW2hkROTdHBg&_nc_ohc=AKSwQqOzf_cAX8zqSts&_nc_ht=scontent.fceb2-1.fna&oh=00_AT8XBY_jvDWBFMoFY26wmyhvWZzc6XYSvk0YeLj82mXKDg&oe=626B7743" width="100" class="rounded-circle">
-                                    <h3 class="mt-2 text-light">{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h3> <span class="mt-1 clearfix">{{$alumni_record->job_title}}</span>
-                                    <div class="row mt-3 mb-3">
-                                        <div class="col-md-6">
-                                            <p class="text-light">Contact</p> <span class="num">{{$alumni_record->contact}}</span>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="text-light">Email</p> <span class="num">{{$alumni_record->email}}</span>
-                                        </div>
-                                    </div>
-                                    <hr class="line">
-                                    <h6 class="mt-4">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}} at {{$alumni_record->company_name}}, {{$alumni_record->company_location}}</h6>
-                                    <div class="social-buttons mt-5"> <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button> <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button> </div>
-                                    <div class="profile mt-5"> <a href="{{route('alumni.show',[
-                                        'fname'=>$alumni_record->first_name, 
-                                        'mi'=>$alumni_record->middle_name, 
-                                        'lname'=>$alumni_record->last_name, 
-                                        'gender'=>$alumni_record->gender, 
-                                        'contact'=>$alumni_record->contact, 
-                                        'email'=>$alumni_record->email, 
-                                        'home'=>$alumni_record->home_address,
-                                        'present'=>$alumni_record->present_address,
-                                        'school'=>$alumni_record->school_graduated,
-                                        'pending'=>$alumni_record->pending_offer,
-                                        'status'=>$alumni_record->employment_status,
-                                        'batch_no'=>$alumni_record->batch_no,
-                                        'cname'=>$alumni_record->company_name,
-                                        'location'=>$alumni_record->company_location,
-                                        'title'=>$alumni_record->job_title,
-                                        'work_arr'=>$alumni_record->work_arrangement,
-                                        'update_date'=>$alumni_record->updated_at
-                                        ])}}" class="profile_button px-5">View profile</a> </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        @endforeach
-
-
-                    </div>
-                </div>
-            </div>
+           
 
 
 
