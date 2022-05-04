@@ -32,10 +32,15 @@
 
             </div>
             <div class="p-4">
+            <div style="align-items: center; text-align: center; margin-top:5px;">
                 <a class="navbar-brand" href="#">
+                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                 </a>
-                <h1><a href="index.html" class="logo ">Menu<span class="text-white">User: {{Auth::user()->name}}</span></a></h1>
-                <br>
+                <h6 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
+                </div>
+                <br><br>
+                <h1><a href="index.html" class="logo ">Menu</a></h1>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
                         <a href="{{url('user_dashboard')}}"><span class="fa fa-home mr-3"></span> Dashboard</a>
@@ -55,13 +60,13 @@
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-5 pt-5">
-            <a href="{{url('user_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#0543af"></span>
+            <a href="{{url('user_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#001c52"></span>
                 <h1 class="h3 mb-0 text-gray-800 mb-4">Apply Now!</h1>
             </a>
 
-            <form action="#" class="border shadow p-3 rounded  profile-card-box " style="width: 1000px;">
+            <form action="#" class="border shadow p-3 rounded  profile-card-box ">
 
-                <div class="profile-card-4 size text-center"><img src="https://i.pinimg.com/originals/44/9b/a5/449ba5c2de071881d083b0172fd4f649.gif" class="img img-responsive">
+                <div class="profile-card-4 size text-center"><img src="{{ asset('images/apply-now.gif') }}" class="img img-responsive">
 
                     <div class="profile-content">
                         <div class="profile-name "><mark>{{$c_name}}</mark>
