@@ -60,7 +60,7 @@
                                             </label>
                                         </div>
                                         <div class="mb-3 text-center">
-                                            <button type="submit" class="btn btn-color color-theme text-white" style="width: 200px">Login</button>
+                                            <button type="submit" class="btn bg-c-blue color-theme text-white" style="width: 200px">Login</button>
                                         </div>
                                     </form>
                                 </div>
