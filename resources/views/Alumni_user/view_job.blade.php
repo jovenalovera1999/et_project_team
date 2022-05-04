@@ -59,7 +59,7 @@
                 <h1 class="h3 mb-0 text-gray-800 mb-4">Apply Now!</h1>
             </a>
 
-            <form action="#" class="border shadow p-3 rounded " style="width: 1000px;">
+            <form action="#" class="border shadow p-3 rounded  profile-card-box " style="width: 1000px;">
 
                 <div class="profile-card-4 size text-center"><img src="https://i.pinimg.com/originals/44/9b/a5/449ba5c2de071881d083b0172fd4f649.gif" class="img img-responsive">
 

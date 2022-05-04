@@ -31,7 +31,7 @@ background: linear-gradient(to right, #64b3f4, #c2e59c); }
   
   
  }
-}
+
 </style>
         
     </head>
