@@ -33,10 +33,15 @@
 
             </div>
             <div class="p-4">
+            <div style="align-items: center; text-align: center; margin-top:5px;">
                 <a class="navbar-brand" href="#">
+                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                 </a>
-                <h1><a href="index.html" class="logo ">Menu<span class="text-white">User: {{Auth::user()->name}}</span></a></h1>
-                <br>
+                <h6 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
+                </div>
+                <br><br>
+                <h1><a href="index.html" class="logo ">Menu</a></h1>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
                         <a href="{{url('user_dashboard')}}"><span class="fa fa-home mr-3"></span> Dashboard</a>
@@ -69,11 +74,16 @@
                                         <!-- <i class="fa fa-repeat fa-2x text-white font-large-2 mr-2"></i> -->
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="text-white"> Pending Offers</h4>
-                                        <span class="text-white"> {{$user}} </span>
+                                        <?php 
+                                        $name= Auth::user()->name;
+                                        $fname = explode(' ',trim($name));
+                                        $first_name = $fname[0]
+                                        ?>
+                                        <h4 class="text-white text-size-m"> Hello, {{$first_name}}!</h4>
+                                        <span class="text-white text-size-small"> {{$user}} </span>
                                     </div>
                                     <div class="align-self-center">
-                                        <h1 class="text-white"><i class="fa fa-repeat fa-1x text-white font-large-2 mr-2"></i></h1>
+                                        <h1 class="text-white"><i class="fa fa-info fa-1x text-white font-large-2 mr-2"></i></h1>
                                     </div>
                                 </div>
                             </div>
@@ -86,15 +96,15 @@
                         <div class="card-content">
                             <div class="card-body cleartfix">
                                 <div class="media align-items-stretch">
-                                    <div class="align-self-center">
-                                        <i class=" fa fa-briefcase fa-2x text-white font-large-2 mr-2"></i>
+                                    <div class="align-self-center" style="margin-right: 7px;">
+                                        <i class=" fa fa-thumb-tack fa-2x text-white font-large-2 mr-2"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="text-white"> Job Oppurtunities</h4>
-                                        <span class="text-white"> Total Number of Job Oppurtunities</span>
+                                        <h4 class="text-white text-size-m"> Now Hiring!</h4>
+                                        <span class="text-white text-size-small">Overall Posted Job Oppurtunities</span>
                                     </div>
                                     <div class="align-self-center">
-                                        <h1 class="text-white">{{$job_opportunities_count}}</h1>
+                                        <h1 class="text-white text-size-num">{{$job_opportunities_count}}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -113,16 +123,17 @@
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
                         <div class="container card-title ">
-                        <p>Available Job Opportunities</p>
+                        <p><b>Available Job Opportunities. Apply now!</b></p>
+                     
                             <!-- end row -->
 
                             <div class="row">
                                 @foreach ($job_opportunities as $job_opportunity)
                                 <div class="col-lg-4">
-                                    <div class="profile-card-4 text-center"><img src="https://www.bworldonline.com/wp-content/uploads/2021/07/Upskilling-meeting-640x427.jpg" class="img img-responsive">
+                                    <div class="profile-card-4 text-center"><img src="{{ asset('images/now-hiring-bg.jpg') }}" class="img img-responsive">
                                         <div class="profile-content">
-                                            <div class="profile-name"><mark>{{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark>
-                                                <p><mark>{{$job_opportunity->company_name}}</mark></p>
+                                            <div class="profile-name"><mark>{{$job_opportunity->company_name}}</mark>
+                                                <p><mark>{{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
                                             </div>
                                             <div class="profile-description">Apply now and be a part of our growing family.</div>
                                             <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5">Read More</a>

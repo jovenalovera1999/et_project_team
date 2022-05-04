@@ -5,10 +5,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-body {
-    margin-top: 20px;
-}
-
 .grey-bg {
     background-color: #ffffff;
 }
@@ -52,6 +48,33 @@ body {
 
 .bg-color {
     background: linear-gradient(45deg, #00264D, #02386E);
+}
+
+.bg-color1 {
+    background: linear-gradient(45deg, #033f7a, #04519e);
+}
+
+.padding-color {
+    background-image: linear-gradient(#D1913C, #f7b969);
+}
+
+.text-size-m {
+    font-size: 22px;
+    font-family: Verdana, sans-serif;
+    font-stretch: ultra-expanded;
+}
+
+.text-size-small {
+    font-size: 17px;
+    font-family: Verdana, sans-serif;
+    font-stretch: ultra-expanded;
+    font-style: italic;
+}
+
+.text-size-num {
+    font-size: 40px;
+    font-family: sans-serif;
+    font-stretch: ultra-expanded;
 }
 
 .card {
@@ -128,8 +151,8 @@ body {
     height: auto;
 }
 
-.text-pink {
-    color: #ff679b!important;
+.text-red {
+    color: #e0092d!important;
 }
 
 .btn-rounded {
@@ -612,7 +635,7 @@ small,
 mark,
 .mark {
     padding: 0.2em;
-    background-color: #f6ffa5;
+    background-color: #f4fac1;
 }
 
 .list-unstyled {
@@ -4800,6 +4823,7 @@ input[type="button"].btn-block {
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    text-align: center;
 }
 
 .navbar>.container,
@@ -11174,10 +11198,19 @@ h5,
 
 #sidebar h1 .logo {
     color: #fff;
+    font-size: 22px;
+}
+
+#sidebar h6 .font-user {
+    color: #fff;
+    font-size: 15px;
+    font-family: Arial, sans-serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
 }
 
 #sidebar h1 .logo span {
-    font-size: 12px;
+    font-size: 13px;
     color: #44bef1;
     display: block;
 }
@@ -11186,8 +11219,14 @@ h5,
     padding: 0;
 }
 
+
+/* side bar font size */
+
 #sidebar ul li {
-    font-size: 13.5px;
+    font-size: 14.5px;
+    font-family: 'OCR A Std', monospace !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
 }
 
 #sidebar ul li>ul {
@@ -11199,13 +11238,10 @@ h5,
 }
 
 #sidebar ul li a {
-    padding: 12px 0;
+    padding: 12px;
     display: block;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: 'Open Sans' !important;
-    font-style: normal !important;
-    font-weight: 500 !important;
 }
 
 #sidebar ul li a span {
@@ -11588,13 +11624,14 @@ a[data-toggle="collapse"] {
 }
 
 .profile-card-4 .profile-name {
-    font-weight: 1000px;
+    font-weight: bold;
     position: absolute;
+    font-family: Georgia, serif;
     left: 0px;
     right: 0px;
     top: -110px;
     color: #777;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .profile-card-4 .profile-name p {
