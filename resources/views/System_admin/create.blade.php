@@ -106,7 +106,9 @@
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Job Requirements</label>
-                                                            <Input type="text" name="job_requirements" class="form-control">
+                                                            <!-- <Input type="text" name="job_requirements" class="form-control"> -->
+                                                            <textarea rows="4", cols="54" id="keterangan" name="job_requirements" class="form-control style="resize:none, "></textarea>
+                                                            
                                                           </div>
                                                         </div>
                                                         <div class="col-lg-12">
@@ -121,10 +123,25 @@
                                                             <Input type="number" name="vacancy_no" class="form-control">
                                                           </div>
                                                         </div>
-                                                        <div class="col-lg-12">
+
+                                                        <!-- This is the first Status 'Working' -->
+
+                                                       <!-- <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Status</label>
                                                             <Input type="text" name="status" class="form-control">
+                                                          </div>
+                                                        </div> -->
+
+
+                                                        <!-- This is the 2nd Status w/ checkbox. -->
+
+                                                        <div class="col-lg-12">
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                              Status
+                                                            </label>
                                                           </div>
                                                         </div>
                                                 </div>
