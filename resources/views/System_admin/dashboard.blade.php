@@ -130,13 +130,13 @@
 
             <div class="card text-center">
                 <div class="card-header">
-                    Featured
+                    <h6><b>Featured</b></h6>
                 </div>
                 <div class="card-body">
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
                         <div class="container card-title">
-                            <p><mark><b>Congratulations Newly Hired Alumni!</b></mark></p>
+                            <h6 class="padding-color text-light" style="padding-top: 10px; padding-bottom: 10px;"><b>Congratulations Newly Hired Alumni!</b></h6>
                             <br>
                             <!-- end row -->
 
@@ -152,7 +152,7 @@
                                             <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders-logo.png') }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                             <div class="">
                                                 <h5>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
-                                                <p class="text-muted">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-pink">{{$alumni_record->company_name}}</a></span></p>
+                                                <p class="text-muted">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-red">{{$alumni_record->company_name}}</a></span></p>
                                             </div>
                                             <ul class="social-links list-inline">
                                                 <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>

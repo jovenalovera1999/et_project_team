@@ -38,7 +38,7 @@
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
                 <ul class="list-unstyled components mb-4">
-                    <li class="active">
+                    <li>
                         <a href="admin_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                     </li>
                     <li>
@@ -47,7 +47,7 @@
                     <li>
                         <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
-                    <li>
+                    <li  class="active">
                         <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship Sponsors</a>
                     </li>
                     <li>

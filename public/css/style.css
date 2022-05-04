@@ -50,6 +50,14 @@
     background: linear-gradient(45deg, #00264D, #02386E);
 }
 
+.bg-color1 {
+    background: linear-gradient(45deg, #033f7a, #04519e);
+}
+
+.padding-color {
+    background-image: linear-gradient(#D1913C, #f7b969);
+}
+
 .text-size-m {
     font-size: 22px;
     font-family: Verdana, sans-serif;
@@ -143,8 +151,8 @@ body {
     height: auto;
 }
 
-.text-pink {
-    color: #ff679b!important;
+.text-red {
+    color: #e0092d!important;
 }
 
 .btn-rounded {
