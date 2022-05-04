@@ -1,4 +1,4 @@
-@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
+@if(!Auth::check())
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
@@ -29,7 +29,8 @@
                 <a class="navbar-brand" href="#">
                     <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADgCAMAAADCMfHtAAABelBMVEX///8AAAD5GTD/GDBTU1Pi4uL5+fm1tbWysrLW1taenp54eHgyMjKGhob5ACSpqalaWlrHx8dKSkr5ABz5ABqZmZkPDw8rKytFRUXn5+ePj4++vr7z8/PNzc3t7e2np6dmZmZycnIXFxchISH/9/g5OTkdHR0AKyj5AAB1dXVfX18NDQ2RkZH9xMn+4+b5DCj+0dX8oKf8lZz/7/H9yM3/N0j8qbD2AA/kyMv6U2D6R1f7bHj9trz7doH7gIoZKirEHy2wICuBk5LjGi77Xmzu2dvot7teQkR4hIPICyK2AAx+ABXHNkP6JjsAEhBMJymTJCtrJiq0ER9aJyl/JSmhIivkDyU4KChVJyrQHS/8iZOfFiINIiBAKihjJyojOTg6TkxfEhdMYF/VM0HLABrctbjkAA0qGhjKnqHCsbO5QElFFxhOAACRAxd3JSyGIyzgkpjOAACWABOXPUWHS1CJZ2nVUVzkqq/mjZTkdn7lSVXmY23KcHfiJjgl5qK0AAARlklEQVR4nO1di18aSbamumneNNANAvIQRMX4QlRAFA0Gk0121lETNdFs3N2szkx270yye3c387j532/VqX53IyZpIWHr+/0mMnQD9XV9dc6pU6e6PR4GBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBoavBYlRN+DO4UfRUTfhrpFBc75Rt+Fukc+ge6Nuw90iNIkWY2PdiwGE0ERMGHUz7hA5zBAthEfdjLtEmlCcHXUr7hBRiTD0pkbdjjtAvgx/BEIQSWjErbkToNk8/jeeQdOLCE0H9QNCdmRtche467AJLWJTmkEoHadv+vwlhMbFeVQwxaInVvCiMn4FwVuhRCQ7NmPSi6ZRKFHEtnQS08LKLMzCmByfIRlFcTSLAtiWphAKeTwxTK6CBRsbdcNcgx9NROkgDKBKKjI1jVApjFBk1O1yD9jGLGGJZsIoQbSZWUShe0iaHBczQ4B7j8Rs0YkCHX+JBfzP1Khb5SaKcRTFspzwZRGxoYKXDMRRN8pdxOdQEHv7fBHhAZmF8G1cnL0CPP5mgyhdDqIMKpIeRIVRN8ltYDeRwv9hP1EEXz+GealgFAXjGQkJWKYoEhz8gS8SSzdFYZhZMYL8fuwLv1Z+ZHp0wwx+df93s5slAT1Ofb1DkASbUl83vtzin/ye++b8D/WNlZlhNss9LIEzn+iXalqWOY7neJ6Xky35oL1bX/7aiAaRgpzzccJQR02Uk0l+a3uts7o+3HZ+OtIqQzJ7cMCGiaHCsyYmk+JBe2ets/LFE51EOspOJ2wk7Qy1DlWIfsnKDSIjMnn7GYXf870eDyORDEhHoli5YmP/yxyiaRNDNG23N8FvD6vVo+P73e4xx3UVqg5MeSBaa7R3m59BtLP6WXTsiCIrbPZmVX77tHf4aq9avaxWq88Oq3snx9zpOX/OA2xkCVGZwz3a/Hjvsr4733GJmYKgjaA9y7Q6L+/KoiiLZ/yTp/zRyZPnh2+r6fvPq5cv0t0X3fM9zFXpV97ao1i6F5joLVszU+dF8cJdhhUHhlZ7s7728MHmdvvh5v78/nIjmdyWRbkncy+Tp2+f/PHoVfXwfvXZ/cujy94Jt8f3lI61Snf7YmCPrq9x2GrXtl0laNeog72ZqSf+9Ofi+p+Rfz2AppqbD67b9UR9fnujMd/ebiUbya78tLv3l73qUfUV7tj00fHeaa/L9aBjFbI8le4W9i6rhh6dWV9ZXe50mvV6s94WwSvVttwkWHAmiCAPrGF1Xmx2+GS90DnohApr168frxTQ65kciq2GHjfrgfcHnUe1rU6ttXOW/Kv49Or09C/Hrw7Tf3xWPXqxt7d3cK5QxSDeZb7ZOdhqb+9c7LQbnIjVr6Cmdrub1ni6L0OjvVlN8rLMc1ibfLLNya2L3XluudPayS3vXz949P71g5UHKFtAudXX103/xf5mu9GUG9vfNbq1oycn3xx/f1h5lX777Kh7et7rcXyrs9LiazhiEMWao+uRbztqb4Fwf4JGexP8/rz74rx30uNfntWwtzgTeS4p8yKfFOX9VmtnmwzP9pu17anr5us3m9XEw283c687Uz/svtlfW6vVk781zv52dfr25eXfX7z6n6l1sW8AQRluuEawv0YBJfU84cdq9bhafV5NV6uH1efH1Z9+qu5dXp4/656/rZ32zrr8kySJbsQDLNSDVn3rYKO9+2b7hzf1x5uhxyvVh49D19Hm0u4P+++2dt/NcLWbGbZccxe+xZsZ0nUnjBWZw0Opy3OnXO/krHvZO3pxfni5Vz05rJ5Un6er6eeE+CU2NHvp7nH3mycvz57WrsQe/91+srEz3zy4WNv+YTdUjz4qb8Y8DZ0guSpYqzX9Hb4mJ9uuqbQ8gCBGUGXIQbjG01kUp3p6/ozvcZj9Htft9o56x+eX3WdHz04OL7GdeZVOv7r/4vmLn56/fPbjP7+5evr0u7/+o/GLp61rtIE1fLG7s72/1aBcRbGx3XRvFCYGE0TIDwxbN8tKoc3pJpOvcbUz8Uq++u7q6h//vPrxdO/yf/+18O9wyLNtmqe0O9RuzqyvNtfWmhvrbppR320IIrREzu20HI2eQVvUNmLXnkzKYo1rNLba+9u7a/VmZ3ljdWV9ZkZp+gVMU0S1H2syt+OeXbGgdDuGaIGcvGK0DgofWeNzQPlcrDU7G6uET98fbYIa5AsIXihEeat5J9OR3C0JYntTxKevb7WAEXTQVruN+Sj9QzrI9u2FgFNGxPcfyBaQoGWmfpBUdVFLHqy5zzF/a4JIsTfNJvC5qYc0kLyPPSOS30quEHmKkBOYaeoccY/iCdfqKg7g6jsukb2tRin8Dt+QQtN90jp0ymkrhMt/EJObB9jdLavvYI6cLtYkaKS17w5B/0cRRGjS9g1giR3yAerBaevyTbFX45Ib7VrSODlqHlhTQHLTFYLOGp1Y6E9xwfoVUGJzwy+of/NFAUSexQQ58efdpHnmMLPGmyMc0Z20ljMVwVPI9KUYKVopRifNXejDXAqJnD8WWoqGy3FptqLETKQ3s2eESG2n3rIyWGkb81y1tisEA04UpoGCWmrhAH3JwlfMApnYVApzWfDOOk6jFaRJKv2hSI3Kh86yvTkdgyuS624QLDo1pKL2US7Sr60B8tm+R/sg4zEQ5ETHkbuy1RIVku7MnOJOV9rw0/65Pq0lBUM+70cR9AJBWXUL8w+dm7R6sSUTV+vO/N5Jo7PmVZlYn1kHVH0tfQTBEvnApu7bf+3frJXO7taB6IYlddKoZDsr5NziNNHyrUJ2AKzYXetxe9JqrixwiI4+AQ4q86rHgrpr96WcG01WEItp52NWgBd9pBNsvXeDwCDE7A2JawcFlNHXQPPOeTio97pVSATLPO91gjdp1D1k7Q0pGQ7j8SfpXiHvmMeBAsU+KjYiAATnDc58gEbdgWRriCl+BI8f1zlmyw5NjxOzNCDHo0Te7wxz5+FodMq5RzQonVbS5z6CgyDB3uT7xwYEBSvBUWnUElJrV6CsB86Cg22C9t+7gSBcop+N2Q+5X5juKmxhp3UNxqC9sD5qgnZtg71xjP4AcH1+MRJsPRoGQZt5sC1q+4x+IKpf9YRNkuDqnBauMObgg78YI2rxt2EQFBw7wgJTSGeoI81ZfaCXHPM5TUYg1vb8Zloadw5I3Ya1H5xm7uZVfSxjnaPfMoOYAynanSbE2p7/mKa2w9GoNUjpl4OwjC6DkmOWhRyo4bOmC2j88KuJ4Gg02r/E0DK6Fg1itoxkqBUWTLzp4uqv5sWX4dhRi0ZvqlCzurrpgHbIEq7SYjjD2AX36rMQHI5GLXOeATWGVjdf0SXtMw1UWgynfTlkyH1bZoLD0ahFeQM3S9pmFhGdoykkpzk1ZUIFqs1/sK4PDkWjZlt/i0Jte07cMO0oli269BSJoQXjXPxgWR4cjkZNNn36VjG+YJ/nZwwhuaZjNc9YoraLJtVGq9HKLUXj5M29OkdBsS/a1gRQ/sOabYF3KLtPjBpN3/4XnULrBX0IK+Gq8YJpSbURanT2Yy6p4zy3pI9iyK4azLKeVBuuRo2TVXvO6dYf1VHWB3IignRnuWlbK+aHo1FD+tM7+GwzBOd0dlTnGFhSX9kJcq1rlzjcCINGbesrg9EvAxy12atrO0HxFzcIDIIhu+lYADwQfUrf0JJZgI/sBPmzoWhUt/mfek8EhwQkhTFD8N6hXqO16QaBgShruvrkr+ifV9M2IjoRHI5G9eSSfRn39uif5FamHe8cCPK9Ie00LdgV9QlwWq+imPNbkmpD1qi6EvPZ+1on+1JEf/o/p90Kw9Koh9aQBgafNgg3FDecOtXtD0ujHkjkO+ecPhJ9UocYxw4Mh6ZRD/FnfetePg598/iHdoby8DSKjalLBD19F9W+PbBr1LXfHDL6LJt+sDKcH6JGXYZzwd8fLDIdqkbdhuBU3n9kZvj1ahTglNywGNNWn5qSrwb25IbZmMo/j7qFnw3bSrLJmPIfRt0+F2CrqPkwThoFZC2FYQZjOgYapTAnN3RjOhYapTAlN3RjOh4apTAmN/7Oj5tGAYbkhmpMa+OjUYAhufFh/DRKoRWMU2OaHCuNUqjJDTCm7u7g/VLgNxjT8dMogCY3vscMk+9G3ZY7AiQ3sDEdT41SkOTGB35MNUqRwsZ0bDVKkUMvx1ijAOF4nDUKGKf7fTIwMDAw/NdByHiVrWte8iInSX6PR/JmaH3ekpTJejxxL0EGytlyklevq4pKcMQrpfIZeDFJSqWmpEzB46NvhIP0N+Cs0dxBmsx9aCERIpvPA7AJA7+cg/fuQTWxMskF0mTRQquB15YTw9q2TQEmxQn9viIhffH4c6pBPh3w637KcMLAkNIOQ5OljCRVKMOidoggmpEiCEWkzBJ+vyJJ03CzdpXhhCSRPE6e/EZkIR73juZO9fT6Zu0MobghrFWER+mrFHmOh/HBD356fbK04spLHqSgMiRlkAvkdfBzqpU+G/jX8ZVPeywMJ6jgdIbKqzk0WzAVPsTopcjSnk2Rs1SGZO9MlGx7GDnDaBm2WZoYVvxQ3mxlGCT7DUw1nDrDUlYowFhWGaYDsSV8/eBTUiqVcr436p0jSOS1SLrFrFJiRco2hqDVkrHwWWdIMWW1NFnN0syNkCFpQn7azJAUGuWiFoag54RxL5SZYYW81hhWKtg+TYClQYsje2IEMCT13JmKhSHZJ+U1MyQ3oA+Hy8bGGlRaXCSS9JgsjZ8MwZGPQ2IEoTDPzFApYycMVZujl9NoBftGS5OjRchGS5MnRL8Ihj4HhpS2QMjliNCy+KRFHN/EMwbnbbKlC2BmVYaRXC7nJZvh8YdLiUQiN5rntgUN+12tDH2UYZl2W4RKjr6/qH7exDAPDt5saai3AIymI4NqiJICWjGwhgpDaJqg9OVskezvo1ufJD1ym6J7bQV644IAeThblGzeVBku5jwjZugTBGVjgUCewpUXhDx5qQgqKwgkfikmEjAc1bfz2oeUD5BjRfpH8OXhQwKgqPwGYChb2BgYGL4kFEOTamVtMTapPppD8VnBnPa/foqcR1BmFMHQZEixOH7VSMHp/skpbTdUIqi+Sw7QzW75wNLSEJ9RU0AVr7Jbtoz9+Cyag012FbppYUkJy6anPGhiDk8QJiLYE5B3ihkUiaeRF+wizLo8HnoogrwV7S4N3iiJiZT6eVqFjecZXqn/XQBcxxxxTlHiCtIThJuvDPsIIzSmTtH7InjSkFopQQTjJzSKSCL9lM3A9EL1pQEcK6RIEDClbhWOA0NlvzGwKlFuqWE9k86nRZZh9daAUegIJ4YL4KqBofqMR49EzkAB2k2EYcnkz4GhFKXfTbgF1N3V/mE9GlLd5pXXbz1AopkBDAvazDBLuhwFc9BwwnDS1HJgGPFUSvDFmGGfZ4PcIRLK5vOcfnfHaHwgw6i+BTWCRyy+OvfI5wlD3xya0jkqDIvQx5hhFg3lHlEmkO3m+NrGJrR3QrMDGd7TN/iRN0n/z5UoQ4hsNaUqDPEFFIBhcCSPLc1H8ag39qF3cB/qGZpZ2oe4m2IKQ3KK8jmNIQxzzFAYQR8SpBBuoLYVmwyVAQwTWlfA+IUxjIeiXxVCVh3VGkNPeoGOw6EnS4EX0U5J8WmYrk9jSH0ftrhg4Q22VMsGL0ACEviEpwPT2L8Dd9UF6gyLyE++JaTaqMKQntHqh8aFyf0QUATs+CSwidC1BR8qQTtpawwMBVQiTPILNIlMeyxCPD/c962gOiGdIcltkG+WqFj8KFUYzvpFGEnlNPyoT0KZclyZ00amM5nZWZi0lkpqOiYODGm/CnPIW/aiNFwVZR5cJBmoAprA76umBmIa5X4Sys6yMEqXS2S+PPDWMS4hGC2nFOEEl8pRJeiMhQjwC18sHA4og84PRIKKR0tEy1ElvEwpXhx6JR8qRzXfSj5SUIdeil6obOheOOYj8etdcWJgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGAYBv4fd+m8niPxOCkAAAAASUVORK5CYII=" alt="" width="75" height="75" class="d-inline-block align-text-top" style="border-radius: 50px"> -->
                 </a>
-                <h1><a href="index.html" class="logo ">Menu<span class="text-white">Admin: {{Auth::user()->name}}</span></a></h1>
+                <h1><a href="index.html" class="logo ">Menu<span class="text-white">Admin:
+                            {{Auth::user()->name}}</span></a></h1>
                 <br>
                 <ul class="list-unstyled components mb-4">
                     <li>
@@ -42,7 +43,8 @@
                         <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                     </li>
                     <li>
-                        <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship Sponsors</a>
+                        <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship
+                            Sponsors</a>
                     </li>
                     <li>
                         <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
@@ -66,38 +68,44 @@
             <div id="content" class="p-4 p-md-5 pt-5" style="width: 16in;">
                 <div>
                     <div class="container mr-10">
-                        <div class="container">
+                        <div class="contaciner">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
-                                        <div class="card-header bg-c-pink">
+                                        <div class="card-header">
                                             <div class="float-left">
-                                                <h2 class="text-white">View Alumni Record</h2>
+                                                <h2>View Alumni Record</h2>
                                             </div>
                                             <div class="float-right">
-                                                <a href="/alumni_records/create" class="btn btn-success">Add New Alumni Records</a>
+                                                <a href="/alumni_records/create" class="btn btn-secondary">Add New
+                                                    Alumni Records</a>
                                             </div>
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive">
                                                 @if(Session::has('message-success'))
                                                 <p class="alert alert-success" role="alert">
-                                                    <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                                                    <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check"
+                                                        fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
                                                     </svg>
                                                     {{ Session::get('message-success') }}
                                                 </p>
                                                 @endif
                                                 @if(Session::has('message-error'))
                                                 <p class="alert alert-danger" role="alert">
-                                                    <svg width="1.25em" height="1.25em" class="bi bi-exclamation-circle-fill" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                    <svg width="1.25em" height="1.25em"
+                                                        class="bi bi-exclamation-circle-fill" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                                                     </svg>
                                                     {{ Session::get('message-error') }}
                                                 </p>
                                                 @endif
-                                                <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                    <thead class="bg-c-pink text-white">
+                                                <table id="myTable"
+                                                    class="table table-bordered table-hover table-striped">
+                                                    <thead class="thead-dark">
                                                         <tr>
                                                             <th>ID</th>
                                                             <th>Name</th>
@@ -113,6 +121,7 @@
                                                             <th>Company Name</th>
                                                             <th>Company Location</th>
                                                             <th>Job Title</th>
+                                                            <th>Date Hired</th>
                                                             <th>Work Arrangement</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -121,7 +130,9 @@
                                                         @foreach ($alumni_records as $alumni_records)
                                                         <tr>
                                                             <td>{{$alumni_records->id}}</td>
-                                                            <td>{{$alumni_records->first_name}} {{$alumni_records->middle_name}} {{$alumni_records->last_name}}</td>
+                                                            <td>{{$alumni_records->first_name}}
+                                                                {{$alumni_records->middle_name}}
+                                                                {{$alumni_records->last_name}}</td>
                                                             <td>{{$alumni_records->gender}}</td>
                                                             <td>{{$alumni_records->contact}}</td>
                                                             <td>{{$alumni_records->email}}</td>
@@ -134,12 +145,17 @@
                                                             <td>{{$alumni_records->company_name}}</td>
                                                             <td>{{$alumni_records->company_location}}</td>
                                                             <td>{{$alumni_records->job_title}}</td>
+                                                            <td>{{$alumni_records->date_hired}}</td>
                                                             <td>{{$alumni_records->work_arrangement}}</td>
                                                             <td>
 
-                                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="/alumni_records/{{$alumni_records->id}}" class="btn btn-info">Update</a>
-                                                                    <form action="/alumni_records/{{$alumni_records->id}}" method="POST">
+                                                                <div class="btn-group" role="group"
+                                                                    aria-label="Basic example">
+                                                                    <a href="/alumni_records/{{$alumni_records->id}}"
+                                                                        class="btn btn-info">Update</a>
+                                                                    <form
+                                                                        action="/alumni_records/{{$alumni_records->id}}"
+                                                                        method="POST">
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <button class="btn btn-danger">Delete</button>
@@ -149,7 +165,7 @@
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
-                                                    <tfoot class="bg-c-pink text-white">
+                                                    <tfoot class="thead-dark">
                                                         <tr>
                                                             <th>ID</th>
                                                             <th>Name</th>
@@ -165,6 +181,7 @@
                                                             <th>Company Name</th>
                                                             <th>Company Location</th>
                                                             <th>Job Title</th>
+                                                            <th>Date Hired</th>
                                                             <th>Work Arrangement</th>
                                                             <th>Action</th>
 
@@ -198,9 +215,9 @@
 <script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
+$(document).ready(function() {
+    $('#myTable').DataTable();
+});
 </script>
 </body>
 

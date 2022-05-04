@@ -194,6 +194,8 @@
                                                             if (!company_location.disabled) {}
                                                             work_arrangement.disabled = pending_offer.checked ? true : false;
                                                             if (!work_arrangement.disabled) {}
+                                                            date_hired.disabled = pending_offer.checked ? true : false;
+                                                            if (!work_arrangement.disabled) {}
                                                         }
                                                     </script>
                                                     <label for="pending_offer">
@@ -231,6 +233,10 @@
                                                 <div class="mb-3" style="width: 4.5in;">
                                                     <input type="text" class="form-control" id="company_location" name="company_location" placeholder="Company Location" value="{{old('company_location')}}">
                                                     <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
+                                                </div>
+                                                <div class="mb-3" style="width: 4.5in;">
+                                                    <input type="date" class="form-control" id="date_hired" name="date_hired" placeholder="Date Hired" value="">
+                                                    <span class="text-danger">@error('date_hired') {{$message}} @enderror</span>
                                                 </div>
                                                 <!-- <div class="mb-3" style="width: 4.5in;">
 
