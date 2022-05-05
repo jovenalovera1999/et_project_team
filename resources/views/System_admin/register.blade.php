@@ -120,8 +120,14 @@
                                         </div>
                                     </form>
                                 </div>
+<<<<<<< Updated upstream
                                 <div class="col" style="margin-right: 30px; margin-top: 90px">
                                     <img src="{{ asset('images/coders_tribe_primary_logo.png') }}" alt="Ninja Tribe Solutions Inc." style="width: 100%">
+=======
+                                <div class="col" style="margin-right: 12px; margin-top: 73px">
+                                    <img src="images/coders_tribe_primary_logo.png"
+                                    alt="Ninja Tribe Solutions Inc." style="width: 100%">
+>>>>>>> Stashed changes
                                 </div>
                             </div>
                         </div>

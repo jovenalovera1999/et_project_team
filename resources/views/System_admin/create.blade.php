@@ -92,39 +92,45 @@
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Company Name</label>
-                                                            <Input type="text" name="company_name" class="form-control">
+                                                            <Input type="text" name="company_name" class="form-control" value="{{old('company_name')}}">
+                                                            <span class="text-danger">@error('company_name') {{$message}} @enderror</span>
                                                           </div>
                                                         </div>
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Job Title</label>
-                                                            <Input type="text" name="job_title" class="form-control">
+                                                            <Input type="text" name="job_title" class="form-control" value="{{old('job_title')}}">
+                                                            <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
                                                           </div>
                                                         </div>
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Job Role</label>
-                                                            <Input type="text" name="job_role" class="form-control">
+                                                            <Input type="text" name="job_role" class="form-control" value="{{old('job_role')}}">
+                                                            <span class="text-danger">@error('job_role') {{$message}} @enderror</span>
                                                           </div>
                                                         </div>
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Job Requirements</label>
                                                             <!-- <Input type="text" name="job_requirements" class="form-control"> -->
-                                                            <textarea rows="4", cols="54" id="keterangan" name="job_requirements" class="form-control style="resize:none, "></textarea>
-                                                            
+                                                            <textarea rows="4" cols="54" id="keterangan" name="job_requirements"
+                                                            class="form-control" style="resize: none">{{old('job_requirements')}}</textarea>
+                                                            <span class="text-danger">@error('job_requirements') {{$message}} @enderror</span>
                                                           </div>
                                                         </div>
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Company Location</label>
-                                                            <Input type="text" name="company_location" class="form-control">
+                                                            <Input type="text" name="company_location" class="form-control" value="{{old('company_location')}}">
+                                                            <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
                                                           </div>
                                                         </div>
                                                         <div class="col-lg-12">
                                                           <div class="form-group">
                                                             <label for="">Non. of Vacancy</label>
-                                                            <Input type="number" name="vacancy_no" class="form-control">
+                                                            <Input type="number" name="vacancy_no" class="form-control" value="{{old('vacancy_no')}}">
+                                                            <span class="text-danger">@error('vacancy_no') {{$message}} @enderror</span>
                                                           </div>
                                                         </div>
 
@@ -142,8 +148,8 @@
 
                                                         <div class="col-lg-12">
                                                           <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
-                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                            <input class="form-check-input" type="checkbox" value="check" id="status" name="status">
+                                                            <label class="form-check-label" for="status">
                                                               Status
                                                             </label>
                                                           </div>

@@ -95,18 +95,21 @@
                                                     <div class="form-group">
                                                       <label for="">Company Name</label>
                                                       <Input type="text" value="{{$job_opportunities->company_name}}" name="company_name" class="form-control">
+                                                      <span class="text-danger">@error('company_name') {{$message}} @enderror</span>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
                                                       <label for="">Job Title</label>
                                                       <Input type="text" value="{{$job_opportunities->job_title}}" name="job_title" class="form-control">
+                                                      <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
                                                       <label for="">Job Role</label>
                                                       <Input type="text" value="{{$job_opportunities->job_role}}" name="job_role" class="form-control">
+                                                      <span class="text-danger">@error('job_role') {{$message}} @enderror</span>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">
@@ -116,7 +119,8 @@
                                                       <!-- <Input type="text" value="{{$job_opportunities->job_requirements}}" name="job_requirements" class="form-control"> -->
 
                                                       <textarea type="text" rows="4", cols="54" id="keterangan" name="job_requirements" 
-                                                      class="form-control style="resize:none;">{{$job_opportunities->job_requirements}}</textarea>
+                                                      class="form-control" style="resize:none">{{$job_opportunities->job_requirements}}</textarea>
+                                                      <span class="text-danger">@error('job_requirements') {{$message}} @enderror</span>
                                                       <!-- <textarea name="job_requirements" id="job_requirements" value="{{$job_opportunities->job_requirements}}" cols="54" rows="4"
                                                       style="resize: none;">
                                                         hello world
@@ -127,12 +131,14 @@
                                                     <div class="form-group">
                                                       <label for="">Company Location</label>
                                                       <Input type="text" value="{{$job_opportunities->company_location}}" name="company_location" class="form-control">
+                                                      <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">
                                                     <div class="form-group">
                                                       <label for="">Non. of Vacancy</label>
                                                       <Input type="number" value="{{$job_opportunities->vacancy_no}}" name="vacancy_no" class="form-control">
+                                                      <span class="text-danger">@error('vacancy_no') {{$message}} @enderror</span>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-12">

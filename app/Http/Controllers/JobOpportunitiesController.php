@@ -38,6 +38,17 @@ class JobOpportunitiesController extends Controller
      */
     public function store(Request $request) 
     {
+        $request->validate([
+            'company_name' => 'required',
+            'job_title' => 'required',
+            'job_role' => 'required',
+            'job_requirements' => 'required',
+            'company_location' => 'required',
+            'vacancy_no' => 'required'
+        ]);
+
+        $status_isChecked = $request->status != null;
+
         $job_opportunity = new job_opportunities;
         $job_opportunity->company_name = $request->company_name;
         $job_opportunity->job_title = $request->job_title;
@@ -45,7 +56,11 @@ class JobOpportunitiesController extends Controller
         $job_opportunity->job_requirements = $request->job_requirements;
         $job_opportunity->company_location = $request->company_location;
         $job_opportunity->vacancy_no = $request->vacancy_no;
-        $job_opportunity->status = $request->status;
+        if($status_isChecked) {
+            $job_opportunity->status = 'Available';
+        } else {
+            $job_opportunity->status = 'Unavailable';
+        }
         $job_opportunity->save();
 
         return Redirect('/job_opportunities')->with('message-success', 'Successfully Added!');
@@ -82,8 +97,16 @@ class JobOpportunitiesController extends Controller
      */
     public function update(Request $request, job_opportunities $job_opportunity)
     {
-        $status = $request->status != null;
-        $status_isChecked = $request->status_checkbox != null;
+        $request->validate([
+            'company_name' => 'required',
+            'job_title' => 'required',
+            'job_role' => 'required',
+            'job_requirements' => 'required',
+            'company_location' => 'required',
+            'vacancy_no' => 'required'
+        ]);
+        
+        $status_isChecked = $request->status != null;
 
         $job_opportunity->company_name = $request->company_name;
         $job_opportunity->job_title = $request->job_title;
@@ -91,7 +114,7 @@ class JobOpportunitiesController extends Controller
         $job_opportunity->job_requirements = $request->job_requirements;
         $job_opportunity->company_location = $request->company_location;
         $job_opportunity->vacancy_no = $request->vacancy_no;
-        if($status) {
+        if($status_isChecked) {
             $job_opportunity->status = 'Available';
         } else {
             $job_opportunity->status = 'Unavailable';
