@@ -55,7 +55,15 @@
 }
 
 .padding-color {
-    background-image: linear-gradient(#D1913C, #f7b969);
+    background-image: linear-gradient(#f0edd2, #f7f5af);
+}
+
+.text {
+    font-size: 16px;
+    font-family: system-ui !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    color: rgba(77, 77, 77, 0.815);
 }
 
 .text-size-m {
@@ -5334,6 +5342,14 @@ input[type="button"].btn-block {
     margin-bottom: 0;
     background-color: rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#fitlabel th {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
 }
 
 .card-header:first-child {

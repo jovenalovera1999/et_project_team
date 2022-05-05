@@ -27,12 +27,12 @@
 
             </div>
             <div class="p-4">
-            <div style="align-items: center; text-align: center; margin-top:5px;">
-                <a class="navbar-brand" href="#">
-                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
-                </a>
-                <h5 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                <div style="align-items: center; text-align: center; margin-top:5px;">
+                    <a class="navbar-brand" href="#">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                    </a>
+                    <h5 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
+                    <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -77,7 +77,9 @@
                                     <div class="card-header  bg-c-pink text-white">
                                         <h4 class="text-white m-b-20">Add New Alumni Record</h4>
                                         <div class="float-right">
-                                            <a href="/alumni_records" class="btn btn-success">View Alumni Records</a>
+                                            <a href="/alumni_records" type="button" class="btn profile_button2 text-light">
+                                                <span class="fa fa-eye  mr-3" style="color:light"></span>View Alumni Record
+                                            </a>
                                         </div>
                                     </div>
 
@@ -158,7 +160,7 @@
                                                 <!-- Addresses -->
                                                 <div class="mb-3" style="width: 4.5in;">
                                                     <label for="home_address" class="form-label">Address</label>
-                                                    <input type="text" class="form-control" id="home_address" name="home_address" placeholder="Home Address"value="{{old('home_address')}}">
+                                                    <input type="text" class="form-control" id="home_address" name="home_address" placeholder="Home Address" value="{{old('home_address')}}">
                                                     <span class="text-danger">@error('home_address') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
@@ -269,10 +271,13 @@
                                                 <!-- Employment Status -->
 
                                                 <!-- Scholarship Sponsors -->
+
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="scholarship_sponsors" class="form-label">Scholarship Sponsors</label>
                                                     <select class="form-select" name="scholarship_sponsors" id="scholarship_sponsors" role="button" value="{{old('scholarship_sponsors')}}">
-                                                        <option selected>Select sponsor</option>
+                                                        @foreach ($scholarship_sponsors as $scholarship_sponsor)
+                                                        <option value="">{{$scholarship_sponsor->sponsor}}</option>
+                                                        @endforeach
                                                     </select>
                                                     <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
                                                 </div>
@@ -311,7 +316,7 @@
 
 
                                                 <div class="mb-3 text-center">
-                                                    <button type="submit" class="btn btn-primary color-theme" style="width: 200px">Create</button>
+                                                    <button type="submit" class="btn bg-c-blue text-light" style="width: 200px">Create</button>
                                                 </div>
                                                 <!-- Code for Checkbox -->
 
@@ -340,11 +345,11 @@
     <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
     <script src="{{URL::asset('js/custom.js')}}"></script>
     <script>
-        if(pending_offer.checked) {
+        if (pending_offer.checked) {
 
         }
     </script>
 </body>
+
 </html>
 @endif
-

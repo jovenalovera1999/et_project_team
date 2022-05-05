@@ -136,7 +136,7 @@
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
                         <div class="container card-title">
-                            <h6 class="padding-color text-light" style="padding-top: 10px; padding-bottom: 10px;"><b>Congratulations Newly Hired Alumni!</b></h6>
+                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px;">Congratulations Newly Hired Alumni!</h6>
                             <br>
                             <!-- end row -->
 
