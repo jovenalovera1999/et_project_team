@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('job_requirements');
             $table->string('company_location');
             $table->integer('vacancy_no');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

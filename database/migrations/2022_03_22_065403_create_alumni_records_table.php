@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('company_location')->nullable();
             $table->string('job_title')->nullable();
+            $table->string('date_hired')->nullable();
             $table->string('work_arrangement')->nullable();
             $table->binary('profile_picture')->nullable();
             $table->timestamp('created_at')->useCurrent();

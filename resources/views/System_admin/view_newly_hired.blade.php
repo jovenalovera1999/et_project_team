@@ -28,118 +28,121 @@
     <!-- Page Content  -->
 
     <body class='card-bg'>
-        <div id="content" class="p-4 p-md-5 pt-5">
-        <div style="float:right;">
-            <a href="{{url('admin_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#0543af"></span></a>
-        </div>
-            <div class="page-content page-container" id="page-content">
-                <div class="padding">
-                    <div class="row container d-flex justify-content-center">
-                        <div class="">
-                            <div class=" card user-card-full floats-center" style="width: 1050x;">
-                                <div class="row m-l-0 m-r-0">
-                                    <div class="col-sm-4 bg-c-lite-green user-profile">
-                                        <div class="card-block text-center text-white">
-                                            <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
-                                            <h4 class="text-light f-w-600">{{$fname}} {{$lname}}</h4>
-                                            <h6 class="text-light f-w-600">{{$title}}</h6> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="card-block">
-                                            <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Personal Information</h5>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Full Name</p>
-                                                    <h6 class="text-muted f-w-400">{{$fname}} {{$mi}} {{$lname}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Gender</p>
-                                                    <h6 class="text-muted f-w-400">{{$gender}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Home Address</p>
-                                                    <h6 class="text-muted f-w-400">{{$home}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Present Address</p>
-                                                    <h6 class="text-muted f-w-400">{{$present}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">School Graduated</p>
-                                                    <h6 class="text-muted f-w-400">{{$school}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Batch No.</p>
-                                                    <h6 class="text-muted f-w-400">{{$batch_no}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Email</p>
-                                                    <h6 class="text-muted f-w-400">{{$email}}</h6>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p class="m-b-10 f-w-600">Phone</p>
-                                                    <h6 class="text-muted f-w-400">{{$contact}}</h6>
-                                                </div>
+        <div id="content" class=" ">
 
-                                            </div>
-                                            <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Employment Details</h6>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Status</p>
-                                                        <h6 class="text-muted f-w-400">{{$status}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Pending Job Offer</p>
-                                                        <h6 class="text-muted f-w-400">{{$pending}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Company Name</p>
-                                                        <h6 class="text-muted f-w-400">{{$cname}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Company Location</p>
-                                                        <h6 class="text-muted f-w-400">{{$location}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Job Title</p>
-                                                        <h6 class="text-muted f-w-400">{{$title}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Work Arrangement</p>
-                                                        <h6 class="text-muted f-w-400">{{$work_arr}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Last Updated</p>
-                                                        <?php
-                                                        $date = strtotime($update_date);
-                                                        $last_updated = date('D M d, Y', $date);
-                                                        ?>
-                                                        <h6 class="text-muted f-w-400">{{$last_updated}}</h6>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <p class="m-b-10 f-w-600">Date Hired</p>
-                                                        <?php
-                                                        $date = strtotime($update_date);
-                                                        $last_updated = date('D M d, Y', $date);
-                                                        ?>
-                                                        <h6 class="text-muted f-w-400">{{$last_updated}}</h6>
-                                                    </div>
-                                                </div>
 
-                                                <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                                </ul>
-                                        </div>
+
+            <div class="row container d-flex justify-content-center">
+
+                <div class="card user-card-full floats-center">
+                    <div class="row ">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img src="{{ asset('images/user.png') }}" class="img-radius" alt="User-Profile-Image"> </div>
+                                <h4 class="text-light f-w-600">{{$fname}} {{$lname}}</h4>
+                                <h6 class="text-light f-w-600">{{$title}}</h6> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div style="float:right;">
+                                <a href="{{url('admin_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#062847; margin-top:20px;"></span></a>
+                            </div>
+                            <div class="card-block">
+                            <br><br>
+                                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Personal Information</h5>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Full Name</p>
+                                        <h6 class="text-muted f-w-400">{{$fname}} {{$mi}} {{$lname}}</h6>
                                     </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Gender</p>
+                                        <h6 class=" f-w-400">{{$gender}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Home Address</p>
+                                        <h6 class="text-muted f-w-400">{{$home}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Present Address</p>
+                                        <h6 class="text-muted f-w-400">{{$present}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">School Graduated</p>
+                                        <h6 class="text-muted f-w-400">{{$school}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Batch No.</p>
+                                        <h6 class="text-muted f-w-400">{{$batch_no}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Email</p>
+                                        <h6 class="text-muted f-w-400">{{$email}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Phone</p>
+                                        <h6 class="text-muted f-w-400">{{$contact}}</h6>
+                                    </div>
+
                                 </div>
+                                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Employment Details</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Status</p>
+                                            <h6 class="text-muted f-w-400">{{$status}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Pending Job Offer</p>
+                                            <h6 class="text-muted f-w-400">{{$pending}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Company Name</p>
+                                            <h6 class="text-muted f-w-400">{{$cname}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Company Location</p>
+                                            <h6 class="text-muted f-w-400">{{$location}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Job Title</p>
+                                            <h6 class="text-muted f-w-400">{{$title}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Work Arrangement</p>
+                                            <h6 class="text-muted f-w-400">{{$work_arr}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Last Updated</p>
+                                            <?php
+                                            $date = strtotime($update_date);
+                                            $last_updated = date('D M d, Y', $date);
+                                            ?>
+                                            <h6 class="text-muted f-w-400">{{$last_updated}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Date Hired</p>
+                                            <?php
+                                            $date = strtotime($update_date);
+                                            $last_updated = date('D M d, Y', $date);
+                                            ?>
+                                            <h6 class="text-muted f-w-400">{{$last_updated}}</h6>
+                                        </div>
+                                    </div>
+
+                                    <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
+                                    </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
+
         </div>
     </body>
 

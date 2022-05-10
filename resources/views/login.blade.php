@@ -60,13 +60,13 @@
                                             </label>
                                         </div>
                                         <div class="mb-3 text-center">
-                                            <button type="submit" class="btn btn-primary color-theme text-white" style="width: 200px">Login</button>
+                                            <button type="submit" class="btn bg-c-blue color-theme text-white" style="width: 200px">Login</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col" style="margin-right: 12px">
+                                <div class="col" style="margin-right: 30px; margin-top:27px;">
                                     <img src="images/coders_tribe_primary_logo.png"
-                                    alt="Ninja Tribe Solutions Inc." style="width: 100%">
+                                    alt="Ninja Tribe Solutions Inc." style="width: 100%; ">
                                 </div>
                             </div>
                         </div>
