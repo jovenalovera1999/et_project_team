@@ -53,10 +53,13 @@
       <div class="card">
         <h5 class="card-header bg-c-pink text-white">Compose Email</h5>
         <div class="card-body">
-          <form>
+          <form method="post" action="{{url('sendemail')}}">
             <div class="form-group">
+              @if(Session::has('msg'))
+                <p class="text-success">{{session('msg')}}</p>
+              @endif
               <label for="Email">Email address</label>
-              <textarea type="text" class="form-control" id="emailaddress" name="emailaddress" placeholder="Input email/s here..."></textarea>
+              <textarea type="text" class="form-control" id="emailaddress" name="emailaddress[]" placeholder="Input email/s here..."></textarea>
             </div>
             <div class="form-group">
               <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">

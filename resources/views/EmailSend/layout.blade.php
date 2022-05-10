@@ -101,7 +101,8 @@
           [1, 'asc']
         ]
       });
-      $("#select_all").on('click', function() {
+
+      $('#select_all').on('click', function() {
         if ($(this).prop('checked')) {
           $('.select-checkbox').each(function() {
             $(this).prop('checked', true);
@@ -111,24 +112,69 @@
             $(this).prop('checked', false);
           });
         }
+
+        $('#emailaddress').html(getEmail());
+
       });
+
+      $('.select-checkbox').on('click', function(){
+
+        $('#emailaddress').html(getEmail());
+      });
+
+      function getEmail(){
+        var arr_email = [];
+        var emailtxt = '';
+
+        $('.select-checkbox').each(function(){
+          if( $(this).prop('checked')){
+            arr_email.push($(this).val());
+          }
+        });
+
+        if(arr_email.length > 0){
+          for(var i = 0; i < arr_email.length; i++){
+            if(i==1){
+              emailtxt += arr_email[i] + ", ";
+            }else if (i == arr_email.length - 1){
+              emailtxt += arr_email[i];
+            }else{
+              emailtxt += arr_email[i] + ", ";
+            }
+          }
+        }
+        return emailtxt;
+      }
+
+
+      // $("#select_all").on('click', function() {
+      //   if ($(this).prop('checked')) {
+      //     $('.select-checkbox').each(function() {
+      //       $(this).prop('checked', true);
+      //     });
+      //   } else {
+      //     $('.select-checkbox').each(function() {
+      //       $(this).prop('checked', false);
+      //     });
+      //   }
+      // });
       //Importing Trumbowyg
       $("#message").trumbowyg();
       $.get(svgPath, function(data) {
         div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
       });
 
-      function updateTextArea() {
-        var allVals = [];
-        $('#alluser :checked').each(function() {
-          allVals.push($(this).val());
-        });
-        $('#emailaddress').val(allVals);
-      }
-      $(function() {
-        $('#select_all').click(updateTextArea);
-        updateTextArea();
-      });
+      // function updateTextArea() {
+      //   var allVals = [];
+      //   $('#alluser :checked').each(function() {
+      //     allVals.push($(this).val());
+      //   });
+      //   $('#emailaddress').val(allVals);
+      // }
+      // $(function() {
+      //   $('#select_all').click(updateTextArea);
+      //   updateTextArea();
+      // });
     });
   </script>
 
