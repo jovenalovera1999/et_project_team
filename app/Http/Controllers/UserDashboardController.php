@@ -29,52 +29,25 @@ class UserDashboardController extends Controller
         $job_opportunities_count = job_opportunities::where('status', '=', 'Available')
             ->count();
 
-        //Identify if user has pending offers or none
-        // $user = DB::table('alumni_records')->Where(DB::raw
-        // ("CONCAT(`first_name`, ' ', `middle_name`,' ', `last_name`)"), 'LIKE', "%".$name."%")
-        // ->get('pending_offer');
-
 
         //Identify if user has pending offers or none
         $name = Auth::user()->name;
-        if ($name = null)
+        $result = DB::table('alumni_records')->select('pending_offer')
+            ->where(DB::raw('concat(first_name," ",middle_name," ",last_name)'), $name)->first();
+        
+         $user = $result->pending_offer; 
+
+        if (str_contains($user, 'out'))
         {
-            $user = 'User is unidentified';
-        }
-        elseif ($name != null)
-        {
-            $name = Auth::user()->name;
+            $user = 'You have no pending offer as of the moment';
         }
         else
         {
-            $user = 'Something went wrong';
-        }
-        
-        $user = alumni_records::where(
-            DB::raw('concat(first_name," ",middle_name," ",last_name)'),
-            'LIKE',
-            '%' . $name . '%')->get('pending_offer');
-
-
-        if (str_contains($user, 'out')) {
-            $user = 'You have no pending offer as of the moment';
-        } else {
             $user = 'You have a pending offer as of the moment';
         }
 
-        // if ($user = 'with')
-        // {
-        //     $user = 'You have a pending offer as of the moment';
-        // }
-        // elseif ($user ='without')
-        // {
-        //     $user = 'You have no pending offer as of the moment';
-        // }
-        // else
-        // {
-        //     $user = 'Unidentified';
-        // }
-            // for footer
+        
+        // for footer
         $month = Carbon::now()->format('M Y');
 
 
@@ -85,19 +58,15 @@ class UserDashboardController extends Controller
             'user' => $user,
             'month' => $month
         ]);
-
     }
 
     public function show($id, $c_name, $title, $role, $reqs, $location, $vacancy, $status)
     {
-        return view ('Alumni_user.view_job', ['id' => $id, 'c_name' => $c_name, 'title' => $title, 'role' => $role, 'reqs' => $reqs, 'location' => $location, 'vacancy' => $vacancy, 'status' => $status]);
-
+        return view('Alumni_user.view_job', ['id' => $id, 'c_name' => $c_name, 'title' => $title, 'role' => $role, 'reqs' => $reqs, 'location' => $location, 'vacancy' => $vacancy, 'status' => $status]);
     }
 
     public function pending_offer($id)
     {
         return view($id);
     }
-
-  
 }

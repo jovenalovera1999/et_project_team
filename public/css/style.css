@@ -64,7 +64,7 @@
 
 .panel-text {
     color: #fff;
-    font-size: 16.1px;
+    font-size: 14px;
     font-family: system-ui !important;
     font-style: normal !important;
     font-weight: 400 !important;
@@ -11207,7 +11207,7 @@ h5,
 }
 
 #sidebar {
-    min-width: 270px;
+    min-width: 255px;
     max-height: autos;
     background-image: linear-gradient(#001c52, #000080);
     color: #fff;
@@ -11233,7 +11233,7 @@ h5,
 
 #sidebar h1 .logo {
     color: #fff;
-    font-size: 22px;
+    font-size: 15px;
 }
 
 #sidebar h6 .font-user {
@@ -11258,7 +11258,7 @@ h5,
 /* side bar font size */
 
 #sidebar ul li {
-    font-size: 14.5px;
+    font-size: 13.5px;
     font-family: 'OCR A Std', monospace !important;
     font-style: normal !important;
     font-weight: 500 !important;
