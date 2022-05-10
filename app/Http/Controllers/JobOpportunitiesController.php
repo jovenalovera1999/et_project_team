@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\job_opportunities;
 use Illuminate\Http\Request;
 use DataTables;
+use DB;
 
 class JobOpportunitiesController extends Controller
 {
@@ -133,5 +134,25 @@ class JobOpportunitiesController extends Controller
     {
         $job_opportunity->delete();
         return Redirect('/job_opportunities')->with('message-success', 'Successfully Deleted!');
+    }
+
+    public function UpdateStatus(Request $request, $id)
+    {
+        $status_checkbox_isChecked = $request->status_checkbox != null;
+
+        if($status_checkbox_isChecked) {
+            DB::update('update job_opportunities set status = ? where id = ?', ['Available', $id]);
+        } else {
+            DB::update('update job_opportunities set status = ? where id = ?', ['Unavailable', $id]);
+        }
+        return back()->with('message-success', 'Status successfully updated!');
+
+        // if($status_checkbox_isChecked) {
+        //     $job_opportunity->status = 'Available';
+        // } else {
+        //     $job_opportunity->status = 'Unavailable';
+        // }
+        // $job_opportunity->save();
+        // return back()->with('message-success', 'Status successfully updated!');
     }
 }

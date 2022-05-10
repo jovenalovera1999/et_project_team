@@ -130,16 +130,16 @@
                                                                 <td>{{$job_opportunities->company_location}}</td>
                                                                 <td>{{$job_opportunities->vacancy_no}}</td>
                                                                 <td> 
-                                                                    <form action="/job_opportunities_status/{{$job_opportunities->id}}" method="POST" id="statusCheckbox">
+                                                                    <form action="/job_opportunity_update_status/{{$job_opportunities->id}}" method="POST" id="statusCheckbox">
                                                                         @csrf
-                                                                        @method('PUT')
-                                                                        <input data-id="{{$job_opportunities->id}}"  class="toggle-class" type="checkbox" data-onstyle="success"
+                                                                        <!-- <input type="text" name="job_opportunity_id" value="{{$job_opportunities->id}}" hiddent> -->
+                                                                        <input data-id="{{$job_opportunities->id}}" name="status_checkbox"
+                                                                        class="toggle-class" type="checkbox" data-onstyle="success"
                                                                         data-offstyle="danger" data-toggle="toggle" data-on="Available" data-off="Unavailable"
-                                                                        name="status_checkbox" value="check" onchange="$('#statusCheckbox').submit();"
+                                                                        onchange="javascript:this.form.submit()" value="check"
                                                                         {{$job_opportunities->status === 'Available' ? 'checked' : ''}}>
                                                                     </form>
                                                                 </td>
-
                                                                 <td>
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                                         <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
