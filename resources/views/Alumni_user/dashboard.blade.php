@@ -33,12 +33,12 @@
 
             </div>
             <div class="p-4">
-            <div style="align-items: center; text-align: center; margin-top:5px;">
-                <a class="navbar-brand" href="#">
-                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
-                </a>
-                <h6 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
-                <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
+                <div style="align-items: center; text-align: center; margin-top:5px;">
+                    <a class="navbar-brand" href="#">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                    </a>
+                    <h6 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
                 </div>
                 <br><br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -74,16 +74,16 @@
                                         <!-- <i class="fa fa-repeat fa-2x text-white font-large-2 mr-2"></i> -->
                                     </div>
                                     <div class="media-body">
-                                        <?php 
-                                        $name= Auth::user()->name;
-                                        $fname = explode(' ',trim($name));
+                                        <?php
+                                        $name = Auth::user()->name;
+                                        $fname = explode(' ', trim($name));
                                         $first_name = $fname[0]
                                         ?>
                                         <h4 class="text-white text-size-m"> Hello, {{$first_name}}!</h4>
                                         <span class="text-white text-size-small"> {{$user}} </span>
                                     </div>
                                     <div class="align-self-center">
-                                        <h1 class="text-white"><i class="fa fa-info fa-1x text-white font-large-2 mr-2"></i></h1>
+                                        <h1 class="text-white" ><i class="fa fa-info fa-1x font-large-2 mr-2" style="color: #7ce8ff;" ></i></h1>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                         <span class="text-white text-size-small">Overall Posted Job Oppurtunities</span>
                                     </div>
                                     <div class="align-self-center">
-                                        <h1 class="text-white text-size-num">{{$job_opportunities_count}}</h1>
+                                        <h1 class="text-size-num" style="color: #7ce8ff;">{{$job_opportunities_count}}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -123,22 +123,26 @@
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
                         <div class="container card-title ">
-                        <p><b>Available Job Opportunities. Apply now!</b></p>
-                     
+                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px;">Available Job Opportunities. Apply now!</h6>
+                            <br>
+
                             <!-- end row -->
 
                             <div class="row">
                                 @foreach ($job_opportunities as $job_opportunity)
                                 <div class="col-lg-4">
-                                    <div class="profile-card-4 text-center"><img src="{{ asset('images/now-hiring-bg.jpg') }}" class="img img-responsive">
+                                    <div class="profile-card-4 text-center"><img src="{{ asset('images/now-hiring-bg.jpg') }}" alt="Job-Hiring-Image" class="img img-responsive">
                                         <div class="profile-content">
                                             <div class="profile-name"><mark>{{$job_opportunity->company_name}}</mark>
-                                                <p><mark>{{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
+                                                <p><mark> {{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
                                             </div>
                                             <div class="profile-description">Apply now and be a part of our growing family.</div>
                                             <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5">Read More</a>
                                         </div>
-                                        <br>
+                                        <div class=" text-muted" style="margin-top:7px; margin-bottom:10px; ">
+                                        <p>{{$job_opportunity->created_at->diffForHumans()}}</p>
+                                        </div>
+                                       
                                     </div>
                                 </div>
                                 @endforeach

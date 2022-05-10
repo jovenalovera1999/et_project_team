@@ -19,14 +19,14 @@ class UserDashboardController extends Controller
 
         // for Alumni Dashboard datatable 
         //  Job opportunites
-        $job_opportunities = job_opportunities::where('status', '=', 'Active')
+        $job_opportunities = job_opportunities::where('status', '=', 'Available')
             ->get(['*']);
 
         //  Year Footer
         $year = Carbon::now()->format('M Y');
 
         //  Total Job Oppurtunities
-        $job_opportunities_count = job_opportunities::where('status', '=', 'Active')
+        $job_opportunities_count = job_opportunities::where('status', '=', 'Available')
             ->count();
 
         //Identify if user has pending offers or none

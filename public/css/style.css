@@ -43,6 +43,10 @@
 }
 
 .bg-c-red {
+    background: linear-gradient(45deg, #50182a, #c22121ee);
+}
+
+.bg-c-red {
     background: linear-gradient(45deg, #50182a, #aa0629);
 }
 
@@ -56,6 +60,15 @@
 
 .padding-color {
     background-image: linear-gradient(#f0edd2, #f7f5af);
+}
+
+.panel-text {
+    color: #fff;
+    font-size: 16.1px;
+    font-family: system-ui !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    margin-bottom: 15px;
 }
 
 .text {
@@ -81,6 +94,12 @@
 
 .text-size-num {
     font-size: 40px;
+    font-family: sans-serif;
+    font-stretch: ultra-expanded;
+}
+
+.text-size-num2 {
+    font-size: 35px;
     font-family: sans-serif;
     font-stretch: ultra-expanded;
 }
@@ -9958,7 +9977,7 @@ button.bg-dark:focus {
         padding-left: 1.5rem !important;
     }
     .p-md-5 {
-        padding: 3rem !important;
+        padding: 2rem !important;
     }
     .pt-md-5,
     .py-md-5 {
@@ -11219,7 +11238,7 @@ h5,
 
 #sidebar h6 .font-user {
     color: #fff;
-    font-size: 15px;
+    font-size: 13px;
     font-family: Arial, sans-serif !important;
     font-style: normal !important;
     font-weight: 700 !important;
@@ -11640,20 +11659,22 @@ a[data-toggle="collapse"] {
 }
 
 .profile-card-4 .profile-name {
-    font-weight: bold;
     position: absolute;
-    font-family: Georgia, serif;
+    font-family: 'Calibri' !important;
     left: 0px;
     right: 0px;
     top: -110px;
     color: #777;
-    font-size: 15px;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
 .profile-card-4 .profile-name p {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 1.5px;
+    font-family: 'Calibri' !important;
     color: #273751;
 }
 

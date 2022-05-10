@@ -28,7 +28,7 @@ class AdminDashboardController extends Controller
         ->count();
 
          //  Pending Offers
-         $pending_offer = alumni_records::where ('pending_offer', '=', 'with')
+         $pending_offer = alumni_records::where ('pending_offer', '=', 'With')
          ->count();
 
         //  Total Registered

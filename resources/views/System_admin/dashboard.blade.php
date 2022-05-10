@@ -29,15 +29,15 @@
             </div>
             <div class="p-4">
                 <div style="align-items: center; text-align: center; margin-top:5px;">
-                <a class="navbar-brand" href="#">
-                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
-                </a>
-                <h5 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                    <a class="navbar-brand" href="#">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                    </a>
+                    <h5 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
+                    <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
-                
+
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
                         <a href="/admin_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
@@ -86,8 +86,8 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-blue order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <p class="m-b-20">Total Registered Alumni</p>
-                                    <h2 class="text-right text-white"><i class="fa fa-users f-left"></i><span>{{$registered}}</span></h2>
+                                    <p class="m-b-20 panel-text">Total Registered Alumni</p>
+                                    <h2 class="text-right text-white text-size-num2"><i class="fa fa-users f-left" style="color: #7ce8ff;"></i><span>{{$registered}}</span></h2>
                                     <a class="m-b-0 text-white" href="/alumni_records">View details</a>
                                 </div>
                             </div>
@@ -96,8 +96,8 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-green order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <p class="m-b-20">Total Employed</p>
-                                    <h2 class="text-right text-white"><i class="fa fa-arrow-up f-left"></i><span>{{$employed}}</span></h2>
+                                    <p class="m-b-20 panel-text">Total Employed</p>
+                                    <h2 class="text-right text-white text-size-num2"><i class="fa fa-arrow-up f-left" style="color: #7ce8ff;"></i><span>{{$employed}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
                             </div>
@@ -106,8 +106,8 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-yellow order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <p class="m-b-20">Total Unemployed</p>
-                                    <h2 class="text-right text-white"><i class="fa fa-arrow-down f-left"></i><span>{{$unemployed}}</span></h2>
+                                    <p class="m-b-20 panel-text">Total Unemployed</p>
+                                    <h2 class="text-right text-white text-size-num2"><i class="fa fa-arrow-down f-left" style="color: #7ce8ff;"></i><span>{{$unemployed}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
                             </div>
@@ -116,8 +116,8 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-pink order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <p class="m-b-20">Pending Offers</p>
-                                    <h2 class="text-right text-white"><i class="fa fa-briefcase f-left"></i><span>{{$pending_offer}}</span></h2>
+                                    <p class="m-b-20 panel-text">Pending Offers</p>
+                                    <h2 class="text-right text-white text-size-num2"><i class="fa fa-briefcase f-left" style="color: #7ce8ff;"></i><span>{{$pending_offer}}</span></h2>
                                     <a class="m-b-0 text-white" href="">View details</a>
                                 </div>
                             </div>
@@ -177,11 +177,13 @@
                                         'location'=>$alumni_record->company_location,
                                         'title'=>$alumni_record->job_title,
                                         'work_arr'=>$alumni_record->work_arrangement,
-                                        'update_date'=>$alumni_record->updated_at
+                                        'update_date'=>$alumni_record->date_hired
                                         ])}}" class="profile_button px-5">View Profile</a>
                                             <div class="mt-4">
-
                                             </div>
+                                        </div>
+                                        <div class=" text-muted" style="margin-top:7px;">
+                                            <p>{{$alumni_record->created_at->diffForHumans()}}</p>
                                         </div>
                                     </div>
                                 </div>

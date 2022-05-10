@@ -66,7 +66,7 @@
 
             <form action="#" class="border shadow p-3 rounded  profile-card-box ">
 
-                <div class="profile-card-4 size text-center"><img src="{{ asset('images/apply-now.gif') }}" class="img img-responsive">
+                <div class="profile-card-4 size text-center"><img src="{{ asset('images/apply-now.gif') }}" alt="Job-Hiring-Image" class="img img-responsive">
 
                     <div class="profile-content">
                         <div class="profile-name "><mark>{{$c_name}}</mark>

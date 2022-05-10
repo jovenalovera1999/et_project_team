@@ -83,7 +83,7 @@
                                 <div class="card">
                                     <div class="card-header bg-c-pink">
                                         <div class="float-left">
-                                            <h2 class="text-white">Manage Scholarship Sponsors</h2>
+                                            <h4 class="text-white">Manage Scholarship Sponsors</h4>
                                         </div>
                                         <div class="float-right">
                                             <a type="button" class="btn profile_button2 text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -157,7 +157,7 @@
 
                                     </form>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-info" style="width: 100px">Save</button>
+                                        <button type="submit" class="btn btn-info" style="width: 100px;">Save</button>
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width: 100px">Close</button>
                                     </div>
                             </form>
