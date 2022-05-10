@@ -30,7 +30,7 @@
                     <p>
                   </td>
                   <td>{{$d->email}}</td>
-                  <td><a href="{{url('email/'.$d->id.'/edit')}}" class="btn btn-primary btn-sm">Update</a></td>
+                  <td><a href="{{url('email/'.$d->id.'/edit')}}" class="btn bg-color1 text-light btn-sm">Update</a></td>
                 </tr>
                 @endforeach
                 @endif
@@ -68,7 +68,7 @@
               <label for="exampleFormControlTextarea1">Message</label>
               <textarea class="form-control" id="message" name="message"rows="4" placeholder="Your message"></textarea>
             </div>
-            <input class="btn btn-primary color-theme btn-lg btn-block" type="submit" value="Send">
+            <input class="btn bg-c-blue text-light btn-lg btn-block" type="submit" value="Send">
           </form>
         </div>
       </div>

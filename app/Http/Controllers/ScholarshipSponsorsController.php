@@ -30,6 +30,7 @@ class ScholarshipSponsorsController extends Controller
         );
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -86,7 +87,7 @@ class ScholarshipSponsorsController extends Controller
      */
     public function update(Request $request, scholarship_sponsors $scholarship_sponsors)
     {
-        //
+        // return view ('System_admin.add_scholarship_sponsor', ['scholarship_sponsors' => $scholarship_sponsors]);
     }
 
     /**

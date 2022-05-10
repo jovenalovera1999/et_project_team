@@ -14,7 +14,8 @@
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/fresh-bootstrap-table.css')}}">
+
+
 
 
 </head>
@@ -32,10 +33,15 @@
 
             </div>
             <div class="p-4">
-                <a class="navbar-brand" href="#">
-                </a>
-                <h1><a href="index.html" class="logo ">Menu<span class="text-white">User: {{Auth::user()->name}}</span></a></h1>
-                <br>
+                <div style="align-items: center; text-align: center; margin-top:5px;">
+                    <a class="navbar-brand" href="#">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                    </a>
+                    <h6 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
+                </div>
+                <br><br>
+                <h1><a href="index.html" class="logo ">Menu</a></h1>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
                         <a href="{{url('user_dashboard')}}"><span class="fa fa-home mr-3"></span> Dashboard</a>
@@ -68,11 +74,16 @@
                                         <!-- <i class="fa fa-repeat fa-2x text-white font-large-2 mr-2"></i> -->
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="text-white"> Pending Offers</h4>
-                                        <span class="text-white"> {{$user}} </span>
+                                        <?php
+                                        $name = Auth::user()->name;
+                                        $fname = explode(' ', trim($name));
+                                        $first_name = $fname[0]
+                                        ?>
+                                        <h4 class="text-white text-size-m"> Hello, {{$first_name}}!</h4>
+                                        <span class="text-white text-size-small"> {{$user}} </span>
                                     </div>
                                     <div class="align-self-center">
-                                        <h1 class="text-white"><i class="fa fa-repeat fa-1x text-white font-large-2 mr-2"></i></h1>
+                                        <h1 class="text-white" ><i class="fa fa-info fa-1x font-large-2 mr-2" style="color: #7ce8ff;" ></i></h1>
                                     </div>
                                 </div>
                             </div>
@@ -85,15 +96,15 @@
                         <div class="card-content">
                             <div class="card-body cleartfix">
                                 <div class="media align-items-stretch">
-                                    <div class="align-self-center">
-                                        <i class=" fa fa-briefcase fa-2x text-white font-large-2 mr-2"></i>
+                                    <div class="align-self-center" style="margin-right: 7px;">
+                                        <i class=" fa fa-thumb-tack fa-2x text-white font-large-2 mr-2"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="text-white"> Job Oppurtunities</h4>
-                                        <span class="text-white"> Total Number of Job Oppurtunities</span>
+                                        <h4 class="text-white text-size-m"> Now Hiring!</h4>
+                                        <span class="text-white text-size-small">Overall Posted Job Oppurtunities</span>
                                     </div>
                                     <div class="align-self-center">
-                                        <h1 class="text-white">{{$job_opportunities_count}}</h1>
+                                        <h1 class="text-size-num" style="color: #7ce8ff;">{{$job_opportunities_count}}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -104,122 +115,58 @@
 
             <!-- panel for Newly Hired Alumni -->
 
-            <div class="fresh-table full-color-orange">
-                <!--
-          Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
-          Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
-        -->
-                <div class="fresh-table datatable1color">
-                    <div class="toolbar">
-                        <br>
-                        <h6 class="text-center text-light">Available Job Opportunities</h1>
-                        <br>
-                            <div class="btn_group text-center">
-                                <a type="button" class="btn btn-primary text-center text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    <span class="" style="color:dark"></span>
-                                    <h6>View All</h6>
-                                </a>
-                                <br>
-                            </div>
-                    </div>
-
-                    <table id="fresh-table " class="table text-light">
-                        <thead>
-                            <br>
-                            <th>Company Name</th>
-                            <th>Job Title</th>
-                            <th>Role</th>
-                            <th>Requirements</th>
-                            <th>Location</th>
-                            <th>Vacancy</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                @foreach ($job_opportunities as $job_opportunity)
-                                <td>{{$job_opportunity->company_name}}</td>
-                                <td>{{$job_opportunity->job_title}}</td>
-                                <td>{{$job_opportunity->job_role}}</td>
-                                <td>{{$job_opportunity->job_requirements}}</td>
-                                <td>{{$job_opportunity->company_location}}</td>
-                                <td>{{$job_opportunity->vacancy_no}}</td>
-                                <td>{{$job_opportunity->status}}</td>
-                                <?php
-                                $date = $job_opportunity->created_at;
-                                $phpdate = strtotime($date);
-                                $date = date('D M d, Y', $phpdate);
-                                ?>
-                                <td>{{$date}}</td>
-                                <td>
-                                    <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}"> <span class="fa fa-eye text-center" style="color:light"></span></a>
-                                    <!-- <a href="/view_job/{{$job_opportunity->id}}" class="text-center" >
-                                        <span class="fa fa-eye" style="color:black"></span>
-                                    </a> -->
-                                </td>
-
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+            <div class="card text-center">
+                <div class="card-header">
+                    Featured
                 </div>
+                <div class="card-body">
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="content">
+                        <div class="container card-title ">
+                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px;">Available Job Opportunities. Apply now!</h6>
+                            <br>
+
+                            <!-- end row -->
+
+                            <div class="row">
+                                @foreach ($job_opportunities as $job_opportunity)
+                                <div class="col-lg-4">
+                                    <div class="profile-card-4 text-center"><img src="{{ asset('images/now-hiring-bg.jpg') }}" alt="Job-Hiring-Image" class="img img-responsive">
+                                        <div class="profile-content">
+                                            <div class="profile-name"><mark>{{$job_opportunity->company_name}}</mark>
+                                                <p><mark> {{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
+                                            </div>
+                                            <div class="profile-description">Apply now and be a part of our growing family.</div>
+                                            <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5">Read More</a>
+                                        </div>
+                                        <div class=" text-muted" style="margin-top:7px; margin-bottom:10px; ">
+                                        <p>{{$job_opportunity->created_at->diffForHumans()}}</p>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    {{$month}}
+                </div>
+
+                <!-- end col -->
             </div>
+            <!-- end row -->
+
+            <!-- end row -->
         </div>
+        <!-- container -->
+    </div>
+    </div>
+
     </div>
 
     <!-- PANEL START CODE  -->
-
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 40%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Now Hiring Jobs!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="#" class="border shadow p-3 rounded">
-                    @foreach ($job_opportunities as $job_opportunity)
-
-                            <div class="col-md-12">
-                                
-                           
-                                <div class="profile-card-6"><img src="https://media.istockphoto.com/photos/now-hiring-easel-recruitment-new-employee-workers-search-for-and-picture-id1317004880?b=1&k=20&m=1317004880&s=170667a&w=0&h=BTfw879pRGhNzBKjrxljh9hc1CVPrXLvwp4fszNJuBg=" class="img img-responsive">
-                                    <div class="profile-name">{{$job_opportunity->company_name}}
-                                        <br><h6>{{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</h6>
-                                        <br><br>
-                                    </div>
-                                    <div class="profile-position">{{$job_opportunity->company_location}}</div>
-                                    <div class="profile-overview">
-                                        <div class="profile-overview">
-                                            <div class="row text-center">
-                                                <div class="col-xs-4">
-                                                    <h5>Status</h5>
-                                                    <p>{{$job_opportunity->status}}</p>
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <h5>Vacancy</h5>
-                                                    <p>{{$job_opportunity->vacancy_no}}</p>
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <h5>Job Requirements</h5>
-                                                    <p>{{$job_opportunity->job_requirements}}</p>
-                                                </div>
-                                                <br>
-                                                <div class="col-xs-12">
-                                                <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}"> <span class="" ></span><u style="color:rgba(255, 255, 255, 0.4)">Click here for more details</u></a>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                      
-                    @endforeach
-                </form>
-            </div>
-        </div>
-    </div>
 
 
     <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
