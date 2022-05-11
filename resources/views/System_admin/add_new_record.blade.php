@@ -275,14 +275,14 @@
                                                 <!-- Scholarship Sponsors -->
 
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <label for="scholarship_sponsors" class="form-label">Scholarship Sponsors</label>
-                                                    <select class="form-select" name="scholarship_sponsors" id="scholarship_sponsors" role="button" value="{{old('scholarship_sponsors')}}">
+                                                    <label for="scholarship_sponsor" class="form-label">Scholarship Sponsors</label>
+                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{old('scholarship_sponsor')}}">
                                                         <option value="" selected>None</option>
                                                         @foreach ($scholarship_sponsors as $scholarship_sponsor)
-                                                        <option value="">{{$scholarship_sponsor->sponsor}}</option>
+                                                        <option value="{{$scholarship_sponsor->sponsor}}">{{$scholarship_sponsor->sponsor}}</option>
                                                         @endforeach
                                                     </select>
-                                                    <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
                                                 </div>
                                                 <!-- Scholarship Sponsors -->
 

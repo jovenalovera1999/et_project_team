@@ -242,6 +242,7 @@
                                                     <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
+                                                    <label for="date_hired" class="form-label">Date Hired</label>
                                                     <input type="date" class="form-control" id="date_hired" name="date_hired" value="{{$alumni_records->date_hired}}">
                                                     <span class="text-danger">@error('date_hired') {{$message}} @enderror</span>
                                                 </div>
@@ -277,11 +278,12 @@
 
                                                 <!-- Scholarship Sponsors -->
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <label for="scholarship_sponsors" class="form-label">Scholarship Sponsors</label>
-                                                    <select class="form-select" name="scholarship_sponsors" id="scholarship_sponsors" role="button" value="{{$alumni_records->scholarship_sponsors}}">
-                                                        <option value="" selected>{{$alumni_records->scholarship_sponsors}}</option>
+                                                    <label for="work_arrangement" class="form-label">Scholarship Sponsor</label>
+                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{$alumni_records->scholarship_sponsor}}">
+                                                        <option value="" selected>{{$alumni_records->scholarship_sponsor}}</option>
+                                                        
                                                     </select>
-                                                    <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
                                                 </div>
                                                 <!-- Scholarship Sponsors -->
 

@@ -109,6 +109,7 @@ class AlumniRecordsController extends Controller
         $alumni_record->present_address = $request->present_address;
         $alumni_record->school_graduated = $request->school_graduated;
         $alumni_record->batch_no = $request->batch_no;
+        $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
 
         if($pending_offer_isChecked) {
             $alumni_record->pending_offer = 'With';
@@ -178,6 +179,7 @@ class AlumniRecordsController extends Controller
         $alumni_record->job_title = $request->job_title;
         $alumni_record->date_hired = $request->date_hired;
         $alumni_record->work_arrangement = $request->work_arrangement;
+        $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
         $alumni_record->save();
 
         return back()->with('message-success', 'Alumni user successfully updated!');
