@@ -77,7 +77,7 @@
                                     <div class="card-header  bg-c-pink text-white">
                                         <h4 class="text-white m-b-20">View Alumni Record</h4>
                                         <div class="float-right">
-                                            <a href="/alumni_records" class="btn btn-secondary">View Alumni Records</a>
+                                            <a href="/alumni_records" class="btn btn-secondary">Back</a>
                                         </div>
                                     </div>
 
@@ -116,7 +116,7 @@
                                                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="{{$alumni_records->last_name}}">
                                                     <span class="text-danger">@error('last_name') {{$message}} @enderror</span>
                                                 </div>
-        
+
                                                 <!-- Contact -->
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="contact" class="form-label">Contact Number</label>
@@ -151,7 +151,7 @@
                                                     <input type="number" class="form-control" id="batch_no" name="batch_no" value="{{$alumni_records->batch_no}}">
                                                     <span class="text-danger">@error('batch_no') {{$message}} @enderror</span>
                                                 </div>
-
+                                                
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="pending_offer" class="form-label">Pending Offers(With or Without)</label>
                                                     <input type="text" class="form-control" id="pending_offer" name="pending_offer" value="{{$alumni_records->pending_offer}}">
@@ -193,6 +193,7 @@
                                                     <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
+                                                    <label for="date_hired" class="form-label">Date Hired</label>
                                                     <input type="date" class="form-control" id="date_hired" name="date_hired" value="{{$alumni_records->date_hired}}">
                                                     <span class="text-danger">@error('date_hired') {{$message}} @enderror</span>
                                                 </div>
@@ -211,9 +212,10 @@
                                                 @else
                                                 <div class="mb-3" style="width: 3in;">
                                                     <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{$alumni_records->work_arrangement}}">
-                                                        <option value="">Work Arrangement</option>
-                                                        <option value="Employed">Employed</option>
-                                                        <option value="Unemployed">Unemployed</option>
+                                                        <option value="">None</option>
+                                                        <option value="Full time">Full time</option>
+                                                        <option value="Part time">Part time</option>
+                                                        <option value="Trainee">Trainee</option>
                                                         <option value="{{$alumni_records->work_arrangement}}" selected hidden>{{$alumni_records->work_arrangement}}</option>
                                                     </select>
                                                     <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
@@ -222,14 +224,16 @@
 
                                                 <!-- Scholarship Sponsors -->
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <label for="scholarship_sponsors" class="form-label">Scholarship Sponsors</label>
-                                                    <select class="form-select" name="scholarship_sponsors" id="scholarship_sponsors" role="button" value="{{$alumni_records->scholarship_sponsors}}">
-                                                        <option value="" selected>{{$alumni_records->scholarship_sponsors}}</option>
+                                                    <label for="work_arrangement" class="form-label">Scholarship Sponsor</label>
+                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{$alumni_records->scholarship_sponsor}}">
+                                                        <option value="" selected>{{$alumni_records->scholarship_sponsor}}</option>
+                                                        
                                                     </select>
-                                                    <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
                                                 </div>
                                             </form>
                                         </div>
+                                       
                                     </div>
                                 </div>
                             </div>
