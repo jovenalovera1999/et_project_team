@@ -31,22 +31,26 @@ class UserDashboardController extends Controller
 
 
         //Identify if user has pending offers or none
-        $name = Auth::user()->name;
-        $result = DB::table('alumni_records')->select('pending_offer')
-            ->where(DB::raw('concat(first_name," ",middle_name," ",last_name)'), $name)->first();
-        
-         $user = $result->pending_offer; 
+        $id = Auth::user()->id;
+        // $result = DB::table('alumni_records')->select('pending_offer')
+        //     ->whereConcat(['first_name'," ",'middle_name'," ",'last_name'], $name)->first();
 
-        if (str_contains($user, 'out'))
-        {
+        $result = DB::table('users')
+            ->join('alumni_records', 'users.id', '=', 'alumni_records.user_id')
+            ->select('pending_offer')
+            ->where('alumni_records.user_id', '=', $id)->first();
+
+
+        $user = $result->pending_offer;
+
+
+        if (str_contains($user, 'out')) {
             $user = 'You have no pending offer as of the moment';
-        }
-        else
-        {
+        } else {
             $user = 'You have a pending offer as of the moment';
         }
 
-        
+
         // for footer
         $month = Carbon::now()->format('M Y');
 
