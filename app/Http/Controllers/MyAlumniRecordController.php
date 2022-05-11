@@ -16,12 +16,16 @@ class MyAlumniRecordController extends Controller
      */
     public function index()
     {
-        //$id = Auth::user() -> id;
-        $user = Auth:: user() -> id;
-        $alumni_user = alumni_records::where('id',"=", $user)->first();
-        //$alumni_user1 = alumni_records::all();
-        //print($user);
-        return view("Alumni_user.view_record", ['alumni_user1' => $alumni_user]);
+        if(!Auth::check()) {
+            return redirect('/login');
+        } else {
+            //$id = Auth::user() -> id;
+            $user = Auth::user()->id;
+            $alumni_user = alumni_records::where('user_id',"=", $user)->first();
+            //$alumni_user1 = alumni_records::all();
+            //print($user);
+            return view("Alumni_user.view_record", compact('alumni_user', $alumni_user));
+        }
     }
 
     /**
