@@ -73,7 +73,7 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
 
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Overview</h1>
+            <h4 class=" mb-0 text-gray-800 mb-4">Overview</h4>
 
 
             <!-- Row of panels for dashboard -->

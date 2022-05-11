@@ -1,3 +1,6 @@
+@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
+<meta http-equiv="refresh" content="0; url=/login" />
+@else
 <!DOCTYPE html>
 <html lang="en">
 
@@ -140,3 +143,4 @@
 </body>
 
 </html>
+@endif
