@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('job_title')->nullable();
             $table->string('date_hired')->nullable();
             $table->string('work_arrangement')->nullable();
-            $table->binary('profile_picture')->nullable();
+            $table->string('profile_picture')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

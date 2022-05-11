@@ -80,10 +80,12 @@
                             <td class="table_column m-column">
                                 {{$alumni_user->id}}
                             </td>
-                             <?php  ?>
+                             <?php 
+                             echo($alumni_user->profile_picture); ?>
                            
                             <td class="table_column p-column">
-                             <img src="images/data:image/png;jpg; base64,{{ chunk_split(base64_encode($alumni_user1 -> profile_picture)) }}" height="100" width="100">
+                             <!-- <img src="images/data:image/png; base64,{{ chunk_split(base64_encode($alumni_user->profile_picture)) }}" height="100" width="100"> -->
+                             <img src="{{URL::asset($alumni_user->profile_picture)}}">
                         </td></tr>
                        
                         <tr class="table_row  ">

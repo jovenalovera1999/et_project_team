@@ -171,8 +171,8 @@
                                                                 if (!work_arrangement.disabled) {}
                                                             }
                                                         </script>
-                                                       <label for="pending offer">
-                                                            <input type="checkbox" id="pending_offer" onclick="EnableDisableTextBox(this)" />
+                                                        <label for="pending_offer">
+                                                            <input type="checkbox" id="pending_offer" name="pending_offer" onclick="EnableDisableTextBox(this)" value="check" />
                                                             Have pending offers?
                                                         </label>
                                                         <br />

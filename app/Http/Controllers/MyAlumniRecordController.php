@@ -24,7 +24,7 @@ class MyAlumniRecordController extends Controller
             $alumni_user = alumni_records::where('user_id',"=", $user)->first();
             //$alumni_user1 = alumni_records::all();
             //print($user);
-            return view("Alumni_user.view_record", compact('alumni_user', $alumni_user));
+            return view("Alumni_user.view_record", ['alumni_user' =>  $alumni_user]);
         }
     }
     
@@ -38,11 +38,11 @@ class MyAlumniRecordController extends Controller
     {
         //
         $user = Auth:: user() -> id;
-        $alumni_user1 = alumni_records::where('id',"=", $user)->first();
+        $alumni_user = alumni_records::where('id',"=", $user)->first();
         
         //$alumni_user1 = alumni_records::all();
         //print($user);
-        return view("Alumni_user.edit", ['alumni_user1' => $alumni_user1]);
+        return view("Alumni_user.edit", ['alumni_user1' => $alumni_user]);
         //return view('Alumni_user.edit');
     }
 
@@ -102,7 +102,7 @@ class MyAlumniRecordController extends Controller
             'last_name' => 'required',
             'email' => 'required|unique:users',
             'profile_picture' => 'required|mimes:jpg,png,jpeg|max:5048',
-            'pending_offer' => 'required'
+            /*'pending_offer' => 'required'*/
                  
         ]);
         
