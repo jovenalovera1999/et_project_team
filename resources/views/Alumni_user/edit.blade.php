@@ -75,7 +75,7 @@
                                             @if(Session::has('msg'))
                                             <p class="text-success">{{session('msg')}}</p>
                                             @endif
-                                                <form action="alumni_view/" method="POST" class="mt-3">
+                                                <form action="alumni_view/" method="POST" class="mt-3"  enctype="multipart/form-data">
                                                 @method('put')
                                                 @csrf
                                                     <!-- @if(Session::has('message-success')) <p class="alert alert-success" role="alert">{{ Session::get('message-success') }}</p>@endif
@@ -171,10 +171,10 @@
                                                                 if (!work_arrangement.disabled) {}
                                                             }
                                                         </script>
-                                                       <!-- <label for="pending offer">
+                                                       <label for="pending offer">
                                                             <input type="checkbox" id="pending_offer" onclick="EnableDisableTextBox(this)" />
                                                             Have pending offers?
-                                                        </label>-->
+                                                        </label>
                                                         <br />
                                                     </div>
                                                     <div class="mb-3" style="width: 3in;">
@@ -228,15 +228,15 @@
                                                     </div>
                                                     <div class="mb-3" style="width: 3in;">
                                                         <!--<label for="email" class="form-label">Login Credentials</label>-->
-                                                        <label for="scholarship_sponsors" class="form-label">Profile Picture</label>
+                                                        <label for="" class="form-label">Profile Picture</label>
                                                         <div class="input-box input-upload-box left">
                                                                 <div class="upload-wrapper">
                                                                     <div class="upload-box">
-                                                                        <input type="file" name="profile_picture" id="profile_picture" class="form-control">
+                                                                        <input type="file" name="profile_picture" id="profile_picture" class="form-control" >
                                                                     </div>
                                                                 </div>
-                                                                <div class="error photoerror">Please select a file and click upload</div>
-                                                                <div class="passport_file"></div>
+                                                                <div class="">Please select a file and click upload</div>
+                                                               
                                                             </div>
                                                         <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                                     </div>

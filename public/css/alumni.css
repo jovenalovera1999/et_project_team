@@ -149,4 +149,51 @@ tr .table_column.logo img{
 .p-left{
     padding-left: 40px;
      display: block;
+ }
+  @media print {
+
+.print-container, .print-container * {
+    visibility: hidden;
+
+}
+.print-container1{
+    visibility:hidden;
+
+}
+.nav-bk5{
+    background: #0575E6;  
+    background: -webkit-linear-gradient(to right, #021B79, #0575E6);  
+    background: linear-gradient(to left, #021B79, #0575E6);}
+.nav-bk7{
+    background: #c2e59c;  
+    background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  
+    background: linear-gradient(to right, #64b3f4, #c2e59c); }
+.nav-bk2{
+ 
+     background: #23074d; 
+      
+     background: -webkit-linear-gradient(to right, #cc5333, #23074d); 
+      
+     background: linear-gradient(to right, #cc5333, #23074d);
+
+ }
+.table_part{
+    height: 70px;
+    display: block;
+    background: #3445B4;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.table_part td{
+     height: 70px;
+    display: block;
+    padding: 5px 0px 5px 10px;
+}
+.table_row{
+    
+    display: block;
+    margin: 0 0 15px 0;    
+}
+
+}
 

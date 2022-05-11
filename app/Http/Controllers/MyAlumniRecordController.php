@@ -16,13 +16,18 @@ class MyAlumniRecordController extends Controller
      */
     public function index()
     {
-        //$id = Auth::user() -> id;
-        $user = Auth:: user() -> id;
-        $alumni_user = alumni_records::where('id',"=", $user)->first();
-        //$alumni_user1 = alumni_records::all();
-        //print($user);
-        return view("Alumni_user.view_record", ['alumni_user1' => $alumni_user]);
+        if(!Auth::check()) {
+            return redirect('/login');
+        } else {
+            //$id = Auth::user() -> id;
+            $user = Auth::user()->id;
+            $alumni_user = alumni_records::where('user_id',"=", $user)->first();
+            //$alumni_user1 = alumni_records::all();
+            //print($user);
+            return view("Alumni_user.view_record", compact('alumni_user', $alumni_user));
+        }
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,6 +39,7 @@ class MyAlumniRecordController extends Controller
         //
         $user = Auth:: user() -> id;
         $alumni_user1 = alumni_records::where('id',"=", $user)->first();
+        
         //$alumni_user1 = alumni_records::all();
         //print($user);
         return view("Alumni_user.edit", ['alumni_user1' => $alumni_user1]);
@@ -49,16 +55,7 @@ class MyAlumniRecordController extends Controller
     public function store(Request $request)
     {
         //
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
 
     }
 
@@ -98,16 +95,29 @@ class MyAlumniRecordController extends Controller
     public function update(Request $request)
     {
         //
+        
         $request->validate([
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|unique:users',           
+            'email' => 'required|unique:users',
+            'profile_picture' => 'required|mimes:jpg,png,jpeg|max:5048',
+            'pending_offer' => 'required'
+                 
         ]);
         
+        if($request-> hasFile('profile_picture')){
+            $image = $request->file('profile_picture');
+            $image_name = $image->getClientOriginalName();
+            
+            $image->move(public_path('/images'),$image_name);     
+            $image_path = "/images/" . $image_name;
+        }
 
         $user = Auth:: user() -> id;
         $alumni_user =  alumni_records::where('id',"=", $user)->first();
+    
+
         $alumni_user -> first_name = $request->first_name;
         $alumni_user -> middle_name = $request -> middle_name;
         $alumni_user -> last_name = $request -> last_name;
@@ -118,14 +128,17 @@ class MyAlumniRecordController extends Controller
         $alumni_user -> present_address = $request -> present_address;
         $alumni_user -> school_graduated = $request -> school_graduated;
         $alumni_user -> batch_no = $request -> batch_no;
-       // $alumni_user -> pending_offer = $request -> pending_offer;-->
+        $alumni_user -> pending_offer = $request -> pending_offer;
         $alumni_user -> employment_status = $request -> employment_status;
         $alumni_user -> company_name = $request -> company_name;
         $alumni_user -> company_location = $request -> company_location;
         $alumni_user -> job_title = $request -> job_title;
         $alumni_user -> work_arrangement = $request -> work_arrangement;
-        //$alumni_user -> profile_picture = $request -> file('profile_picture');
-        $alumni_user -> profile_picture = $request -> profile_picture;
+        $alumni_user -> profile_picture = $request -> profile_picture ;
+       
+        //$image = $request->  file('profile_picture');
+        //$alumni_user -> profile_picture = $request -> $image -> getClientOriginalName();
+        //$alumni_user -> profile_picture = $request -> profile_picture -> move(public_path('/images'),$image_name);
 
         $alumni_user -> updated_at = $request -> updated_at;
         $alumni_user ->save();
