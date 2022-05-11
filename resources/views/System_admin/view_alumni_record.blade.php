@@ -30,8 +30,8 @@
                     <a class="navbar-brand" href="#">
                         <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                     </a>
-                    <h5 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                    <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                    <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -68,16 +68,16 @@
 
         <div class="wrapper d-flex align-items-stretch">
             <!-- Page Content  -->
-            <div id="content" style="margin-top: 50px;">
+            <div id="content" style="margin-top: 33px;">
                 <div>
                     <div class="container mr-10">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="card" style="margin-left:0%;">
+                                    <div class="card" style="margin-left:1.5%;">
                                         <div class="card-header bg-c-blue ">
                                             <div class="float-left">
-                                                <h2 class="text-white">View Alumni Record</h2>
+                                                <h4 class="text-white">Manage Alumni Record</h4>
                                             </div>
                                             <div class="float-right">
                                                 <a href="add_new_record" type="button" class="btn profile_button2 text-light">
@@ -133,12 +133,30 @@
                                                             <td>
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="/show/{{$alumni_records->id}}" class="btn btn-primary">View</a>
-                                                                    <a href="/alumni_records/{{$alumni_records->id}}" class="btn btn-info">Update</a>
+                                                                    <a href="{{route('alumni.view',[
+                                        'fname'=>$alumni_records->first_name, 
+                                        'mi'=>$alumni_records->middle_name, 
+                                        'lname'=>$alumni_records->last_name, 
+                                        'gender'=>$alumni_records->gender, 
+                                        'contact'=>$alumni_records->contact, 
+                                        'email'=>$alumni_records->email, 
+                                        'home'=>$alumni_records->home_address,
+                                        'present'=>$alumni_records->present_address,
+                                        'school'=>$alumni_records->school_graduated,
+                                        'pending'=>$alumni_records->pending_offer,
+                                        'status'=>$alumni_records->employment_status,
+                                        'batch_no'=>$alumni_records->batch_no,
+                                        'cname'=>$alumni_records->company_name,
+                                        'location'=>$alumni_records->company_location,
+                                        'title'=>$alumni_records->job_title,
+                                        'work_arr'=>$alumni_records->work_arrangement,
+                                        'update_date'=>$alumni_records->date_hired
+                                        ])}}" class="btn"><span class="fa fa-eye mr-3 text-center" style="color:dark"></span></a>
+                                                                    <a href="/alumni_records/{{$alumni_records->id}}" class="btn "><span class="fa fa-edit mr-3 text-center" style="color:dark"></span></a></a>
                                                                     <form action="/alumni_records/{{$alumni_records->id}}" method="POST">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button class="btn btn-danger">Delete</button>
+                                                                        <button class="btn"><span class="fa fa-trash mr-3 text-center" style="color:dark"></span></a></button>
                                                                     </form>
                                                                 </div>
                                                             </td>

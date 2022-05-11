@@ -69,6 +69,7 @@
     font-style: normal !important;
     font-weight: 400 !important;
     margin-bottom: 15px;
+    letter-spacing: 1.5px;
 }
 
 .text {
@@ -9073,7 +9074,7 @@ button.bg-dark:focus {
 .mr-3,
 .mx-3 {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 7px;
 }
 
 .mb-3,
@@ -11212,7 +11213,7 @@ h5,
 }
 
 #sidebar {
-    min-width: 255px;
+    min-width: 265px;
     max-height: autos;
     background-image: linear-gradient(#001c52, #000080);
     color: #fff;
@@ -11239,14 +11240,24 @@ h5,
 #sidebar h1 .logo {
     color: #fff;
     font-size: 15px;
+    letter-spacing: 3px;
 }
 
 #sidebar h6 .font-user {
     color: #fff;
-    font-size: 13px;
+    font-size: 17px;
+    font-family: Arial, sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+#sidebar h5 .font-user {
+    color: #fff;
+    font-size: 12.5px;
     font-family: Arial, sans-serif !important;
     font-style: normal !important;
     font-weight: 700 !important;
+    letter-spacing: 1px;
 }
 
 #sidebar h1 .logo span {
@@ -11267,6 +11278,7 @@ h5,
     font-family: 'OCR A Std', monospace !important;
     font-style: normal !important;
     font-weight: 500 !important;
+    letter-spacing: 0.7px;
 }
 
 #sidebar ul li>ul {
@@ -11282,6 +11294,8 @@ h5,
     display: block;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 #sidebar ul li a span {
