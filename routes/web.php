@@ -31,6 +31,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::resource('update_job_opportunity_status', 'App\Http\Controllers\UpdateJobOpportunityStatusController');
     Route::resource('report', 'App\Http\Controllers\ReportController');
     Route::resource('register', 'App\Http\Controllers\RegisterController');
+    Route::resource('report', 'App\Http\Controllers\ReportController');
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
 
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     //Alumni's resource
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
     //Route::resource('alumni_edit', 'App\Http\Controllers\AlumniRecordsController');
+    
     Route::resource('user_dashboard', 'App\Http\Controllers\UserDashboardController');
     Route::resource('view_job', 'App\Http\Controllers\ViewJobContorller');
     //Route::resource('my_record', 'App\Http\Controllers\MyAlumniRecordController');
