@@ -141,6 +141,10 @@ class AlumniRecordsController extends Controller
     public function show(alumni_records $alumni_record)
     {
         return view('System_admin.editalumni')->with('alumni_records', $alumni_record);
+        return view('System_admin.show')->with('alumni_records', $alumni_record);
+        // $alumni_records = alumni_records::find($id);
+        // return view('System_admin.show')->with('System_admin', $alumni_records);
+        
     }
 
     /**

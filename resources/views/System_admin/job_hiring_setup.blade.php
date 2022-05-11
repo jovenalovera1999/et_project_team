@@ -84,7 +84,10 @@
                                                     <h2 class="text-white">Manage Job Opportunities </h2>   
                                                 </div>
                                                 <div class="float-right">
-                                                    <a href="/job_opportunities/create" class="btn btn-success">Add Job Opportunities</a>
+                                                    <a href="/job_opportunities/create" type="button" class="btn profile_button2 text-light">
+                                                    <span class="fa fa-plus  mr-3" style="color:light"></span>Add New
+                                                    Job Opportunity
+                                                </a>
                                                 </div>                                            
                                             </div>
                                             <div class="card-body"> 
@@ -106,7 +109,7 @@
                                                 </p>
                                                 @endif
                                                     <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                        <thead class="bg-c-pink text-white">
+                                                        <thead class="text-black">
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>Company Name</th>
@@ -153,19 +156,7 @@
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
-                                                        <tfoot class="bg-c-pink text-white">
-                                                            <tr>
-                                                            <th>ID</th>
-                                                            <th>Company Name</th>
-                                                            <th>Job Title</th>
-                                                            <th>Job Role</th>
-                                                            <th>Job Requirements</th>
-                                                            <th>Company Location</th>
-                                                            <th>Vacancy No</th>
-                                                            <th>Status</th>
-                                                            <th>Actions</th>
-                                                            </tr>
-                                                        </tfoot>
+                                                        
                                                     </table>
                                                 </div>
                                             </div>

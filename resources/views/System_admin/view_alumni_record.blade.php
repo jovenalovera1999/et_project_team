@@ -151,6 +151,7 @@
                                                             <td>
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    <a href="/show/{{$alumni_records->id}}" class="btn btn-primary">View</a>
                                                                     <a href="/alumni_records/{{$alumni_records->id}}" class="btn btn-info">Update</a>
                                                                     <form action="/alumni_records/{{$alumni_records->id}}" method="POST">
                                                                         @csrf
