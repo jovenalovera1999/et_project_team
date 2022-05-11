@@ -88,7 +88,9 @@
                                 <div class="card-block">
                                     <p class="m-b-20 panel-text">Total Registered Alumni</p>
                                     <h2 class="text-right text-white text-size-num2"><i class="fa fa-users f-left" style="color: #7ce8ff;"></i><span>{{$registered}}</span></h2>
-                                    <a class="m-b-0 text-white" href="/alumni_records">View details</a>
+                                    <a href="/alumni_records" type="button" class="btn profile_button2 text-size text-light">
+                                        <span class="fa fa-eye  mr-3" style="color:light; margin-right:5px; letter-spacing:0px;"></span>View details
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +100,10 @@
                                 <div class="card-block">
                                     <p class="m-b-20 panel-text">Total Employed</p>
                                     <h2 class="text-right text-white text-size-num2"><i class="fa fa-arrow-up f-left" style="color: #7ce8ff;"></i><span>{{$employed}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
+                                    <!-- <a class="m-b-0 text-white" href="/view_details">View details</a> -->
+                                    <a href="/view_details" type="button" class="btn profile_button2 text-size text-light">
+                                        <span class="fa fa-eye  mr-3" style="color:light; margin-right:5px; letter-spacing:0px;"></span>View details
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +113,9 @@
                                 <div class="card-block">
                                     <p class="m-b-20 panel-text">Total Unemployed</p>
                                     <h2 class="text-right text-white text-size-num2"><i class="fa fa-arrow-down f-left" style="color: #7ce8ff;"></i><span>{{$unemployed}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
+                                    <a href="/view_details" type="button" class="btn profile_button2 text-size text-light">
+                                        <span class="fa fa-eye  mr-3" style="color:light; margin-right:5px; letter-spacing:0px;"></span>View details
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +125,9 @@
                                 <div class="card-block">
                                     <p class="m-b-20 panel-text">Pending Offers</p>
                                     <h2 class="text-right text-white text-size-num2"><i class="fa fa-briefcase f-left" style="color: #7ce8ff;"></i><span>{{$pending_offer}}</span></h2>
-                                    <a class="m-b-0 text-white" href="">View details</a>
+                                    <a href="/view_details" type="button" class="btn profile_button2 text-size text-light">
+                                        <span class="fa fa-eye  mr-3" style="color:light; margin-right:5px; letter-spacing:0px;"></span>View details
+                                    </a>
                                 </div>
                             </div>
                         </div>

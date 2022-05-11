@@ -116,36 +116,7 @@
                                                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="{{$alumni_records->last_name}}">
                                                     <span class="text-danger">@error('last_name') {{$message}} @enderror</span>
                                                 </div>
-                                                <!-- Full Name
-                                                    <div class="input-group mb-3 mt-2" style="width: 5.5in;">
-                                                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" style="width: 1in;">
-                                                        <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" style="width: 1in;">
-                                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" style="width: 1in;">
-                                                        <span class="text-danger">@error('last_name') {{$message}} @enderror</span>
-                                                        <span class="text-danger">@error('middle_name') {{$message}} @enderror</span>
-                                                        <span class="text-danger">@error('first_name') {{$message}} @enderror</span>
-                                                    </div> -->
-                                                <!-- Full Name -->
-
-                                                <!-- Gender -->
-                                                <!-- <div class="mb-3" style="width: 3in;">
-                                                    <label for="gender" class="form-label">Gender</label>
-                                                    @if(empty(old('gender')))
-                                                    <select class="form-select" name="gender" id="gender" role="button">
-                                                        <option value="" selected>{{$alumni_records->gender}}</option>
-                                                    </select>
-                                                    @else
-                                                    <select class="form-select" name="gender" id="gender" role="button">
-                                                        <option value="">Select Gender</option>
-                                                        <option value="Male">Male</option>
-                                                        <option value="Female">Female</option>
-                                                        <option value="{{old('gender')}}" selected hidden>{{old('gender')}}</option>
-                                                    </select>
-                                                    @endif
-                                                    <span class="text-danger">@error('gender') {{$message}} @enderror</span>
-                                                </div> -->
-                                                <!-- Gender -->
-
+        
                                                 <!-- Contact -->
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="contact" class="form-label">Contact Number</label>
@@ -180,26 +151,6 @@
                                                     <input type="number" class="form-control" id="batch_no" name="batch_no" value="{{$alumni_records->batch_no}}">
                                                     <span class="text-danger">@error('batch_no') {{$message}} @enderror</span>
                                                 </div>
-                                                <!-- Batch No -->
-
-                                                <!-- Employment Status -->
-
-                                                <!-- <div>
-                                                    <script type="text/javascript">
-                                                        function EnableDisableTextBox(pending_offer) {
-                                                            employment_status.disabled = pending_offer.checked ? true : false;
-                                                            if (!employment_status.disabled) {}
-                                                            job_title.disabled = pending_offer.checked ? true : false;
-                                                            if (!job_title.disabled) {}
-                                                            company_name.disabled = pending_offer.checked ? true : false;
-                                                            if (!company_name.disabled) {}
-                                                            company_location.disabled = pending_offer.checked ? true : false;
-                                                            if (!company_location.disabled) {}
-                                                            work_arrangement.disabled = pending_offer.checked ? true : false;
-                                                            if (!work_arrangement.disabled) {}
-                                                        }
-                                                        </div>
-                                                    </script> -->
 
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="pending_offer" class="form-label">Pending Offers(With or Without)</label>
@@ -245,10 +196,7 @@
                                                     <input type="date" class="form-control" id="date_hired" name="date_hired" value="{{$alumni_records->date_hired}}">
                                                     <span class="text-danger">@error('date_hired') {{$message}} @enderror</span>
                                                 </div>
-                                                <!-- <div class="mb-3" style="width: 4.5in;">
-
-                                                    <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
-                                                </div> -->
+                                                
                                                 @if(empty(old('work_arrangement')))
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="work_arrangement" class="form-label">Work Arrangement</label>
@@ -272,9 +220,6 @@
                                                 </div>
                                                 @endif
 
-                                        
-                                                <!-- Employment Status -->
-
                                                 <!-- Scholarship Sponsors -->
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="scholarship_sponsors" class="form-label">Scholarship Sponsors</label>
@@ -283,9 +228,6 @@
                                                     </select>
                                                     <span class="text-danger">@error('scholarship_sponsors') {{$message}} @enderror</span>
                                                 </div>
-
-                                                
-
                                             </form>
                                         </div>
                                     </div>

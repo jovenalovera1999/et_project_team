@@ -77,7 +77,7 @@
                                     <div class="card" style="margin-left:0%;">
                                         <div class="card-header bg-c-blue ">
                                             <div class="float-left">
-                                                <h2 class="text-white">View Alumni Record</h2>
+                                                <h2 class="text-white">View Alumni Recordss</h2>
                                             </div>
                                             <div class="float-right">
                                                 <a href="add_new_record" type="button" class="btn profile_button2 text-light">
@@ -135,12 +135,35 @@
                                                             <td>
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
+<<<<<<< HEAD
                                                                     <a href="/show/{{$alumni_records->id}}" class="btn btn-primary">View</a>
                                                                     <a href="/alumni_records/{{$alumni_records->id}}" class="btn btn-info">Update</a>
+=======
+                                                                    <a href="{{route('alumni.view',[
+                                        'fname'=>$alumni_records->first_name, 
+                                        'mi'=>$alumni_records->middle_name, 
+                                        'lname'=>$alumni_records->last_name, 
+                                        'gender'=>$alumni_records->gender, 
+                                        'contact'=>$alumni_records->contact, 
+                                        'email'=>$alumni_records->email, 
+                                        'home'=>$alumni_records->home_address,
+                                        'present'=>$alumni_records->present_address,
+                                        'school'=>$alumni_records->school_graduated,
+                                        'pending'=>$alumni_records->pending_offer,
+                                        'status'=>$alumni_records->employment_status,
+                                        'batch_no'=>$alumni_records->batch_no,
+                                        'cname'=>$alumni_records->company_name,
+                                        'location'=>$alumni_records->company_location,
+                                        'title'=>$alumni_records->job_title,
+                                        'work_arr'=>$alumni_records->work_arrangement,
+                                        'update_date'=>$alumni_records->date_hired
+                                        ])}}" class="btn"><span class="fa fa-eye mr-3 text-center" style="color:dark"></span></a>
+                                                                    <a href="/alumni_records/{{$alumni_records->id}}" class="btn "><span class="fa fa-edit mr-3 text-center" style="color:dark"></span></a>
+>>>>>>> 741156e4f0126c593a0ab0b73a095d68a1082042
                                                                     <form action="/alumni_records/{{$alumni_records->id}}" method="POST">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button class="btn btn-danger">Delete</button>
+                                                                        <button class="btn "><span class="fa fa-trash mr-3 text-center" style="color:dark"></span></button>
                                                                     </form>
                                                                 </div>
                                                             </td>

@@ -28,13 +28,13 @@ return new class extends Migration
             $table->string('present_address');
             $table->string('school_graduated');
             $table->integer('batch_no');
+            $table->string('scholarship_sponsor')->nullable();
             $table->string('pending_offer')->nullable();
             $table->string('employment_status')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_location')->nullable();
             $table->string('job_title')->nullable();
             $table->string('date_hired')->nullable();
-            $table->string('scholarship_sponsor');
             $table->string('work_arrangement')->nullable();
             $table->binary('profile_picture')->nullable();
             $table->timestamp('created_at')->useCurrent();
