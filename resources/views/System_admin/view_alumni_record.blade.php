@@ -109,11 +109,10 @@
                                                         <tr>
                                                             <th>ID</th>
                                                             <th>Full Name</th>
-                                                            <th>Gender</th>
                                                             <th>Email</th>
-                                                            <th>Present Address</th>
                                                             <th>School Graduated</th>
                                                             <th>Employment Status</th>
+                                                            <th>Scholarship Sponsor</th>
                                                             <th>Batch No</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -126,11 +125,10 @@
                                                                 {{$alumni_records->middle_name}}
                                                                 {{$alumni_records->last_name}}
                                                             </td>
-                                                            <td>{{$alumni_records->gender}}</td>
                                                             <td>{{$alumni_records->email}}</td>
-                                                            <td>{{$alumni_records->present_address}}</td>
                                                             <td>{{$alumni_records->school_graduated}}</td>
                                                             <td>{{$alumni_records->employment_status}}</td>
+                                                            <td>{{$alumni_records->scholarship_sponsor}}</td>
                                                             <td>{{$alumni_records->batch_no}}</td>
                                                             <td>
 
