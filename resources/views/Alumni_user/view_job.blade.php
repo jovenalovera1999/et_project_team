@@ -32,10 +32,15 @@
 
             </div>
             <div class="p-4">
+            <div style="align-items: center; text-align: center; margin-top:5px;">
                 <a class="navbar-brand" href="#">
+                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                 </a>
-                <h1><a href="index.html" class="logo ">Menu<span class="text-white">User: {{Auth::user()->name}}</span></a></h1>
-                <br>
+                <h6 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
+                </div>
+                <br><br>
+                <h1><a href="index.html" class="logo ">Menu</a></h1>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
                         <a href="{{url('user_dashboard')}}"><span class="fa fa-home mr-3"></span> Dashboard</a>
@@ -55,15 +60,17 @@
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-5 pt-5">
-        <a href="{{url('user_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#0543af"></span><h1 class="h3 mb-0 text-gray-800 mb-4">Apply Now!</h1></a>
-            
-            <form action="#" class="border shadow p-3 rounded " style="width: 1000px;">
+            <a href="{{url('user_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#001c52"></span>
+                <h1 class="h3 mb-0 text-gray-800 mb-4">Apply Now!</h1>
+            </a>
 
-                <div class="profile-card-4 text-center"><img src="https://emedprimarycare.com/wp-content/uploads/2017/08/We-Are-Hiring.jpg" class="img img-responsive">
+            <form action="#" class="border shadow p-3 rounded  profile-card-box ">
+
+                <div class="profile-card-4 size text-center"><img src="{{ asset('images/apply-now.gif') }}" alt="Job-Hiring-Image" class="img img-responsive">
 
                     <div class="profile-content">
-                        <div class="profile-name ">{{$c_name}}
-                            <p>We are hiring {{$role}} {{$title}}. Apply now!</p>
+                        <div class="profile-name "><mark>{{$c_name}}</mark>
+                            <p><mark>We are hiring {{$role}} {{$title}}. Apply now!</mark></p>
                         </div>
                         <div class="profile-description">If you're interested, you can email us at opportunity@email.com and submit the ff. requirements: {{$reqs}}</div>
                         <div class="row">
@@ -83,6 +90,11 @@
                                 <div class="profile-overview">
                                     <p>Status</p>
                                     <h4>{{$status}}</h4>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="profile-overview">
+                                    <a href="#!" class="profile_button px-5">Apply Now!</a>
                                 </div>
                             </div>
                         </div>

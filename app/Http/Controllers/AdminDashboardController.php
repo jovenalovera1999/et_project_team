@@ -28,7 +28,7 @@ class AdminDashboardController extends Controller
         ->count();
 
          //  Pending Offers
-         $pending_offer = alumni_records::where ('pending_offer', '=', 'with')
+         $pending_offer = alumni_records::where ('pending_offer', '=', 'With')
          ->count();
 
         //  Total Registered
@@ -36,6 +36,8 @@ class AdminDashboardController extends Controller
 
         //  Month Footer
         $month = Carbon::now()->format('M Y');
+
+        $total_alumni = alumni_records::get(['*']);
        
         //  View Data to dashboard
         return view('System_admin.dashboard', ['alumni_records' => $alumni_records,
@@ -43,6 +45,31 @@ class AdminDashboardController extends Controller
          'employed' => $employed,
          'registered' => $registered,
          'month' => $month,
-         'pending_offer' => $pending_offer]);
+         'pending_offer' => $pending_offer,
+         'total_alumni' => $total_alumni]);
+    }
+
+    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $update_date)
+    {
+        return view ('System_admin.view_newly_hired', [
+            'fname' => $fname, 
+            'mi' => $mi, 
+            'lname' => $lname, 
+            'gender' => $gender, 
+            'contact' => $contact, 
+            'email' => $email, 
+            'home' => $home,
+            'present' => $present,
+            'school' => $school,
+            'batch_no' => $batch_no,
+            'pending' => $pending,
+            'status' => $status,
+            'cname' => $cname,
+            'location' => $location,
+            'title' => $title,
+            'work_arr' => $work_arr,
+            'update_date' => $update_date
+        ]);
+
     }
 }

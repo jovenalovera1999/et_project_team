@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\alumni_records;
 use Illuminate\Support\Facades\DB;
+use App\Mail\UserEmail;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class EmailController extends Controller
 {
@@ -101,5 +105,22 @@ class EmailController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sendMail(Request $request, $details) {
+      
+        foreach($request->get('emailaddress') as $email) {
+            $details=[
+                'subject' => $request->subject,
+                'body' => $request->body
+            ];    
+
+            Mail::to($email)->send(new UserEmail($details));
+            
+        }
+       
+        dd("Yaaaay! Mails were sent!!!");
+        return view('EmailSend.index');
+
     }
 }
