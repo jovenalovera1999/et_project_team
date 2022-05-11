@@ -251,20 +251,20 @@
                                                 @if(empty(old('work_arrangement')))
                                                 <div class="mb-3" style="width: 3in;">
                                                     <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{old('work_arrangement')}}">
-                                                        <option value="" selected>Full-time</option>
-                                                        <option value="Employed">Part-time</option>
-                                                        <option value="Unemployed">Flextime</option>
-                                                        <option value="Unemployed">Trainee</option>
+                                                        <option value="Full-time" selected>Full-time</option>
+                                                        <option value="Part-time">Part-time</option>
+                                                        <option value="Flextime">Flextime</option>
+                                                        <option value="Trainee">Trainee</option>
                                                     </select>
                                                     <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
                                                 </div>
                                                 @else
                                                 <div class="mb-3" style="width: 3in;">
                                                     <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{old('work_arrangement')}}">
-                                                        <option value="">Full-time</option>
-                                                        <option value="Employed">Part-time</option>
-                                                        <option value="Unemployed">Flextime</option>
-                                                        <option value="Unemployed">Trainee</option>
+                                                        <option value="Full-time" selected>Full-time</option>
+                                                        <option value="Part-time">Part-time</option>
+                                                        <option value="Flextime">Flextime</option>
+                                                        <option value="Trainee">Trainee</option>
                                                         <option value="{{old('work_arrangement')}}" selected hidden>{{old('work_arrangement')}}</option>
                                                     </select>
                                                     <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>

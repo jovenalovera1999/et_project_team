@@ -16,18 +16,20 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
-
-        // for Alumni Dashboard datatable 
-        //  Job opportunites
-        $job_opportunities = job_opportunities::where('status', '=', 'Available')
+        if(!Auth::check()) {
+            return redirect('/login');
+        } else {
+            // for Alumni Dashboard datatable 
+            //  Job opportunites
+            $job_opportunities = job_opportunities::where('status', '=', 'Available')
             ->get(['*']);
 
-        //  Year Footer
-        $year = Carbon::now()->format('M Y');
+            //  Year Footer
+            $year = Carbon::now()->format('M Y');
 
-        //  Total Job Oppurtunities
-        $job_opportunities_count = job_opportunities::where('status', '=', 'Available')
-            ->count();
+            //  Total Job Oppurtunities
+            $job_opportunities_count = job_opportunities::where('status', '=', 'Available')
+                ->count();
 
 
         //Identify if user has pending offers or none
@@ -55,13 +57,14 @@ class UserDashboardController extends Controller
         $month = Carbon::now()->format('M Y');
 
 
-        return view('Alumni_user.dashboard', [
-            'job_opportunities' => $job_opportunities,
-            'year' => $year,
-            'job_opportunities_count' => $job_opportunities_count,
-            'user' => $user,
-            'month' => $month
-        ]);
+            return view('Alumni_user.dashboard', [
+                'job_opportunities' => $job_opportunities,
+                'year' => $year,
+                'job_opportunities_count' => $job_opportunities_count,
+                'user' => $user,
+                'month' => $month
+            ]);
+        }
     }
 
     public function show($id, $c_name, $title, $role, $reqs, $location, $vacancy, $status)
