@@ -31,19 +31,22 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::resource('scholarship_sponsors', 'App\Http\Controllers\ScholarshipSponsorsController');
     
     Route::resource('register', 'App\Http\Controllers\RegisterController');
+    Route::resource('report', 'App\Http\Controllers\ReportController');
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
 
     //Alumni's resource
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
     //Route::resource('alumni_edit', 'App\Http\Controllers\AlumniRecordsController');
+    
     Route::resource('user_dashboard', 'App\Http\Controllers\UserDashboardController');
     Route::resource('view_job', 'App\Http\Controllers\ViewJobContorller');
     // Route::get('view_job/{id}', [UserDashboardController::class, 'show'])->name('post.show');
     //Route::resource('my_record', 'App\Http\Controllers\MyAlumniRecordController');
 
     Route::get('view_job/{id}/{c_name}/{title}/{role}/{reqs}/{location}/{vacancy}/{status}', 'App\Http\Controllers\UserDashboardController@show')->name('post.show');
-
+  
+   // Route::get('hallo', 'UserDataPrintController@index');
 
     //Email 
     Route::resource('email', EmailController::class);
