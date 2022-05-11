@@ -37,7 +37,7 @@
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
                     <ul class="list-unstyled components mb-4">
                         <li>
-                            <a href="user_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
+                            <a href="/user_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                         </li>
                         <li class="active">
                             <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span> My Record</a>
@@ -81,7 +81,7 @@
                                 {{$alumni_user->id}}
                             </td>
                              <?php 
-                             echo($alumni_user->profile_picture); ?>
+                             ?>
                            
                             <td class="table_column p-column">
                              <!-- <img src="images/data:image/png; base64,{{ chunk_split(base64_encode($alumni_user->profile_picture)) }}" height="100" width="100"> -->

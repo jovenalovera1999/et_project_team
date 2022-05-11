@@ -32,25 +32,29 @@ class UserDashboardController extends Controller
                 ->count();
 
 
-            //Identify if user has pending offers or none
-            $name = Auth::user()->name;
-            $result = DB::table('alumni_records')->select('pending_offer')
-                ->where(DB::raw('concat(first_name," ",middle_name," ",last_name)'), $name)->first();
-            
-            $user = $result->pending_offer; 
+        //Identify if user has pending offers or none
+        $id = Auth::user()->id;
+        // $result = DB::table('alumni_records')->select('pending_offer')
+        //     ->whereConcat(['first_name'," ",'middle_name'," ",'last_name'], $name)->first();
 
-            if (str_contains($user, 'out'))
-            {
-                $user = 'You have no pending offer as of the moment';
-            }
-            else
-            {
-                $user = 'You have a pending offer as of the moment';
-            }
+        $result = DB::table('users')
+            ->join('alumni_records', 'users.id', '=', 'alumni_records.user_id')
+            ->select('pending_offer')
+            ->where('alumni_records.user_id', '=', $id)->first();
 
-            
-            // for footer
-            $month = Carbon::now()->format('M Y');
+
+        $user = $result->pending_offer;
+
+
+        if (str_contains($user, 'out')) {
+            $user = 'You have no pending offer as of the moment';
+        } else {
+            $user = 'You have a pending offer as of the moment';
+        }
+
+
+        // for footer
+        $month = Carbon::now()->format('M Y');
 
 
             return view('Alumni_user.dashboard', [

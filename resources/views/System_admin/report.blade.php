@@ -1,4 +1,4 @@
-@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
+@if(!Auth::check() || Auth::user()->user_type != 'Alumni')
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>

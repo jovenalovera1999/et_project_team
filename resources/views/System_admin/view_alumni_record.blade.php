@@ -108,21 +108,13 @@
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>Name</th>
+                                                            <th>Full Name</th>
                                                             <th>Gender</th>
-                                                            <th>Contact</th>
                                                             <th>Email</th>
-                                                            <th>Home Address</th>
                                                             <th>Present Address</th>
                                                             <th>School Graduated</th>
-                                                            <th>Batch No</th>
-                                                            <th>Pending Offer</th>
                                                             <th>Employment Status</th>
-                                                            <th>Company Name</th>
-                                                            <th>Company Location</th>
-                                                            <th>Job Title</th>
-                                                            <th>Date Hired</th>
-                                                            <th>Work Arrangement</th>
+                                                            <th>Batch No</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -135,19 +127,11 @@
                                                                 {{$alumni_records->last_name}}
                                                             </td>
                                                             <td>{{$alumni_records->gender}}</td>
-                                                            <td>{{$alumni_records->contact}}</td>
                                                             <td>{{$alumni_records->email}}</td>
-                                                            <td>{{$alumni_records->home_address}}</td>
                                                             <td>{{$alumni_records->present_address}}</td>
                                                             <td>{{$alumni_records->school_graduated}}</td>
-                                                            <td>{{$alumni_records->batch_no}}</td>
-                                                            <td>{{$alumni_records->pending_offer}}</td>
                                                             <td>{{$alumni_records->employment_status}}</td>
-                                                            <td>{{$alumni_records->company_name}}</td>
-                                                            <td>{{$alumni_records->company_location}}</td>
-                                                            <td>{{$alumni_records->job_title}}</td>
-                                                            <td>{{$alumni_records->date_hired}}</td>
-                                                            <td>{{$alumni_records->work_arrangement}}</td>
+                                                            <td>{{$alumni_records->batch_no}}</td>
                                                             <td>
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">

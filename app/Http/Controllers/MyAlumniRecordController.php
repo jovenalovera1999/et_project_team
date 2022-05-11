@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\alumni_records;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class MyAlumniRecordController extends Controller
 {
@@ -38,7 +39,7 @@ class MyAlumniRecordController extends Controller
     {
         //
         $user = Auth:: user() -> id;
-        $alumni_user = alumni_records::where('id',"=", $user)->first();
+        $alumni_user = alumni_records::where('user_id',"=", $user)->first();
         
         //$alumni_user1 = alumni_records::all();
         //print($user);
@@ -92,19 +93,9 @@ class MyAlumniRecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        //
         
-        $request->validate([
-            'first_name' => 'required',
-            'middle_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|unique:users',
-            'profile_picture' => 'required|mimes:jpg,png,jpeg|max:5048',
-            /*'pending_offer' => 'required'*/
-                 
-        ]);
         
         if($request-> hasFile('profile_picture')){
             $image = $request->file('profile_picture');
@@ -113,36 +104,55 @@ class MyAlumniRecordController extends Controller
             $image->move(public_path('/images'),$image_name);     
             $image_path = "/images/" . $image_name;
         }
+        $pending_offer_isChecked = $request->pending_offer != null;
 
-        $user = Auth:: user() -> id;
-        $alumni_user =  alumni_records::where('id',"=", $user)->first();
-    
+        if(!$pending_offer_isChecked) {
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'gender' => 'required',
+                'contact' => 'required|numeric',
+                'home_address' => 'required',
+                'present_address' => 'required',
+                'school_graduated' => 'required',
+                'batch_no' => 'required|numeric',
+                'employment_status' => 'required',
+                'job_title' => 'required',
+                'company_name' => 'required',
+                'company_location' => 'required',
+                'work_arrangement' => 'required',
+                'email' => 'required|email',
+                //'profile_picture' => 'required',
+            ]);
+            
+        } else {
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'gender' => 'required',
+                'contact' => 'required|numeric',
+                'home_address' => 'required',
+                'present_address' => 'required',
+                'school_graduated' => 'required',
+                'batch_no' => 'required|numeric',
+                'email' => 'required|email',
+                //'profile_picture' => 'required|'
+            ]);
+           
+        }
 
-        $alumni_user -> first_name = $request->first_name;
-        $alumni_user -> middle_name = $request -> middle_name;
-        $alumni_user -> last_name = $request -> last_name;
-        $alumni_user -> gender = $request -> gender;
-        $alumni_user -> contact = $request -> contact;
-        $alumni_user -> email = $request -> email;
-        $alumni_user -> home_address = $request -> home_address;
-        $alumni_user -> present_address = $request -> present_address;
-        $alumni_user -> school_graduated = $request -> school_graduated;
-        $alumni_user -> batch_no = $request -> batch_no;
-        $alumni_user -> pending_offer = $request -> pending_offer;
-        $alumni_user -> employment_status = $request -> employment_status;
-        $alumni_user -> company_name = $request -> company_name;
-        $alumni_user -> company_location = $request -> company_location;
-        $alumni_user -> job_title = $request -> job_title;
-        $alumni_user -> work_arrangement = $request -> work_arrangement;
-        $alumni_user -> profile_picture = $request -> profile_picture ;
-       
-        //$image = $request->  file('profile_picture');
-        //$alumni_user -> profile_picture = $request -> $image -> getClientOriginalName();
-        //$alumni_user -> profile_picture = $request -> profile_picture -> move(public_path('/images'),$image_name);
-
-        $alumni_user -> updated_at = $request -> updated_at;
-        $alumni_user ->save();
-        
+        if($pending_offer_isChecked) {
+            DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
+            present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
+            work_arrangement = ?, email = ?, profile_picture = ?  where user_id = ?', [$request->first_name, $request->middle_name, $request->last_name, $request->gender, $request->contact,
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,'With', 'None', 'None', 'None', 'None', 'None', $request->email,$request->profile_picture = $image_path, $id]);
+        } else {
+            DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
+            present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
+            work_arrangement = ?, email = ? , profile_picture = ? where user_id = ?', [$request->first_name, $request->middle_name, $request->last_name, $request->gender, $request->contact,
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,$request -> pending_offer = "Without", $request->employment_status, $request->job_title, 
+            $request->company_name, $request->company_location, $request->work_arrangement, $request->email, $request->profile_picture = $image_path, $id]);
+        }
         return redirect('alumni_view/create')->with('msg', 'Data has been updated!');
     }
 
