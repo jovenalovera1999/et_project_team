@@ -24,6 +24,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // Admin's resource
     Route::resource('admin_dashboard', 'App\Http\Controllers\AdminDashboardController');
+    Route::resource('view_details', 'App\Http\Controllers\ViewDetailsController');
     Route::resource('alumni_records', 'App\Http\Controllers\AlumniRecordsController');
     Route::resource('add_new_record', 'App\Http\Controllers\AddNewRecordController');
     Route::resource('scholarship_sponsors', 'App\Http\Controllers\ScholarshipSponsorsController');
@@ -37,6 +38,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // Admin's get
     Route::get('view_newly_hired/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{update_date}', 'App\Http\Controllers\AdminDashboardController@alumni')->name('alumni.show');
+    Route::get('view_alumni/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{update_date}', 'App\Http\Controllers\ViewAlumniRecordController@alumni')->name('alumni.view');
     // Route::get('edit_sponsor/{scholarship_sponsors}', 'App\Http\Controllers\ScholarshipSponsorsController@update')->name('sponsor.show');
 
     // Admin's post

@@ -264,9 +264,10 @@
                                                 @else
                                                 <div class="mb-3" style="width: 3in;">
                                                     <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{$alumni_records->work_arrangement}}">
-                                                        <option value="">Work Arrangement</option>
-                                                        <option value="Employed">Employed</option>
-                                                        <option value="Unemployed">Unemployed</option>
+                                                        <option value="">None</option>
+                                                        <option value="Full time">Full time</option>
+                                                        <option value="Part time">Part time</option>
+                                                        <option value="Trainee">Trainee</option>
                                                         <option value="{{$alumni_records->work_arrangement}}" selected hidden>{{$alumni_records->work_arrangement}}</option>
                                                     </select>
                                                     <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
