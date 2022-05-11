@@ -41,6 +41,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // Admin's post
     Route::post('job_opportunity_update_status/{id}', 'App\Http\Controllers\JobOpportunitiesController@UpdateStatus');
+    Route::post('update_alumni/{id}', 'App\Http\Controllers\MyAlumniRecordController@update');
 
     //Alumni's resource
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
