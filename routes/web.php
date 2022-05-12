@@ -37,8 +37,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
 
     // Admin's get
-    Route::get('view_newly_hired/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{update_date}', 'App\Http\Controllers\AdminDashboardController@alumni')->name('alumni.show');
-    Route::get('view_alumni/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{update_date}', 'App\Http\Controllers\ViewAlumniRecordController@alumni')->name('alumni.view');
+    Route::get('view_newly_hired/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{date_hired}/{updated_at}', 'App\Http\Controllers\AdminDashboardController@alumni')->name('alumni.show');
+    Route::get('view_alumni/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{date_hired}/{updated_at}', 'App\Http\Controllers\ViewAlumniRecordController@alumni')->name('alumni.view');
     // Route::get('edit_sponsor/{scholarship_sponsors}', 'App\Http\Controllers\ScholarshipSponsorsController@update')->name('sponsor.show');
 
     // Admin's post

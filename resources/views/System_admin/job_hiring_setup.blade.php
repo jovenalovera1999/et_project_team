@@ -110,21 +110,19 @@
                                                     @endif
                                                     <table id="myTable" class="table table-bordered table-hover table-striped">
                                                         <thead class="text-black">
-                                                            <tr>
-                                                                <th>ID</th>
-                                                                <th>Company Name</th>
-                                                                <th>Job Title</th>
-                                                                <th>Job Role</th>
-                                                                <th>Job Requirements</th>
-                                                                <th>Company Location</th>
-                                                                <th>Vacancy No</th>
-                                                                <th>Status</th>
-                                                                <th>Action</th>
-                                                            </tr>
+                                                            <th>ID</th>
+                                                            <th>Company Name</th>
+                                                            <th>Job Title</th>
+                                                            <th>Job Role</th>
+                                                            <th>Job Requirements</th>
+                                                            <th>Company Location</th>
+                                                            <th>Vacancy No</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($job_opportunities as $job_opportunities)
                                                             <tr>
+                                                                @foreach ($job_opportunities as $job_opportunities)
                                                                 <td>{{$job_opportunities->id}}</td>
                                                                 <td>{{$job_opportunities->company_name}}</td>
                                                                 <td>{{$job_opportunities->job_title}}</td>
@@ -152,13 +150,17 @@
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
-
                                                     </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </body>
 
 </html>

@@ -115,7 +115,7 @@
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Last Updated</p>
                                             <?php
-                                            $date = strtotime($update_date);
+                                            $date = strtotime($updated_at);
                                             $last_updated = date('D M d, Y', $date);
                                             ?>
                                             <h6 class="text-muted f-w-400">{{$last_updated}}</h6>
@@ -123,10 +123,10 @@
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Date Hired</p>
                                             <?php
-                                            $date = strtotime($update_date);
-                                            $last_updated = date('D M d, Y', $date);
+                                            $date = strtotime($date_hired);
+                                            $hired = date('D M d, Y', $date);
                                             ?>
-                                            <h6 class="text-muted f-w-400">{{$last_updated}}</h6>
+                                            <h6 class="text-muted f-w-400">{{$hired}}</h6>
                                         </div>
                                     </div>
 

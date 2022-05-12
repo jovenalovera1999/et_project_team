@@ -16,7 +16,7 @@ class ViewAlumniRecordController extends Controller
         return view ('System_admin.view_action_alumni');
     }
 
-    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $update_date)
+    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $date_hired, $updated_at)
     {
         return view ('System_admin.view_action_alumni', [
             'fname' => $fname, 
@@ -35,7 +35,8 @@ class ViewAlumniRecordController extends Controller
             'location' => $location,
             'title' => $title,
             'work_arr' => $work_arr,
-            'update_date' => $update_date
+            'date_hired' => $date_hired,
+            'updated_at' => $updated_at
         ]);
 
     }

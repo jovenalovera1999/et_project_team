@@ -112,7 +112,8 @@
                                         'location'=>$employee->company_location,
                                         'title'=>$employee->job_title,
                                         'work_arr'=>$employee->work_arrangement,
-                                        'update_date'=>$employee->date_hired
+                                        'date_hired'=>$employee->date_hired,
+                                        'updated_at'=>$employee->updated_at
                                         ])}}">
                                         <div role="button" class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
                                             <span class="mr-25 w-4 h-4 overflow-hidden text-center border-1 brc-secondary-m2 radius-round shadow-sm d-zoom-2">
@@ -172,7 +173,8 @@
                                         'location'=>$non_employee->company_location,
                                         'title'=>$non_employee->job_title,
                                         'work_arr'=>$non_employee->work_arrangement,
-                                        'update_date'=>$non_employee    ->date_hired
+                                        'date_hired'=>$non_employee->date_hired,
+                                        'updated_at'=>$non_employee->updated_at
                                         ])}}">
                                         <div role="button" class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
                                             <span class="mr-25 w-4 h-4 overflow-hidden text-center border-1 brc-secondary-m2 radius-round shadow-sm d-zoom-2">
@@ -231,7 +233,8 @@
                                         'location'=>$pending_offer->company_location,
                                         'title'=>$pending_offer->job_title,
                                         'work_arr'=>$pending_offer->work_arrangement,
-                                        'update_date'=>$pending_offer    ->date_hired
+                                        'date_hired'=>$pending_offer->date_hired,
+                                        'updated_at'=>$pending_offer->updated_at
                                         ])}}">
 
                                         <div role="button" class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
