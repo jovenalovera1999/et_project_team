@@ -49,7 +49,7 @@ class AdminDashboardController extends Controller
          'total_alumni' => $total_alumni]);
     }
 
-    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $update_date)
+    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $date_hired, $updated_at)
     {
         return view ('System_admin.view_newly_hired', [
             'fname' => $fname, 
@@ -68,7 +68,8 @@ class AdminDashboardController extends Controller
             'location' => $location,
             'title' => $title,
             'work_arr' => $work_arr,
-            'update_date' => $update_date
+            'date_hired' => $date_hired,
+            'updated_at' => $updated_at
         ]);
 
     }

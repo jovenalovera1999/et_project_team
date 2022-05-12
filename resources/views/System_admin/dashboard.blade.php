@@ -185,7 +185,8 @@
                                         'location'=>$alumni_record->company_location,
                                         'title'=>$alumni_record->job_title,
                                         'work_arr'=>$alumni_record->work_arrangement,
-                                        'update_date'=>$alumni_record->date_hired
+                                        'date_hired'=>$alumni_record->date_hired,
+                                        'updated_at'=>$alumni_record->updated_at
                                         ])}}" class="profile_button px-5">View Profile</a>
                                             <div class="mt-4">
                                             </div>

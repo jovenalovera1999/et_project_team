@@ -150,7 +150,8 @@
                                         'location'=>$alumni_records->company_location,
                                         'title'=>$alumni_records->job_title,
                                         'work_arr'=>$alumni_records->work_arrangement,
-                                        'update_date'=>$alumni_records->date_hired
+                                        'date_hired'=>$alumni_records->date_hired,
+                                        'updated_at'=>$alumni_records->updated_at
                                         ])}}" class="btn"><span class="fa fa-eye mr-3 text-center" style="color:dark"></span></a>
                                                                     <a href="/alumni_records/{{$alumni_records->id}}" class="btn "><span class="fa fa-edit mr-3 text-center" style="color:dark"></span></a></a>
                                                                     <form action="/alumni_records/{{$alumni_records->id}}" method="POST">
