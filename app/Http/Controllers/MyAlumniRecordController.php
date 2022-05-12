@@ -104,6 +104,7 @@ class MyAlumniRecordController extends Controller
             $image->move(public_path('/images'),$image_name);     
             $image_path = "/images/" . $image_name;
         }
+
         $pending_offer_isChecked = $request->pending_offer != null;
 
         if(!$pending_offer_isChecked) {
@@ -145,13 +146,13 @@ class MyAlumniRecordController extends Controller
             DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
             present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
             work_arrangement = ?, email = ?, profile_picture = ?  where user_id = ?', [$request->first_name, $request->middle_name, $request->last_name, $request->gender, $request->contact,
-            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,'With', 'None', 'None', 'None', 'None', 'None', $request->email,$request->profile_picture = $image_path, $id]);
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,'With', 'None', 'None', 'None', 'None', 'None', $request->email, $image_path, $id]);
         } else {
             DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
             present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
             work_arrangement = ?, email = ? , profile_picture = ? where user_id = ?', [$request->first_name, $request->middle_name, $request->last_name, $request->gender, $request->contact,
             $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,$request -> pending_offer = "Without", $request->employment_status, $request->job_title, 
-            $request->company_name, $request->company_location, $request->work_arrangement, $request->email, $request->profile_picture = $image_path, $id]);
+            $request->company_name, $request->company_location, $request->work_arrangement, $request->email, $image_path, $id]);
         }
         return redirect('alumni_view/create')->with('msg', 'Data has been updated!');
     }
