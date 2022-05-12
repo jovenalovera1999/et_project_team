@@ -29,12 +29,12 @@
 
             </div>
             <div class="p-4">
-            <div style="align-items: center; text-align: center; margin-top:5px;">
-                <a class="navbar-brand" href="#">
-                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
-                </a>
-                <h5 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                <div style="align-items: center; text-align: center; margin-top:5px;">
+                    <a class="navbar-brand" href="#">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                    </a>
+                    <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -68,45 +68,48 @@
             </div>
         </nav>
 
-            <body>
-                <div class="wrapper d-flex align-items-stretch">
-                    <!-- Page Content  -->
-                    
-                    <div id="content" class="p-4 p-md-5 pt-5">
-                        <div>
-                            <div class="container mr-10">
-                                <div class="contaciner">
+        <body>
+            <div class="wrapper d-flex align-items-stretch">
+                <!-- Page Content  -->
+
+                <div id="content" class="p-4 p-md-5 pt-5">
+                    <div>
+                        <div class="container mr-10">
+                            <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="card">
                                             <div class="card-header bg-c-pink">
                                                 <div class="float-left">
-                                                    <h2 class="text-white">Manage Job Opportunities </h2>   
+                                                    <h4 class="text-white">Manage Job Opportunities </h4>
                                                 </div>
                                                 <div class="float-right">
-                                                    <a href="/job_opportunities/create" class="btn btn-success">Add Job Opportunities</a>
-                                                </div>                                            
+                                                    <a href="/job_opportunities/create" type="button" class="btn profile_button2 text-light">
+                                                        <span class="fa fa-plus  mr-3" style="color:light"></span>Add New
+                                                        Job Opportunity
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="card-body"> 
+                                            <div class="card-body">
                                                 <div class="table-responsive">
-                                                @if(Session::has('message-success'))
-                                                <p class="alert alert-success" role="alert">
-                                                    <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                                                    </svg>
-                                                    {{ Session::get('message-success') }}
-                                                </p>
-                                                @endif
-                                                @if(Session::has('message-error'))
-                                                <p class="alert alert-danger" role="alert">
-                                                    <svg width="1.25em" height="1.25em" class="bi bi-exclamation-circle-fill" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                                                    </svg>
-                                                    {{ Session::get('message-error') }}
-                                                </p>
-                                                @endif
+                                                    @if(Session::has('message-success'))
+                                                    <p class="alert alert-success" role="alert">
+                                                        <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check" fill="currentColor">
+                                                            <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                                                        </svg>
+                                                        {{ Session::get('message-success') }}
+                                                    </p>
+                                                    @endif
+                                                    @if(Session::has('message-error'))
+                                                    <p class="alert alert-danger" role="alert">
+                                                        <svg width="1.25em" height="1.25em" class="bi bi-exclamation-circle-fill" fill="currentColor">
+                                                            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                        </svg>
+                                                        {{ Session::get('message-error') }}
+                                                    </p>
+                                                    @endif
                                                     <table id="myTable" class="table table-bordered table-hover table-striped">
-                                                        <thead class="bg-c-pink text-white">
+                                                        <thead class="text-black">
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>Company Name</th>
@@ -129,71 +132,57 @@
                                                                 <td>{{$job_opportunities->job_requirements}}</td>
                                                                 <td>{{$job_opportunities->company_location}}</td>
                                                                 <td>{{$job_opportunities->vacancy_no}}</td>
-                                                                <td> 
+                                                                <td>
                                                                     <form action="/job_opportunity_update_status/{{$job_opportunities->id}}" method="POST" id="statusCheckbox">
                                                                         @csrf
                                                                         <!-- <input type="text" name="job_opportunity_id" value="{{$job_opportunities->id}}" hiddent> -->
-                                                                        <input data-id="{{$job_opportunities->id}}" name="status_checkbox"
-                                                                        class="toggle-class" type="checkbox" data-onstyle="success"
-                                                                        data-offstyle="danger" data-toggle="toggle" data-on="Available" data-off="Unavailable"
-                                                                        onchange="javascript:this.form.submit()" value="check"
-                                                                        {{$job_opportunities->status === 'Available' ? 'checked' : ''}}>
+                                                                        <input data-id="{{$job_opportunities->id}}" name="status_checkbox" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Available" data-off="Unavailable" onchange="javascript:this.form.submit()" value="check" {{$job_opportunities->status === 'Available' ? 'checked' : ''}}>
                                                                     </form>
                                                                 </td>
                                                                 <td>
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                                        <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn btn-info">Update</a>
+                                                                        <a href="/job_opportunities/{{$job_opportunities->id}}" class="btn"><span class="fa fa-edit mr-3 text-center" style="color:dark"></span></a>
                                                                         <form action="/job_opportunities/{{$job_opportunities->id}}" method="POST">
                                                                             @csrf
                                                                             @method('DELETE')
-                                                                            <button class="btn btn-danger">Delete</button>
+                                                                            <button class="btn "><span class="fa fa-trash mr-3 text-center" style="color:dark"></span></button>
                                                                         </form>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
-                                                        <tfoot class="bg-c-pink text-white">
-                                                            <tr>
-                                                            <th>ID</th>
-                                                            <th>Company Name</th>
-                                                            <th>Job Title</th>
-                                                            <th>Job Role</th>
-                                                            <th>Job Requirements</th>
-                                                            <th>Company Location</th>
-                                                            <th>Vacancy No</th>
-                                                            <th>Status</th>
-                                                            <th>Actions</th>
-                                                            </tr>
-                                                        </tfoot>
+
                                                     </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-</body>
+        </body>
+
 </html>
 </div>
 </div>
 
-    <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-    <script src="{{URL::asset('js/main.js')}}"></script>
-    <script src="{{URL::asset('js/popper.js')}}"></script>
-    <script src="{{URL::asset('js/custom.js')}}"></script>
-    <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
-    <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
-    <script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+<script src="{{URL::asset('js/jquery.min.js')}}"></script>
+<script src="{{URL::asset('js/main.js')}}"></script>
+<script src="{{URL::asset('js/popper.js')}}"></script>
+<script src="{{URL::asset('js/custom.js')}}"></script>
+<script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
+<script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
+<script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 <script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
 </script>
 </body>
+
 </html>
 @endif

@@ -38,7 +38,7 @@
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
                 <ul class="list-unstyled components mb-4">
                     <li class="active">
-                        <a href="user_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
+                        <a href="/user_dashboard"><i class="fa fa-home mr-3"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span>My Record</a>
@@ -75,8 +75,7 @@
                                             @if(Session::has('msg'))
                                             <p class="text-success">{{session('msg')}}</p>
                                             @endif
-                                                <form action="alumni_view/" method="POST" class="mt-3">
-                                                @method('put')
+                                                <form action="/update_alumni/{{Auth::user()->id}}" method="POST" class="mt-3"  enctype="multipart/form-data">
                                                 @csrf
                                                     <!-- @if(Session::has('message-success')) <p class="alert alert-success" role="alert">{{ Session::get('message-success') }}</p>@endif
                                                     @if(Session::has('message-error')) <p class="alert alert-danger" role="alert">{{ Session::get('message-error') }}</p>@endif -->
@@ -171,15 +170,15 @@
                                                                 if (!work_arrangement.disabled) {}
                                                             }
                                                         </script>
-                                                       <!-- <label for="pending offer">
-                                                            <input type="checkbox" id="pending_offer" onclick="EnableDisableTextBox(this)" />
+                                                        <label for="pending_offer">
+                                                            <input type="checkbox" id="pending_offer" name="pending_offer" onclick="EnableDisableTextBox(this)" value="check" />
                                                             Have pending offers?
-                                                        </label>-->
+                                                        </label>
                                                         <br />
                                                     </div>
                                                     <div class="mb-3" style="width: 3in;">
                                                         <label for="employment_status" class="form-label">Employment Status</label> <br />
-                                                        <select class="form-select" name="employment_status" id="employment_status" role="button">
+                                                        <select class="form-select" name="employment_status" id="employment_status" role="button" value="check">
                                                             <option selected>{{ ucfirst($alumni_user1 -> employment_status) }}</option>
                                                             <option value="Employed">Employed</option>
                                                             <option value="Unemployed">Unemployed</option>
@@ -201,8 +200,6 @@
                                                         <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
                                                     </div>
                                                     <div class="mb-3" style="width: 4.5in;">
-
-                                                        <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
                                                     </div>
                                                     <div class="mb-3" style="width: 3in;">
                                                         <label for="employment_status" class="form-label">Work Arrangement</label> <br />
@@ -222,23 +219,21 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-3" style="width: 3in;">
-                                                        <!--<label for="email" class="form-label">Login Credentials</label>-->
+                                                        <label for="email" class="form-label">Email</label>
                                                         <input type="text" class="form-control" id="email" name="email" placeholder="Email" value={{ ucfirst($alumni_user1 -> email) }}>
                                                         <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                                     </div>
                                                     <div class="mb-3" style="width: 3in;">
                                                         <!--<label for="email" class="form-label">Login Credentials</label>-->
-                                                        <label for="scholarship_sponsors" class="form-label">Profile Picture</label>
+                                                        <label for="" class="form-label">Profile Picture</label>
                                                         <div class="input-box input-upload-box left">
-                                                                <div class="upload-wrapper">
-                                                                    <div class="upload-box">
-                                                                        <input type="file" name="profile_picture" id="profile_picture" class="form-control">
-                                                                    </div>
+                                                            <div class="upload-wrapper">
+                                                                <div class="upload-box">
+                                                                    <input type="file" name="profile_picture" id="profile_picture" class="form-control" >
                                                                 </div>
-                                                                <div class="error photoerror">Please select a file and click upload</div>
-                                                                <div class="passport_file"></div>
                                                             </div>
-                                                        <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                                            <div class="">Please select a file and click upload</div>
+                                                        </div>
                                                     </div>
                                                     <!-- Scholarship Sponsors -->
 

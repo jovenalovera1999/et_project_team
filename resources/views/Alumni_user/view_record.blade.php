@@ -12,35 +12,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
-        <style>.nav-bk5{
-background: #0575E6;  
-background: -webkit-linear-gradient(to right, #021B79, #0575E6);  
-background: linear-gradient(to left, #021B79, #0575E6);}
-.nav-bk7{
-background: #c2e59c;  
-background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  
-background: linear-gradient(to right, #64b3f4, #c2e59c); }
-.nav-bk2{
- 
- background: #23074d; 
-  
- background: -webkit-linear-gradient(to right, #cc5333, #23074d); 
-  
- background: linear-gradient(to right, #cc5333, #23074d);
-  
-  
-  
- }
-
-</style>
+        
         
     </head>
     <body>
         <div class="wrapper d-flex align-items-stretch">
             <nav id="sidebar">
                 <div class="custom-menu">
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary print-container">
+                        <i class="fa fa-bars print-container"></i>
                         <span class="sr-only">Toggle Menu</span>
                     </button>
 
@@ -57,7 +37,7 @@ background: linear-gradient(to right, #64b3f4, #c2e59c); }
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
                     <ul class="list-unstyled components mb-4">
                         <li>
-                            <a href="user_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
+                            <a href="/user_dashboard"><span class="fa fa-home mr-3"></span> Dashboard</a>
                         </li>
                         <li class="active">
                             <a href="{{url('alumni_view')}}"><span class="fa fa-user mr-3"></span> My Record</a>
@@ -74,10 +54,9 @@ background: linear-gradient(to right, #64b3f4, #c2e59c); }
             <!-- Page Content  -->
             <div id="content" class="p-4 p-md-5 pt-5">
             <div class="container"> <div>
-
                                 <div class="card nav-bk7" style="width: 8.4in;" >
                                     <div class="card-header text-left">
-                            <table class="table"><link rel="stylesheet" type="text/css" href="{{asset('css/alumni.css') }}">
+                            <table class="table"><link rel="stylesheet" type="text/css" href="{{asset('css/alumni.css') }}" >
                         <!--<tbody><tr class="table_row logo">
                             <td class="table_column logo">
                                 <img src="">
@@ -86,14 +65,11 @@ background: linear-gradient(to right, #64b3f4, #c2e59c); }
                         </tr>-->
                         
                         <tr class="table_row table_part ">              
-                            
-
-         
                             <td class="table_column nav-bk5">
-  
                                 PERSONAL INFORMATION
-                                <div class="float-right card-header ">
-                                    <a href="alumni_view/create" class="btn btn-success">Edit</a>
+                                <div class="float-right card-header print-container1">
+                                    <a href="{{url('alumni_view')}}" class="btn btn-info btnprn" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"> Print</i></a> 
+                                    <a href="alumni_view/create" class="btn btn-success"><i class="fa fa-edit">Edit</i></a>
                                 </div>
                             </td>
                         </tr>
@@ -104,8 +80,12 @@ background: linear-gradient(to right, #64b3f4, #c2e59c); }
                             <td class="table_column m-column">
                                 {{$alumni_user->id}}
                             </td>
+                             <?php 
+                             ?>
+                           
                             <td class="table_column p-column">
-                               <img src="images/paulo1.jpg" td="">
+                             <!-- <img src="images/data:image/png; base64,{{ chunk_split(base64_encode($alumni_user->profile_picture)) }}" height="100" width="100"> -->
+                             <img src="{{URL::asset($alumni_user->profile_picture)}}">
                         </td></tr>
                        
                         <tr class="table_row  ">
@@ -248,6 +228,7 @@ background: linear-gradient(to right, #64b3f4, #c2e59c); }
         <script src="{{URL::asset('js/main.js')}}"></script>
         <script src="{{URL::asset('js/popper.js')}}"></script>
         <script src="{{URL::asset('js/custom.js')}}"></script>
+      
 
 </body>
 

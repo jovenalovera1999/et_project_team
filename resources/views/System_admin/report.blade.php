@@ -31,8 +31,8 @@
                 <a class="navbar-brand" href="#">
                     <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                 </a>
-                <h5 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -68,8 +68,79 @@
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-5 pt-5">
+            
             <h1 class="h3 mb-0 text-gray-800 mb-4">Reports</h1>
-        </div>
+            <div id="content" class="p-4 p-md-5 pt-5">
+        
+            <div class="col">
+            <div class="card">
+                <h5 class="card-header bg-c-pink text-white">Employment Status Summary Report by Date & Pending Offers Filter</h5>
+                <div class="card-body">
+                <div class="table-responsive">
+                <form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="">
+                    <div class="form-row" align="left">
+                    <div class="form-group col-md-3">
+                    <label>From Date:</label>
+                    <input type="date" class="datepicker btn-block"  name="from" id="fromDate" Placeholder="Select From Date" value="">
+                    </div>
+                    <div class="form-group col-md-3">
+                    <label>To Date:  </label>
+                    <input type="date" name="to" id="toDate" class="datepicker btn-block"  Placeholder="Select To Date" value="">
+                    </div>
+                    <div class="form-group col-md-3">
+                    <label>Pending Offers:  </label>
+                    <select class="custom-select" name="pending_offers" id="pending_offers" required>
+                    <option value="">--Select Pending Offers</option>
+                    <option value="With">With</option>
+                    <option value="Without">Without</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                    <label>Home Address:</label>
+                    <?php
+                    /** connection */
+                    ?>
+                    <select name="home_address" id="home_address" class="custom-select" required>
+                    <option value="">--Select Home Address--</option>
+                    <?php //echo $city_name; ?>
+                    </select>
+                    </div>
+                    </div>
+                    <div class="form-row" align="left">
+                    <div class="form-group col-md-3 offset-md-6">
+                    <a href="" class="btn btn-success btn-block"><i class="fa fa-refresh"></i> Reset</a></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Load</button>
+                    </div>
+                    </div>
+                </form>
+                <br>
+                <style type="text/css">
+                @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+                <div class="tg-wrap">
+                    <table id="table" class="display" cellspacing="0" style="width:100%">
+                    <thead style="font: bold; active" align="center">
+                    <tr>
+                    <td>Id</td>
+                    <td align= center>Name</td>
+                    <td align= center>Job Title</td>
+                    <td align= center>Home Address</td>
+                    <td align= center>Date Created</td>
+                    <td align= center>Batch Number</td>
+                    <td align= center>Status</td>
+                    <td align= center>Pending Offers</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    /*empty */
+                    ?>
+                    </tbody>
+                    </table>
+                
+
+                </div>
 
         <!-- PANEL START CODE  -->
 
