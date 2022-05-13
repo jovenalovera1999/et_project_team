@@ -100,7 +100,11 @@ class AlumniRecordsController extends Controller
         $alumni_record = new alumni_records;
         $alumni_record->user_id = $user->id;
         $alumni_record->first_name = $request->first_name;
-        $alumni_record->middle_name = $request->middle_name;
+        if(empty($request->middle_name)) {
+            $alumni_record->middle_name = 'None';
+        } else {
+            $alumni_record->middle_name = $request->middle_name;
+        }
         $alumni_record->last_name = $request->last_name;
         $alumni_record->gender = $request->gender;
         $alumni_record->contact = $request->contact;

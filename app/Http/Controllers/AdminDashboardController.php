@@ -14,8 +14,8 @@ class AdminDashboardController extends Controller
     {
        // for Dashboard datatable 
         //  Newly hired alumni
-        $alumni_records = alumni_records::whereMonth('created_at', date('m'))
-        ->whereYear('created_at', date('Y'))
+        $alumni_records = alumni_records::whereMonth('date_hired', date('m'))
+        ->whereYear('date_hired', date('Y'))
         ->where ('employment_status', '=', 'Employed')
         ->get(['*']);
 
