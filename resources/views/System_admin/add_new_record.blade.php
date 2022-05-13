@@ -214,13 +214,13 @@
                                                     <label for="employment_status" class="form-label">Employment Status</label> <br />
                                                     @if(empty(old('employment_status')))
                                                     <select class="form-select" name="employment_status" id="employment_status" role="button" value="{{old('employment_status')}}">
-                                                        <option value="" selected>None</option>
+                                                        <option value="None" selected>None</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
                                                     </select>
                                                     @else
                                                     <select class="form-select" name="employment_status" id="employment_status" role="button" value="{{old('employment_status')}}">
-                                                        <option value="">None</option>
+                                                        <option value="None">None</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
                                                         <option value="{{old('employment_status')}}" selected hidden>{{old('employment_status')}}</option>
@@ -277,7 +277,7 @@
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="scholarship_sponsor" class="form-label">Scholarship Sponsors</label>
                                                     <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{old('scholarship_sponsor')}}">
-                                                        <option value="" selected>None</option>
+                                                        <option value="None" selected>None</option>
                                                         @foreach ($scholarship_sponsors as $scholarship_sponsor)
                                                         <option value="{{$scholarship_sponsor->sponsor}}">{{$scholarship_sponsor->sponsor}}</option>
                                                         @endforeach
