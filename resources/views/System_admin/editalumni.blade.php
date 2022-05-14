@@ -212,13 +212,13 @@
                                                     <label for="employment_status" class="form-label">Employment Status</label> <br />
                                                     @if(empty(old('employment_status')))
                                                     <select class="form-select" name="employment_status" id="employment_status" role="button" value="{{$alumni_records->employment_status}}">
-                                                        <option value="" selected>{{$alumni_records->employment_status}}</option>
+                                                        <option value="{{$alumni_records->employment_status}}" selected>{{$alumni_records->employment_status}}</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
                                                     </select>
                                                     @else
                                                     <select class="form-select" name="employment_status" id="employment_status" role="button" value="{{$alumni_records->employment_status}}">
-                                                        <option value="">None</option>
+                                                        <option value="None">None</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
                                                         <option value="{{$alumni_records->employment_status}}" selected hidden>{{$alumni_records->employment_status}}</option>
@@ -254,7 +254,7 @@
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="work_arrangement" class="form-label">Work Arrangement</label>
                                                     <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{$alumni_records->work_arrangement}}">
-                                                        <option value="" selected>{{$alumni_records->work_arrangement}}</option>
+                                                        <option value="{{$alumni_records->work_arrangement}}" selected>{{$alumni_records->work_arrangement}}</option>
                                                         <option value="Full time">Full time</option>
                                                         <option value="Part time">Part time</option>
                                                         <option value="Trainee">Trainee</option>
@@ -280,7 +280,7 @@
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="work_arrangement" class="form-label">Scholarship Sponsor</label>
                                                     <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{$alumni_records->scholarship_sponsor}}">
-                                                        <option value="" selected>{{$alumni_records->scholarship_sponsor}}</option>
+                                                        <option value="{{$alumni_records->scholarship_sponsor}}" selected>{{$alumni_records->scholarship_sponsor}}</option>
                                                         
                                                     </select>
                                                     <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>

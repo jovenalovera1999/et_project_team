@@ -17,18 +17,13 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
+        $alumni_records= alumni_records::all();
+        return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
 
+        // $alumni_records = alumni_records::get(['*']);
         
-        
-        // $alumni_records= alumni_records::all();
-        // return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
-
-        $alumni_records = alumni_records::get(['*']);
-        
-        return view('System_admin.view_alumni_record',[
-            'alumni_records' => $alumni_records]);
-
-           
+        // return view('System_admin.view_alumni_record',[
+        //     'alumni_records' => $alumni_records]);
     }
 
     /**
@@ -63,6 +58,7 @@ class AlumniRecordsController extends Controller
                 'batch_no' => 'required|numeric',
                 'employment_status' => 'required',
                 'job_title' => 'required',
+                'date_hired' => 'required',
                 'company_name' => 'required',
                 'company_location' => 'required',
                 'work_arrangement' => 'required',
@@ -121,7 +117,7 @@ class AlumniRecordsController extends Controller
             $alumni_record->company_name = 'None';
             $alumni_record->company_location = 'None';
             $alumni_record->job_title = 'None';
-            $alumni_record->date_hired = 'None';
+            $alumni_record->date_hired = '1999-10-10';
             $alumni_record->work_arrangement = 'None';
         } else {
             $alumni_record->pending_offer = 'Without';
@@ -132,7 +128,6 @@ class AlumniRecordsController extends Controller
             $alumni_record->date_hired = $request->date_hired;
             $alumni_record->work_arrangement = $request->work_arrangement;
         }
-
         $alumni_record->save();
         return back()->with('message-success', 'Alumni user successfully created!');
     }
@@ -185,7 +180,11 @@ class AlumniRecordsController extends Controller
         $alumni_record->company_name = $request->company_name;
         $alumni_record->company_location = $request->company_location;
         $alumni_record->job_title = $request->job_title;
-        $alumni_record->date_hired = $request->date_hired;
+        if(empty($request->date_hired)) {
+            $alumni_record->date_hired = 'None';
+        } else {
+            $alumni_record->date_hired = $request->date_hired;
+        }
         $alumni_record->work_arrangement = $request->work_arrangement;
         $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
         $alumni_record->save();

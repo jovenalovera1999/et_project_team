@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('company_location');
             $table->string('job_title');
-            $table->string('date_hired');
+            $table->timestamp('date_hired')->nullable();
             $table->string('work_arrangement');
             $table->string('profile_picture')->nullable();
             $table->timestamp('created_at')->useCurrent();
