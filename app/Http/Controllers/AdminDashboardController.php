@@ -17,7 +17,7 @@ class AdminDashboardController extends Controller
         $alumni_records = alumni_records::whereMonth('date_hired', date('m'))
         ->whereYear('date_hired', date('Y'))
         ->where ('employment_status', '=', 'Employed')
-        ->get(['*']);
+        ->get();
 
        //  Total Unemployed
         $unemployed = alumni_records::where ('employment_status', '=', 'Unemployed')
@@ -71,6 +71,5 @@ class AdminDashboardController extends Controller
             'date_hired' => $date_hired,
             'updated_at' => $updated_at
         ]);
-
     }
 }

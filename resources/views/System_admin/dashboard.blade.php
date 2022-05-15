@@ -85,7 +85,7 @@
                         <div class="col-md-4 col-xl-3">
                             <div class="card bg-c-blue order-card b-4 border-left-primary shadow h-200 py-0">
                                 <div class="card-block">
-                                    <p class="m-b-20 panel-text">Total Registered Alumni</p>
+                                    <p class="m-b-20 panel-text">Registered Alumni</p>
                                     <h2 class="text-right text-white text-size-num2"><i class="fa fa-users f-left" style="color: #7ce8ff;"></i><span>{{$registered}}</span></h2>
                                     <a href="/alumni_records" type="button" class="btn profile_button2 text-size text-light">
                                         <span class="fa fa-eye  mr-3" style="color:light; margin-right:5px; letter-spacing:0px;"></span>View details
@@ -138,7 +138,7 @@
 
             <div class="card text-center">
                 <div class="card-header">
-                    <h6 style="letter-spacing:2px;"><b>Featured</b></h6>
+                    <h6 style="letter-spacing:2px;">Featured</h6>
                 </div>
                 <div class="card-body">
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -159,6 +159,13 @@
                                             <br>
                                             <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders-logo.png') }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                             <div class="">
+                                                <?php
+                                                if (str_contains($alumni_record->middle_name, 'None')) {
+                                                    $alumni_record->middle_name = ' ';
+                                                } else {
+                                                    $alumni_record->middle_name = $alumni_record->middle_name;
+                                                }
+                                                ?>
                                                 <h5>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
                                                 <p class="text-muted">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-red">{{$alumni_record->company_name}}</a></span></p>
                                             </div>

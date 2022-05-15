@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | User Authentiction</title>
+    <title>Employment Tracker | Alumni Records</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
@@ -121,6 +121,13 @@
                                                         @foreach ($alumni_records as $alumni_records)
                                                         <tr>
                                                             <td>{{$alumni_records->id}}</td>
+                                                            <?php
+                                                            if (str_contains($alumni_records->middle_name, 'None')) {
+                                                                $alumni_records->middle_name = ' ';
+                                                            } else {
+                                                                $alumni_records->middle_name = $alumni_records->middle_name;
+                                                            }
+                                                            ?>
                                                             <td>{{$alumni_records->first_name}}
                                                                 {{$alumni_records->middle_name}}
                                                                 {{$alumni_records->last_name}}

@@ -120,7 +120,7 @@
                 @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
                 <div class="tg-wrap">
                     <table id="table" class="display" cellspacing="0" style="width:100%">
-                    <thead style="font: bold; active" align="center">
+                    <thead style="font: bold;" align="center">
                     <tr>
                     <td>Id</td>
                     <td align= center>Name</td>
