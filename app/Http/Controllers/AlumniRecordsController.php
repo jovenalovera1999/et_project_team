@@ -168,6 +168,11 @@ class AlumniRecordsController extends Controller
     public function update(Request $request, alumni_records $alumni_record)
     {
         $alumni_record->first_name = $request->first_name;
+        if(empty($request->middle_name)) {
+            $alumni_record->middle_name = 'None';
+        } else {
+            $alumni_record->middle_name = $request->middle_name;
+        }
         $alumni_record->middle_name = $request->middle_name;
         $alumni_record->last_name = $request->last_name;
         $alumni_record->contact = $request->contact;
