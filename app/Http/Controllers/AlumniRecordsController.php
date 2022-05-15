@@ -17,13 +17,13 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        $alumni_records= alumni_records::all();
-        return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
+        // $alumni_records= alumni_records::all();
+        // return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
 
-        // $alumni_records = alumni_records::get(['*']);
+        $alumni_records = alumni_records::all();
         
-        // return view('System_admin.view_alumni_record',[
-        //     'alumni_records' => $alumni_records]);
+        return view('System_admin.view_alumni_record',[
+            'alumni_records' => $alumni_records]);
     }
 
     /**
@@ -181,7 +181,7 @@ class AlumniRecordsController extends Controller
         $alumni_record->company_location = $request->company_location;
         $alumni_record->job_title = $request->job_title;
         if(empty($request->date_hired)) {
-            $alumni_record->date_hired = 'None';
+            $alumni_record->date_hired = '1999-10-10';
         } else {
             $alumni_record->date_hired = $request->date_hired;
         }

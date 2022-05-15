@@ -27,12 +27,12 @@
 
             </div>
             <div class="p-4">
-            <div style="align-items: center; text-align: center; margin-top:5px;">
-                <a class="navbar-brand" href="#">
-                    <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
-                </a>
-                <h5 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                <div style="align-items: center; text-align: center; margin-top:5px;">
+                    <a class="navbar-brand" href="#">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                    </a>
+                    <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -273,7 +273,7 @@
                                                 </div>
                                                 @endif
 
-                                        
+
                                                 <!-- Employment Status -->
 
                                                 <!-- Scholarship Sponsors -->
@@ -281,7 +281,7 @@
                                                     <label for="work_arrangement" class="form-label">Scholarship Sponsor</label>
                                                     <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{$alumni_records->scholarship_sponsor}}">
                                                         <option value="{{$alumni_records->scholarship_sponsor}}" selected>{{$alumni_records->scholarship_sponsor}}</option>
-                                                        
+
                                                     </select>
                                                     <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
                                                 </div>

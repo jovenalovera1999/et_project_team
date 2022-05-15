@@ -31,8 +31,8 @@
                 <a class="navbar-brand" href="#">
                     <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                 </a>
-                <h5 class="logo"style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>

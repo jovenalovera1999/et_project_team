@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | Dashboard</title>
+    <title>Employment Tracker |View Alumni Record</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
@@ -48,12 +48,19 @@
                                 <a href="/alumni_records"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#062847; margin-top:20px;"></span></a>
                             </div>
                             <div class="card-block">
-                            <br><br>
+                                <br><br>
                                 <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Personal Information</h5>
 
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Full Name</p>
+                                        <?php
+                                        if (str_contains($mi, 'None')) {
+                                            $mi = '';
+                                        } else {
+                                            $mi = $mi;
+                                        }
+                                        ?>
                                         <h6 class="text-muted f-w-400">{{$fname}} {{$mi}} {{$lname}}</h6>
                                     </div>
                                     <div class="col-sm-6">
@@ -122,9 +129,13 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Date Hired</p>
-                                            <?php
-                                            $date = strtotime($date_hired);
-                                            $hired = date('D M d, Y', $date);
+                                            <?php                                       
+                                            if (str_contains($date_hired, '1999-10-10')) {
+                                                $hired = 'None';
+                                            } else {
+                                                $date = strtotime($date_hired);
+                                                $hired = date('D M d, Y', $date);
+                                            }
                                             ?>
                                             <h6 class="text-muted f-w-400">{{$hired}}</h6>
                                         </div>

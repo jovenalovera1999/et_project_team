@@ -74,23 +74,24 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
             <a href="/admin_dashboard"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#001c52"></span>
-                <h4 class=" mb-0 text-gray-800 mb-4">Overview</h4>
+                <h4 class=" mb-0 text-gray-800 mb-4">Summary</h4>
 
 
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
                 <div class="container">
                     <div class="row">
-                    <div class="col-lg-4">
-                            <div class="card1 ccard radius-t-0 h-100">
+                        <div class="col-lg-4">
+                            <div class="card1 ccard radius-t-0 h-100" style="position: relative;">
                                 <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
                                 <!-- the blue line on top -->
 
                                 <div class="card-header pb-3 brc-secondary-l3">
                                     <img alt="brifcase" src="{{ asset('images/icons8-self-60.png') }}" class=" float-right h-4 w-4" />
-                                    <h6 class="card-title mb-2 mb-md-0 text-dark-m3 " >
-                                        Employed
+                                    <h6 class="card-titles mb-2 mb-md-0 text-dark-m3 ">
+                                        Employed   
                                     </h6>
+                                    <br>
                                 </div>
 
                                 <div class="card-body pt-2 pb-1 card-bg ">
@@ -120,16 +121,23 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/employed.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-d3 text-90 text-600">
+                                            <span class="text-default-green text-90 text-600">
+                                                <?php
+                                                if (str_contains($employee->middle_name, 'None')) {
+                                                    $employee->middle_name = ' ';
+                                                } else {
+                                                    $employee->middle_name = $employee->middle_name;
+                                                }
+                                                ?>
                                                 {{$employee->first_name}} {{$employee->middle_name}} {{$employee->last_name}}
                                             </span>
 
-                                            <span class="ml-auto text-dark-l2 text-nowrap">
-                                                <!-- 350 -->
+                                            <!-- <span class="ml-auto text-dark-l2 text-nowrap">
+                                                350
                                                 <span class="text-80">
-                                                    <!-- EUR -->
+                                                    EUR
                                                 </span>
-                                            </span>
+                                            </span> -->
 
                                             <span class="ml-2">
                                                 <i class="fa fa-arrow-up text-green-m1 text-95"></i>
@@ -140,18 +148,19 @@
                                 </div>
                             </div>
                         </div>
-                       
+
 
                         <div class="col-lg-4">
-                            <div class="card1 ccard radius-t-0 h-100">
+                            <div class="card1 ccard radius-t-0 h-100" style="position: relative;">
                                 <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
                                 <!-- the blue line on top -->
 
                                 <div class="card-header pb-3 brc-secondary-l3">
                                     <img alt="brifcase" src="{{ asset('images/icons8-unemployment-64.png') }}" class=" float-right h-4 w-4" />
-                                    <h6 class="card-title mb-2 mb-md-0 text-dark-m3">
+                                    <h6 class="card-titles mb-2 mb-md-0 text-dark-m3">
                                         Unemployed
                                     </h6>
+                                    <br>
                                 </div>
 
                                 <div class="card-body pt-2 pb-1 card-bg">
@@ -181,16 +190,23 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/unemployed.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-d3 text-90 text-600">
+                                            <span class="text-default-red text-90 text-600">
+                                                <?php
+                                                if (str_contains($non_employee->middle_name, 'None')) {
+                                                    $non_employee->middle_name = ' ';
+                                                } else {
+                                                    $non_employee->middle_name = $non_employee->middle_name;
+                                                }
+                                                ?>
                                                 {{$non_employee->first_name}} {{$non_employee->middle_name}} {{$non_employee->last_name}}
                                             </span>
 
-                                            <span class="ml-auto text-dark-l2 text-nowrap">
-                                                <!-- 350 -->
+                                            <!-- <span class="ml-auto text-dark-l2 text-nowrap">
+                                                350
                                                 <span class="text-80">
-                                                    <!-- EUR -->
+                                                    EUR
                                                 </span>
-                                            </span>
+                                            </span> -->
 
                                             <span class="ml-2">
                                                 <i class="fa fa-arrow-down text-danger-m1 text-95"></i>
@@ -203,15 +219,16 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="card1 ccard radius-t-0 h-100">
+                            <div class="card1 ccard radius-t-0 h-100" style="position: relative;">
                                 <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
                                 <!-- the blue line on top -->
 
-                                <div class="card-header pb-3 brc-secondary-l3">
+                                <div class="card-header pb-3 brc-secondary-l3"style="position: relative;">
                                     <img alt="brifcase" src="{{ asset('images/icons8-offer-58.png') }}" class=" float-right h-4 w-4" />
-                                    <h6 class="card-title mb-2 mb-md-0 text-dark-m3">
+                                    <h6 class="card-titles mb-2 mb-md-0 text-dark-m3">
                                         With Pending Offers
                                     </h6>
+                                    <br>
                                 </div>
 
                                 <div class="card-body pt-2 pb-1 card-bg">
@@ -242,16 +259,23 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/pending_offer.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-d3 text-90 text-600">
+                                            <span class="text-default-blue text-90 text-600">
+                                                <?php
+                                                if (str_contains($pending_offer->middle_name, 'None')) {
+                                                    $pending_offer->middle_name = ' ';
+                                                } else {
+                                                    $pending_offer->middle_name = $pending_offer->middle_name;
+                                                }
+                                                ?>
                                                 {{$pending_offer->first_name}} {{$pending_offer->middle_name}} {{$pending_offer ->last_name}}
                                             </span>
 
-                                            <span class="ml-auto text-dark-l2 text-nowrap">
-                                                <!-- 232 -->
+                                            <!-- <span class="ml-auto text-dark-l2 text-nowrap">
+                                                232
                                                 <span class="text-80">
-                                                    <!-- EUR -->
+                                                    EUR
                                                 </span>
-                                            </span>
+                                            </span> -->
 
                                             <span class="ml-2">
                                                 <i class="fa fa-arrow-right text-blue-m1 text-95"></i>
