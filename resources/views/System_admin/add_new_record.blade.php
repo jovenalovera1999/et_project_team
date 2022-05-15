@@ -117,16 +117,6 @@
                                                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="{{old('last_name')}}">
                                                     <span class="text-danger">@error('last_name') {{$message}} @enderror</span>
                                                 </div>
-                                                <!-- Full Name
-                                                    <div class="input-group mb-3 mt-2" style="width: 5.5in;">
-                                                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" style="width: 1in;">
-                                                        <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" style="width: 1in;">
-                                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" style="width: 1in;">
-                                                        <span class="text-danger">@error('last_name') {{$message}} @enderror</span>
-                                                        <span class="text-danger">@error('middle_name') {{$message}} @enderror</span>
-                                                        <span class="text-danger">@error('first_name') {{$message}} @enderror</span>
-                                                    </div> -->
-                                                <!-- Full Name -->
 
                                                 <!-- Gender -->
                                                 <div class="mb-3" style="width: 3in;">
@@ -286,19 +276,6 @@
                                                 </div>
                                                 <!-- Scholarship Sponsors -->
 
-                                                <!-- User Type -->
-
-                                                <!-- <div class="mb-3" style="width: 3in;">
-                                                        <label for="user_type" class="form-label">User Type</label>
-                                                        <select class="form-select" name="user_type" id="user_type" role="button">
-                                                            <option selected>Select user</option>
-                                                            <option value="Alumni">Alumni</option>
-                                                            <option value="Administrator">Administrator</option>
-                                                        </select>
-                                                    </div> -->
-
-                                                <!-- User Type -->
-
                                                 <!-- Login Credentials -->
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="email" class="form-label">Login Credentials</label>
@@ -315,13 +292,9 @@
                                                 </div>
                                                 <!-- Login Credentials -->
 
-                                                <!-- Code for Checkbox -->
-
-
                                                 <div class="mb-3 text-center">
                                                     <button type="submit" class="btn bg-c-blue text-light" style="width: 200px">Create</button>
                                                 </div>
-                                                <!-- Code for Checkbox -->
 
                                             </form>
                                         </div>

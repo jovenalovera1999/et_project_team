@@ -172,30 +172,71 @@ class AlumniRecordsController extends Controller
      */
     public function update(Request $request, alumni_records $alumni_record)
     {
+        $pending_offer_isChecked = $request->pending_offer != null;
+
+        if(!$pending_offer_isChecked) {
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'gender' => 'required',
+                'contact' => 'required|numeric',
+                'home_address' => 'required',
+                'present_address' => 'required',
+                'school_graduated' => 'required',
+                'batch_no' => 'required|numeric',
+                'employment_status' => 'required',
+                'job_title' => 'required',
+                'date_hired' => 'required',
+                'company_name' => 'required',
+                'company_location' => 'required',
+                'work_arrangement' => 'required'
+            ]);
+        } else {
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'gender' => 'required',
+                'contact' => 'required|numeric',
+                'home_address' => 'required',
+                'present_address' => 'required',
+                'school_graduated' => 'required',
+                'batch_no' => 'required|numeric'
+            ]);
+        }
+
         $alumni_record->first_name = $request->first_name;
         if(empty($request->middle_name)) {
             $alumni_record->middle_name = 'None';
         } else {
             $alumni_record->middle_name = $request->middle_name;
         }
-        $alumni_record->middle_name = $request->middle_name;
         $alumni_record->last_name = $request->last_name;
         $alumni_record->contact = $request->contact;
         $alumni_record->home_address = $request->home_address;
         $alumni_record->present_address = $request->present_address;
         $alumni_record->school_graduated = $request->school_graduated;
         $alumni_record->batch_no = $request->batch_no;
-        $alumni_record->pending_offer = $request->pending_offer;
-        $alumni_record->employment_status = $request->employment_status;
-        $alumni_record->company_name = $request->company_name;
-        $alumni_record->company_location = $request->company_location;
-        $alumni_record->job_title = $request->job_title;
-        if(empty($request->date_hired)) {
+        if($pending_offer_isChecked) {
+            $alumni_record->pending_offer = 'With';
+            $alumni_record->employment_status = 'None';
+            $alumni_record->company_name = 'None';
+            $alumni_record->company_location = 'None';
+            $alumni_record->job_title = 'None';
             $alumni_record->date_hired = '1999-10-10';
+            $alumni_record->work_arrangement = 'None';
         } else {
-            $alumni_record->date_hired = $request->date_hired;
+            $alumni_record->pending_offer = 'Without';
+            $alumni_record->employment_status = $request->employment_status;
+            $alumni_record->company_name = $request->company_name;
+            $alumni_record->company_location = $request->company_location;
+            $alumni_record->job_title = $request->job_title;
+            if(empty($request->date_hired)) {
+                $alumni_record->date_hired = '1999-10-10';
+            } else {
+                $alumni_record->date_hired = $request->date_hired;
+            }
+            $alumni_record->work_arrangement = $request->work_arrangement;
         }
-        $alumni_record->work_arrangement = $request->work_arrangement;
         $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
         $alumni_record->save();
 
