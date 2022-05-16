@@ -246,39 +246,14 @@
                                                 <div class="mb-3" style="width: 3in;">
 
                                                     <!-- SCRIPT FOR EMPLOYMENT STATUS -->
-                                                    <script>
-                                                    function EnableDisableTextBox(employment_status) {
-                                                        var selectedValue = employment_status.options[employment_status
-                                                                .selectedIndex]
-                                                            .value;
-                                                        var job_title = document.getElementById("job_title");
-                                                        job_title.disabled = selectedValue == "Unemployed" ? true :
-                                                            false;
-                                                        if (!job_title.disabled) {}
-
-                                                        var company_name = document.getElementById("company_name");
-                                                        company_name.disabled = selectedValue == "Unemployed" ? true :
-                                                            false;
-                                                        if (!company_name.disabled) {}
-
-                                                        var company_location = document.getElementById(
-                                                            "company_location");
-                                                        company_location.disabled = selectedValue == "Unemployed" ?
-                                                            true : false;
-                                                        if (!company_location.disabled) {}
-
-                                                        var date_hired = document.getElementById("date_hired");
-                                                        date_hired.disabled = selectedValue == "Unemployed" ? true :
-                                                            false;
-                                                        if (!date_hired.disabled) {}
-
-                                                        var work_arrangement = document.getElementById(
-                                                            "work_arrangement");
-                                                        work_arrangement.disabled = selectedValue == "Unemployed" ?
-                                                            true : false;
-                                                        if (!work_arrangement.disabled) {}
-
-                                                    }
+                                                    <script type="text/javascript">
+                                                        function EnableDisableTextBoxByEmploymentStatus(employment_status) {
+                                                            job_title.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            company_name.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            company_location.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            work_arrangement.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            date_hired.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                        }
                                                     </script>
                                                     <!-- SCRIPT FOR EMPLOYMENT STATUS -->
 
@@ -287,7 +262,7 @@
                                                     @if(empty(old('employment_status')))
                                                     <select class="form-select" name="employment_status"
                                                         id="employment_status" role="button"
-                                                        onchange="EnableDisableTextBox(this)"
+                                                        onchange="EnableDisableTextBoxByEmploymentStatus(this)"
                                                         value="{{old('employment_status')}}">
                                                         <option value="None" selected>None</option>
                                                         <option value="Employed">Employed</option>
@@ -296,7 +271,7 @@
                                                     @else
                                                     <select class="form-select" name="employment_status"
                                                         id="employment_status" role="button"
-                                                        onchange="EnableDisableTextBox(this)"
+                                                        onchange="EnableDisableTextBoxByEmploymentStatus(this)"
                                                         value="{{old('employment_status')}}">
                                                         <option value="None">None</option>
                                                         <option value="Employed">Employed</option>
