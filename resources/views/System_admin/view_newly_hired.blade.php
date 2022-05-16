@@ -38,9 +38,9 @@
                     <div class="row ">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
-                                <div class="m-b-25"> <img src="{{ asset('images/user.png') }}" class="img-radius" alt="User-Profile-Image"> </div>
-                                <h4 class="text-light f-w-600">{{$fname}} {{$lname}}</h4>
-                                <h6 class="text-light f-w-600">{{$title}}</h6> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                <div class="m-b-25" style="margin-top:20%;"> <img src="{{ asset('images/user.png') }}" class="img-radius" alt="User-Profile-Image"> </div>
+                                <h4 class="text-light f-w-600" style="text-transform: capitalize;">{{$fname}} {{$lname}}</h4>
+                                <h6 class="text-light f-w-600" style="text-transform: capitalize;">{{$title}}</h6> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -61,7 +61,7 @@
                                             $mi = $mi;
                                         }
                                         ?>
-                                        <h6 class="text-muted f-w-400">{{$fname}} {{$mi}} {{$lname}}</h6>
+                                        <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$fname}} {{$mi}} {{$lname}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Gender</p>
@@ -69,15 +69,15 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Home Address</p>
-                                        <h6 class="text-muted f-w-400">{{$home}}</h6>
+                                        <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$home}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Present Address</p>
-                                        <h6 class="text-muted f-w-400">{{$present}}</h6>
+                                        <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$present}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">School Graduated</p>
-                                        <h6 class="text-muted f-w-400">{{$school}}</h6>
+                                        <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$school}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Batch No.</p>
@@ -105,15 +105,15 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Company Name</p>
-                                            <h6 class="text-muted f-w-400">{{$cname}}</h6>
+                                            <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$cname}}</h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Company Location</p>
-                                            <h6 class="text-muted f-w-400">{{$location}}</h6>
+                                            <h6 class="text-muted f-w-400"style="text-transform: capitalize;">{{$location}}</h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Job Title</p>
-                                            <h6 class="text-muted f-w-400">{{$title}}</h6>
+                                            <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$title}}</h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Work Arrangement</p>

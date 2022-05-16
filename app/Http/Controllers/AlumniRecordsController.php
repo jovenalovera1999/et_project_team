@@ -21,9 +21,10 @@ class AlumniRecordsController extends Controller
         // return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
 
         $alumni_records = alumni_records::all();
-        
-        return view('System_admin.view_alumni_record',[
-            'alumni_records' => $alumni_records]);
+
+        return view('System_admin.view_alumni_record', [
+            'alumni_records' => $alumni_records
+        ]);
     }
 
     /**
@@ -46,7 +47,7 @@ class AlumniRecordsController extends Controller
     {
         $pending_offer_isChecked = $request->pending_offer != null;
 
-        if(!$pending_offer_isChecked) {
+        if (!$pending_offer_isChecked) {
             $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
@@ -83,7 +84,7 @@ class AlumniRecordsController extends Controller
         }
 
         $user = new User;
-        if(empty($request->middle_name)) {
+        if (empty($request->middle_name)) {
             $user->name = $request->first_name . ' ' . $request->last_name;
         } else {
             $user->name = $request->first_name . ' ' . $request->middle_name . ' ' . $request->last_name;
@@ -92,11 +93,11 @@ class AlumniRecordsController extends Controller
         $user->password = Hash::make($request->password);
         $user->user_type = 'Alumni';
         $user->save();
-            
+
         $alumni_record = new alumni_records;
         $alumni_record->user_id = $user->id;
         $alumni_record->first_name = $request->first_name;
-        if(empty($request->middle_name)) {
+        if (empty($request->middle_name)) {
             $alumni_record->middle_name = 'None';
         } else {
             $alumni_record->middle_name = $request->middle_name;
@@ -111,7 +112,7 @@ class AlumniRecordsController extends Controller
         $alumni_record->batch_no = $request->batch_no;
         $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
 
-        if($pending_offer_isChecked) {
+        if ($pending_offer_isChecked) {
             $alumni_record->pending_offer = 'With';
             $alumni_record->employment_status = 'None';
             $alumni_record->company_name = 'None';
@@ -125,7 +126,7 @@ class AlumniRecordsController extends Controller
             $alumni_record->company_name = $request->company_name;
             $alumni_record->company_location = $request->company_location;
             $alumni_record->job_title = $request->job_title;
-            if(empty($request->date_hired)) {
+            if (empty($request->date_hired)) {
                 $alumni_record->date_hired = '1999-10-10';
             } else {
                 $alumni_record->date_hired = $request->date_hired;
@@ -134,7 +135,7 @@ class AlumniRecordsController extends Controller
             $alumni_record->work_arrangement = $request->work_arrangement;
         }
         $alumni_record->save();
-        return back()->with('message-success', 'Alumni user successfully created!');
+        return back()->with('message-success', 'Alumni Record was successfully created!');
     }
 
     /**
@@ -149,7 +150,6 @@ class AlumniRecordsController extends Controller
         // return view('System_admin.show')->with('alumni_records', $alumni_record);
         $alumni_records = alumni_records::find($id);
         return view('System_admin.show')->with('System_admin', $alumni_records);
-        
     }
 
     /**
@@ -174,7 +174,7 @@ class AlumniRecordsController extends Controller
     {
         $pending_offer_isChecked = $request->pending_offer != null;
 
-        if(!$pending_offer_isChecked) {
+        if (!$pending_offer_isChecked) {
             $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
@@ -205,7 +205,7 @@ class AlumniRecordsController extends Controller
         }
 
         $alumni_record->first_name = $request->first_name;
-        if(empty($request->middle_name)) {
+        if (empty($request->middle_name)) {
             $alumni_record->middle_name = 'None';
         } else {
             $alumni_record->middle_name = $request->middle_name;
@@ -216,7 +216,7 @@ class AlumniRecordsController extends Controller
         $alumni_record->present_address = $request->present_address;
         $alumni_record->school_graduated = $request->school_graduated;
         $alumni_record->batch_no = $request->batch_no;
-        if($pending_offer_isChecked) {
+        if ($pending_offer_isChecked) {
             $alumni_record->pending_offer = 'With';
             $alumni_record->employment_status = 'None';
             $alumni_record->company_name = 'None';
@@ -230,7 +230,7 @@ class AlumniRecordsController extends Controller
             $alumni_record->company_name = $request->company_name;
             $alumni_record->company_location = $request->company_location;
             $alumni_record->job_title = $request->job_title;
-            if(empty($request->date_hired)) {
+            if (empty($request->date_hired)) {
                 $alumni_record->date_hired = '1999-10-10';
             } else {
                 $alumni_record->date_hired = $request->date_hired;
@@ -240,7 +240,7 @@ class AlumniRecordsController extends Controller
         $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
         $alumni_record->save();
 
-        return back()->with('message-success', 'Alumni user successfully updated!');
+        return back()->with('message-success', 'Alumni Record was successfully updated!');
     }
 
     /**
@@ -252,6 +252,6 @@ class AlumniRecordsController extends Controller
     public function destroy(alumni_records $alumni_record)
     {
         $alumni_record->delete();
-        return back()->with('message-success', 'Alumni record successfully deleted!');
+        return back()->with('message-success', 'Alumni Record was successfully deleted!');
     }
 }

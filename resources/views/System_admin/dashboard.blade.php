@@ -138,7 +138,7 @@
 
             <div class="card text-center">
                 <div class="card-header">
-                    <h6 style="letter-spacing:2px;">Featured</h6>
+                    <h6 style="letter-spacing:4px; font-size:11px;">Featured</h6>
                 </div>
                 <div class="card-body">
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -152,7 +152,7 @@
                                 @foreach ($alumni_records as $alumni_record)
                                 <div class="col-lg-4">
                                     <div class="text-center card-box">
-                                        <p class="text-muted">Newly Hired {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}}</p>
+                                        <p class="text-muted" style="font-size:13px;">New {{$alumni_record->work_arrangement}} {{$alumni_record->job_title}}</p>
                                         <p class="text-muted"></p>
 
                                         <div class="member-card pt-2 pb-2">
@@ -166,12 +166,12 @@
                                                     $alumni_record->middle_name = $alumni_record->middle_name;
                                                 }
                                                 ?>
-                                                <h5>{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
-                                                <p class="text-muted">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-red">{{$alumni_record->company_name}}</a></span></p>
+                                                <h5 style="text-transform: capitalize; font-size:17px;">{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
+                                                <p class="text-muted one-line-text" style="text-transform: capitalize;">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-red one-line-text">{{$alumni_record->company_name}}</a></span></p>
                                             </div>
                                             <ul class="social-links list-inline">
                                                 <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Twitter"><i class="fa fa-linkedin"></i></a></li>
                                                 <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="{{$alumni_record->email}}" data-original-title="Email"><i class="fa fa-envelope"></i></a></li>
                                             </ul>
                                             <br>
@@ -198,7 +198,7 @@
                                             <div class="mt-4">
                                             </div>
                                         </div>
-                                        <div class=" text-muted" style="margin-top:7px;">
+                                        <div class=" text-muted" style="margin-top:7px; font-size:12px;">
                                             <p>{{$alumni_record->created_at->diffForHumans()}}</p>
                                         </div>
                                     </div>
