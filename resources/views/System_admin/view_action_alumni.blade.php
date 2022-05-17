@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | View Alumni Record</title>
+    <title>Employment Tracker |View Alumni Record</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
@@ -38,14 +38,14 @@
                     <div class="row ">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
-                                <div class="m-b-25" style="margin-top:20%;"> <img src="{{ asset('images/user.png') }}" class="img-radius" alt="User-Profile-Image"> </div>
+                                <div class="m-b-25"> <img src="{{ asset('images/user.png') }}" class="img-radius" alt="User-Profile-Image"> </div>
                                 <h4 class="text-light f-w-600" style="text-transform: capitalize;">{{$fname}} {{$lname}}</h4>
                                 <h6 class="text-light f-w-600" style="text-transform: capitalize;">{{$title}}</h6> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
                         </div>
                         <div class="col-sm-8">
                             <div style="float:right;">
-                                <a href="{{url('admin_dashboard')}}"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#062847; margin-top:20px;"></span></a>
+                                <a href="/alumni_records"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#062847; margin-top:20px;"></span></a>
                             </div>
                             <div class="card-block">
                                 <br><br>
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Company Location</p>
-                                            <h6 class="text-muted f-w-400"style="text-transform: capitalize;">{{$location}}</h6>
+                                            <h6 class="text-muted f-w-400" style="text-transform: capitalize;">{{$location}}</h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Job Title</p>
@@ -129,7 +129,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Date Hired</p>
-                                            <?php
+                                            <?php                                       
                                             if (str_contains($date_hired, '1999-10-10')) {
                                                 $hired = 'None';
                                             } else {

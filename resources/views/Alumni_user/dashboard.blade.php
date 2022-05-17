@@ -38,7 +38,7 @@
                         <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                     </a>
                     <h6 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
-                    <!-- <h6 class="logo"><span class="text-white font-user">Logged In User</span></h6> -->
+                    <h5 class="logo"><span class="text-white font-user">Alumni User</span></h5>
                 </div>
                 <br><br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -116,14 +116,14 @@
             <!-- panel for Newly Hired Alumni -->
 
             <div class="card text-center">
-                <div class="card-header">
+                <div class="card-header" style="letter-spacing:2px;">
                     Featured
                 </div>
                 <div class="card-body">
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
                         <div class="container card-title ">
-                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px;">Available Job Opportunities. Apply now!</h6>
+                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px; letter-spacing:2px;">Available Job Opportunities. Apply now!</h6>
                             <br>
 
                             <!-- end row -->

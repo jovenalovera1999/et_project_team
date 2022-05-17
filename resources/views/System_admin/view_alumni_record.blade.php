@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employment Tracker | User Authentiction</title>
+    <title>Employment Tracker | Alumni Records</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
@@ -28,10 +28,14 @@
             <div class="p-4">
                 <div style="align-items: center; text-align: center; margin-top:5px;">
                     <a class="navbar-brand" href="#">
-                        <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
+                        <div class="thumb-lg member-thumb mx-auto"><img
+                                src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100"
+                                class="d-inline-block align-text-top" style="border-radius: 50px;"
+                                class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                     </a>
-                    <h5 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                    <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                    <h6 class="logo " style="margin-top: 20px;"><span
+                            class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -68,61 +72,58 @@
 
         <div class="wrapper d-flex align-items-stretch">
             <!-- Page Content  -->
-            <div id="content" style="margin-top: 50px;">
+            <div id="content" style="margin-top: 33px;">
                 <div>
                     <div class="container mr-10">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="card" style="margin-left:0%;">
+                                    <div class="card" style="margin-left:1.5%;">
                                         <div class="card-header bg-c-blue ">
                                             <div class="float-left">
-                                                <h2 class="text-white">View Alumni Record</h2>
+                                                <h4 class="text-white">Manage Alumni Record</h4>
                                             </div>
                                             <div class="float-right">
-                                                <a href="add_new_record" type="button" class="btn profile_button2 text-light">
+                                                <a href="add_new_record" type="button"
+                                                    class="btn profile_button2 text-light">
                                                     <span class="fa fa-plus  mr-3" style="color:light"></span>Add New
                                                     Alumni Record
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="card-body">
+                                            @if(Session::has('message-success'))
+                                            <p class="alert alert-success" role="alert">
+                                                <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check"
+                                                    fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                                                </svg>
+                                                {{ Session::get('message-success') }}
+                                            </p>
+                                            @endif
+                                            @if(Session::has('message-error'))
+                                            <p class="alert alert-danger" role="alert">
+                                                <svg width="1.25em" height="1.25em"
+                                                    class="bi bi-exclamation-circle-fill" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                </svg>
+                                                {{ Session::get('message-error') }}
+                                            </p>
+                                            @endif
                                             <div class="table-responsive">
-                                                @if(Session::has('message-success'))
-                                                <p class="alert alert-success" role="alert">
-                                                    <svg width="1.25em" height="1.25em" class="bi bi-shield-fill-check" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-                                                    </svg>
-                                                    {{ Session::get('message-success') }}
-                                                </p>
-                                                @endif
-                                                @if(Session::has('message-error'))
-                                                <p class="alert alert-danger" role="alert">
-                                                    <svg width="1.25em" height="1.25em" class="bi bi-exclamation-circle-fill" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                                                    </svg>
-                                                    {{ Session::get('message-error') }}
-                                                </p>
-                                                @endif
-                                                <table id="fitlabel" class="table table-bordered table-hover table-striped">
+                                                <table id="myTable"
+                                                    class="table table-bordered table-hover table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>Name</th>
-                                                            <th>Gender</th>
-                                                            <th>Contact</th>
+                                                            <th>Full Name</th>
                                                             <th>Email</th>
-                                                            <th>Home Address</th>
-                                                            <th>Present Address</th>
                                                             <th>School Graduated</th>
-                                                            <th>Batch No</th>
-                                                            <th>Pending Offer</th>
                                                             <th>Employment Status</th>
-                                                            <th>Company Name</th>
-                                                            <th>Company Location</th>
-                                                            <th>Job Title</th>
-                                                            <th>Date Hired</th>
-                                                            <th>Work Arrangement</th>
+                                                            <th>Scholarship Sponsor</th>
+                                                            <th>Batch No</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -130,32 +131,59 @@
                                                         @foreach ($alumni_records as $alumni_records)
                                                         <tr>
                                                             <td>{{$alumni_records->id}}</td>
+                                                            <?php
+                                                            if (str_contains($alumni_records->middle_name, 'None')) {
+                                                                $alumni_records->middle_name = ' ';
+                                                            } else {
+                                                                $alumni_records->middle_name = $alumni_records->middle_name;
+                                                            }
+                                                            ?>
                                                             <td>{{$alumni_records->first_name}}
                                                                 {{$alumni_records->middle_name}}
                                                                 {{$alumni_records->last_name}}
                                                             </td>
-                                                            <td>{{$alumni_records->gender}}</td>
-                                                            <td>{{$alumni_records->contact}}</td>
                                                             <td>{{$alumni_records->email}}</td>
-                                                            <td>{{$alumni_records->home_address}}</td>
-                                                            <td>{{$alumni_records->present_address}}</td>
                                                             <td>{{$alumni_records->school_graduated}}</td>
-                                                            <td>{{$alumni_records->batch_no}}</td>
-                                                            <td>{{$alumni_records->pending_offer}}</td>
                                                             <td>{{$alumni_records->employment_status}}</td>
-                                                            <td>{{$alumni_records->company_name}}</td>
-                                                            <td>{{$alumni_records->company_location}}</td>
-                                                            <td>{{$alumni_records->job_title}}</td>
-                                                            <td>{{$alumni_records->date_hired}}</td>
-                                                            <td>{{$alumni_records->work_arrangement}}</td>
+                                                            <td>{{$alumni_records->scholarship_sponsor}}</td>
+                                                            <td>{{$alumni_records->batch_no}}</td>
                                                             <td>
 
-                                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="/alumni_records/{{$alumni_records->id}}" class="btn btn-info">Update</a>
-                                                                    <form action="/alumni_records/{{$alumni_records->id}}" method="POST">
+                                                                <div class="btn-group" role="group"
+                                                                    aria-label="Basic example">
+                                                                    <a href="{{route('alumni.view',[
+                                        'fname'=>$alumni_records->first_name, 
+                                        'mi'=>$alumni_records->middle_name, 
+                                        'lname'=>$alumni_records->last_name, 
+                                        'gender'=>$alumni_records->gender, 
+                                        'contact'=>$alumni_records->contact, 
+                                        'email'=>$alumni_records->email, 
+                                        'home'=>$alumni_records->home_address,
+                                        'present'=>$alumni_records->present_address,
+                                        'school'=>$alumni_records->school_graduated,
+                                        'pending'=>$alumni_records->pending_offer,
+                                        'status'=>$alumni_records->employment_status,
+                                        'batch_no'=>$alumni_records->batch_no,
+                                        'cname'=>$alumni_records->company_name,
+                                        'location'=>$alumni_records->company_location,
+                                        'title'=>$alumni_records->job_title,
+                                        'work_arr'=>$alumni_records->work_arrangement,
+                                        'date_hired'=>$alumni_records->date_hired,
+                                        'updated_at'=>$alumni_records->updated_at
+                                        ])}}" class="btn"><span class="fa fa-eye mr-3 text-center"
+                                                                            style="color:dark"></span></a>
+                                                                    <a href="/alumni_records/{{$alumni_records->id}}"
+                                                                        class="btn "><span
+                                                                            class="fa fa-edit mr-3 text-center"
+                                                                            style="color:dark"></span></a></a>
+                                                                    <form
+                                                                        action="/alumni_records/{{$alumni_records->id}}"
+                                                                        method="POST">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button class="btn btn-danger">Delete</button>
+                                                                        <button class="btn"><span
+                                                                                class="fa fa-trash mr-3 text-center"
+                                                                                style="color:dark"></span></a></button>
                                                                     </form>
                                                                 </div>
                                                             </td>
@@ -175,26 +203,24 @@
             </div>
         </div>
     </div>
-</body>
 
-</html>
+    <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('js/main.js')}}"></script>
+    <script src="{{URL::asset('js/popper.js')}}"></script>
+    <script src="{{URL::asset('js/custom.js')}}"></script>
+    <script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
+    <script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
-<script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-<script src="{{URL::asset('js/jquery.min.js')}}"></script>
-<script src="{{URL::asset('js/main.js')}}"></script>
-<script src="{{URL::asset('js/popper.js')}}"></script>
-<script src="{{URL::asset('js/custom.js')}}"></script>
-<script src="{{URL::asset('js/jquery-3.5.1.js')}}"></script>
-<script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
-<script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
-<script scr="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-<script>
+    <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
-</script>
+    </script>
 </body>
 
 </html>
