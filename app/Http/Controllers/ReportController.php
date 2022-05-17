@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\alumni_records;
+use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
@@ -13,7 +15,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view("System_admin.report");
+        $data=alumni_records::orderByDesc('id')->get();
+        return view("System_admin.report",['data' =>  $data]);
     }
 
     /**

@@ -168,63 +168,102 @@
                                                 <!-- Batch No -->
 
                                                 <!-- Employment Status -->
-
                                                 <div>
+                                                    <!-- SCRIPT FOR PENDING OFFER -->
                                                     <script type="text/javascript">
-                                                        function EnableDisableTextBox(pending_offer) {
-                                                            employment_status.disabled = pending_offer.checked ? true : false;
-                                                            if (!employment_status.disabled) {}
-                                                            job_title.disabled = pending_offer.checked ? true : false;
-                                                            if (!job_title.disabled) {}
-                                                            company_name.disabled = pending_offer.checked ? true : false;
-                                                            if (!company_name.disabled) {}
-                                                            company_location.disabled = pending_offer.checked ? true : false;
-                                                            if (!company_location.disabled) {}
-                                                            work_arrangement.disabled = pending_offer.checked ? true : false;
-                                                            if (!work_arrangement.disabled) {}
-                                                            date_hired.disabled = pending_offer.checked ? true : false;
-                                                            if (!work_arrangement.disabled) {}
-                                                        }
+                                                    function EnableDisableTextBox(pending_offer) {
+                                                        employment_status.disabled = pending_offer.checked ? true :
+                                                            false;
+                                                        if (!employment_status.disabled) {}
+                                                        job_title.disabled = pending_offer.checked ? true : false;
+                                                        if (!job_title.disabled) {}
+                                                        company_name.disabled = pending_offer.checked ? true : false;
+                                                        if (!company_name.disabled) {}
+                                                        company_location.disabled = pending_offer.checked ? true :
+                                                            false;
+                                                        if (!company_location.disabled) {}
+                                                        work_arrangement.disabled = pending_offer.checked ? true :
+                                                            false;
+                                                        if (!work_arrangement.disabled) {}
+                                                        date_hired.disabled = pending_offer.checked ? true : false;
+                                                        if (!work_arrangement.disabled) {}
+                                                    }
                                                     </script>
+                                                    <!-- SCRIPT FOR PENDING OFFER -->
+
                                                     <label for="pending_offer">
-                                                        <input type="checkbox" id="pending_offer" name="pending_offer" onclick="EnableDisableTextBox(this)" value="check" />
+                                                        <input type="checkbox" id="pending_offer" name="pending_offer"
+                                                            onclick="EnableDisableTextBox(this)" value="check" />
                                                         Have pending offers?
                                                     </label>
                                                     <br />
                                                 </div>
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <label for="employment_status" class="form-label">Employment Status</label> <br />
+
+                                                    <!-- SCRIPT FOR EMPLOYMENT STATUS -->
+                                                    <script type="text/javascript">
+                                                        function EnableDisableTextBoxByEmploymentStatus(employment_status) {
+                                                            job_title.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            company_name.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            company_location.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            work_arrangement.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                            date_hired.disabled = employment_status.value === 'Unemployed' ? true : false;
+                                                        }
+                                                    </script>
+                                                    <!-- SCRIPT FOR EMPLOYMENT STATUS -->
+
+                                                    <label for="employment_status" class="form-label">Employment
+                                                        Status</label> <br />
                                                     @if(empty(old('employment_status')))
-                                                    <select class="form-select" name="employment_status" id="employment_status" role="button" value="{{old('employment_status')}}">
-                                                        <option value="" selected>{{ ucfirst($alumni_user1 -> employment_status) }}</option>
+                                                    <select class="form-select" name="employment_status"
+                                                        id="employment_status" role="button"
+                                                        onchange="EnableDisableTextBoxByEmploymentStatus(this)"
+                                                        value="{{old('employment_status')}}">
+                                                        <option value="None" selected>None</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
                                                     </select>
                                                     @else
-                                                    <select class="form-select" name="employment_status" id="employment_status" role="button" value="{{old('employment_status')}}">
-                                                        <option value="">None</option>
+                                                    <select class="form-select" name="employment_status"
+                                                        id="employment_status" role="button"
+                                                        onchange="EnableDisableTextBoxByEmploymentStatus(this)"
+                                                        value="{{old('employment_status')}}">
+                                                        <option value="None">None</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
-                                                        <option value="{{old('employment_status')}}" selected hidden>{{ ucfirst($alumni_user1 -> employment_status) }}</option>
+                                                        <option value="{{old('employment_status')}}" selected hidden>
+                                                            {{old('employment_status')}}</option>
                                                     </select>
                                                     @endif
-                                                    <span class="text-danger">@error('employment_status') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('employment_status') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
-                                                    <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Job Title" value="{{ ucfirst($alumni_user1 -> job_title) }}">
-                                                    <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
+                                                    <input type="text" class="form-control" id="job_title"
+                                                        name="job_title" placeholder="Job Title"
+                                                        value="{{old('job_title')}}">
+                                                    <span class="text-danger">@error('job_title') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
-                                                    <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" value="{{ ucfirst($alumni_user1 -> company_name) }}">
-                                                    <span class="text-danger">@error('company_name') {{$message}} @enderror</span>
+                                                    <input type="text" class="form-control" id="company_name"
+                                                        name="company_name" placeholder="Company Name"
+                                                        value="{{old('company_name')}}">
+                                                    <span class="text-danger">@error('company_name') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
-                                                    <input type="text" class="form-control" id="company_location" name="company_location" placeholder="Company Location" value="{{ ucfirst($alumni_user1 -> company_location) }}">
-                                                    <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
+                                                    <input type="text" class="form-control" id="company_location"
+                                                        name="company_location" placeholder="Company Location"
+                                                        value="{{old('company_location')}}">
+                                                    <span class="text-danger">@error('company_location') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
-                                                    <input type="date" class="form-control" id="date_hired" name="date_hired" placeholder="Date Hired" value="{{$alumni_user1 -> date_hired}}">
-                                                    <span class="text-danger">@error('date_hired') {{$message}} @enderror</span>
+                                                    <input type="date" class="form-control" id="date_hired"
+                                                        name="date_hired" placeholder="Date Hired" value="">
+                                                    <span class="text-danger">@error('date_hired') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 <!-- <div class="mb-3" style="width: 4.5in;">
 
@@ -232,26 +271,35 @@
                                                 </div> -->
                                                 @if(empty(old('work_arrangement')))
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{$alumni_user1 -> work_arrangement}}">
+                                                    <select class="form-select" name="work_arrangement"
+                                                        id="work_arrangement" role="button"
+                                                        value="{{old('work_arrangement')}}">
                                                         <option value="Full-time" selected>Full-time</option>
                                                         <option value="Part-time">Part-time</option>
                                                         <option value="Flextime">Flextime</option>
                                                         <option value="Trainee">Trainee</option>
                                                     </select>
-                                                    <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('work_arrangement') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 @else
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <select class="form-select" name="work_arrangement" id="work_arrangement" role="button" value="{{$alumni_user1 -> work_arrangement}}">
+                                                    <select class="form-select" name="work_arrangement"
+                                                        id="work_arrangement" role="button"
+                                                        value="{{old('work_arrangement')}}">
                                                         <option value="Full-time" selected>Full-time</option>
                                                         <option value="Part-time">Part-time</option>
                                                         <option value="Flextime">Flextime</option>
                                                         <option value="Trainee">Trainee</option>
-                                                        <option value="{{old('work_arrangement')}}" selected hidden>{{$alumni_user1 -> work_arrangement}}</option>
+                                                        <option value="{{old('work_arrangement')}}" selected hidden>
+                                                            {{old('work_arrangement')}}</option>
                                                     </select>
-                                                    <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('work_arrangement') {{$message}}
+                                                        @enderror</span>
                                                 </div>
                                                 @endif
+
+                                                
                                                 <!-- Employment Status -->
 
                                                 <!-- Scholarship Sponsors--> 

@@ -152,25 +152,25 @@ class MyAlumniRecordController extends Controller
         }
         if($pending_offer_isChecked && empty($request->middle_name)) {
             DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
-            present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
+            present_address = ?, school_graduated = ?, batch_no = ?,scholarship_sponsor = ?, pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
             work_arrangement = ?, email = ?, profile_picture = ?  where user_id = ?', [$request->first_name, 'None', $request->last_name, $request->gender, $request->contact,
-            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,'With', 'None', 'None', 'None', 'None', 'None', $request->email,$request->profile_picture = $image_path, $id]);
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,"None",'With', 'None', 'None', 'None', 'None', 'None', $request->email,$request->profile_picture = $image_path, $id]);
         } else if($pending_offer_isChecked && !empty($request->middle_name)) {
             DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
-            present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
+            present_address = ?, school_graduated = ?, batch_no = ?,scholarship_sponsor = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
             work_arrangement = ?, email = ?, profile_picture = ?  where user_id = ?', [$request->first_name, $request->middle_name, $request->last_name, $request->gender, $request->contact,
-            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,'With', 'None', 'None', 'None', 'None', 'None', $request->email,$request->profile_picture = $image_path, $id]);
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,"None",'With', 'None', 'None', 'None', 'None', 'None', $request->email,$request->profile_picture = $image_path, $id]);
         } else if(!$pending_offer_isChecked && empty($request->middle_name)) {
             DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
-            present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
+            present_address = ?, school_graduated = ?, batch_no = ?,scholarship_sponsors = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
             work_arrangement = ?, email = ? , profile_picture = ? where user_id = ?', [$request->first_name, 'None', $request->last_name, $request->gender, $request->contact,
-            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,$request -> pending_offer = "Without", $request->employment_status, $request->job_title, 
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,"None",$request -> pending_offer = "Without", $request->employment_status, $request->job_title, 
             $request->company_name, $request->company_location, $request->work_arrangement, $request->email, $request->profile_picture = $image_path, $id]);
         } else if(!$pending_offer_isChecked && !empty($request->middle_name)) {
             DB::update('update alumni_records set first_name = ?, middle_name = ?, last_name = ?, gender = ?, contact = ?, home_address = ?,
-            present_address = ?, school_graduated = ?, batch_no = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
+            present_address = ?, school_graduated = ?, batch_no = ?,scholarship_sponsor = ?,pending_offer = ?, employment_status = ?, job_title = ?, company_name = ?, company_location = ?,
             work_arrangement = ?, email = ? , profile_picture = ? where user_id = ?', [$request->first_name, $request->middle_name, $request->last_name, $request->gender, $request->contact,
-            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,$request -> pending_offer = "Without", $request->employment_status, $request->job_title, 
+            $request->home_address, $request->present_address, $request->school_graduated, $request->batch_no,"None",$request -> pending_offer = "Without", $request->employment_status, $request->job_title, 
             $request->company_name, $request->company_location, $request->work_arrangement, $request->email, $request->profile_picture = $image_path, $id]);
         }
         $user->email = $request->email;
@@ -190,7 +190,7 @@ class MyAlumniRecordController extends Controller
         $alumni_record->present_address = $request->present_address;
         $alumni_record->school_graduated = $request->school_graduated;
         $alumni_record->batch_no = $request->batch_no;
-        $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
+        
         $alumni_record-> profile_picture = $image_path;
 
         if($pending_offer_isChecked) {
@@ -199,7 +199,7 @@ class MyAlumniRecordController extends Controller
             $alumni_record->company_name = 'None';
             $alumni_record->company_location = 'None';
             $alumni_record->job_title = 'None';
-            $alumni_record->date_hired = 'None';
+            $alumni_record->date_hired = '1999-10-10';
             $alumni_record->work_arrangement = 'None';
         } else {
             $alumni_record->pending_offer = 'Without';

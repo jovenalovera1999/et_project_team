@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\JobOpportunitiesController;
 
 /*
@@ -32,7 +33,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::resource('update_job_opportunity_status', 'App\Http\Controllers\UpdateJobOpportunityStatusController');
     Route::resource('report', 'App\Http\Controllers\ReportController');
     Route::resource('register', 'App\Http\Controllers\RegisterController');
-    Route::resource('report', 'App\Http\Controllers\ReportController');
+    Route::resource('report', ReportController::class);
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
 
