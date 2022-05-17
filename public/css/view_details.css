@@ -61,8 +61,16 @@ body {
     transition: background-color .15s;
 }
 
-.text-default-d3 {
-    color: #416578!important;
+.text-default-green {
+    color: #089720!important;
+}
+
+.text-default-red {
+    color: #c01d07!important;
+}
+
+.text-default-blue {
+    color: #07bac0!important;
 }
 
 .font-bolder,

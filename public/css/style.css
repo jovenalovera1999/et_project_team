@@ -69,10 +69,18 @@
     font-style: normal !important;
     font-weight: 400 !important;
     margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+
+.one-line-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inherit;
 }
 
 .text {
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important;
     font-style: normal !important;
     font-weight: 500 !important;
@@ -80,13 +88,14 @@
 }
 
 .text-size-m {
-    font-size: 22px;
+    font-size: 17px;
     font-family: Verdana, sans-serif;
     font-stretch: ultra-expanded;
+    letter-spacing: 2px;
 }
 
 .text-size-small {
-    font-size: 17px;
+    font-size: 14px;
     font-family: Verdana, sans-serif;
     font-stretch: ultra-expanded;
     font-style: italic;
@@ -99,7 +108,7 @@
 }
 
 .text-size-num2 {
-    font-size: 35px;
+    font-size: 25px;
     font-family: sans-serif;
     font-stretch: ultra-expanded;
 }
@@ -5335,8 +5344,11 @@ input[type="button"].btn-block {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-.card-title {
+.card-titles {
     margin-bottom: 0.75rem;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    letter-spacing: 2px;
 }
 
 .card-subtitle {
@@ -9073,7 +9085,7 @@ button.bg-dark:focus {
 .mr-3,
 .mx-3 {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 7px;
 }
 
 .mb-3,
@@ -11212,8 +11224,8 @@ h5,
 }
 
 #sidebar {
-    min-width: 255px;
-    max-height: autos;
+    min-width: 250px;
+    max-height: auto;
     background-image: linear-gradient(#001c52, #000080);
     color: #fff;
     -webkit-transition: all 0.3s;
@@ -11239,14 +11251,24 @@ h5,
 #sidebar h1 .logo {
     color: #fff;
     font-size: 15px;
+    letter-spacing: 3px;
 }
 
 #sidebar h6 .font-user {
     color: #fff;
-    font-size: 13px;
+    font-size: 17px;
+    font-family: Arial, sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+#sidebar h5 .font-user {
+    color: #fff;
+    font-size: 12.5px;
     font-family: Arial, sans-serif !important;
     font-style: normal !important;
     font-weight: 700 !important;
+    letter-spacing: 4px;
 }
 
 #sidebar h1 .logo span {
@@ -11263,14 +11285,15 @@ h5,
 /* side bar font size */
 
 #sidebar ul li {
-    font-size: 13.5px;
+    font-size: 13px;
     font-family: 'OCR A Std', monospace !important;
     font-style: normal !important;
     font-weight: 500 !important;
+    letter-spacing: 0.5px;
 }
 
 #sidebar ul li>ul {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 #sidebar ul li>ul li {
@@ -11278,10 +11301,12 @@ h5,
 }
 
 #sidebar ul li a {
-    padding: 12px;
+    padding: 10px;
     display: block;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 #sidebar ul li a span {
@@ -11311,7 +11336,7 @@ h5,
     position: absolute;
     top: 20px;
     right: 0;
-    margin-right: -20px;
+    margin-right: -27px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;

@@ -33,8 +33,8 @@
                     <a class="navbar-brand" href="#">
                         <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                     </a>
-                    <h5 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                    <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                    <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -74,23 +74,24 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
             <a href="/admin_dashboard"> <span class="fa fa-arrow-right fa-2x float-right" style="color:#001c52"></span>
-                <h4 class=" mb-0 text-gray-800 mb-4">Overview</h4>
+                <h4 class=" mb-0 text-gray-800 mb-4">Summary</h4>
 
 
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
                 <div class="container">
                     <div class="row">
-                    <div class="col-lg-4">
-                            <div class="card1 ccard radius-t-0 h-100">
+                        <div class="col-lg-4">
+                            <div class="card1 ccard radius-t-0 h-100" style="position: relative;">
                                 <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
                                 <!-- the blue line on top -->
 
                                 <div class="card-header pb-3 brc-secondary-l3">
                                     <img alt="brifcase" src="{{ asset('images/icons8-self-60.png') }}" class=" float-right h-4 w-4" />
-                                    <h6 class="card-title mb-2 mb-md-0 text-dark-m3 " >
-                                        Employed
+                                    <h6 class="card-titles mb-2 mb-md-0 text-dark-m3 ">
+                                        Employed   
                                     </h6>
+                                    <br>
                                 </div>
 
                                 <div class="card-body pt-2 pb-1 card-bg ">
@@ -112,23 +113,31 @@
                                         'location'=>$employee->company_location,
                                         'title'=>$employee->job_title,
                                         'work_arr'=>$employee->work_arrangement,
-                                        'update_date'=>$employee->date_hired
+                                        'date_hired'=>$employee->date_hired,
+                                        'updated_at'=>$employee->updated_at
                                         ])}}">
                                         <div role="button" class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
                                             <span class="mr-25 w-4 h-4 overflow-hidden text-center border-1 brc-secondary-m2 radius-round shadow-sm d-zoom-2">
                                                 <img alt="Derek's avatar" src="{{ asset('images/employed.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-d3 text-90 text-600">
+                                            <span class="text-default-green text-90 text-600" style="text-transform: capitalize;">
+                                                <?php
+                                                if (str_contains($employee->middle_name, 'None')) {
+                                                    $employee->middle_name = ' ';
+                                                } else {
+                                                    $employee->middle_name = $employee->middle_name[0].'.';
+                                                }
+                                                ?>
                                                 {{$employee->first_name}} {{$employee->middle_name}} {{$employee->last_name}}
                                             </span>
 
-                                            <span class="ml-auto text-dark-l2 text-nowrap">
-                                                <!-- 350 -->
+                                            <!-- <span class="ml-auto text-dark-l2 text-nowrap">
+                                                350
                                                 <span class="text-80">
-                                                    <!-- EUR -->
+                                                    EUR
                                                 </span>
-                                            </span>
+                                            </span> -->
 
                                             <span class="ml-2">
                                                 <i class="fa fa-arrow-up text-green-m1 text-95"></i>
@@ -139,18 +148,19 @@
                                 </div>
                             </div>
                         </div>
-                       
+
 
                         <div class="col-lg-4">
-                            <div class="card1 ccard radius-t-0 h-100">
+                            <div class="card1 ccard radius-t-0 h-100" style="position: relative;">
                                 <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
                                 <!-- the blue line on top -->
 
                                 <div class="card-header pb-3 brc-secondary-l3">
                                     <img alt="brifcase" src="{{ asset('images/icons8-unemployment-64.png') }}" class=" float-right h-4 w-4" />
-                                    <h6 class="card-title mb-2 mb-md-0 text-dark-m3">
+                                    <h6 class="card-titles mb-2 mb-md-0 text-dark-m3">
                                         Unemployed
                                     </h6>
+                                    <br>
                                 </div>
 
                                 <div class="card-body pt-2 pb-1 card-bg">
@@ -172,23 +182,31 @@
                                         'location'=>$non_employee->company_location,
                                         'title'=>$non_employee->job_title,
                                         'work_arr'=>$non_employee->work_arrangement,
-                                        'update_date'=>$non_employee    ->date_hired
+                                        'date_hired'=>$non_employee->date_hired,
+                                        'updated_at'=>$non_employee->updated_at
                                         ])}}">
                                         <div role="button" class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
                                             <span class="mr-25 w-4 h-4 overflow-hidden text-center border-1 brc-secondary-m2 radius-round shadow-sm d-zoom-2">
                                                 <img alt="Derek's avatar" src="{{ asset('images/unemployed.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-d3 text-90 text-600">
+                                            <span class="text-default-red text-90 text-600" style="text-transform: capitalize;">
+                                                <?php
+                                                if (str_contains($non_employee->middle_name, 'None')) {
+                                                    $non_employee->middle_name = ' ';
+                                                } else {
+                                                    $non_employee->middle_name = $non_employee->middle_name[0].'.';
+                                                }
+                                                ?>
                                                 {{$non_employee->first_name}} {{$non_employee->middle_name}} {{$non_employee->last_name}}
                                             </span>
 
-                                            <span class="ml-auto text-dark-l2 text-nowrap">
-                                                <!-- 350 -->
+                                            <!-- <span class="ml-auto text-dark-l2 text-nowrap">
+                                                350
                                                 <span class="text-80">
-                                                    <!-- EUR -->
+                                                    EUR
                                                 </span>
-                                            </span>
+                                            </span> -->
 
                                             <span class="ml-2">
                                                 <i class="fa fa-arrow-down text-danger-m1 text-95"></i>
@@ -201,15 +219,16 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="card1 ccard radius-t-0 h-100">
+                            <div class="card1 ccard radius-t-0 h-100" style="position: relative;">
                                 <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
                                 <!-- the blue line on top -->
 
-                                <div class="card-header pb-3 brc-secondary-l3">
+                                <div class="card-header pb-3 brc-secondary-l3"style="position: relative;">
                                     <img alt="brifcase" src="{{ asset('images/icons8-offer-58.png') }}" class=" float-right h-4 w-4" />
-                                    <h6 class="card-title mb-2 mb-md-0 text-dark-m3">
+                                    <h6 class="card-titles mb-2 mb-md-0 text-dark-m3">
                                         With Pending Offers
                                     </h6>
+                                    <br>
                                 </div>
 
                                 <div class="card-body pt-2 pb-1 card-bg">
@@ -231,7 +250,8 @@
                                         'location'=>$pending_offer->company_location,
                                         'title'=>$pending_offer->job_title,
                                         'work_arr'=>$pending_offer->work_arrangement,
-                                        'update_date'=>$pending_offer    ->date_hired
+                                        'date_hired'=>$pending_offer->date_hired,
+                                        'updated_at'=>$pending_offer->updated_at
                                         ])}}">
 
                                         <div role="button" class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
@@ -239,16 +259,23 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/pending_offer.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-d3 text-90 text-600">
+                                            <span class="text-default-blue text-90 text-600" style="text-transform: capitalize;">
+                                                <?php
+                                                if (str_contains($pending_offer->middle_name, 'None')) {
+                                                    $pending_offer->middle_name = ' ';
+                                                } else {
+                                                    $pending_offer->middle_name = $pending_offer->middle_name[0].'.';
+                                                }
+                                                ?>
                                                 {{$pending_offer->first_name}} {{$pending_offer->middle_name}} {{$pending_offer ->last_name}}
                                             </span>
 
-                                            <span class="ml-auto text-dark-l2 text-nowrap">
-                                                <!-- 232 -->
+                                            <!-- <span class="ml-auto text-dark-l2 text-nowrap">
+                                                232
                                                 <span class="text-80">
-                                                    <!-- EUR -->
+                                                    EUR
                                                 </span>
-                                            </span>
+                                            </span> -->
 
                                             <span class="ml-2">
                                                 <i class="fa fa-arrow-right text-blue-m1 text-95"></i>

@@ -7,7 +7,7 @@ use App\Models\alumni_records;
 use Illuminate\Support\Facades\DB;
 use App\Mail\UserEmail;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Str;
 
 
 class EmailController extends Controller
@@ -107,20 +107,46 @@ class EmailController extends Controller
         //
     }
 
-    public function sendMail(Request $request, $details) {
-      
-        foreach($request->get('emailaddress') as $email) {
-            $details=[
-                'subject' => $request->subject,
-                'body' => $request->body
-            ];    
+    public function sendMail(Request $request) {
 
-            Mail::to($email)->send(new UserEmail($details));
-            
+        $request->validate([
+            'emailaddress' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+          ]);
+
+        $details = [
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'emailaddress' => $request->emails,
+          ];
+        
+        $emailaddress = $request->emailaddress;
+
+        $contains = Str::contains($emailaddress, [',']);
+
+        if (($contains) === true){
+
+            $emails = explode(",", $emailaddress);
+
+            foreach($emails as $email) {
+
+                Mail::to($emails)->send(new UserEmail($details));
+
+            }
+        }else{
+
+            Mail::to($emailaddress)->send(new UserEmail($details));
+
         }
+
+        // $emails = explode(",", $emailaddress);
+        // // foreach($emails as $email) {  
+        // return Mail::to($emails[0])->send(new UserEmail($details));
+        // // }
        
-        dd("Yaaaay! Mails were sent!!!");
-        return view('EmailSend.index');
+        // dd("Yaaaay! Mails were sent!!!");
+        return back()->with(['msg' => 'Mail/s successfully sent!']);
 
     }
 }

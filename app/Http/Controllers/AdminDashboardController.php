@@ -14,10 +14,10 @@ class AdminDashboardController extends Controller
     {
        // for Dashboard datatable 
         //  Newly hired alumni
-        $alumni_records = alumni_records::whereMonth('created_at', date('m'))
-        ->whereYear('created_at', date('Y'))
+        $alumni_records = alumni_records::whereMonth('date_hired', date('m'))
+        ->whereYear('date_hired', date('Y'))
         ->where ('employment_status', '=', 'Employed')
-        ->get(['*']);
+        ->get();
 
        //  Total Unemployed
         $unemployed = alumni_records::where ('employment_status', '=', 'Unemployed')
@@ -49,7 +49,7 @@ class AdminDashboardController extends Controller
          'total_alumni' => $total_alumni]);
     }
 
-    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $update_date)
+    public function alumni($fname, $mi, $lname, $gender, $contact, $email, $home, $present, $school, $batch_no, $pending, $status, $cname, $location, $title, $work_arr, $date_hired, $updated_at)
     {
         return view ('System_admin.view_newly_hired', [
             'fname' => $fname, 
@@ -68,8 +68,8 @@ class AdminDashboardController extends Controller
             'location' => $location,
             'title' => $title,
             'work_arr' => $work_arr,
-            'update_date' => $update_date
+            'date_hired' => $date_hired,
+            'updated_at' => $updated_at
         ]);
-
     }
 }
