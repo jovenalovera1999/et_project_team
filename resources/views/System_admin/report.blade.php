@@ -1,4 +1,4 @@
-@if(!Auth::check() || Auth::user()->user_type != 'Alumni')
+@if(!Auth::check() || Auth::user()->user_type != 'Administrator')
 <meta http-equiv="refresh" content="0; url=/login" />
 @else
 <!DOCTYPE html>
@@ -143,7 +143,7 @@
                 </div>
 
         <!-- PANEL START CODE  -->
-
+    
         <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
         <script src="{{URL::asset('js/jquery.min.js')}}"></script>
@@ -156,3 +156,4 @@
 
 </html>
 @endif
+
