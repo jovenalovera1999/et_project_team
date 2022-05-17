@@ -54,4 +54,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     //Email 
     Route::resource('email', EmailController::class);
+    Route::post('sendemail', [EmailController::class, 'sendMail']);
 });
+
+// ->name('sendemail')

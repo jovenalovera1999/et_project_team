@@ -53,20 +53,23 @@
       <div class="card">
         <h5 class="card-header bg-c-pink text-white">Compose Email</h5>
         <div class="card-body">
-          <form method="post" action="{{url('sendemail')}}">
+          <form class="needs-validation" method="POST" action="{{url('sendemail')}}">
+          @csrf
             <div class="form-group">
               @if(Session::has('msg'))
-                <p class="text-success">{{session('msg')}}</p>
+              <div class="alert alert-success alert-dismissible">{{session('msg')}}</div>
               @endif
-              <label for="Email">Email address</label>
-              <textarea type="text" class="form-control" id="emailaddress" name="emailaddress[]" placeholder="Input email/s here..."></textarea>
+              
+              <label for="emailaddress">Email address</label>
+              <textarea type="text" class="form-control" id="emailaddress" name="emailaddress" placeholder="Input email/s here..."></textarea>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+            <label for="subject">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="Hello!">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Message</label>
-              <textarea class="form-control" id="message" name="message"rows="4" placeholder="Your message"></textarea>
+              <label for="message">Message</label>
+              <textarea type="text" class="form-control" id="message" name="message" placeholder="Your message" value="Welcome, alumnis!"></textarea>
             </div>
             <input class="btn bg-c-blue text-light btn-lg btn-block" type="submit" value="Send">
           </form>
