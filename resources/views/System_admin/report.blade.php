@@ -69,9 +69,7 @@
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-5 pt-5">
-
             <h1 class="h3 mb-0 text-gray-800 mb-4">Reports</h1>
-            <div id="content" class="p-4 p-md-5 pt-5">
 
                 <div class="col">
                     <div class="card">
@@ -179,18 +177,6 @@
                                             @endforeach
                                             @endif
                                         </tbody>
-                                        <tfoot class="bg-c-pink text-white">
-                                            <tr>
-                                            <th>Id</td>
-                                                <th align=center>Name</th>
-                                                <th align=center>Job Title</th>
-                                                <th align=center>Home Address</th>
-                                                <th align=center>Date Created</th>
-                                                <th align=center>Batch Number</th>
-                                                <th align=center>Status</th>
-                                                <th align=center>Pending Offers</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
 
 

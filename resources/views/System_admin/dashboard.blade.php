@@ -159,15 +159,15 @@
                                             <br>
                                             <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders-logo.png') }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                             <div class="">
-                                                <?php
+                                            <?php
                                                 if (str_contains($alumni_record->middle_name, 'None')) {
                                                     $alumni_record->middle_name = ' ';
                                                 } else {
-                                                    $alumni_record->middle_name = $alumni_record->middle_name;
+                                                    $alumni_record->middle_name = $alumni_record->middle_name[0].'.';
                                                 }
                                                 ?>
                                                 <h5 style="text-transform: capitalize; font-size:17px;">{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
-                                                <p class="text-muted one-line-text" style="text-transform: capitalize;">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-red one-line-text">{{$alumni_record->company_name}}</a></span></p>
+                                                <p class="text-muted" style="text-transform: capitalize;">{{$alumni_record->job_title}} <span>| </span><span><a href="#" class="text-red ">{{$alumni_record->company_name}}</a></span></p>
                                             </div>
                                             <ul class="social-links list-inline">
                                                 <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#!" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
