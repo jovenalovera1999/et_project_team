@@ -4,14 +4,14 @@
   <div class="row">
     <div class="col">
       <div class="card">
-        <h5 class="card-header bg-c-pink text-white">Emails</h5>
+        <h5 class="card-header bg-c-blue text-white">Email</h5>
         <div class="card-body">
           <div class="table-responsive">
             <table id="emailtb" class="table table-bordered cell-border thead-light table-hover table-sm">
-              <thead class="bg-c-pink text-white">
+              <thead class="text-dark">
                 <tr>
                   <!-- <th style="width:10%"></th> -->
-                  <th style="width:10%"><input type="checkbox" id="select_all"></input></th>
+                  <th style="width:10%;"><input type="checkbox" id="select_all"></input></th>
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
@@ -30,20 +30,11 @@
                     <p>
                   </td>
                   <td>{{$d->email}}</td>
-                  <td><a href="{{url('email/'.$d->id.'/edit')}}" class="btn bg-color1 text-light btn-sm">Update</a></td>
+                  <td><a href="{{url('email/'.$d->id.'/edit')}}" class="fa fa-edit mr-3 text-center text-dark btn-sm"></a></td>
                 </tr>
                 @endforeach
                 @endif
               </tbody>
-              <tfoot class="bg-c-pink text-white">
-                <tr>
-                  <th style="width:10%"></th>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Actions</th>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </div>

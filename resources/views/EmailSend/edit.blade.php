@@ -29,7 +29,7 @@
                             <label for="email">Email</label>
                             <input type="email" class="form-control" value="{{$data->email}}" name="email"></input>
                         </div>
-                        <input class="btn btn-primary color-theme btn-lg btn-block" type="submit" value="Update">
+                        <input class="btn bg-c-blue text-light btn-lg btn-block" type="submit" value="Update">
                     </form>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                             <label for="exampleFormControlTextarea1">Message</label>
                             <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
                         </div>
-                        <input class="btn btn-primary color-theme btn-lg btn-block" type="submit" value="Send">
+                        <input class="btn bg-c-blue text-light btn-lg btn-block" type="submit" value="Send">
                     </form>
                 </div>
             </div>

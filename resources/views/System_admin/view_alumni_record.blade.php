@@ -175,7 +175,7 @@
                                                                     <a href="/alumni_records/{{$alumni_records->id}}"
                                                                         class="btn "><span
                                                                             class="fa fa-edit mr-3 text-center"
-                                                                            style="color:dark"></span></a></a>
+                                                                            style="color:dark"></span></a>
                                                                     <form
                                                                         action="/alumni_records/{{$alumni_records->id}}"
                                                                         method="POST">
