@@ -70,12 +70,18 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
 
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Reports</h1>
+            <!--<h1 class="h3 mb-0 text-gray-800 mb-4">Reports</h1>-->
             <div id="content" class="p-4 p-md-5 pt-5">
 
                 <div class="col">
                     <div class="card">
-                        <h5 class="card-header bg-c-pink text-white">Employment Status Summary Report by Date & Pending Offers Filter</h5>
+
+                        <h5 class="card-header bg-c-pink text-white">Alumni Report Summary by Date
+                            <div class="float-right  print-container1">
+                                <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a>
+                            </div>
+                        </h5>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="">
@@ -88,7 +94,17 @@
                                             <label>To Date: </label>
                                             <input type="date" name="to" id="toDate" class="datepicker btn-block" Placeholder="Select To Date" value="">
                                         </div>
-                                        <div class="form-group col-md-3">
+
+                                        <div class="form-group col-md-2">
+                                            <label></label>
+                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Load</button>
+                                        </div>
+                                        <!--<div class="form-group col-md-3 ">
+                                            <label></label>
+                                            <a href="" class="btn btn-success btn-block"><i class="fa fa-refresh"></i> Reset</a></span>
+                                        </div>
+
+                                         <div class="form-group col-md-3">
                                             <label>Pending Offers: </label>
                                             <select class="custom-select" name="pending_offers" id="pending_offers" required>
                                                 <option value="">--Select Pending Offers</option>
@@ -115,25 +131,10 @@
                                         <div class="form-group col-md-3">
                                             <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Load</button>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </form>
                                 <br>
-                                <style type="text/css">
-                                    @media screen and (max-width: 767px) {
-                                        .tg {
-                                            width: auto !important;
-                                        }
 
-                                        .tg col {
-                                            width: auto !important;
-                                        }
-
-                                        .tg-wrap {
-                                            overflow-x: auto;
-                                            -webkit-overflow-scrolling: touch;
-                                            margin: auto 0px;
-                                        }
-                                    }
                                 </style>
                                 <div class="tg-wrap">
                                     <table id="table" class="display" cellspacing="0" style="width:100%">
@@ -153,35 +154,35 @@
                                             @if($data)
                                             @foreach($data as $d)
                                             <tr>
-                                            <td>{{$d->id}}</td>
-                                            <td>
-                                                <p>{{$d->first_name}} {{$d->last_name}}</p>
-                                            </td>
-                                            <td>
-                                                {{$d->job_title}}
-                                            </td>
-                                            <td>
-                                                {{$d->home_address}}
-                                            </td>
-                                            <td>
-                                                {{$d->created_at}}
-                                            </td>
-                                            <td>
-                                                {{$d->batch_no}}
-                                            </td>
-                                            <td>
-                                                {{$d->status}}
-                                            </td>
-                                            <td>
-                                                {{$d->pending_offers}}
-                                            </td>
+                                                <td>{{$d->id}}</td>
+                                                <td>
+                                                    <p>{{$d->first_name}} {{$d->last_name}}</p>
+                                                </td>
+                                                <td>
+                                                    {{$d->job_title}}
+                                                </td>
+                                                <td>
+                                                    {{$d->home_address}}
+                                                </td>
+                                                <td>
+                                                    {{$d->created_at}}
+                                                </td>
+                                                <td>
+                                                    {{$d->batch_no}}
+                                                </td>
+                                                <td>
+                                                    {{$d->status}}
+                                                </td>
+                                                <td>
+                                                    {{$d->pending_offers}}
+                                                </td>
                                             </tr>
                                             @endforeach
                                             @endif
                                         </tbody>
                                         <tfoot class="bg-c-pink text-white">
                                             <tr>
-                                            <th>Id</td>
+                                                <th>Id</td>
                                                 <th align=center>Name</th>
                                                 <th align=center>Job Title</th>
                                                 <th align=center>Home Address</th>
@@ -215,6 +216,8 @@
                                     });
                                 });
                             </script>
+
+
 </body>
 
 
