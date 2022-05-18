@@ -106,6 +106,8 @@ class MyAlumniRecordController extends Controller
             
             $image->move(public_path('/images'),$image_name);     
             $image_path = "/images/" . $image_name;
+        } else {
+            $image_path = null;
         }
         $pending_offer_isChecked = $request->pending_offer != null;
 
@@ -124,7 +126,7 @@ class MyAlumniRecordController extends Controller
                 'company_name' => 'required',
                 'company_location' => 'required',
                 'work_arrangement' => 'required',
-                'email' => 'required|email|unique:users|unique:alumni_records',
+                'email' => 'required|email',
                 'password' => 'required|same:confirm_password',
                 'confirm_password' => 'required|same:password'
             ]);
@@ -138,9 +140,9 @@ class MyAlumniRecordController extends Controller
                 'present_address' => 'required',
                 'school_graduated' => 'required',
                 'batch_no' => 'required|numeric',
-                'email' => 'required|email|unique:users|unique:alumni_records',
-                'password' => 'required',
-                'confirm_password' => 'required'
+                'email' => 'required|email',
+                'password' => 'required|same:confirm_password',
+                'confirm_password' => 'required|same:password'
             ]);
         }
 

@@ -115,7 +115,7 @@
                                                     <label for="gender" class="form-label">Gender</label>
                                                     @if(empty(old('gender')))
                                                     <select class="form-select" name="gender" id="gender" role="button">
-                                                        <option value="" selected>{{ ucfirst($alumni_user1 -> gender) }}</option>
+                                                        <option value="{{ ucfirst($alumni_user1 -> gender) }}" selected hidden>{{ ucfirst($alumni_user1 -> gender) }}</option>
                                                         <option value="Male">Male</option>
                                                         <option value="Female">Female</option>
                                                     </select>
@@ -212,92 +212,55 @@
                                                     </script>
                                                     <!-- SCRIPT FOR EMPLOYMENT STATUS -->
 
-                                                    <label for="employment_status" class="form-label">Employment
-                                                        Status</label> <br />
-                                                    @if(empty(old('employment_status')))
+                                                    <label for="employment_status" class="form-label">Employment Status</label> <br />
                                                     <select class="form-select" name="employment_status"
                                                         id="employment_status" role="button"
                                                         onchange="EnableDisableTextBoxByEmploymentStatus(this)"
-                                                        value="{{old('employment_status')}}">
-                                                        <option value="None" selected>None</option>
-                                                        <option value="Employed">Employed</option>
-                                                        <option value="Unemployed">Unemployed</option>
-                                                    </select>
-                                                    @else
-                                                    <select class="form-select" name="employment_status"
-                                                        id="employment_status" role="button"
-                                                        onchange="EnableDisableTextBoxByEmploymentStatus(this)"
-                                                        value="{{old('employment_status')}}">
+                                                        value="{{ ucfirst($alumni_user1 -> employment_status) }}">
                                                         <option value="None">None</option>
                                                         <option value="Employed">Employed</option>
                                                         <option value="Unemployed">Unemployed</option>
-                                                        <option value="{{old('employment_status')}}" selected hidden>
-                                                            {{old('employment_status')}}</option>
+                                                        <option value="{{ ucfirst($alumni_user1 -> employment_status) }}" selected hidden>{{ ucfirst($alumni_user1 -> employment_status) }}</option>
                                                     </select>
-                                                    @endif
-                                                    <span class="text-danger">@error('employment_status') {{$message}}
-                                                        @enderror</span>
+                                                    <span class="text-danger">@error ('employment_status') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
-                                                    <input type="text" class="form-control" id="job_title"
-                                                        name="job_title" placeholder="Job Title"
-                                                        value="{{old('job_title')}}">
-                                                    <span class="text-danger">@error('job_title') {{$message}}
-                                                        @enderror</span>
+                                                    <input type="text" class="form-control" id="job_title" name="job_title" placeholder="Job Title" value="{{ ucfirst($alumni_user1 -> job_title) }}">
+                                                    <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
                                                     <input type="text" class="form-control" id="company_name"
                                                         name="company_name" placeholder="Company Name"
-                                                        value="{{old('company_name')}}">
-                                                    <span class="text-danger">@error('company_name') {{$message}}
-                                                        @enderror</span>
+                                                        value="{{ ucfirst($alumni_user1 -> company_name) }}">
+                                                    <span class="text-danger">@error('company_name') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
                                                     <input type="text" class="form-control" id="company_location"
                                                         name="company_location" placeholder="Company Location"
-                                                        value="{{old('company_location')}}">
-                                                    <span class="text-danger">@error('company_location') {{$message}}
-                                                        @enderror</span>
+                                                        value="{{ ucfirst($alumni_user1 -> company_location) }}">
+                                                    <span class="text-danger">@error('company_location') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 4.5in;">
                                                     <input type="date" class="form-control" id="date_hired"
-                                                        name="date_hired" placeholder="Date Hired" value="">
-                                                    <span class="text-danger">@error('date_hired') {{$message}}
-                                                        @enderror</span>
+                                                        name="date_hired" placeholder="Date Hired" value="{{ ucfirst($alumni_user1 -> date_hired) }}">
+                                                    <span class="text-danger">@error('date_hired') {{$message}} @enderror</span>
                                                 </div>
                                                 <!-- <div class="mb-3" style="width: 4.5in;">
 
                                                     <span class="text-danger">@error('job_title') {{$message}} @enderror</span>
                                                 </div> -->
-                                                @if(empty(old('work_arrangement')))
                                                 <div class="mb-3" style="width: 3in;">
                                                     <select class="form-select" name="work_arrangement"
                                                         id="work_arrangement" role="button"
-                                                        value="{{old('work_arrangement')}}">
-                                                        <option value="Full-time" selected>Full-time</option>
+                                                        value="{{ ucfirst($alumni_user1 -> work_arrangement) }}">
+                                                        <option value="Full-time">Full-time</option>
                                                         <option value="Part-time">Part-time</option>
                                                         <option value="Flextime">Flextime</option>
                                                         <option value="Trainee">Trainee</option>
+                                                        <option value="{{ ucfirst($alumni_user1 -> work_arrangement) }}" selected hidden>{{ ucfirst($alumni_user1 -> school_graduated) }}</option>
                                                     </select>
-                                                    <span class="text-danger">@error('work_arrangement') {{$message}}
-                                                        @enderror</span>
+                                                    <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
                                                 </div>
-                                                @else
-                                                <div class="mb-3" style="width: 3in;">
-                                                    <select class="form-select" name="work_arrangement"
-                                                        id="work_arrangement" role="button"
-                                                        value="{{old('work_arrangement')}}">
-                                                        <option value="Full-time" selected>Full-time</option>
-                                                        <option value="Part-time">Part-time</option>
-                                                        <option value="Flextime">Flextime</option>
-                                                        <option value="Trainee">Trainee</option>
-                                                        <option value="{{old('work_arrangement')}}" selected hidden>
-                                                            {{old('work_arrangement')}}</option>
-                                                    </select>
-                                                    <span class="text-danger">@error('work_arrangement') {{$message}}
-                                                        @enderror</span>
-                                                </div>
-                                                @endif
 
                                                 
                                                 <!-- Employment Status -->
@@ -306,39 +269,26 @@
 
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="work_arrangement" class="form-label">Scholarship Sponsor</label>
-                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{$alumni_user1->scholarship_sponsor}}">
-                                                        <option value="" selected>{{$alumni_user1->scholarship_sponsor}}</option>
+                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{ ucfirst($alumni_user1 -> school_graduated) }}">
+                                                        <option value="{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}" selected>{{ ucfirst($alumni_user1 -> school_graduated) }}</option>
                                                         
                                                     </select>
                                                     <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
                                                 </div>
                                                 <!-- Scholarship Sponsors -->
 
-                                                <!-- User Type -->
-
-                                                <!-- <div class="mb-3" style="width: 3in;">
-                                                        <label for="user_type" class="form-label">User Type</label>
-                                                        <select class="form-select" name="user_type" id="user_type" role="button">
-                                                            <option selected>Select user</option>
-                                                            <option value="Alumni">Alumni</option>
-                                                            <option value="Administrator">Administrator</option>
-                                                        </select>
-                                                    </div> -->
-
-                                                <!-- User Type -->
-
                                                 <!-- Login Credentials -->
                                                 <div class="mb-3" style="width: 3in;">
                                                     <label for="email" class="form-label">Login Credentials</label>
-                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ $alumni_user1 -> email }}">
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ ucfirst($alumni_user1 -> email) }}">
                                                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Input user's password" value="{{$alumni_user1 -> password}}">
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Input user's password" value="{{Auth::user()->password}}">
                                                     <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                                 </div>
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" value="{{$alumni_user1 -> confirm_password}}">
+                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" value="{{Auth::user()->password}}">
                                                     <span class="text-danger">@error('confirm_password') {{$message}} @enderror</span>
                                                 </div>
                                                 <!-- Login Credentials -->
