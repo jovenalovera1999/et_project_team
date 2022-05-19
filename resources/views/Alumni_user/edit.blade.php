@@ -67,7 +67,7 @@
 
                                     <div class="row">
                                         <div class="col-sm-7" style="margin-left: 30px">
-                                            <form action="/update_alumni/{{Auth::user()->id}}" method="POST" class="mt-3" enctype="multipart/form-data">
+                                            <form action="/update_alumni/{{$alumni_user1->id}}" method="POST" class="mt-3" enctype="multipart/form-data">
                                                 @csrf
                                                 @if(Session::has('message-success'))
                                                 <p class="alert alert-success" role="alert">
@@ -257,7 +257,7 @@
                                                         <option value="Part-time">Part-time</option>
                                                         <option value="Flextime">Flextime</option>
                                                         <option value="Trainee">Trainee</option>
-                                                        <option value="{{ ucfirst($alumni_user1 -> work_arrangement) }}" selected hidden>{{ ucfirst($alumni_user1 -> school_graduated) }}</option>
+                                                        <option value="{{ ucfirst($alumni_user1 -> work_arrangement) }}" selected hidden>{{ ucfirst($alumni_user1 -> work_arrangement) }}</option>
                                                     </select>
                                                     <span class="text-danger">@error('work_arrangement') {{$message}} @enderror</span>
                                                 </div>
@@ -268,9 +268,9 @@
                                                 <!-- Scholarship Sponsors--> 
 
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <label for="work_arrangement" class="form-label">Scholarship Sponsor</label>
-                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{ ucfirst($alumni_user1 -> school_graduated) }}">
-                                                        <option value="{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}" selected>{{ ucfirst($alumni_user1 -> school_graduated) }}</option>
+                                                    <label for="scholarship_sponsor" class="form-label">Scholarship Sponsor</label>
+                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}">
+                                                        <option value="{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}" selected>{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}</option>
                                                         
                                                     </select>
                                                     <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
@@ -283,14 +283,6 @@
                                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ ucfirst($alumni_user1 -> email) }}">
                                                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                                 </div>
-                                                <div class="mb-3" style="width: 3in;">
-                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Input user's password" value="{{Auth::user()->password}}">
-                                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
-                                                </div>
-                                                <div class="mb-3" style="width: 3in;">
-                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" value="{{Auth::user()->password}}">
-                                                    <span class="text-danger">@error('confirm_password') {{$message}} @enderror</span>
-                                                </div>
                                                 <!-- Login Credentials -->
 
                                                 <!--  Code for Profile Picture -->
@@ -301,7 +293,7 @@
                                                         <div class="input-box input-upload-box left">
                                                             <div class="upload-wrapper">
                                                                 <div class="upload-box">
-                                                                    <input type="file" name="profile_picture" id="profile_picture" class="form-control" >
+                                                                    <input type="file" name="profile_picture" id="profile_picture" class="form-control" value="{{$alumni_user1->profile_picture}}">
                                                                 </div>
                                                             </div>
                                                             <div class="">Please select a file and click upload</div>
