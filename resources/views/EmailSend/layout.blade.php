@@ -88,6 +88,7 @@
   <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
   <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
   <script src="{{URL::asset('js/trumbowyg.min.js')}}"></script>
+  <script src="{{URL::asset('js/tinymce.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script>
   <script>
     $(document).ready(function() {
@@ -107,6 +108,11 @@
         order: [
           [1, 'asc']
         ]
+      });
+
+      //Importing TinyMCE
+      tinymce.init({
+        selector: '#message'
       });
 
       $('#select_all').on('click', function() {
@@ -167,10 +173,10 @@
       //   }
       // });
       //Importing Trumbowyg
-      $("#message").trumbowyg();
-      $.get(svgPath, function(data) {
-        div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
-      });
+      // $("#message").trumbowyg();
+      // $.get(svgPath, function(data) {
+      //   div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
+      // });
 
       // var quill = new Quill('#message', {
       //   modules: {
