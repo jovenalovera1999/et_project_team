@@ -26,8 +26,7 @@
                   <td><input type="checkbox" class="select-checkbox" value="{{$d->email}}" onclick="updateTextArea();"></td>
                   <td>{{$d->id}}</td>
                   <td>
-                    <p>{{$d->first_name}} {{$d->last_name}}
-                    <p>
+                    <p>{{$d->first_name}} {{$d->last_name}}</p>
                   </td>
                   <td>{{$d->email}}</td>
                   <td><a href="{{url('email/'.$d->id.'/edit')}}" class="fa fa-edit mr-3 text-center text-dark btn-sm"></a></td>
