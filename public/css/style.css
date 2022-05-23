@@ -5,6 +5,40 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+input[type="text-disable"]:disabled {
+    background: #ffffff;
+}
+
+.labels {
+    /* color: #fff; */
+    font-size: 12px;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important; */
+    font-style: normal !important;
+    /* font-weight: 400 !important; */
+    /* margin-bottom: 15px; */
+    /* letter-spacing: 1.5px; */
+}
+
+.label {
+    /* color: #fff; */
+    font-size: 11px !important;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important; */
+    font-style: normal !important;
+    /* font-weight: 500 !important; */
+    /* margin-bottom: 15px; */
+    letter-spacing: 1px;
+}
+
+.title {
+    /* color: #fff; */
+    font-size: 16px !important;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important; */
+    font-style: normal !important;
+    font-weight: 600 !important;
+    /* margin-bottom: 15px; */
+    letter-spacing: 1px;
+}
+
 .grey-bg {
     background-color: #ffffff;
 }
@@ -9128,7 +9162,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-    margin-top: 3rem !important;
+    margin-top: 1rem !important;
 }
 
 .mr-5,
@@ -11354,7 +11388,6 @@ h5,
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    position: relative;
 }
 
 #sidebar .custom-menu .btn i {
