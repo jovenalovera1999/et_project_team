@@ -59,18 +59,17 @@
 
 
         <div id="content" class="">
-
-            <div class="container rounded bg-white mt-5 mb-5">
+        <div class="container rounded bg-white mt-5 mb-5" style="width:93%;">
                 <div class="row">
                     <div class="col-md-3 border-right">
 
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{$alumni_user->profile_picture}}" onerror="this.src='images/coders-logo.png'"><br><span class="font-weight-bold" style="font-size:16px;">{{$alumni_user->first_name}} {{$alumni_user->middle_name[0] . '.'}} {{$alumni_user->last_name}}</span><span class="text-black-50">{{$alumni_user->job_title}}
                             </span><br>
                             <span><a href="alumni_view/create">
-                                    <div class="d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience label"><i class="fa fa-edit"></i>&nbsp;Update</span></div>
+                                    <div  id="hide-btn" class="d-flex justify-content-between align-items-center experience"><span class="border px-3 p-1 add-experience label-btn" ><i class="fa fa-edit"></i>&nbsp;Update</span></div>
                                 </a></span>
                             <span><a href="{{url('alumni_view')}}">
-                                    <div class="d-flex justify-content-between align-items-center experience" onclick="window.print()" style="margin-top:5px;"><span class="border px-3 p-1 add-experience label"><i class="fa fa-print"></i>&nbsp;Print</span></div>
+                                    <div id="hide-btn" class="d-flex justify-content-between align-items-center experience" onclick="this.style.display='none';window.print()" style="margin-top:5px;"><span class="border px-3 p-1 add-experience label-btn"><i class="fa fa-print"></i>&nbsp;Print</span></div>
                                 </a></span>
                         </div>
                     </div>
