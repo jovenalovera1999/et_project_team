@@ -33,8 +33,8 @@
                     <a class="navbar-brand" href="#">
                         <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                     </a>
-                    <h5 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h5>
-                    <h6 class="logo"><span class="text-white font-user">Administrator</span></h6>
+                    <h6 class="logo " style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h5 class="logo"><span class="text-white font-user">Administrator</span></h5>
                 </div>
                 <br>
                 <h1><a href="index.html" class="logo ">Menu</a></h1>
@@ -121,12 +121,12 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/employed.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-green text-90 text-600">
+                                            <span class="text-default-green text-90 text-600" style="text-transform: capitalize;">
                                                 <?php
                                                 if (str_contains($employee->middle_name, 'None')) {
                                                     $employee->middle_name = ' ';
                                                 } else {
-                                                    $employee->middle_name = $employee->middle_name;
+                                                    $employee->middle_name = $employee->middle_name[0].'.';
                                                 }
                                                 ?>
                                                 {{$employee->first_name}} {{$employee->middle_name}} {{$employee->last_name}}
@@ -190,12 +190,12 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/unemployed.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-red text-90 text-600">
+                                            <span class="text-default-red text-90 text-600" style="text-transform: capitalize;">
                                                 <?php
                                                 if (str_contains($non_employee->middle_name, 'None')) {
                                                     $non_employee->middle_name = ' ';
                                                 } else {
-                                                    $non_employee->middle_name = $non_employee->middle_name;
+                                                    $non_employee->middle_name = $non_employee->middle_name[0].'.';
                                                 }
                                                 ?>
                                                 {{$non_employee->first_name}} {{$non_employee->middle_name}} {{$non_employee->last_name}}
@@ -259,12 +259,12 @@
                                                 <img alt="Derek's avatar" src="{{ asset('images/pending_offer.png') }}" class="h-4 w-4" />
                                             </span>
 
-                                            <span class="text-default-blue text-90 text-600">
+                                            <span class="text-default-blue text-90 text-600" style="text-transform: capitalize;">
                                                 <?php
                                                 if (str_contains($pending_offer->middle_name, 'None')) {
                                                     $pending_offer->middle_name = ' ';
                                                 } else {
-                                                    $pending_offer->middle_name = $pending_offer->middle_name;
+                                                    $pending_offer->middle_name = $pending_offer->middle_name[0].'.';
                                                 }
                                                 ?>
                                                 {{$pending_offer->first_name}} {{$pending_offer->middle_name}} {{$pending_offer ->last_name}}

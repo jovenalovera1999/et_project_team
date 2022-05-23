@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AlumniExport;
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
+use App\Models\alumni_records;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
@@ -13,8 +19,25 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view("System_admin.report");
+        $data=alumni_records::orderByDesc('id')->get();
+        return view("System_admin.report",['data' =>  $data]);
     }
+
+    /*public function addAlumniRecord()
+    {
+
+        $alumni = [
+            ['id' => '4','first_name'=> 'kim','middle_name' =>'kim','last_name'=>'kim','gender'=>'male','contact'=>'091234','email'=>'kimbangud2@gmail.com','home_address'=>'Panitan','present_address'=>'Tabuc','school_graduated'=>'Filamer Christian University','batch_no'=> '1','scholarship_sponsor' =>'None','pending_offer'=>'With','employment_status'=>'None','company_location'=>'None','job_title'=>'None','date_hired'=>'1999-10-10','profile_picture'=>'images/kim.png']
+        ];
+        alumni_records::insert($alumni);
+        return "Records are inserted";
+    }*/
+    public function export()
+    {
+        return Excel::download(new AlumniExport, 'Test-Alumni-Report.xlsx');
+
+    }
+    
 
     /**
      * Show the form for creating a new resource.

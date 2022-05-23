@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
   <link rel="stylesheet" href="{{URL::asset('css/trumbowyg.min.css')}}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -86,6 +88,7 @@
   <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
   <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
   <script src="{{URL::asset('js/trumbowyg.min.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script>
   <script>
     $(document).ready(function() {
       $('#emailtb').DataTable({
@@ -121,28 +124,29 @@
 
       });
 
-      $('.select-checkbox').on('click', function(){
+      $('.select-checkbox').on('click', function() {
 
         $('#emailaddress').html(getEmail());
       });
 
-      function getEmail(){
+      function getEmail() {
         var arr_email = [];
         var emailtxt = '';
 
-        $('.select-checkbox').each(function(){
-          if( $(this).prop('checked')){
+        $('.select-checkbox').each(function() {
+          if ($(this).prop('checked')) {
             arr_email.push($(this).val());
           }
+          console.log(emailaddress);
         });
 
-        if(arr_email.length > 0){
-          for(var i = 0; i < arr_email.length; i++){
-            if(i==1){
+        if (arr_email.length > 0) {
+          for (var i = 0; i < arr_email.length; i++) {
+            if (i == 1) {
               emailtxt += arr_email[i] + ", ";
-            }else if (i == arr_email.length - 1){
+            } else if (i == arr_email.length - 1) {
               emailtxt += arr_email[i];
-            }else{
+            } else {
               emailtxt += arr_email[i] + ", ";
             }
           }
@@ -167,6 +171,13 @@
       $.get(svgPath, function(data) {
         div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
       });
+
+      // var quill = new Quill('#message', {
+      //   modules: {
+      //     toolbar: true
+      //   },
+      //   theme: 'snow'
+      // });
 
       // function updateTextArea() {
       //   var allVals = [];

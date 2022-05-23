@@ -5,6 +5,53 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+input[type="text-disable"]:disabled {
+    background: #ffffff;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.labels {
+    /* color: #fff; */
+    font-size: 12px;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important; */
+    font-style: normal !important;
+    /* font-weight: 400 !important; */
+    /* margin-bottom: 15px; */
+    /* letter-spacing: 1.5px; */
+}
+
+.label {
+    /* color: #fff; */
+    font-size: 14px !important;
+    font-family: 'Calibri', 'sans-serif' !important;
+    font-style: normal !important;
+    /* font-weight: 500 !important; */
+    /* margin-bottom: 15px; */
+    letter-spacing: .5px;
+}
+
+.title {
+    /* color: #fff; */
+    font-size: 16px !important;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important; */
+    font-style: normal !important;
+    font-weight: 600 !important;
+    /* margin-bottom: 15px; */
+    letter-spacing: 1px;
+}
+
+.label-btn {
+    /* color: #fff; */
+    font-size: 10px !important;
+    font-family: 'Calibri', 'sans-serif' !important;
+    font-style: normal !important;
+    /* font-weight: 500 !important; */
+    /* margin-bottom: 15px; */
+    letter-spacing: .5px;
+}
+
 .grey-bg {
     background-color: #ffffff;
 }
@@ -72,8 +119,15 @@
     letter-spacing: 1.5px;
 }
 
+.one-line-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inherit;
+}
+
 .text {
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif' !important;
     font-style: normal !important;
     font-weight: 500 !important;
@@ -101,7 +155,7 @@
 }
 
 .text-size-num2 {
-    font-size: 30px;
+    font-size: 25px;
     font-family: sans-serif;
     font-stretch: ultra-expanded;
 }
@@ -9121,7 +9175,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-    margin-top: 3rem !important;
+    margin-top: 1rem !important;
 }
 
 .mr-5,
@@ -11329,7 +11383,7 @@ h5,
     position: absolute;
     top: 20px;
     right: 0;
-    margin-right: -20px;
+    margin-right: -27px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -11347,7 +11401,6 @@ h5,
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    position: relative;
 }
 
 #sidebar .custom-menu .btn i {
@@ -11665,7 +11718,7 @@ a[data-toggle="collapse"] {
 .profile-card-4 img {
     transition: all 0.25s linear;
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
     background-color: rgba(1, 25, 134, 0.4);
 }

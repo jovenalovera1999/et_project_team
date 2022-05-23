@@ -16,9 +16,12 @@ class UserEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $details;
+
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -28,6 +31,17 @@ class UserEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('EmailSend.template')->subject($this->details['subject']);
+        // return $this->subject($this->details['subject'])
+        // ->view($this->details['message']);
+
+//         return $this->markdown('emails.template')->with(['data' => $details['message']);
+// Mark Jun Gersaniva3:40 PM
+// @component('mail::message')
+// # FIT-ALL {{ $data->description }}
+
+// {!! $data->message !!}
+
+// @endcomponent
     }
 }
