@@ -62,7 +62,7 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
 
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Dashboard</h1>
+            <h4 class="mb-0 text-gray-800 mb-4">Dashboard</h4>
 
             <div class="row">
                 <div class="col-xl-6 ">
@@ -97,7 +97,7 @@
                             <div class="card-body cleartfix">
                                 <div class="media align-items-stretch">
                                     <div class="align-self-center" style="margin-right: 7px;">
-                                        <i class=" fa fa-thumb-tack fa-2x text-white font-large-2 mr-2"></i>
+                                        <i class=" fa fa-thumb-tack fa-2x text-white font-large-2 mr-2" ></i>
                                     </div>
                                     <div class="media-body">
                                         <h4 class="text-white text-size-m"> Now Hiring!</h4>
@@ -137,7 +137,8 @@
                                                 <p style="font-size:14px;"><mark> {{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
                                             </div>
                                             <div class="profile-description" style="font-size:12px;">Apply now and be a part of our growing family.</div>
-                                            <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5">Read More</a>
+                                            <br>
+                                            <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5" style="font-size:10px;">Read More</a>
                                         </div>
                                         <div class=" text-muted" style="margin-top:7px; margin-bottom:10px; ">
                                         <p style="font-size:12px;">{{$job_opportunity->created_at->diffForHumans()}}</p>
