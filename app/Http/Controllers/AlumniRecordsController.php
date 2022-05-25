@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\alumni_records;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 // use illuminate\Support\Facades\Hash;
 use Hash;
+use  App\Imports\AlumniRecord;
 
 class AlumniRecordsController extends Controller
 {
@@ -289,4 +291,10 @@ class AlumniRecordsController extends Controller
         $alumni_record->delete();
         return back()->with('message-success', 'Alumni Record was successfully deleted!');
     }
-}
+
+    public function import(Request $request)
+    {
+        Excel::import(new AlumniRecord,$request->file);
+        return back()->with('message-success', 'Alumni Record successfully imported!');
+    }
+} 

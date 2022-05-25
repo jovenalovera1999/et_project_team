@@ -90,6 +90,15 @@
                                                     Alumni Record
                                                 </a>
                                             </div>
+                                            <!-- Add Scholarship code -->
+                                            <div class="float-right">
+                                                <a type="button" class="btn profile_button2 text-light"
+                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                    <span class="fa fa-plus  mr-3" style="color:light"></span>Import
+                                                    Excel
+                                                </a>
+                                            </div>
+                                            <!-- Add Scholarship code -->
                                         </div>
                                         <div class="card-body">
                                             @if(Session::has('message-success'))
@@ -195,6 +204,39 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    {{-- Start Add Modal --}}
+                                    <div style="margin-top: 180px" class="modal fade" id="staticBackdrop"
+                                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Import Excel</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{route('excel_import')}}" method="POST"
+                                                    enctype="multipart/form-data" class="mt-3">
+                                                    @csrf
+                                                    <div class="mb-3" style="width: 4.8in;">
+                                                        <label for="file">Choose CSV</label>
+                                                        <input type="file" class="form-control" id="file" name="file">
+                                                        <span class="text-danger">@error('file')
+                                                            {{$message}} @enderror</span>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn bg-c-blue text-light"
+                                                            style="width: 100px;">Import</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal" style="width: 100px">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- End Add Modal --}}
+
                                 </div>
                             </div>
                         </div>

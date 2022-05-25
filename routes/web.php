@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\JobOpportunitiesController;
+use App\Http\Controllers\AlumniRecordsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     //Email 
     Route::resource('email', EmailController::class);
     Route::post('sendemail', [EmailController::class, 'sendMail']);
+
+    Route::post('/importExcel', [AlumniRecordsController::class, 'import'])->name('excel_import');
 });
 
 // ->name('sendemail')
