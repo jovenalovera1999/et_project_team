@@ -37,7 +37,7 @@
                     <a class="navbar-brand" href="#">
                         <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders_tribe_primary_logo.png') }}" width="100" height="100" class="d-inline-block align-text-top" style="border-radius: 50px;" class="rounded-circle img-thumbnail" alt="Coders Tribe"></div>
                     </a>
-                    <h6 class="logo" style="margin-top: 20px;"><span class="text-white font-user">{{Auth::user()->name}}</span></h6>
+                    <h6 class="logo" style="margin-top: 20px;"><span class="text-white font-user text-capitalize ">{{Auth::user()->name}}</span></h6>
                     <h5 class="logo"><span class="text-white font-user">Alumni User</span></h5>
                 </div>
                 <br><br>
@@ -62,7 +62,7 @@
 
         <div id="content" class="p-4 p-md-5 pt-5">
 
-            <h1 class="h3 mb-0 text-gray-800 mb-4">Dashboard</h1>
+            <h4 class="mb-0 text-gray-800 mb-4">Dashboard</h4>
 
             <div class="row">
                 <div class="col-xl-6 ">
@@ -97,7 +97,7 @@
                             <div class="card-body cleartfix">
                                 <div class="media align-items-stretch">
                                     <div class="align-self-center" style="margin-right: 7px;">
-                                        <i class=" fa fa-thumb-tack fa-2x text-white font-large-2 mr-2"></i>
+                                        <i class=" fa fa-thumb-tack fa-2x text-white font-large-2 mr-2" ></i>
                                     </div>
                                     <div class="media-body">
                                         <h4 class="text-white text-size-m"> Now Hiring!</h4>
@@ -123,7 +123,7 @@
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
                     <div class="content">
                         <div class="container card-title ">
-                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px; letter-spacing:2px;">Available Job Opportunities. Apply now!</h6>
+                            <h6 class="padding-color text" style="padding-top: 10px; padding-bottom: 10px; letter-spacing:1px; font-size:11px;">Available Job Opportunities. Apply now!</h6>
                             <br>
 
                             <!-- end row -->
@@ -133,14 +133,15 @@
                                 <div class="col-lg-4">
                                     <div class="profile-card-4 text-center"><img src="{{ asset('images/now-hiring-bg.jpg') }}" alt="Job-Hiring-Image" class="img img-responsive">
                                         <div class="profile-content">
-                                            <div class="profile-name"><mark>{{$job_opportunity->company_name}}</mark>
-                                                <p><mark> {{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
+                                            <div class="profile-name" style="font-size:12px;"><mark>{{$job_opportunity->company_name}}</mark>
+                                                <p style="font-size:14px;"><mark> {{$job_opportunity->job_role}} {{$job_opportunity->job_title}}</mark></p>
                                             </div>
-                                            <div class="profile-description">Apply now and be a part of our growing family.</div>
-                                            <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5">Read More</a>
+                                            <div class="profile-description" style="font-size:12px;">Apply now and be a part of our growing family.</div>
+                                            <br>
+                                            <a href="{{route('post.show',['id'=>$job_opportunity->id,'c_name'=>$job_opportunity->company_name, 'title'=>$job_opportunity->job_title, 'role'=>$job_opportunity->job_role, 'reqs'=>$job_opportunity->job_requirements, 'location'=>$job_opportunity->company_location, 'vacancy'=>$job_opportunity->vacancy_no, 'status'=>$job_opportunity->status])}}" class="profile_button px-5" style="font-size:10px;">Read More</a>
                                         </div>
                                         <div class=" text-muted" style="margin-top:7px; margin-bottom:10px; ">
-                                        <p>{{$job_opportunity->created_at->diffForHumans()}}</p>
+                                        <p style="font-size:12px;">{{$job_opportunity->created_at->diffForHumans()}}</p>
                                         </div>
                                        
                                     </div>
