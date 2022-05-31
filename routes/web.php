@@ -34,7 +34,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::resource('update_job_opportunity_status', 'App\Http\Controllers\UpdateJobOpportunityStatusController');
     Route::resource('report', 'App\Http\Controllers\ReportController');
     Route::resource('register', 'App\Http\Controllers\RegisterController');
-    Route::resource('report', ReportController::class);
+    //Route::resource('report', ReportController::class);
     Route::resource('login', 'App\Http\Controllers\LoginController');
     Route::resource('logout', 'App\Http\Controllers\LogoutController');
 
@@ -43,6 +43,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::get('view_alumni/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{date_hired}/{updated_at}', 'App\Http\Controllers\ViewAlumniRecordController@alumni')->name('alumni.view');
     
     Route::get('/export-excel', [ReportController::class,'export'])->name('report_export');
+    // Route::get('/export-excel', 'ReportController@export')->name('report_export');
     // Route::get('edit_sponsor/{scholarship_sponsors}', 'App\Http\Controllers\ScholarshipSponsorsController@update')->name('sponsor.show');
 
     // Admin's post

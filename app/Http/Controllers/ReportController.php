@@ -12,15 +12,39 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
+    public string $fromDate;
+    public string $toDate;
+
+
+    
+
+
+   
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data=alumni_records::orderByDesc('id')->get();
-        return view("System_admin.report",['data' =>  $data]);
+        if(request()-> ajax())
+        {
+            if(!empty($request->fromDate))
+            {
+                $data = DB::table('alumni_records')
+                ->whereBetween('created_at',  array($request->fromDate,$request->toDate)) -> get();
+                $fromDate = $request -> fromDate;
+                $toDate = $request ->toDate;
+
+            }else
+            {
+                $data = DB::table('alumni_records')->get();
+            }
+            return datatables()->of($data)->make(true);
+
+        }
+       
+        return view("System_admin.report");
     }
 
     /*public function addAlumniRecord()
@@ -34,7 +58,7 @@ class ReportController extends Controller
     }*/
     public function export()
     {
-        return Excel::download(new AlumniExport, 'Test-Alumni-Report.xlsx');
+        return Excel::download(new AlumniExport, 'Alumni-Report.xlsx');
 
     }
     
