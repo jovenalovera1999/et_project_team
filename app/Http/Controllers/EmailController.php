@@ -118,7 +118,8 @@ class EmailController extends Controller
         $details = [
             'subject' => $request->subject,
             'message' => $request->message,
-            'emailaddress' => $request->emails,
+            'signature' => "<br>Thanks, <br> From Employee Track Demo <br> <a href='http://nt-et.herokuapp.com/'>Visit Here</a>",
+            // 'emailaddress' => $request->emails,
           ];
         
         $emailaddress = $request->emailaddress;
@@ -131,7 +132,7 @@ class EmailController extends Controller
 
             foreach($emails as $email) {
 
-                Mail::to($emails)->send(new UserEmail($details));
+                Mail::to($email)->send(new UserEmail($details));
 
             }
         }else{
@@ -140,12 +141,6 @@ class EmailController extends Controller
 
         }
 
-        // $emails = explode(",", $emailaddress);
-        // // foreach($emails as $email) {  
-        // return Mail::to($emails[0])->send(new UserEmail($details));
-        // // }
-       
-        // dd("Yaaaay! Mails were sent!!!");
         return back()->with(['msg' => 'Mail/s successfully sent!']);
 
     }

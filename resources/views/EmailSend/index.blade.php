@@ -15,7 +15,6 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody id="alluser">
@@ -23,13 +22,13 @@
                 @foreach($data as $d)
                 <tr>
                   <!-- <td></td> -->
-                  <td><input type="checkbox" class="select-checkbox" value="{{$d->email}}" onclick="updateTextArea();"></td>
+                  <td style="width:10%;"><input type="checkbox" class="select-checkbox" value="{{$d->email}}"></td>
                   <td>{{$d->id}}</td>
                   <td>
                     <p>{{$d->first_name}} {{$d->last_name}}</p>
                   </td>
                   <td>{{$d->email}}</td>
-                  <td><a href="{{url('email/'.$d->id.'/edit')}}" class="fa fa-edit mr-3 text-center text-dark btn-sm"></a></td>
+                  <!-- <td><a href="{{url('email/'.$d->id.'/edit')}}" class="fa fa-edit mr-3 text-center text-dark btn-sm"></a></td> -->
                 </tr>
                 @endforeach
                 @endif
@@ -47,7 +46,7 @@
           @csrf
             <div class="form-group">
               @if(Session::has('msg'))
-              <div class="alert alert-success alert-dismissible">{{session('msg')}}</div>
+              <div class="alert alert-success alert-dismissible fade show">{{session('msg')}}</div>
               @endif
               
               <label for="emailaddress">Email address</label>

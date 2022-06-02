@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{URL::asset('css/select.dataTables.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
-  <link rel="stylesheet" href="{{URL::asset('css/trumbowyg.min.css')}}">
+  <link rel="stylesheet" href="{{URL::asset('css/datatables.buttons.min.css')}}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" rel="stylesheet">
   
 </head>
@@ -79,7 +79,7 @@
   </div>
   <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-  <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+  <!-- <script src="{{URL::asset('js/jquery.min.js')}}"></script> -->
   <script src="{{URL::asset('js/main.js')}}"></script>
   <script src="{{URL::asset('js/popper.js')}}"></script>
   <script src="{{URL::asset('js/custom.js')}}"></script>
@@ -87,9 +87,9 @@
   <script src="{{URL::asset('js/dataTables.checkboxes.min.js')}}"></script>
   <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
   <script src="{{URL::asset('js/dataTables.select.min.js')}}"></script>
-  <script src="{{URL::asset('js/trumbowyg.min.js')}}"></script>
   <script src="{{URL::asset('js/tinymce.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script>
+  <script src="{{URL::asset('js/datatables.button.min.js')}}"></script>
   <script>
     $(document).ready(function() {
       $('#emailtb').DataTable({
@@ -110,10 +110,8 @@
         ]
       });
 
-      //Importing TinyMCE
-      tinymce.init({
-        selector: '#message'
-      });
+      //Importing Trumboywg
+      $('#message').trumbowyg();
 
       $('#select_all').on('click', function() {
         if ($(this).prop('checked')) {
@@ -131,7 +129,6 @@
       });
 
       $('.select-checkbox').on('click', function() {
-
         $('#emailaddress').html(getEmail());
       });
 
@@ -148,15 +145,25 @@
 
         if (arr_email.length > 0) {
           for (var i = 0; i < arr_email.length; i++) {
-            if (i == 1) {
-              emailtxt += arr_email[i] + ", ";
+            if (i == 0) {
+              emailtxt += arr_email[i] ;
             } else if (i == arr_email.length - 1) {
-              emailtxt += arr_email[i];
+              emailtxt += ", " + arr_email[i];
             } else {
-              emailtxt += arr_email[i] + ", ";
+              emailtxt += ", " + arr_email[i];
             }
           }
         }
+
+        // if (arr_email.length = 1){
+        //   emailtxt += arr_email;
+        // } else {
+        //   var array = arr_email.split(',');
+        //   for (var i in array){
+        //     console.log(array[i]
+        //   );}
+        //   emailtxt += array;
+        // }
         return emailtxt;
       }
 
