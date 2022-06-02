@@ -22,6 +22,7 @@ class UserDashboardController extends Controller
             // for Alumni Dashboard datatable 
             //  Job opportunites
             $job_opportunities = job_opportunities::where('status', '=', 'Available')
+            ->orderBy('created_at', 'desc')
             ->get(['*']);
 
             //  Year Footer

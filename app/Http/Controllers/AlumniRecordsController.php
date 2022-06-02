@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\alumni_records;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 // use illuminate\Support\Facades\Hash;
 use Hash;
+use  App\Imports\AlumniRecord;
 
 class AlumniRecordsController extends Controller
 {
@@ -141,13 +143,18 @@ class AlumniRecordsController extends Controller
                 $alumni_record->company_name = 'None';
                 $alumni_record->company_location = 'None';
                 $alumni_record->job_title = 'None';
-                $alumni_record->date_hired = 'None';
+                $alumni_record->date_hired = '1999-10-10';
                 $alumni_record->work_arrangement = 'None';
             } else {
                 $alumni_record->employment_status = $request->employment_status;
                 $alumni_record->company_name = $request->company_name;
                 $alumni_record->company_location = $request->company_location;
                 $alumni_record->job_title = $request->job_title;
+                if (empty($request->date_hired)) {
+                    $request->date_hired = '1999-10-10';
+                } else {
+                    $alumni_record->date_hired = $request->date_hired;
+                }
                 $alumni_record->date_hired = $request->date_hired;
                 $alumni_record->work_arrangement = $request->work_arrangement;
             }
@@ -263,13 +270,18 @@ class AlumniRecordsController extends Controller
                 $alumni_record->company_name = 'None';
                 $alumni_record->company_location = 'None';
                 $alumni_record->job_title = 'None';
-                $alumni_record->date_hired = 'None';
+                $alumni_record->date_hired = '1999-10-10';
                 $alumni_record->work_arrangement = 'None';
             } else {
                 $alumni_record->employment_status = $request->employment_status;
                 $alumni_record->company_name = $request->company_name;
                 $alumni_record->company_location = $request->company_location;
                 $alumni_record->job_title = $request->job_title;
+                if (empty($request->date_hired)) {
+                    $request->date_hired = '1999-10-10';
+                } else {
+                    $alumni_record->date_hired = $request->date_hired;
+                }
                 $alumni_record->date_hired = $request->date_hired;
                 $alumni_record->work_arrangement = $request->work_arrangement;
             }
@@ -289,4 +301,10 @@ class AlumniRecordsController extends Controller
         $alumni_record->delete();
         return back()->with('message-success', 'Alumni Record was successfully deleted!');
     }
-}
+
+    public function import(Request $request)
+    {
+        Excel::import(new AlumniRecord,$request->file);
+        return back()->with('message-success', 'Alumni Record successfully imported!');
+    }
+} 

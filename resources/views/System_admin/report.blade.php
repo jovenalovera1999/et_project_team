@@ -71,151 +71,240 @@
         <div id="content" class="p-4 p-md-5 pt-5">
 
             <!--<h1 class="h3 mb-0 text-gray-800 mb-4">Reports</h1>-->
-            <div id="content" class="p-4 p-md-5 pt-5">
+            <div class="col">
+                <div class="card" style="width:100%;">
 
-                <div class="col">
-                    <div class="card">
+                    <h5 class="card-header bg-c-pink text-white">Alumni Report Summary by Date
+                        <div class="float-right  print-container1">
+                            <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a>
+                        </div>
+                    </h5>
 
-                        <h5 class="card-header bg-c-pink text-white">Alumni Report Summary by Date
-                            <div class="float-right  print-container1">
-                                <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a>
-                            </div>
-                        </h5>
+                    <div class="card-body">
+                        <div class="table-responsive">
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="">
-                                    <div class="form-row" align="left">
-                                        <div class="form-group col-md-3">
-                                            <label>From Date:</label>
-                                            <input type="date" class="datepicker btn-block" name="from" id="fromDate" Placeholder="Select From Date" value="">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label>To Date: </label>
-                                            <input type="date" name="to" id="toDate" class="datepicker btn-block" Placeholder="Select To Date" value="">
-                                        </div>
+                            <div class="row input-daterange" align="left">
+                                <form metho="GET" action="">
+                                <div class="form-group col-md-3">
+                                    <label>From Date:</label>
+                                    <input type="text" class="form-control" name="fromDate" id="fromDate"  Placeholder="Select From Date" readonly>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>To Date: </label>
+                                    <input type="text" name="toDate" id="toDate" class="form-control"   Placeholder="Select To Date" readonly>
+                                </div>
 
-                                        <div class="form-group col-md-2">
-                                            <label></label>
-                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Load</button>
-                                        </div>
-                                        <!--<div class="form-group col-md-3 ">
-                                            <label></label>
-                                            <a href="" class="btn btn-success btn-block"><i class="fa fa-refresh"></i> Reset</a></span>
-                                        </div>
+                                <div class="form-group col-md-2">
+                                    <label></label>
+                                    <!-- <i class="fa fa-paper-plane"></i> -->
+                                    <button type="button" name="load" id="load" class=" btn btn-secondary  btn-block"> Load</button>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label></label>
+                                    <!--<i class="fa fa-paper-plane"></i>-->
+                                    <button type="button" name="refresh" id="refresh" class="btn btn-default btn-block"> Refresh</button>
+                                </div>
 
-                                         <div class="form-group col-md-3">
-                                            <label>Pending Offers: </label>
-                                            <select class="custom-select" name="pending_offers" id="pending_offers" required>
-                                                <option value="">--Select Pending Offers</option>
-                                                <option value="With">With</option>
-                                                <option value="Without">Without</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label>Home Address:</label>
-                                            <?php
-                                            /** connection */
-                                            ?>
-                                            <select name="home_address" id="home_address" class="custom-select" required>
-                                                <option value="">--Select Home Address--</option>
-                                                <?php //echo $city_name; 
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-row" align="left">
-                                        <div class="form-group col-md-3 offset-md-6">
-                                            <a href="" class="btn btn-success btn-block"><i class="fa fa-refresh"></i> Reset</a></span>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Load</button>
-                                        </div>
-                                    </div>-->
                                 </form>
                                 <br>
-
                                 </style>
                                 <div class="tg-wrap">
-                                    <table id="table" class="display" cellspacing="0" style="width:100%">
+                                    <table id="order_table" class="display " cellspacing="0" style="width:100%">
                                         <thead class="bg-c-pink text-white" style="font: bold;" align="center">
                                             <tr>
                                                 <th>Id</th>
-                                                <th align=center>Name</th>
-                                                <th align=center>Job Title</th>
+                                                <th align=center>First Name</th>
+                                                <th align=center>Middle Name</th>
+                                                <th align=center>Last Name</th>
+                                                <th align=center>Gender</th>
+                                                <th align=center>Contact</th>
+                                                <th align=center>Email</th>
                                                 <th align=center>Home Address</th>
-                                                <th align=center>Date Created</th>
+                                                <th align=center>Present Address</th>
+                                                <th align=center>School Graduated</th>
                                                 <th align=center>Batch Number</th>
-                                                <th align=center>Status</th>
-                                                <th align=center>Pending Offers</th>
+                                                <th align=center>Scholarship Sponsor</th>
+                                                <th align=center>Pending Offer</th>
+                                                <th align=center>Employment Status</th>
+                                                <th align=center>Company Name</th>
+                                                <th align=center>Company Location</th>
+                                                <th align=center>Job Title</th>
+                                                <th align=center>Date Hired</th>
+                                                <th align=center>Work Arrangement</th>
+                                                <th align=center>Date Created</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            @if($data)
-                                            @foreach($data as $d)
-                                            <tr>
-                                                <td>{{$d->id}}</td>
-                                                <td>
-                                                    <p>{{$d->first_name}} {{$d->last_name}}</p>
-                                                </td>
-                                                <td>
-                                                    {{$d->job_title}}
-                                                </td>
-                                                <td>
-                                                    {{$d->home_address}}
-                                                </td>
-                                                <td>
-                                                    {{$d->created_at}}
-                                                </td>
-                                                <td>
-                                                    {{$d->batch_no}}
-                                                </td>
-                                                <td>
-                                                    {{$d->status}}
-                                                </td>
-                                                <td>
-                                                    {{$d->pending_offers}}
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                            @endif
-                                        </tbody>
-                                        <tfoot class="bg-c-pink text-white">
-                                            <tr>
-                                                <th>Id</td>
-                                                <th align=center>Name</th>
-                                                <th align=center>Job Title</th>
-                                                <th align=center>Home Address</th>
-                                                <th align=center>Date Created</th>
-                                                <th align=center>Batch Number</th>
-                                                <th align=center>Status</th>
-                                                <th align=center>Pending Offers</th>
-                                            </tr>
-                                        </tfoot>
+
                                     </table>
-
-
                                 </div>
-
-                                <!-- PANEL START CODE  -->
-
-                                <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-                                <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-                                <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-                                <script src="{{URL::asset('js/main.js')}}"></script>
-                                <script src="{{URL::asset('js/popper.js')}}"></script>
-                                <script src="{{URL::asset('js/custom.js')}}"></script>
-                                <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
                             </div>
-                            <script>
-                                $(document).ready(function() {
-                                    $('#table').DataTable({
-                                        order: [
-                                            [1, 'asc']
-                                        ]
-                                    });
-                                });
-                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- PANEL START CODE  -->
+
+        <!--<script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+        <script src="{{URL::asset('js/main.js')}}"></script>
+        <script src="{{URL::asset('js/popper.js')}}"></script>
+        <script src="{{URL::asset('js/custom.js')}}"></script>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+        <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+        <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    </div>
+    <script>
+        $(document).ready(function() {
+           
+            $('.input-daterange').datepicker({
+                todayBtn: 'linked',
+                format: 'yyyy-mm-dd',
+                timeFormat: 'HH:mm:ss',
+                autoclose: true
+            });
+            load_data();
+
+            function load_data(fromDate = '', toDate = '') {
+                $('#order_table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    method: "POST",
+                    order: [
+                    [1, 'asc']
+                     ],
+                    ajax: {
+                        url: '{{route("report.index")}}',
+                       
+                        data: {
+                            fromDate: fromDate,
+                            toDate: toDate
+                        }
+                    },
+
+                    columns: [{
+                            data: 'id',
+                            name: 'id',
+                        },
+                        {
+                            data: 'first_name',
+                            name: 'first_name',
+                        },
+                        {
+                            data: 'middle_name',
+                            name: 'middle_name',
+                        },
+                        {
+                            data: 'last_name',
+                            name: 'last_name',
+                        },
+                        {
+                            data: 'gender',
+                            name: 'gender',
+                        },
+                        {
+                            data: 'contact',
+                            name: 'contact',
+                        },
+                        {
+                            data: 'email',
+                            name: 'email',
+                        },
+                        {
+                            data: 'home_address',
+                            name: 'home_address',
+                        },
+                        {
+                            data: 'present_address',
+                            name: 'present_address',
+                        },
+                        {
+                            data: 'school_graduated',
+                            name: 'school_graduated',
+                        },
+                        {
+                            data: 'batch_no',
+                            name: 'batch_no',
+                        },
+                        {
+                            data: 'scholarship_sponsor',
+                            name: 'scholarship_sponsor',
+                        },
+                        {
+                            data: 'pending_offer',
+                            name: 'pending_offer',
+                        },
+                        {
+                            data: 'employment_status',
+                            name: 'employment_status',
+                        },
+                        {
+                            data: 'company_name',
+                            name: 'company_name',
+                        },
+                        {
+                            data: 'company_location',
+                            name: 'company_location',
+                        }
+
+                        ,
+                        {
+                            data: 'job_title',
+                            name: 'job_title',
+                        },
+                        {
+                            data: 'date_hired',
+                            name: 'date_hired',
+                        },
+                        {
+                            data: 'work_arrangement',
+                            name: 'work_arrangement',
+                        },
+                        {
+                            data: 'created_at',
+                            name: 'created_at',
+                        }
+
+                    ]
+
+
+                });
+
+            }
+            $('#load').click(function() {
+                var toDate = $('#toDate').val();
+                var fromDate = $('#fromDate').val();
+
+                if (toDate != '' && fromDate != '') {
+                    $('#order_table').DataTable().destroy();
+                    load_data(fromDate, toDate);
+                } else {
+                    alert('Both Date is required');
+
+                }
+            });
+            $('#refresh').click(function() {
+                $('#fromDate').val('');
+                $('#toDate').val('');
+                $('#order_table').DataTable().destroy();
+                load_data();
+            });
+
+        });
+        
+    </script>
 
 
 </body>

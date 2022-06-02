@@ -157,13 +157,13 @@
 
                                         <div class="member-card pt-2 pb-2">
                                             <br>
-                                            <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('images/coders-logo.png') }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                            <div class="thumb-lg member-thumb mx-auto"><img src="{{ $alumni_record->profile_picture }}" onerror="this.src='images/coders-logo.png'" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                             <div class="">
-                                            <?php
+                                                <?php
                                                 if (str_contains($alumni_record->middle_name, 'None')) {
                                                     $alumni_record->middle_name = ' ';
                                                 } else {
-                                                    $alumni_record->middle_name = $alumni_record->middle_name[0].'.';
+                                                    $alumni_record->middle_name = $alumni_record->middle_name[0] . '.';
                                                 }
                                                 ?>
                                                 <h5 style="text-transform: capitalize; font-size:17px;">{{$alumni_record->first_name}} {{$alumni_record->middle_name}} {{$alumni_record->last_name}}</h5>
