@@ -49,6 +49,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     // Admin's post
     Route::post('job_opportunity_update_status/{id}', 'App\Http\Controllers\JobOpportunitiesController@UpdateStatus');
     Route::post('update_alumni/{id}', 'App\Http\Controllers\MyAlumniRecordController@update');
+    Route::post('send_email', 'App\Http\Controllers\NewEmailController@sendMail');
 
     //Alumni's resource
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
@@ -64,7 +65,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     //Email 
     // Route::resource('email', EmailController::class);
-    Route::post('sendemail', [EmailController::class, 'sendMail']);
+    // Route::post('sendemail', [EmailController::class, 'sendMail']);
 
     Route::post('/importExcel', [AlumniRecordsController::class, 'import'])->name('excel_import');
 });

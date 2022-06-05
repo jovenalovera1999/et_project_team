@@ -112,7 +112,7 @@
                                             <div class="card">
                                                 <h5 class="card-header bg-c-pink text-white">Compose Email</h5>
                                                 <div class="card-body">
-                                                    <form class="needs-validation" method="POST" action="{{url('sendemail')}}">
+                                                    <form class="needs-validation" method="POST" action="/send_email">
                                                         @csrf
                                                         @if(Session::has('msg'))
                                                             <div class="alert alert-success alert-dismissible fade show">{{session('msg')}}</div>
@@ -182,7 +182,8 @@
 
                 function GetEmail() {
                     $('#emailaddress').text('');
-                    $('input[id="checkbox_each"]').each(function() {
+                    var rows = table.rows({'search': 'applied'}).nodes();
+                    $('input[id="checkbox_each"]', rows).each(function() {
                         if (this.checked) {
                             let old_text = $('#emailaddress').text() ? $('#emailaddress').text() + ', ' : '';
                             $('#emailaddress').text(old_text + $(this).val());
