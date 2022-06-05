@@ -43,13 +43,13 @@
                         <li>
                             <a href="alumni_records"><span class="fa fa-user mr-3"></span> Alumni Records</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="job_opportunities"><span class="fa fa-briefcase mr-3"></span> Job Opportunity</a>
                         </li>
                         <li>
                             <a href="scholarship_sponsors"><span class="fa fa-cloud-upload mr-3"></span> Scholarship Sponsors</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="{{url('email')}}"><span class="fa fa-paper-plane mr-3"></span> Email</a>
                         </li>
                         <li>
@@ -92,9 +92,7 @@
                                                             <tbody id="records">
                                                                 @foreach($alumni_records as $alumni_record)
                                                                 <tr>
-                                                                    <form id="checkbox_form">
-                                                                        <td><input type="checkbox" name="email[]" id="checkbox_each" value="{{$alumni_record->email}}"></td>
-                                                                    </form>
+                                                                    <td><input type="checkbox" name="email" id="checkbox_each" value="{{$alumni_record->email}}"></td>
                                                                     <td>{{$alumni_record->id}}</td>
                                                                     @if(str_contains($alumni_record->middle_name, 'None'))
                                                                         <td>{{$alumni_record->first_name}} {{$alumni_record->last_name}}</td>
@@ -166,7 +164,7 @@
                     var rows = table.rows({'search': 'applied'}).nodes();
                     // Check/uncheck checkboxes for all rows in the table
                     $('input[type="checkbox"]', rows).prop('checked', this.checked);
-                    $('#emailaddress').html(getEmail());
+                    GetEmail();
                 });
 
                 $('#records').on('change', 'input[type="checkbox"]', function() {
@@ -179,33 +177,19 @@
                             el.indeterminate = true;
                         }
                     }
-                    $('#emailaddress').html(getEmail());
+                    GetEmail();
                 });
 
-                
-                function getEmail() {
-                    var arr_email = [];
-                    var emailtxt = '';
-
-                    $('#checkbox_each').each(function() {
-                        if ($(this).prop('checked')) {
-                            arr_email.push($(this).val());
+                function GetEmail() {
+                    $('#emailaddress').text('');
+                    $('input[id="checkbox_each"]').each(function() {
+                        if (this.checked) {
+                            let old_text = $('#emailaddress').text() ? $('#emailaddress').text() + ', ' : '';
+                            $('#emailaddress').text(old_text + $(this).val());
                         }
                     });
-
-                    if (arr_email.length > 0) {
-                        for (var i = 0; i < arr_email.length; i++) {
-                            if (i === 0) {
-                            emailtxt += arr_email[i] ;
-                            } else if (i == arr_email.length - 1) {
-                            emailtxt += ", " + arr_email[i];
-                            } else {
-                            emailtxt += ", " + arr_email[i];
-                            }
-                        }
-                    }
-                    return emailtxt;
                 }
+
                 //Importing Trumboywg
                 $('#message').trumbowyg();
             });
