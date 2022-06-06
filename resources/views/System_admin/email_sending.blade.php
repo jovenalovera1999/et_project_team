@@ -24,7 +24,6 @@
                         <i class="fa fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
                     </button>
-
                 </div>
                 <div class="p-4">
                     <div style="align-items: center; text-align: center; margin-top:5px;">
@@ -66,73 +65,68 @@
                 </div>
             </nav>
 
-            <body>
-                <div class="wrapper d-flex align-items-stretch">
-                    <!-- Page Content  -->
-
-                    <div id="content" class="p-4 p-md-5 pt-5">
-                        <div>
-                            <div class="container mr-10">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <h5 class="card-header bg-c-blue text-white">Email</h5>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="emailTable" class="table table-bordered table-hover table-striped">
-                                                            <thead class="text-dark">
-                                                                <tr>
-                                                                    <th><input type="checkbox" name="select_all" value="1" id="select_all"></th>
-                                                                    <th>ID</th>
-                                                                    <th>Name</th>
-                                                                    <th>Email</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="records">
-                                                                @foreach($alumni_records as $alumni_record)
-                                                                <tr>
-                                                                    <td><input type="checkbox" name="email" id="checkbox_each" value="{{$alumni_record->email}}"></td>
-                                                                    <td>{{$alumni_record->id}}</td>
-                                                                    @if(str_contains($alumni_record->middle_name, 'None'))
-                                                                        <td>{{$alumni_record->first_name}} {{$alumni_record->last_name}}</td>
-                                                                    @else
-                                                                        <td>{{$alumni_record->first_name}} {{$alumni_record->middle_name[0].'.'}} {{$alumni_record->last_name}}</td>
-                                                                    @endif
-                                                                    <td>{{$alumni_record->email}}</td>
-                                                                </tr>
-                                                                @endforeach
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+            <div class="wrapper d-flex align-items-stretch">
+                <!-- Page Content  -->
+                <div id="content" class="p-4 p-md-5 pt-5">
+                    <div class="container mr-10">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <h5 class="card-header bg-c-blue text-white">Email</h5>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table id="emailTable" class="table table-bordered table-hover table-striped">
+                                                    <thead class="text-dark">
+                                                        <tr>
+                                                            <th><input type="checkbox" name="select_all" value="1" id="select_all"></th>
+                                                            <th>ID</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="records">
+                                                        @foreach($alumni_records as $alumni_record)
+                                                        <tr>
+                                                            <td><input type="checkbox" name="email" id="checkbox_each" value="{{$alumni_record->email}}"></td>
+                                                            <td>{{$alumni_record->id}}</td>
+                                                            @if(str_contains($alumni_record->middle_name, 'None'))
+                                                                <td>{{$alumni_record->first_name}} {{$alumni_record->last_name}}</td>
+                                                            @else
+                                                                <td>{{$alumni_record->first_name}} {{$alumni_record->middle_name[0].'.'}} {{$alumni_record->last_name}}</td>
+                                                            @endif
+                                                            <td>{{$alumni_record->email}}</td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <h5 class="card-header bg-c-pink text-white">Compose Email</h5>
-                                                <div class="card-body">
-                                                    <form class="needs-validation" method="POST" action="/send_email">
-                                                        @csrf
-                                                        @if(Session::has('msg'))
-                                                            <div class="alert alert-success alert-dismissible fade show">{{session('msg')}}</div>
-                                                        @endif
-                                                        <div class="form-group">
-                                                            <label for="emailaddress">Email address</label>
-                                                            <textarea type="text" class="form-control" id="emailaddress" name="emailaddress" placeholder="Input email/s here..."></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="subject">Subject</label>
-                                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="message">Message</label>
-                                                            <textarea type="text" class="form-control" id="message" name="message" placeholder="Your message"></textarea>
-                                                        </div>
-                                                            <input class="btn bg-c-blue text-light btn-lg btn-block" type="submit" value="Send">
-                                                    </form>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <h5 class="card-header bg-c-pink text-white">Compose Email</h5>
+                                        <div class="card-body">
+                                            <form class="needs-validation" method="POST" action="/send_email">
+                                                @csrf
+                                                @if(Session::has('msg'))
+                                                    <div class="alert alert-success alert-dismissible fade show">{{session('msg')}}</div>
+                                                @endif
+                                                <div class="form-group">
+                                                    <label for="emailaddress">Email address</label>
+                                                    <textarea type="text" class="form-control" id="emailaddress" name="emailaddress" placeholder="Input email/s here..."></textarea>
                                                 </div>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="subject">Subject</label>
+                                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message">Message</label>
+                                                    <textarea type="text" class="form-control" id="message" name="message" placeholder="Your message"></textarea>
+                                                </div>
+                                                <input class="btn bg-c-blue text-light btn-lg btn-block" type="submit" value="Send">
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
