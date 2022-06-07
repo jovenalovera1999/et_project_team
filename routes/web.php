@@ -41,14 +41,15 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     // Admin's get
     Route::get('view_newly_hired/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{date_hired}/{updated_at}', 'App\Http\Controllers\AdminDashboardController@alumni')->name('alumni.show');
     Route::get('view_alumni/{fname}/{mi}/{lname}/{gender}/{contact}/{email}/{home}/{present}/{school}/{batch_no}/{pending}/{status}/{cname}/{location}/{title}/{work_arr}/{date_hired}/{updated_at}', 'App\Http\Controllers\ViewAlumniRecordController@alumni')->name('alumni.view');
-    
     Route::get('/export-excel', [ReportController::class,'export'])->name('report_export');
+    Route::get('email', 'App\Http\Controllers\NewEmailController@index');
     // Route::get('/export-excel', 'ReportController@export')->name('report_export');
     // Route::get('edit_sponsor/{scholarship_sponsors}', 'App\Http\Controllers\ScholarshipSponsorsController@update')->name('sponsor.show');
 
     // Admin's post
     Route::post('job_opportunity_update_status/{id}', 'App\Http\Controllers\JobOpportunitiesController@UpdateStatus');
     Route::post('update_alumni/{id}', 'App\Http\Controllers\MyAlumniRecordController@update');
+    Route::post('send_email', 'App\Http\Controllers\NewEmailController@sendMail');
 
     //Alumni's resource
     Route::resource('alumni_view', 'App\Http\Controllers\MyAlumniRecordController');
@@ -63,8 +64,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     // Route::get('view_job/{id}', [UserDashboardController::class, 'show'])->name('post.show');
 
     //Email 
-    Route::resource('email', EmailController::class);
-    Route::post('sendemail', [EmailController::class, 'sendMail']);
+    // Route::resource('email', EmailController::class);
+    // Route::post('sendemail', [EmailController::class, 'sendMail']);
 
     Route::post('/importExcel', [AlumniRecordsController::class, 'import'])->name('excel_import');
 });
