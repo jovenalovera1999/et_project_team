@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\alumni_records;
 use App\Mail\UserEmail;
 use Illuminate\Support\Facades\Mail;
@@ -13,7 +14,10 @@ class NewEmailController extends Controller
     public function index() 
     {
         $alumni_records = alumni_records::all();
-        return view('System_admin.email_sending', compact('alumni_records', $alumni_records));
+        $batch_no = $alumni_records->sortBy('batch_no')->pluck('batch_no')->unique();
+        $scholarship_sponsor = $alumni_records->sortBy('scholarship_sponsor')->pluck('scholarship_sponsor')->unique();
+        return view('System_admin.email_sending', ['alumni_records'=>$alumni_records], compact('batch_no', 'scholarship_sponsor'));
+        //compact('alumni_records', $alumni_records));
     }
 
     public function sendMail(Request $request) {
