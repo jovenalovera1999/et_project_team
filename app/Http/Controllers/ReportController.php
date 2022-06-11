@@ -7,19 +7,12 @@ use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Models\alumni_records;
+use App\Models\scholarship_sponsors;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
-    public string $fromDate;
-    public string $toDate;
-
-
-    
-
-
-   
     /**
      * Display a listing of the resource.
      *
@@ -29,37 +22,24 @@ class ReportController extends Controller
     {
         if(request()-> ajax())
         {
-            if(!empty($request->fromDate))
+            if($request->scholarship_sponsor != 'None' && $request->batch_no != 'None')
             {
-                $data = DB::table('alumni_records')
-                ->whereBetween('created_at',  array($request->fromDate,$request->toDate)) -> get();
-                $fromDate = $request -> fromDate;
-                $toDate = $request ->toDate;
+                $records = DB::table('alumni_records')->where('scholarship_sponsor', $request->scholarship_sponsor)->where('batch_no', $request->batch_no)->get();
 
             }else
             {
-                $data = DB::table('alumni_records')->get();
+                $records = DB::table('alumni_records')->get();
             }
-            return datatables()->of($data)->make(true);
-
+            return datatables()->of($records)->make(true);
         }
-       
-        return view("System_admin.report");
+        $scholarship_sponsors = scholarship_sponsors::all();
+        $batch_nos = DB::table('alumni_records')->select('batch_no')->orderBy('batch_no', 'asc')->distinct()->get();
+        return view("System_admin.report", ['scholarship_sponsors' => $scholarship_sponsors, 'batch_nos' => $batch_nos]);
     }
 
-    /*public function addAlumniRecord()
-    {
-
-        $alumni = [
-            ['id' => '4','first_name'=> 'kim','middle_name' =>'kim','last_name'=>'kim','gender'=>'male','contact'=>'091234','email'=>'kimbangud2@gmail.com','home_address'=>'Panitan','present_address'=>'Tabuc','school_graduated'=>'Filamer Christian University','batch_no'=> '1','scholarship_sponsor' =>'None','pending_offer'=>'With','employment_status'=>'None','company_location'=>'None','job_title'=>'None','date_hired'=>'1999-10-10','profile_picture'=>'images/kim.png']
-        ];
-        alumni_records::insert($alumni);
-        return "Records are inserted";
-    }*/
     public function export()
     {
         return Excel::download(new AlumniExport, 'Alumni-Report.xlsx');
-
     }
     
 

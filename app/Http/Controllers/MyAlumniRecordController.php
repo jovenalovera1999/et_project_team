@@ -36,7 +36,8 @@ class MyAlumniRecordController extends Controller
     public function create()
     {
         $alumni_user = alumni_records::where('user_id',"=", Auth::user()->id)->first();
-        return view("Alumni_user.edit", ['alumni_user1' => $alumni_user]);
+        $scholarship_sponsors = scholarship_sponsors::all();
+        return view("Alumni_user.edit", ['alumni_user1' => $alumni_user, 'scholarship_sponsors' => $scholarship_sponsors]);
     }
 
     /**
@@ -183,6 +184,7 @@ class MyAlumniRecordController extends Controller
                 $alumni_record->work_arrangement = $request->work_arrangement;
             }
         }
+        $alumni_record->scholarship_sponsor = $request->scholarship_sponsor;
         $alumni_record->profile_picture = $image_path;
         $alumni_record->email = $request->email;
         $alumni_record->save();

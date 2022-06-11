@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\alumni_records;
+use App\Models\scholarship_sponsors;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 // use illuminate\Support\Facades\Hash;
@@ -19,14 +20,8 @@ class AlumniRecordsController extends Controller
      */
     public function index()
     {
-        // $alumni_records= alumni_records::all();
-        // return view('System_admin.view_alumni_record',compact('alumni_records', $alumni_records));
-
         $alumni_records = alumni_records::all();
-
-        return view('System_admin.view_alumni_record', [
-            'alumni_records' => $alumni_records
-        ]);
+        return view('System_admin.view_alumni_record', ['alumni_records' => $alumni_records]);
     }
 
     /**
@@ -173,8 +168,9 @@ class AlumniRecordsController extends Controller
      */
     public function show(alumni_records $alumni_record)
     {
-        return view('System_admin.editalumni')->with('alumni_records', $alumni_record);
-        // return view('System_admin.show')->with('alumni_records', $alumni_record);
+        $scholarship_sponsors = scholarship_sponsors::all();
+        return view('System_admin.editalumni')->with(['alumni_records' => $alumni_record, 'scholarship_sponsors' => $scholarship_sponsors]);
+        
         $alumni_records = alumni_records::find($id);
         return view('System_admin.show')->with('System_admin', $alumni_records);
     }

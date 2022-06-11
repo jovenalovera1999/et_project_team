@@ -268,12 +268,18 @@
                                                 <!-- Scholarship Sponsors--> 
 
                                                 <div class="mb-3" style="width: 3in;">
-                                                    <label for="scholarship_sponsor" class="form-label">Scholarship Sponsor</label>
-                                                    <select class="form-select" name="scholarship_sponsor" id="scholarship_sponsor" role="button" value="{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}">
-                                                        <option value="{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}" selected>{{ ucfirst($alumni_user1 -> scholarship_sponsor) }}</option>
-                                                        
+                                                    <label for="scholarship_sponsor" class="form-label">Scholarship
+                                                        Sponsors</label>
+                                                    <select class="form-select" name="scholarship_sponsor"
+                                                        id="scholarship_sponsor" role="button"
+                                                        value="{{old('scholarship_sponsor')}}">
+                                                        <option value="None">None</option>
+                                                        @foreach ($scholarship_sponsors as $scholarship_sponsor)
+                                                        <option value="{{$scholarship_sponsor->sponsor}}">{{$scholarship_sponsor->sponsor}}</option>
+                                                        @endforeach
+                                                        <option value="{{ucfirst($alumni_user1->scholarship_sponsor)}}" selected hidden>{{ucfirst($alumni_user1->scholarship_sponsor)}}</option>
                                                     </select>
-                                                    <span class="text-danger">@error('scholarship_sponsor') {{$message}} @enderror</span>
+                                                    <span class="text-danger">@error('scholarship_sponsor') {{$message}}@enderror</span>
                                                 </div>
                                                 <!-- Scholarship Sponsors -->
 

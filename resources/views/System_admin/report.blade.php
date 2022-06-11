@@ -78,7 +78,8 @@
 
                     <h5 class="card-header bg-c-pink text-white">Alumni Report Summary by Date
                         <div class="float-right  print-container1">
-                            <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a>
+                            <!-- <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a> -->
+                            <button class="btn btn-success btn" onclick="tablesToExcel(['order_table'], ['Alumni Records'], 'Reports.xls', 'Excel')"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></button>
                         </div>
                     </h5>
 
@@ -87,14 +88,28 @@
 
                             <div class="row input-daterange" align="left">
                                 <div class="row">
-                                    <form metho="GET" action="">
+                                    <form method="GET" action="">
                                         <div class="form-group col-md-3 float-left">
-                                            <label>From Date:</label>
-                                            <input type="text" class="form-control" name="fromDate" id="fromDate"  Placeholder="Select From Date" readonly>
+                                        <label>Scholarship Sponsor: </label>
+                                        <select class="form-select" name="scholarship_sponsor"
+                                            id="scholarship_sponsor" role="button"
+                                            value="{{old('scholarship_sponsor')}}">
+                                            <option value="None">None</option>
+                                            @foreach ($scholarship_sponsors as $scholarship_sponsor)
+                                            <option value="{{$scholarship_sponsor->sponsor}}">{{$scholarship_sponsor->sponsor}}</option>
+                                            @endforeach
+                                        </select>
                                         </div>
                                         <div class="form-group col-md-3 float-left">
-                                            <label>To Date: </label>
-                                            <input type="text" name="toDate" id="toDate" class="form-control"   Placeholder="Select To Date" readonly>
+                                            <label>Batch No: </label>
+                                            <select class="form-select" name="batch_no"
+                                                id="batch_no" role="button"
+                                                value="{{old('scholarship_sponsor')}}">
+                                                <option value="None">None</option>
+                                                @foreach ($batch_nos as $batch_no)
+                                                <option value="{{$batch_no->batch_no}}">{{$batch_no->batch_no}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                         <div class="form-group col-md-2 float-left">
@@ -138,7 +153,6 @@
                                                 <th align=center>Date Created</th>
                                             </tr>
                                         </thead>
-
                                     </table>
                                 </div>
                             </div>
@@ -161,15 +175,9 @@
     <script>
         $(document).ready(function() {
            
-            $('.input-daterange').datepicker({
-                todayBtn: 'linked',
-                format: 'yyyy-mm-dd',
-                timeFormat: 'HH:mm:ss',
-                autoclose: true
-            });
             load_data();
 
-            function load_data(fromDate = '', toDate = '') {
+            function load_data(scholarship_sponsor = 'None', batch_no = 'None') {
                 $('#order_table').DataTable({
                     processing: true,
                     serverSide: true,
@@ -181,8 +189,8 @@
                         url: '{{route("report.index")}}',
                        
                         data: {
-                            fromDate: fromDate,
-                            toDate: toDate
+                            scholarship_sponsor: scholarship_sponsor,
+                            batch_no: batch_no
                         }
                     },
 
@@ -276,27 +284,27 @@
 
             }
             $('#load').click(function() {
-                var toDate = $('#toDate').val();
-                var fromDate = $('#fromDate').val();
+                var scholarship_sponsor = $('#scholarship_sponsor').val();
+                var batch_no = $('#batch_no').val();
 
-                if (toDate != '' && fromDate != '') {
+                if (scholarship_sponsor != 'None' && batch_no != 'None') {
                     $('#order_table').DataTable().destroy();
-                    load_data(fromDate, toDate);
+                    load_data(scholarship_sponsor, batch_no);
                 } else {
-                    alert('Both Date is required');
+                    alert('Both Field is required');
 
                 }
             });
             $('#refresh').click(function() {
-                $('#fromDate').val('');
-                $('#toDate').val('');
+                $('#scholarship_sponsor').val('None');
+                $('#batch_no').val('None');
                 $('#order_table').DataTable().destroy();
                 load_data();
             });
-
         });
         
     </script>
+    <script src="{{URL::asset('js/export.js')}}"></script>
 
 
 </body>
