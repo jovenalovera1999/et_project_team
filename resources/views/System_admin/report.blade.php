@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employment Tracker | Reports</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/jquery.dataTables.min.css')}}">
@@ -76,7 +78,8 @@
 
                     <h5 class="card-header bg-c-pink text-white">Alumni Report Summary by Date
                         <div class="float-right  print-container1">
-                            <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a>
+                            <!-- <a href="{{route('report_export')}}" class="btn btn-success btnprn"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></a> -->
+                            <button class="btn btn-success btn" onclick="tablesToExcel(['order_table'], ['Alumni Records'], 'Reports.xls', 'Excel')"><i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i></button>
                         </div>
                     </h5>
 
@@ -84,32 +87,48 @@
                         <div class="table-responsive">
 
                             <div class="row input-daterange" align="left">
-                                <form metho="GET" action="">
-                                <div class="form-group col-md-3">
-                                    <label>From Date:</label>
-                                    <input type="text" class="form-control" name="fromDate" id="fromDate"  Placeholder="Select From Date" readonly>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label>To Date: </label>
-                                    <input type="text" name="toDate" id="toDate" class="form-control"   Placeholder="Select To Date" readonly>
-                                </div>
+                                <div class="row">
+                                    <form method="GET" action="">
+                                        <div class="form-group col-md-3 float-left">
+                                        <label>Scholarship Sponsor: </label>
+                                        <select class="form-select" name="scholarship_sponsor"
+                                            id="scholarship_sponsor" role="button"
+                                            value="{{old('scholarship_sponsor')}}">
+                                            <option value="None">None</option>
+                                            @foreach ($scholarship_sponsors as $scholarship_sponsor)
+                                            <option value="{{$scholarship_sponsor->sponsor}}">{{$scholarship_sponsor->sponsor}}</option>
+                                            @endforeach
+                                        </select>
+                                        </div>
+                                        <div class="form-group col-md-3 float-left">
+                                            <label>Batch No: </label>
+                                            <select class="form-select" name="batch_no"
+                                                id="batch_no" role="button"
+                                                value="{{old('scholarship_sponsor')}}">
+                                                <option value="None">None</option>
+                                                @foreach ($batch_nos as $batch_no)
+                                                <option value="{{$batch_no->batch_no}}">{{$batch_no->batch_no}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                                <div class="form-group col-md-2">
-                                    <label></label>
-                                    <!-- <i class="fa fa-paper-plane"></i> -->
-                                    <button type="button" name="load" id="load" class=" btn btn-secondary  btn-block"> Load</button>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label></label>
-                                    <!--<i class="fa fa-paper-plane"></i>-->
-                                    <button type="button" name="refresh" id="refresh" class="btn btn-default btn-block"> Refresh</button>
-                                </div>
+                                        <div class="form-group col-md-2 float-left">
+                                            <label></label>
+                                            <!-- <i class="fa fa-paper-plane"></i> -->
+                                            <button type="button" name="load" id="load" class="mt-2 btn btn-secondary  btn-block"> Load</button>
+                                        </div>
+                                        <div class="form-group col-md-2 float-left">
+                                            <label></label>
+                                            <!--<i class="fa fa-paper-plane"></i>-->
+                                            <button type="button" name="refresh" id="refresh" class="mt-2 btn btn-success btn-block"> Refresh</button>
+                                        </div>
 
-                                </form>
+                                    </form>
+                                </div>
                                 <br>
                                 </style>
                                 <div class="tg-wrap">
-                                    <table id="order_table" class="display " cellspacing="0" style="width:100%">
+                                    <table id="order_table" class="display table table-bordered table-hover table-striped" cellspacing="0" style="width:100%">
                                         <thead class="bg-c-pink text-white" style="font: bold;" align="center">
                                             <tr>
                                                 <th>Id</th>
@@ -134,7 +153,6 @@
                                                 <th align=center>Date Created</th>
                                             </tr>
                                         </thead>
-
                                     </table>
                                 </div>
                             </div>
@@ -143,41 +161,23 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- PANEL START CODE  -->
-
-        <!--<script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-        <script src="{{URL::asset('js/main.js')}}"></script>
-        <script src="{{URL::asset('js/popper.js')}}"></script>
-        <script src="{{URL::asset('js/custom.js')}}"></script>
         
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
-        <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-        <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+        <script src="{{URL::asset('js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('js/main.js')}}"></script>
+        <script src="{{URL::asset('js/custom.js')}}"></script>
     </div>
     <script>
         $(document).ready(function() {
            
-            $('.input-daterange').datepicker({
-                todayBtn: 'linked',
-                format: 'yyyy-mm-dd',
-                timeFormat: 'HH:mm:ss',
-                autoclose: true
-            });
             load_data();
 
-            function load_data(fromDate = '', toDate = '') {
+            function load_data(scholarship_sponsor = 'None', batch_no = 'None') {
                 $('#order_table').DataTable({
                     processing: true,
                     serverSide: true,
@@ -189,8 +189,8 @@
                         url: '{{route("report.index")}}',
                        
                         data: {
-                            fromDate: fromDate,
-                            toDate: toDate
+                            scholarship_sponsor: scholarship_sponsor,
+                            batch_no: batch_no
                         }
                     },
 
@@ -284,27 +284,27 @@
 
             }
             $('#load').click(function() {
-                var toDate = $('#toDate').val();
-                var fromDate = $('#fromDate').val();
+                var scholarship_sponsor = $('#scholarship_sponsor').val();
+                var batch_no = $('#batch_no').val();
 
-                if (toDate != '' && fromDate != '') {
+                if (scholarship_sponsor != 'None' && batch_no != 'None') {
                     $('#order_table').DataTable().destroy();
-                    load_data(fromDate, toDate);
+                    load_data(scholarship_sponsor, batch_no);
                 } else {
-                    alert('Both Date is required');
+                    alert('Both Field is required');
 
                 }
             });
             $('#refresh').click(function() {
-                $('#fromDate').val('');
-                $('#toDate').val('');
+                $('#scholarship_sponsor').val('None');
+                $('#batch_no').val('None');
                 $('#order_table').DataTable().destroy();
                 load_data();
             });
-
         });
         
     </script>
+    <script src="{{URL::asset('js/export.js')}}"></script>
 
 
 </body>
